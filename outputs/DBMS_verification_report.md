@@ -12,13 +12,13 @@ Original question identities and answer keys remain at their original indices. A
 
 | Part | PDF pages | Identification | Multiple choice |
 |---|---|---:|---:|
-| 1 ? Database Management System | 10?27 | 77 | 89 |
-| 2 ? SQL Basics | 28?46 | 50 | 56 |
-| 3 ? Creation of Own Database | 47?66 | 54 | 59 |
-| 4 ? A Revisit in MySQL Query | 67?87 | 37 | 42 |
-| 5 ? Understanding SQL Joins with MySQL | 88?105 | 19 | 25 |
+| 1 - Database Management System | 10-27 | 77 | 89 |
+| 2 - SQL Basics | 28-46 | 50 | 56 |
+| 3 - Creation of Own Database | 47-66 | 54 | 59 |
+| 4 - A Revisit in MySQL Query | 67-87 | 37 | 42 |
+| 5 - Understanding SQL Joins with MySQL | 88-105 | 19 | 25 |
 
-Only the selected part is rendered. Any part may be submitted independently, then locks and shows its score, answers and references. Continue/Stay choices retain review or open the next unsubmitted part. Fisher?Yates shuffles inside each module only. Start over retains mode, part categories and order. Hidden/unrendered answers are preserved during navigation and submission.
+Only the selected part is rendered. Any part may be submitted independently, then locks and shows its score, answers and references. Continue/Stay choices retain review or open the next unsubmitted part. Fisher-Yates shuffles inside each module only. Start over retains mode, part categories and order. Hidden/unrendered answers are preserved during navigation and submission.
 
 ## SQL audit and fixes
 
@@ -57,6 +57,10 @@ Chrome persistent-profile tests verified file-page reopening of partial/submitte
 Browser layouts: 1440, 768, 720, 360 and 320 CSS pixels, each in light/dark themes. Actual CSS 200% zoom was also checked at a 1440px viewport. Captures cover home, both exam reviews, SQL lab, guided builder and Free practice. Checks cover keyboard focus, single-part navigation, cancellation, stale feedback, escaping HTML-valued SQL, database isolation, restoration and page overflow. No script errors or overlapping header controls were detected. Visual review of desktop, narrow mobile and zoom captures found no layout overlaps. Result tables and relationship diagrams use deliberate internal scrolling for wide data. Minimum checked text contrast was 4.67:1; focus contrast was 3.18:1.
 
 Existing native MariaDB comparison evidence is retained as historical evidence; it was not rerun for this release. The offline engine's supported SQL scope and limitations remain documented in the app footer. Current checks independently test all reference statements and the newly discovered grading/state defects.
+
+## Production deployment
+
+Commit `101be4d` was pushed to the connected `main` branch. Vercel reported a successful deployment, and the live page at https://dbmsmidtermexam-3-4.vercel.app returned HTTP 200 with bytes matching the verified HTML exactly. Thirteen additional live-browser checks passed: deployed content/version, single-part rendering, answer retention, submission locking, restored reviews, Continue navigation, SQL execution, task isolation, reference grading, non-mutating checks, stale-feedback removal and absence of script errors. The deployment evidence is in `verification-results/deployment-smoke.json` in the ZIP.
 
 ## Integrity and reproducibility
 
