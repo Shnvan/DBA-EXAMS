@@ -13,8 +13,8 @@ function newSession(tables=seed()){
 }
 function stateOf(db){if(db&&own(db,'databases')&&own(db,'accounts'))return db;if(!sessions.has(db))sessions.set(db,newSession(db));return sessions.get(db)}
 const activeTables=s=>s.current&&s.databases[s.current]||Object.create(null);
-const sqlString=v=>v==null?'NULL':typeof v=='object'&&v.num!=null?v.num:typeof v=='object'&&v.hex!=null?'0x'+v.hex:String(v);
-const resultValue=v=>v&&typeof v=='object'&&v.num!=null?v.num:v&&typeof v=='object'&&v.hex!=null?'0x'+v.hex:v;
+const sqlString=v=>v==null?'NULL':typeof v=='object'&&v.num!=null?v.num:typeof v=='object'&&v.hex!=null?'0x'+v.hex:v?.geometry?v.wkt:String(v);
+const resultValue=v=>v&&typeof v=='object'&&v.num!=null?v.num:v&&typeof v=='object'&&v.hex!=null?'0x'+v.hex:v?.geometry?v.wkt:v;
 const numeric=v=>typeof v=='number'||!!(v&&typeof v=='object'&&v.num!=null);
 function dec(v){let s=sqlString(v),m=s.match(/^([+-]?)(\d*)(?:\.(\d*))?(?:[eE]([+-]?\d+))?$/);if(!m||!m[2]&&!m[3])return{n:0n,s:0};let scale=(m[3]||'').length- +(m[4]||0),n=BigInt((m[1]=='-'?'-':'')+(m[2]||'0')+(m[3]||''));if(scale<0){n*=10n**BigInt(-scale);scale=0}return{n,s:scale}}
 function decimalText(n,s){const neg=n<0n;n=neg?-n:n;let str=String(n).padStart(s+1,'0');return(neg?'-':'')+(s?str.slice(0,-s)+'.'+str.slice(-s):str)}
@@ -38,10 +38,34 @@ function tok(sql){
   const p=sql.slice(i).match(/^(?:<=>|<=|>=|<>|!=|&&|\|\||[(),.*=<>+\-\/;%!@])/);if(p){i+=p[0].length;add('p',p[0],start);continue}throw syn(sql.slice(i,i+30),i);
  }out.sql=sql;return out;
 }
-const TYPE_NAMES=new Set(['INT','INTEGER','SMALLINT','TINYINT','MEDIUMINT','BIGINT','DECIMAL','NUMERIC','FLOAT','DOUBLE','REAL','CHAR','CHARACTER','VARCHAR','BINARY','VARBINARY','TEXT','MEDIUMTEXT','LONGTEXT','TINYTEXT','BLOB','MEDIUMBLOB','LONGBLOB','TINYBLOB','DATE','TIME','DATETIME','TIMESTAMP','YEAR','BOOLEAN','BOOL','ENUM','SET']);
+const TYPE_NAMES=new Set(['INT','INTEGER','SMALLINT','TINYINT','MEDIUMINT','BIGINT','DECIMAL','NUMERIC','FLOAT','DOUBLE','REAL','CHAR','CHARACTER','VARCHAR','BINARY','VARBINARY','TEXT','MEDIUMTEXT','LONGTEXT','TINYTEXT','BLOB','MEDIUMBLOB','LONGBLOB','TINYBLOB','DATE','TIME','DATETIME','TIMESTAMP','YEAR','BOOLEAN','BOOL','ENUM','SET','JSON','GEOMETRY','POINT','LINESTRING','POLYGON']);
 const INT_RANGE={TINYINT:[-128n,127n,255n,4],SMALLINT:[-32768n,32767n,65535n,6],MEDIUMINT:[-8388608n,8388607n,16777215n,9],INT:[-2147483648n,2147483647n,4294967295n,11],BIGINT:[-9223372036854775808n,9223372036854775807n,18446744073709551615n,20]};
 function typeLabel(s){let text=s.base.toLowerCase();if(INT_RANGE[s.base])text+='('+(s.args[0]??(s.unsigned?INT_RANGE[s.base][3]-1:INT_RANGE[s.base][3]))+')';else if(s.args.length)text+='('+s.args.map(x=>typeof x=='string'?"'"+x.replace(/'/g,"''")+"'":x).join(',')+')';if(s.unsigned)text+=' unsigned';return text}
 function hydrate(t){if(t.ready)return t;t.indexes=t.indexes||[];t.foreign=t.foreign||[];t.next='1';t.primary=t.cols.filter(c=>c.pk).map(K);t.cols.forEach(c=>{if(!c.spec)c.spec=parse(tok(c.t),true);c.t=typeLabel(c.spec);if(c.pk)c.nn=1;if(c.uq&&!t.indexes.some(x=>x.name==c.n))t.indexes.push({name:c.n,cols:[K(c)]});if(c.ai){t.next=String(t.rows.reduce((m,r)=>{const n=dec(r[K(c)]).n;return n>m?n:m},0n)+1n)}t.rows.forEach(r=>{if(r[K(c)]!=null&&['DECIMAL','BIGINT'].includes(c.spec.base))r[K(c)]=exact(r[K(c)],c.spec.base=='DECIMAL'?c.spec.args[1]:0)})});t.ready=true;return t}
+/* JSON keeps its source text. Extraction preserves MariaDB's first duplicate-key value. */
+function parseJsonDocument(text){
+ text=sqlString(text);JSON.parse(text);let at=0;const ws=()=>{while(/\s/.test(text[at]||'')&&at<text.length)at++};
+ const str=()=>{const start=at++;while(at<text.length){if(text[at]=='\\'){at+=2;continue}if(text[at++]=='"')break}return JSON.parse(text.slice(start,at))};
+ const value=()=>{ws();if(text[at]=='"')return str();if(text[at]=='{'){at++;const out=Object.create(null);ws();if(text[at]=='}'){at++;return out}for(;;){ws();const k=str();ws();at++;const v=value();if(!own(out,k))out[k]=v;ws();if(text[at++]=='}')return out}}
+  if(text[at]=='['){at++;const out=[];ws();if(text[at]==']'){at++;return out}for(;;){out.push(value());ws();if(text[at++]==']')return out}}
+  const start=at;while(at<text.length&&!/[\s,\]}]/.test(text[at]))at++;return JSON.parse(text.slice(start,at));};return value();
+}
+function extractJsonPath(document,path){
+ path=sqlString(path);if(path[0]!='$')throw E(4042,'HY000','Syntax error in JSON path');let values=[document],at=1,multi=false;
+ while(at<path.length){let key,wild=false;if(path[at]=='.'){at++;if(path[at]=='*'){wild=true;at++}else if(path[at]=='"'){const start=at++;while(at<path.length){if(path[at]=='\\'){at+=2;continue}if(path[at++]=='"')break}try{key=JSON.parse(path.slice(start,at))}catch(e){throw E(4042,'HY000','Syntax error in JSON path')}}else{const m=path.slice(at).match(/^[A-Za-z_$][\w$]*/);if(!m)throw E(4042,'HY000','Syntax error in JSON path');key=m[0];at+=key.length}}
+  else if(path[at]=='['){const m=path.slice(at).match(/^\[(\d+|\*)\]/);if(!m)throw unsupported('JSON paths support object members, nonnegative array indexes and single-level wildcards.');wild=m[1]=='*';key=Number(m[1]);at+=m[0].length;values=values.filter(Array.isArray)}else throw unsupported('Recursive and ranged JSON paths are outside this practice lab.');
+  multi=multi||wild;values=values.flatMap(v=>v!=null&&typeof v=='object'?wild?Object.values(v):own(v,key)?[v[key]]:[]:[]);
+ }return{values,multi};
+}
+function geometryFromText(text,srid=0){
+ if(text==null||srid==null)return null;const m=sqlString(text).trim().match(/^(POINT|LINESTRING|POLYGON)\s*(\([\s\S]*\))$/i);if(!m)return null;
+ const kind=m[1].toUpperCase(),pair=s=>{const p=s.trim().split(/\s+/);return p.length===2&&p.every(v=>/^[+-]?(?:\d+\.?\d*|\.\d+)(?:e[+-]?\d+)?$/i.test(v)&&Number.isFinite(+v))?p.map(Number).join(' '):null};
+ const line=s=>{const p=s.split(',').map(pair);return p.every(Boolean)?p:null};let body;
+ if(kind=='POINT'){body=pair(m[2].slice(1,-1));if(!body)return null}
+ if(kind=='LINESTRING'){const p=line(m[2].slice(1,-1));if(!p||p.length<2)return null;body=p.join(',')}
+ if(kind=='POLYGON'){const interior=m[2].slice(1,-1).trim();if(!/^\([^()]*\)(\s*,\s*\([^()]*\))*$/.test(interior))return null;const rings=[...interior.matchAll(/\(([^()]*)\)/g)].map(x=>line(x[1]));if(rings.some(r=>!r||r.length<4||r[0]!==r[r.length-1]))return null;body=rings.map(r=>'('+r.join(',')+')').join(',')}
+ const id=Number(sqlString(srid));if(!Number.isInteger(id)||id<0||id>4294967295)throw E(1411,'HY000','Incorrect SRID value');return{geometry:kind,wkt:kind+'('+body+')',srid:id};
+}
 function tbl0(ref){const n=typeof ref=='string'?{n:ref}:ref,d=n.d||SESSION.current;if(!d)throw E(1046,'3D000','No database selected');const db=SESSION.databases[d];if(!db||!own(db,n.n))throw E(1146,'42S02',`Table '${d}.${n.n}' doesn't exist`,n.pos);return hydrate(db[n.n])}
 function permit(priv,ref){if(SESSION.user=='root')return;const account=SESSION.accounts[SESSION.user],db=ref?.d||SESSION.current,grants=account?.grants||{},list=[...(account?.global||[]),...(grants[db+'.*']||[]),...(grants[db+'.'+ref?.n]||[])];if(!list.includes('ALL')&&!list.includes(priv))throw E(1142,'42000',`${priv} command denied to user '${SESSION.user}'@'localhost' for table '${ref?.n||db}'`,ref?.pos)}
 function implicitCommit(){SESSION.transaction=null;SESSION.savepoints=Object.create(null)}

@@ -4,7 +4,7 @@
   "multipleChoice": 271,
   "concepts": [
     {
-      "concept": "dbms",
+      "concept": "database management system",
       "page": 17,
       "module": 1,
       "identification": [
@@ -52,7 +52,7 @@
       }
     },
     {
-      "concept": "dcl",
+      "concept": "data control language",
       "page": 65,
       "module": 3,
       "identification": [
@@ -276,7 +276,7 @@
       }
     },
     {
-      "concept": "enterprise",
+      "concept": "enterprise database",
       "page": 12,
       "module": 1,
       "identification": [
@@ -308,7 +308,7 @@
       }
     },
     {
-      "concept": "not only sql",
+      "concept": "not only structured query language",
       "page": 21,
       "module": 1,
       "identification": [
@@ -324,7 +324,7 @@
       }
     },
     {
-      "concept": "graph",
+      "concept": "graph database",
       "page": 21,
       "module": 1,
       "identification": [
@@ -340,7 +340,7 @@
       }
     },
     {
-      "concept": "oodbms",
+      "concept": "object oriented database management system",
       "page": 22,
       "module": 1,
       "identification": [
@@ -356,7 +356,7 @@
       }
     },
     {
-      "concept": "hierarchical",
+      "concept": "hierarchical database management system",
       "page": 23,
       "module": 1,
       "identification": [
@@ -372,7 +372,7 @@
       }
     },
     {
-      "concept": "network",
+      "concept": "network database management system",
       "page": 23,
       "module": 1,
       "identification": [
@@ -420,7 +420,7 @@
       }
     },
     {
-      "concept": "nonprocedural",
+      "concept": "nonprocedural language",
       "page": 29,
       "module": 2,
       "identification": [
@@ -932,7 +932,7 @@
       }
     },
     {
-      "concept": "tcl",
+      "concept": "transaction control language",
       "page": 61,
       "module": 3,
       "identification": [
@@ -1284,7 +1284,7 @@
       }
     },
     {
-      "concept": "document oriented",
+      "concept": "document oriented database",
       "page": 21,
       "module": 1,
       "identification": [
@@ -1300,7 +1300,7 @@
       }
     },
     {
-      "concept": "column family",
+      "concept": "column family store",
       "page": 21,
       "module": 1,
       "identification": [
@@ -1316,7 +1316,7 @@
       }
     },
     {
-      "concept": "oodbms",
+      "concept": "object oriented database management system",
       "page": 22,
       "module": 1,
       "identification": [
@@ -1380,7 +1380,7 @@
       }
     },
     {
-      "concept": "alias",
+      "concept": "table alias",
       "page": 90,
       "module": 5,
       "identification": [
@@ -1892,7 +1892,7 @@
       }
     },
     {
-      "concept": "Relational DBMS",
+      "concept": "Relational Database Management System",
       "page": 21,
       "module": 1,
       "identification": [
@@ -1908,7 +1908,7 @@
       }
     },
     {
-      "concept": "NoSQL DBMS",
+      "concept": "Not Only SQL Database Management System",
       "page": 21,
       "module": 1,
       "identification": [
@@ -2196,7 +2196,7 @@
       }
     },
     {
-      "concept": "SQL",
+      "concept": "Structured Query Language",
       "page": 28,
       "module": 2,
       "identification": [
@@ -2676,7 +2676,7 @@
       }
     },
     {
-      "concept": "CRUD",
+      "concept": "Create, Read, Update and Delete",
       "page": 66,
       "module": 3,
       "identification": [

@@ -1,0 +1,752 @@
+{
+  "version": "module-coverage-task-sessions-v4",
+  "generated": "curriculum-tests",
+  "lessonCounts": {
+    "intermediate": 34,
+    "advanced": 75,
+    "total": 109
+  },
+  "topicRows": [
+    {
+      "topic": "SQL definition, purpose, procedural distinction",
+      "pages": "28-30",
+      "lessons": [
+        "sql-foundations",
+        "campus-client"
+      ]
+    },
+    {
+      "topic": "Numeric types and precision/scale",
+      "pages": "31-34",
+      "lessons": [
+        "campus-types-numeric",
+        "campus-table-staff"
+      ]
+    },
+    {
+      "topic": "Character string types",
+      "pages": "34-36",
+      "lessons": [
+        "campus-types-character",
+        "campus-table-departments"
+      ]
+    },
+    {
+      "topic": "Binary types and large objects",
+      "pages": "36-37",
+      "lessons": [
+        "campus-types-binary",
+        "campus-table-resources"
+      ]
+    },
+    {
+      "topic": "Date/time types and dialect differences",
+      "pages": "37-40",
+      "lessons": [
+        "campus-types-temporal",
+        "campus-dialects"
+      ]
+    },
+    {
+      "topic": "BOOLEAN, ENUM and SET",
+      "pages": "40-42",
+      "lessons": [
+        "campus-table-students",
+        "campus-table-enrollments",
+        "campus-types-choices"
+      ]
+    },
+    {
+      "topic": "JSON and spatial types",
+      "pages": "40-42",
+      "lessons": [
+        "campus-types-json",
+        "campus-types-spatial"
+      ]
+    },
+    {
+      "topic": "NULL values and NULL-safe querying",
+      "pages": "42-43",
+      "lessons": [
+        "campus-null",
+        "campus-null-replacement"
+      ]
+    },
+    {
+      "topic": "MySQL monitor and inspection commands",
+      "pages": "44-46",
+      "lessons": [
+        "campus-inspect",
+        "campus-columns",
+        "campus-status"
+      ]
+    },
+    {
+      "topic": "CRUD and SELECT fundamentals",
+      "pages": "47-51",
+      "lessons": [
+        "int-crud",
+        "int-query-select-all"
+      ]
+    },
+    {
+      "topic": "DDL CREATE and schema design",
+      "pages": "52-55",
+      "lessons": [
+        "int-create",
+        "campus-alter-add",
+        "campus-drop-table"
+      ]
+    },
+    {
+      "topic": "JOIN families",
+      "pages": "55-56",
+      "lessons": [
+        "int-query-inner-join",
+        "campus-right-join",
+        "campus-cross-join"
+      ]
+    },
+    {
+      "topic": "Access/SQL View workflow and client login (non-executable)",
+      "pages": "57-59",
+      "lessons": [
+        "campus-client"
+      ]
+    },
+    {
+      "topic": "Database/table creation and verification",
+      "pages": "60-61",
+      "lessons": [
+        "int-create",
+        "int-inspect-schema"
+      ]
+    },
+    {
+      "topic": "DDL, DQL, DML, DCL command categories",
+      "pages": "61-66",
+      "lessons": [
+        "int-dcl",
+        "campus-tcl"
+      ]
+    },
+    {
+      "topic": "Transactions and savepoints",
+      "pages": "61,66",
+      "lessons": [
+        "int-transaction",
+        "campus-rollback"
+      ]
+    },
+    {
+      "topic": "Constraints, invalid values, referential integrity",
+      "pages": "31-43,60-62",
+      "lessons": [
+        "int-constraints",
+        "campus-error-composite-missing"
+      ]
+    },
+    {
+      "topic": "Candidate keys, composite references, and relationship actions",
+      "pages": "32,42,60-62",
+      "lessons": [
+        "campus-unique-reference",
+        "campus-error-incompatible-fk",
+        "campus-error-invalid-composite",
+        "campus-cascade",
+        "campus-set-null"
+      ]
+    },
+    {
+      "topic": "Schema comments and ALTER variants",
+      "pages": "53-54,62",
+      "lessons": [
+        "campus-comment",
+        "campus-alter-add",
+        "campus-alter-modify",
+        "campus-alter-drop"
+      ]
+    }
+  ],
+  "pages": {
+    "28": {
+      "pages": "28",
+      "disposition": "covered",
+      "linkedLessons": [
+        "sql-foundations"
+      ]
+    },
+    "29": {
+      "pages": "29",
+      "disposition": "covered",
+      "linkedLessons": [
+        "sql-foundations"
+      ]
+    },
+    "30": {
+      "pages": "30",
+      "disposition": "covered",
+      "linkedLessons": [
+        "int-query-where-logic",
+        "campus-where"
+      ]
+    },
+    "31": {
+      "pages": "31",
+      "disposition": "covered",
+      "linkedLessons": [
+        "int-table-departments",
+        "int-table-students",
+        "int-table-profiles",
+        "int-table-staff",
+        "int-table-courses",
+        "int-table-course_offerings",
+        "int-table-enrollments",
+        "int-table-resources",
+        "int-table-campus_locations",
+        "campus-table-departments",
+        "campus-table-students",
+        "campus-table-profiles",
+        "campus-table-staff",
+        "campus-table-courses",
+        "campus-table-course_offerings",
+        "campus-table-enrollments",
+        "campus-table-resources",
+        "campus-table-campus_locations",
+        "campus-dialects",
+        "campus-types-numeric",
+        "campus-type-aliases"
+      ]
+    },
+    "32": {
+      "pages": "32",
+      "disposition": "covered",
+      "linkedLessons": [
+        "int-table-departments",
+        "int-table-students",
+        "int-table-profiles",
+        "int-table-staff",
+        "int-table-courses",
+        "int-table-course_offerings",
+        "int-table-enrollments",
+        "int-table-resources",
+        "int-table-campus_locations",
+        "int-constraints",
+        "campus-table-departments",
+        "campus-table-students",
+        "campus-table-profiles",
+        "campus-table-staff",
+        "campus-table-courses",
+        "campus-table-course_offerings",
+        "campus-table-enrollments",
+        "campus-table-resources",
+        "campus-table-campus_locations",
+        "campus-error-duplicate-key",
+        "campus-error-missing-parent",
+        "campus-error-composite-missing",
+        "campus-error-restrict",
+        "campus-error-two-primary",
+        "campus-error-null-required",
+        "campus-error-tiny-range",
+        "campus-types-numeric",
+        "campus-unique-reference",
+        "campus-error-incompatible-fk",
+        "campus-error-invalid-composite"
+      ]
+    },
+    "33": {
+      "pages": "33",
+      "disposition": "covered",
+      "linkedLessons": [
+        "campus-dialects",
+        "campus-types-numeric"
+      ]
+    },
+    "34": {
+      "pages": "34",
+      "disposition": "covered",
+      "linkedLessons": [
+        "campus-types-numeric",
+        "campus-types-character"
+      ]
+    },
+    "35": {
+      "pages": "35",
+      "disposition": "covered",
+      "linkedLessons": [
+        "int-table-departments",
+        "int-table-students",
+        "int-table-profiles",
+        "int-table-staff",
+        "int-table-courses",
+        "int-table-course_offerings",
+        "int-table-enrollments",
+        "int-table-resources",
+        "int-table-campus_locations",
+        "campus-table-departments",
+        "campus-table-students",
+        "campus-table-profiles",
+        "campus-table-staff",
+        "campus-table-courses",
+        "campus-table-course_offerings",
+        "campus-table-enrollments",
+        "campus-table-resources",
+        "campus-table-campus_locations",
+        "campus-dialects",
+        "campus-types-character"
+      ]
+    },
+    "36": {
+      "pages": "36",
+      "disposition": "covered",
+      "linkedLessons": [
+        "campus-dialects",
+        "campus-types-character",
+        "campus-types-binary",
+        "campus-type-aliases"
+      ]
+    },
+    "37": {
+      "pages": "37",
+      "disposition": "covered",
+      "linkedLessons": [
+        "campus-types-binary",
+        "campus-types-temporal",
+        "campus-type-aliases"
+      ]
+    },
+    "38": {
+      "pages": "38",
+      "disposition": "covered",
+      "linkedLessons": [
+        "campus-dialects",
+        "campus-types-temporal"
+      ]
+    },
+    "39": {
+      "pages": "39",
+      "disposition": "covered",
+      "linkedLessons": [
+        "campus-dialects",
+        "campus-types-temporal"
+      ]
+    },
+    "40": {
+      "pages": "40",
+      "disposition": "covered",
+      "linkedLessons": [
+        "int-table-departments",
+        "int-table-students",
+        "int-table-profiles",
+        "int-table-staff",
+        "int-table-courses",
+        "int-table-course_offerings",
+        "int-table-enrollments",
+        "int-table-resources",
+        "int-table-campus_locations",
+        "campus-table-departments",
+        "campus-table-students",
+        "campus-table-profiles",
+        "campus-table-staff",
+        "campus-table-courses",
+        "campus-table-course_offerings",
+        "campus-table-enrollments",
+        "campus-table-resources",
+        "campus-table-campus_locations",
+        "campus-spatial-read",
+        "campus-types-temporal",
+        "campus-types-choices",
+        "campus-types-json",
+        "campus-types-spatial"
+      ]
+    },
+    "41": {
+      "pages": "41",
+      "disposition": "covered",
+      "linkedLessons": [
+        "int-table-departments",
+        "int-table-students",
+        "int-table-profiles",
+        "int-table-staff",
+        "int-table-courses",
+        "int-table-course_offerings",
+        "int-table-enrollments",
+        "int-table-resources",
+        "int-table-campus_locations",
+        "campus-table-departments",
+        "campus-table-students",
+        "campus-table-profiles",
+        "campus-table-staff",
+        "campus-table-courses",
+        "campus-table-course_offerings",
+        "campus-table-enrollments",
+        "campus-table-resources",
+        "campus-table-campus_locations",
+        "campus-types-choices"
+      ]
+    },
+    "42": {
+      "pages": "42",
+      "disposition": "covered",
+      "linkedLessons": [
+        "int-table-departments",
+        "int-table-students",
+        "int-table-profiles",
+        "int-table-staff",
+        "int-table-courses",
+        "int-table-course_offerings",
+        "int-table-enrollments",
+        "int-table-resources",
+        "int-table-campus_locations",
+        "int-query-null",
+        "int-query-null-functions",
+        "int-constraints",
+        "campus-table-departments",
+        "campus-table-students",
+        "campus-table-profiles",
+        "campus-table-staff",
+        "campus-table-courses",
+        "campus-table-course_offerings",
+        "campus-table-enrollments",
+        "campus-table-resources",
+        "campus-table-campus_locations",
+        "campus-null",
+        "campus-null-replacement",
+        "campus-error-duplicate-key",
+        "campus-error-missing-parent",
+        "campus-error-composite-missing",
+        "campus-error-restrict",
+        "campus-error-two-primary",
+        "campus-error-null-required",
+        "campus-error-tiny-range",
+        "campus-types-defaults",
+        "campus-types-choices",
+        "campus-error-incompatible-fk"
+      ]
+    },
+    "43": {
+      "pages": "43",
+      "disposition": "covered",
+      "linkedLessons": [
+        "int-query-null",
+        "campus-null",
+        "campus-dialects",
+        "campus-types-defaults"
+      ]
+    },
+    "44": {
+      "pages": "44",
+      "disposition": "covered",
+      "linkedLessons": [
+        "campus-client"
+      ]
+    },
+    "45": {
+      "pages": "45",
+      "disposition": "covered",
+      "linkedLessons": [
+        "int-inspect",
+        "int-inspect-schema",
+        "int-monitor",
+        "campus-inspect",
+        "campus-columns",
+        "campus-status",
+        "campus-client"
+      ]
+    },
+    "46": {
+      "pages": "46",
+      "disposition": "covered",
+      "linkedLessons": [
+        "sql-module2-summary"
+      ]
+    },
+    "47": {
+      "pages": "47",
+      "disposition": "covered",
+      "linkedLessons": [
+        "sql-module3-foundations"
+      ]
+    },
+    "48": {
+      "pages": "48",
+      "disposition": "covered",
+      "linkedLessons": [
+        "int-crud",
+        "int-query-select-all",
+        "int-query-projection",
+        "int-query-where-logic",
+        "int-query-expressions",
+        "campus-select-all",
+        "campus-projection",
+        "campus-where"
+      ]
+    },
+    "49": {
+      "pages": "49",
+      "disposition": "covered",
+      "linkedLessons": [
+        "int-load-data",
+        "int-crud",
+        "campus-records"
+      ]
+    },
+    "50": {
+      "pages": "50",
+      "disposition": "covered",
+      "linkedLessons": [
+        "int-load-data",
+        "int-crud",
+        "campus-records",
+        "campus-update"
+      ]
+    },
+    "51": {
+      "pages": "51",
+      "disposition": "covered",
+      "linkedLessons": [
+        "int-crud",
+        "campus-delete"
+      ]
+    },
+    "52": {
+      "pages": "52",
+      "disposition": "covered",
+      "linkedLessons": [
+        "campus-index"
+      ]
+    },
+    "53": {
+      "pages": "53",
+      "disposition": "covered",
+      "linkedLessons": [
+        "campus-alter-add",
+        "campus-alter-modify",
+        "campus-alter-drop",
+        "campus-comment"
+      ]
+    },
+    "54": {
+      "pages": "54",
+      "disposition": "covered",
+      "linkedLessons": [
+        "campus-alter-modify",
+        "campus-alter-drop",
+        "campus-index-drop",
+        "campus-drop-table",
+        "campus-drop-database",
+        "campus-comment"
+      ]
+    },
+    "55": {
+      "pages": "55",
+      "disposition": "covered",
+      "linkedLessons": [
+        "int-query-inner-join",
+        "int-query-left-join",
+        "int-query-using-join",
+        "campus-inner-join",
+        "campus-left-join",
+        "campus-self-join",
+        "campus-composite-join",
+        "campus-drop-table",
+        "campus-drop-database"
+      ]
+    },
+    "56": {
+      "pages": "56",
+      "disposition": "covered",
+      "linkedLessons": [
+        "int-query-left-join",
+        "int-query-cross-join",
+        "int-query-union",
+        "campus-left-join",
+        "campus-right-join",
+        "campus-cross-join",
+        "campus-full-join"
+      ]
+    },
+    "57": {
+      "pages": "57",
+      "disposition": "covered",
+      "linkedLessons": [
+        "campus-client"
+      ]
+    },
+    "58": {
+      "pages": "58",
+      "disposition": "covered",
+      "linkedLessons": [
+        "campus-client"
+      ]
+    },
+    "59": {
+      "pages": "59",
+      "disposition": "covered",
+      "linkedLessons": [
+        "int-create",
+        "campus-create",
+        "campus-client"
+      ]
+    },
+    "60": {
+      "pages": "60",
+      "disposition": "covered",
+      "linkedLessons": [
+        "int-create",
+        "int-inspect",
+        "int-table-departments",
+        "int-table-students",
+        "int-table-profiles",
+        "int-table-staff",
+        "int-table-courses",
+        "int-table-course_offerings",
+        "int-table-enrollments",
+        "int-table-resources",
+        "int-table-campus_locations",
+        "int-constraints",
+        "campus-create",
+        "campus-inspect",
+        "campus-table-departments",
+        "campus-table-students",
+        "campus-table-profiles",
+        "campus-table-staff",
+        "campus-table-courses",
+        "campus-table-course_offerings",
+        "campus-table-enrollments",
+        "campus-table-resources",
+        "campus-table-campus_locations",
+        "campus-error-duplicate-key",
+        "campus-error-missing-parent",
+        "campus-error-composite-missing",
+        "campus-error-restrict",
+        "campus-error-two-primary",
+        "campus-error-null-required",
+        "campus-error-tiny-range",
+        "campus-cascade",
+        "campus-set-null"
+      ]
+    },
+    "61": {
+      "pages": "61",
+      "disposition": "covered",
+      "linkedLessons": [
+        "int-inspect-schema",
+        "int-transaction",
+        "int-monitor",
+        "campus-columns",
+        "campus-tcl",
+        "campus-rollback",
+        "campus-release",
+        "campus-unique-reference"
+      ]
+    },
+    "62": {
+      "pages": "62",
+      "disposition": "covered",
+      "linkedLessons": [
+        "int-table-departments",
+        "int-table-students",
+        "int-table-profiles",
+        "int-table-staff",
+        "int-table-courses",
+        "int-table-course_offerings",
+        "int-table-enrollments",
+        "int-table-resources",
+        "int-table-campus_locations",
+        "int-constraints",
+        "campus-table-departments",
+        "campus-table-students",
+        "campus-table-profiles",
+        "campus-table-staff",
+        "campus-table-courses",
+        "campus-table-course_offerings",
+        "campus-table-enrollments",
+        "campus-table-resources",
+        "campus-table-campus_locations",
+        "campus-error-duplicate-key",
+        "campus-error-missing-parent",
+        "campus-error-composite-missing",
+        "campus-error-restrict",
+        "campus-error-two-primary",
+        "campus-error-null-required",
+        "campus-error-tiny-range",
+        "campus-index",
+        "campus-index-drop",
+        "campus-rename",
+        "campus-truncate",
+        "campus-types-binary",
+        "campus-types-defaults",
+        "campus-unique-reference",
+        "campus-error-incompatible-fk",
+        "campus-error-invalid-composite",
+        "campus-comment"
+      ]
+    },
+    "63": {
+      "pages": "63",
+      "disposition": "covered",
+      "linkedLessons": [
+        "int-query-select-all",
+        "int-query-projection",
+        "int-query-where-logic",
+        "int-query-distinct",
+        "int-query-sort-limit",
+        "int-query-in-like",
+        "int-query-aggregate-group",
+        "int-query-expressions",
+        "campus-select-all",
+        "campus-projection",
+        "campus-where",
+        "campus-distinct",
+        "campus-sort-limit",
+        "campus-in-like",
+        "campus-aggregate"
+      ]
+    },
+    "64": {
+      "pages": "64",
+      "disposition": "covered",
+      "linkedLessons": [
+        "int-load-data",
+        "int-query-between",
+        "campus-records",
+        "campus-between"
+      ]
+    },
+    "65": {
+      "pages": "65",
+      "disposition": "covered",
+      "linkedLessons": [
+        "int-dcl",
+        "campus-grant",
+        "campus-revoke"
+      ]
+    },
+    "66": {
+      "pages": "66",
+      "disposition": "covered",
+      "linkedLessons": [
+        "int-crud",
+        "int-transaction",
+        "campus-tcl",
+        "campus-rollback",
+        "campus-release"
+      ]
+    }
+  },
+  "exclusions": [
+    {
+      "topic": "Access GUI clicks, terminal login credentials, and physical server administration",
+      "reason": "Teaching explanation only; this offline browser cannot launch an external client or create accounts."
+    },
+    {
+      "topic": "Full GIS analysis and optimizer/backup internals",
+      "reason": "Outside Modules 2–3 executable scope; spatial storage/WKT and inspection are included."
+    }
+  ],
+  "engineLimits": [
+    "No subqueries, procedures, triggers, views, full outer join syntax, or full GIS analysis; lessons label these as unsupported or dialect-specific.",
+    "SHOW TABLE STATUS \\G is represented as a documented client terminator, not a shell command."
+  ]
+}

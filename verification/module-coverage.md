@@ -4,10 +4,10 @@
 
 | Concept | PDF page | Module | Identification | Multiple choice |
 |---|---:|---:|---|---|
-| dbms | 17 | 1 | id-0 | mc-60 |
+| database management system | 17 | 1 | id-0 | mc-60 |
 | tuple | 14 | 1 | id-1 | mc-61 |
 | order by | 71 | 4 | id-2 | mc-29 |
-| dcl | 65 | 3 | id-3 | mc-62 |
+| data control language | 65 | 3 | id-3 | mc-62 |
 | null | 42 | 2 | id-4 | mc-63 |
 | drop | 54 | 3 | id-5 | mc-26 |
 | where | 74 | 4 | id-6 | mc-64 |
@@ -21,16 +21,16 @@
 | isolation | 18 | 1 | id-14 | mc-72 |
 | normalization | 17 | 1 | id-15 | mc-73 |
 | codd | 19 | 1 | id-16 | mc-74 |
-| enterprise | 12 | 1 | id-17 | mc-75 |
+| enterprise database | 12 | 1 | id-17 | mc-75 |
 | relation | 19 | 1 | id-18 | mc-76 |
-| not only sql | 21 | 1 | id-19 | mc-77 |
-| graph | 21 | 1 | id-20 | mc-78 |
-| oodbms | 22 | 1 | id-21 | mc-54 |
-| hierarchical | 23 | 1 | id-22 | mc-5 |
-| network | 23 | 1 | id-23 | mc-15 |
+| not only structured query language | 21 | 1 | id-19 | mc-77 |
+| graph database | 21 | 1 | id-20 | mc-78 |
+| object oriented database management system | 22 | 1 | id-21 | mc-54 |
+| hierarchical database management system | 23 | 1 | id-22 | mc-5 |
+| network database management system | 23 | 1 | id-23 | mc-15 |
 | concurrency control | 25 | 1 | id-24 | mc-79 |
 | chamberlin | 28 | 2 | id-25 | mc-80 |
-| nonprocedural | 29 | 2 | id-26 | mc-81 |
+| nonprocedural language | 29 | 2 | id-26 | mc-81 |
 | decimal | 32 | 2 | id-27 | mc-82 |
 | char | 35 | 2 | id-28 | mc-83 |
 | blob | 37 | 2 | id-29 | mc-20 |
@@ -62,7 +62,7 @@
 | join | 88 | 5 | id-55 | mc-103 |
 | left join | 94 | 5 | id-56 | mc-104 |
 | using | 91 | 5 | id-57 | mc-33 |
-| tcl | 61 | 3 | id-58 | mc-36 |
+| transaction control language | 61 | 3 | id-58 | mc-36 |
 | having | 63 | 3 | id-59 | mc-105 |
 | distinct | 63 | 3 | id-60 | mc-106 |
 | limit | 63 | 3 | id-61 | mc-107 |
@@ -84,13 +84,13 @@
 | audit trail | 24 | 1 | id-77 | mc-49 |
 | encryption | 24 | 1 | id-78 | mc-50 |
 | dynamodb | 21 | 1 | id-79 | mc-115 |
-| document oriented | 21 | 1 | id-80 | mc-52 |
-| column family | 21 | 1 | id-81 | mc-53 |
-| oodbms | 22 | 1 | id-82 | mc-54 |
+| document oriented database | 21 | 1 | id-80 | mc-52 |
+| column family store | 21 | 1 | id-81 | mc-53 |
+| object oriented database management system | 22 | 1 | id-82 | mc-54 |
 | predicate | 75 | 4 | id-83 | mc-116 |
 | not | 75 | 4 | id-84 | mc-117 |
 | mysql | 44 | 2 | id-85 | mc-118 |
-| alias | 90 | 5 | id-86 | mc-119 |
+| table alias | 90 | 5 | id-86 | mc-119 |
 | rename | 62 | 3 | id-87 | mc-120 |
 | comment | 62 | 3 | id-88 | mc-121 |
 | Database | 12 | 1 | id-89 | mc-122 |
@@ -122,8 +122,8 @@
 | Data Administration | 18 | 1 | id-115 | mc-148 |
 | Database Tuning | 18 | 1 | id-116 | mc-149 |
 | Monitoring and Maintenance | 18 | 1 | id-117 | mc-150 |
-| Relational DBMS | 21 | 1 | id-118 | mc-151 |
-| NoSQL DBMS | 21 | 1 | id-119 | mc-152 |
+| Relational Database Management System | 21 | 1 | id-118 | mc-151 |
+| Not Only SQL Database Management System | 21 | 1 | id-119 | mc-152 |
 | Key-value store | 21 | 1 | id-120 | mc-153 |
 | Centralized Data Management | 23 | 1 | id-121 | mc-154 |
 | Improved Data Security | 24 | 1 | id-122 | mc-155 |
@@ -141,7 +141,7 @@
 | Cassandra | 21 | 1 | id-134 | mc-167 |
 | Neo4j | 21 | 1 | id-135 | mc-168 |
 | ObjectDB | 22 | 1 | id-136 | mc-169 |
-| SQL | 28 | 2 | id-137 | mc-170 |
+| Structured Query Language | 28 | 2 | id-137 | mc-170 |
 | Procedural language | 29 | 2 | id-138 | mc-171 |
 | Numeric data types | 31 | 2 | id-139 | mc-172 |
 | INT | 31 | 2 | id-140 | mc-173 |
@@ -171,7 +171,7 @@
 | root | 44 | 2 | id-164 | mc-197 |
 | Password option | 59 | 3 | id-165 | mc-198 |
 | Username option | 59 | 3 | id-166 | mc-199 |
-| CRUD | 66 | 3 | id-167 | mc-200 |
+| Create, Read, Update and Delete | 66 | 3 | id-167 | mc-200 |
 | UPDATE | 50 | 3 | id-168 | mc-201 |
 | DELETE | 51 | 3 | id-169 | mc-202 |
 | CREATE | 52 | 3 | id-170 | mc-203 |

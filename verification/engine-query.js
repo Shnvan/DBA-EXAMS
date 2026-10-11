@@ -38,6 +38,12 @@ function evaluate(e,row={},group=[],output=[]){
   if(e.name=='COALESCE'||e.name=='IFNULL'){const string=e.args.some(a=>! /^(?:null|int|smallint|tinyint|mediumint|bigint|decimal|float|double|year)/.test(expressionType(a)));for(const a of e.args){const v=ev(a);if(v!=null)return string?sqlString(v):v}return null}
   if(e.name=='DATABASE')return SESSION.current;if(e.name=='USER')return SESSION.user+'@localhost';if(e.name=='VERSION')return'10.4.32-MariaDB (offline practice)';
   const args=e.args.map(ev),a=args[0];if(e.name=='CONCAT')return args.some(x=>x==null)?null:args.map(sqlString).join('');if(a==null)return null;
+  if(e.name=='JSON_VALID'){try{parseJsonDocument(a);return 1}catch(error){return 0}}
+  if(e.name=='JSON_UNQUOTE'){const text=sqlString(a);if(!text.startsWith('"'))return text;try{return JSON.parse(text)}catch(error){throw E(4038,'HY000','Syntax error in JSON text')}}
+  if(e.name=='JSON_EXTRACT'){if(args.some(x=>x==null))return null;let document;try{document=parseJsonDocument(a)}catch(error){throw E(4038,'HY000','Syntax error in JSON text')};const matches=args.slice(1).map(p=>extractJsonPath(document,p)),values=matches.flatMap(x=>x.values);return !values.length?null:JSON.stringify(args.length>2||matches.some(x=>x.multi)?values:values[0])}
+  if(['ST_GEOMFROMTEXT','ST_GEOMETRYFROMTEXT','GEOMFROMTEXT','GEOMETRYFROMTEXT','ST_POINTFROMTEXT','ST_LINESTRINGFROMTEXT','ST_POLYGONFROMTEXT'].includes(e.name)){const g=geometryFromText(a,args.length>1?args[1]:0),expected={ST_POINTFROMTEXT:'POINT',ST_LINESTRINGFROMTEXT:'LINESTRING',ST_POLYGONFROMTEXT:'POLYGON'}[e.name];return expected&&g?.geometry!==expected?null:g}
+  if(e.name=='POINT'){if(args[1]==null)return null;return geometryFromText('POINT('+number(a)+' '+number(args[1])+')')}
+  if(['ST_ASTEXT','ASTEXT','ST_SRID'].includes(e.name)){if(!a?.geometry)throw E(3037,'22023','Invalid GIS data provided to function');return e.name=='ST_SRID'?a.srid:a.wkt}
   if(e.name=='UPPER')return sqlString(a).toUpperCase();if(e.name=='LOWER')return sqlString(a).toLowerCase();if(e.name=='LENGTH')return unescape(encodeURIComponent(sqlString(a))).length;
   if(e.name=='ROUND'){const scale=args.length==1?0:Math.trunc(number(args[1]));if(scale>=0)return exact(numeric(a)?a:number(a),Math.min(scale,30));const d=dec(a),div=10n**BigInt(d.s-scale),negative=d.n<0n;let n=negative?-d.n:d.n;n=((n+div/2n)/div)*10n**BigInt(-scale);return exact({num:String(negative?-n:n)},0)}
  }throw unsupported('Expression is outside the practice engine.',e.pos);

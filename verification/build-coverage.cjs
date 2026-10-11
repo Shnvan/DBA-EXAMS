@@ -14,6 +14,7 @@ fix('id',88,'Which DDL command shown in Table 3.1 adds descriptive comments to d
 fix('id',20,'This NoSQL type models relationships using graph structures; Neo4j and ArangoDB are examples. Identify the type.');
 fix('id',22,'This DBMS type organizes records into a tree in which a non-root record has one parent. IBM IMS is an example. Identify the type.');
 fix('id',23,'This DBMS type allows multiple parent-child relationships in a graph-like structure. IDMS is an example. Identify the type.');
+fix('id',29,'Which SQL data type stores large binary files such as images? Give the SQL type name.');
 fix('id',80,'This NoSQL type stores data as documents; MongoDB and CouchDB are examples. Identify the type.');
 fix('id',81,'This NoSQL type organizes data in column families; Cassandra and HBase are examples. Identify the type.');
 const moduleOf=p=>p<28?1:p<47?2:p<67?3:p<88?4:5;
@@ -99,6 +100,72 @@ const errata=[
  'p101: Unmatched RIGHT JOIN rows have NULL in left-table columns; the prose repeats "right" incorrectly.',
  'Table of contents and p9: module numbers/course labels are inconsistent; the five actual module headings and PDF page ranges define the app categories.'
 ];
+// Full-term review: concepts require their complete names; SQL syntax and product names stay literal.
+const fullNames={
+ 'sql':'Structured Query Language','crud':'Create, Read, Update and Delete','data security':'Data Security and Integrity',
+ 'dbms':'Database Management System','rdbms':'Relational Database Management System','oodbms':'Object-Oriented Database Management System',
+ 'relational dbms':'Relational Database Management System','object-oriented dbms':'Object-Oriented Database Management System','hierarchical dbms':'Hierarchical Database Management System','network dbms':'Network Database Management System',
+ 'nosql dbms':'Not Only SQL Database Management System','nosql':'Not Only SQL Database Management System',
+ 'ddl':'Data Definition Language','dml':'Data Manipulation Language','dql':'Data Query Language','dcl':'Data Control Language','tcl':'Transaction Control Language',
+ 'relational':'Relational Database Management System','hierarchical':'Hierarchical Database Management System','network':'Network Database Management System','object-oriented':'Object-Oriented Database Management System','graph':'Graph Database','document':'Document-Oriented Database','document-oriented':'Document-Oriented Database','column-family':'Column-Family Store','key-value':'Key-Value Store'
+};
+const expandChoice=x=>fullNames[String(x).toLowerCase()]||String(x).replace(/\bDBMS\b/g,'Database Management System');
+const review=(i,prompt,answers)=>{ID[i][0]=prompt;ID[i][1]=answers;};
+review(0,'This software system stores, retrieves and manages data, serving as the interface between users and a database. Identify it by its full name.','database management system|database management systems');
+review(3,'This SQL command category controls access rights and permissions through GRANT and REVOKE. Give its full name.','data control language');
+review(17,'Which database size category describes large, complex organization-wide systems requiring dependable equipment? Give the complete category name.','enterprise database|enterprise databases');
+review(19,'The module expands the name of this flexible database family as "Not Only SQL". Write SQL in full within that expanded name.','not only structured query language');
+review(20,'This database type models relationships using graph structures; Neo4j and ArangoDB are examples. Identify the complete type name.','graph database|graph databases');
+review(21,'This database management system stores data as objects and supports inheritance, encapsulation and polymorphism. Give the full system type.','object oriented database management system|object oriented database management systems');
+review(22,'This database management system organizes records into a tree in which each non-root record has one parent. IBM IMS is an example. Give the full system type.','hierarchical database management system|hierarchical database management systems');
+review(23,'This database management system allows multiple parent-child relationships in a graph-like structure. IDMS is an example. Give the full system type.','network database management system|network database management systems');
+review(24,'Which database management advantage coordinates simultaneous access by multiple users to prevent conflicts? Give its complete name.','concurrency control');
+review(26,'SQL specifies what result is wanted while the system decides how to obtain it. Identify this complete language classification.','nonprocedural language|non procedural language|nonprocedural programming language|non procedural programming language|declarative language|declarative programming language');
+review(41,'This SQL command category defines and changes database structures using commands such as CREATE, ALTER and DROP. Give its full name.','data definition language');
+review(42,'This SQL command category fetches data using SELECT. Give its full name.','data query language');
+review(43,'This SQL command category manipulates stored records using INSERT, UPDATE and DELETE. Give its full name.','data manipulation language');
+review(53,'Which evaluation technique stops evaluating AND or OR operands once the result is determined? Give its complete name.','short circuit evaluation');
+review(58,'This SQL command category manages transactions using COMMIT, SAVEPOINT and ROLLBACK. Give its full name.','transaction control language');
+review(80,'This database type stores data as documents; MongoDB and CouchDB are examples. Identify the complete type name.','document oriented database|document oriented databases|document database|document databases');
+review(81,'This database type organizes data in column families; Cassandra and HBase are examples. Identify the complete type name.','column family store|column family stores|column family database|column family databases');
+review(82,'ObjectDB and db4o store data as objects and integrate with object-oriented programming languages. Identify their full database management system type.','object oriented database management system|object oriented database management systems');
+const generatedReview={
+ 'concept-1:Relational DBMS':['This database management system organizes data into relations containing rows and columns, commonly using SQL. Give its full type name.','relational database management system|relational database management systems|relational database|relational databases'],
+ 'concept-1:NoSQL DBMS':['This database family includes document, key-value, column-family and graph stores with flexible models. Identify it using the expanded family name and the words database management system.','not only structured query language database management system|not only sql database management system'],
+ 'concept-2:SQL':['This standardized language manages and queries relational databases. Give its full name.','structured query language'],
+ 'concept-3:CRUD':['Write the full names, in order, of the four fundamental record operations represented by CRUD.','create read update delete|create read update and delete'],
+ 'concept-3:Query by example':['This visual query method uses an Access grid to specify a query rather than typing the entire SQL statement. Give its complete name.','query by example'],
+ 'concept-4:Operator precedence':[null,'operator precedence'],
+ 'concept-5:INNER JOIN':[null,'inner join'],
+ 'concept-5:RIGHT JOIN':[null,'right join|right outer join'],
+ 'concept-5:One-to-many relationship':[null,'one to many relationship|one to many relationships'],
+};
+for(const [key,[prompt,answers]] of Object.entries(generatedReview)){const offset=identities.id.indexOf(key);if(offset<0)throw Error('Missing full-term identity '+key);const q=ID[base.ID.length+offset];if(prompt)q[0]=prompt;q[1]=answers;}
+// Remove incomplete conceptual/command fragments, retaining explicitly equivalent complete forms.
+for(const [i,answers] of Object.entries({40:'cross join',55:'join|joins|sql join|sql joins',56:'left join|left outer join',62:'full join|full outer join',86:'table alias|table aliases'}))ID[+i][1]=answers;
+// Existing counterpart identities retain their index, and use the reviewed definition and complete correct option.
+for(let j=base.MC.length;j<MC.length;j++){
+ const key=identities.mc[j-base.MC.length];let i=-1;
+ if(key.startsWith('id-counterpart-'))i=+key.slice(15);
+ else {const offset=identities.id.indexOf(key);if(offset>=0)i=base.ID.length+offset;}
+ if(i>=0){MC[j][0]=ID[i][0];MC[j][1][MC[j][2]]=choiceCase(ID[i][1].split('|')[0]);}
+}
+for(const q of MC)q[1]=q[1].map(expandChoice);
+// Full names in options must not contradict an acronym-seeking prompt.
+MC[0][0]='Which of these is not one of the nonrelational database types listed in the module?';
+MC[5][0]='Which database management system normally gives each non-root record exactly one parent?';
+MC[14][0]='Which product is an object-oriented database management system?';
+MC[16][0]='Which statement correctly describes a network database management system?';
+MC[28][0]='Which of these is a Data Manipulation Language command?';
+MC[36][0]='Which full command-category name contains COMMIT and ROLLBACK?';
+// Consistent product spelling: these are names, not expandable conceptual acronyms.
+const products={mongodb:'MongoDB',couchdb:'CouchDB',redis:'Redis',dynamodb:'DynamoDB','amazon dynamodb':'Amazon DynamoDB',cassandra:'Cassandra',hbase:'HBase',neo4j:'Neo4j',arangodb:'ArangoDB',objectdb:'ObjectDB',db4o:'db4o',mysql:'MySQL',mariadb:'MariaDB',postgresql:'PostgreSQL','mysql workbench':'MySQL Workbench'};
+for(const q of MC)q[1]=q[1].map(x=>products[x.toLowerCase()]||x);
+for(const c of concepts){if(c.source==='Original question and mode counterpart')c.concept=ID[+c.identification[0].split('-')[1]][1].split('|')[0];else if(fullNames[c.concept.toLowerCase()])c.concept=expandChoice(c.concept);}
+for(let i=0;i<base.ID.length;i++)if(JSON.stringify(ID[i])!==JSON.stringify(base.ID[i]))fixes.id[i]=ID[i];
+for(let i=0;i<base.MC.length;i++)if(JSON.stringify(MC[i])!==JSON.stringify(base.MC[i]))fixes.mc[i]=MC[i];
+for(const q of MC)if(new Set(q[1].map(x=>x.toLowerCase().trim())).size!==4)throw Error('Ambiguous duplicate options: '+q[0]);
+
 const payload={fixes,identification:ID.slice(base.ID.length),multipleChoice:MC.slice(base.MC.length)};
 const baseCatalog=Object.fromEntries(['id','mc'].map(k=>[k,base[k==='id'?'ID':'MC'].map((q,i)=>({id:k+'-'+i,signature:JSON.stringify(q)}))]));
 const content='const EXAM_BASE_CATALOG='+JSON.stringify(baseCatalog)+';\n/* Reviewed PDF coverage: append-only stable identities. Generated by build-coverage.cjs. */\nconst EXAM_EXPANSION='+JSON.stringify(payload)+';\nfor(const [i,q] of Object.entries(EXAM_EXPANSION.fixes.id))ID[+i]=q;\nfor(const [i,q] of Object.entries(EXAM_EXPANSION.fixes.mc))MC[+i]=q;\nID.push(...EXAM_EXPANSION.identification);MC.push(...EXAM_EXPANSION.multipleChoice);\nMQ[29]=[\'Module 3 · p.63\',\'Display the first three different country values from customers in alphabetical order, using DISTINCT, ORDER BY country and LIMIT 3.\',\'SELECT DISTINCT country FROM customers ORDER BY country LIMIT 3\'];\nfor(let i=0;i<3;i++)ME[i][0]=\'Module 2 · p.45\';\n';

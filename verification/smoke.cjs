@@ -6,9 +6,9 @@ check('Bank balance and references',()=>{assert.equal(X.ID.length,require('./mod
 const id=fragment=>X.ID.find(q=>q[0].includes(fragment));
 for(const[fragment,typed,pass]of[
  ['refers to the primary key','foreign-keys',true],['unique identifier','primary keys',true],['interface between users','Database-Management-System',true],['interface between users','database managemnt system',true],
- ['column is also called','ATTRIBUTES',true],['data about data','metadatta',true],['splits a table','normalizaton',true],['Give the acronym','D.B.M.S.',true],
- ['contains GRANT','D.C.L.',true],['inheritance, encapsulation','Object-oriented database management system',true],['ends a MySQL statement',';',true],
- ['unique identifier','foreign key',false],['data about data','data dictionary',false],['contains GRANT','DDL',false],['only command in DQL','SELEC',false],
+ ['column is also called','ATTRIBUTES',true],['data about data','metadatta',false],['splits a table','normalizaton',false],['interface between users','D.B.M.S.',false],
+ ['SQL command category controls access','D.C.L.',false],['inheritance, encapsulation','Object-oriented database management system',true],['ends a MySQL statement',';',true],
+ ['unique identifier','foreign key',false],['data about data','data dictionary',false],['SQL command category controls access','DDL',false],['only command in DQL','SELEC',false],
  ['integer type is intended','smallintt',false],['Negates a condition','and',false],['splits a table','denormalization',false],['unique identifier','not primary key',false]
 ]){if(!id(fragment)&&fragment=='Negates a condition')continue;check('Identification: '+typed,()=>{assert(id(fragment),fragment);assert.equal(X.identificationMatches(typed,id(fragment)),pass)})}
 check('All canonical identification answers pass; unrelated real terms fail',()=>{for(const q of X.ID){assert(X.identificationMatches(q[1].split('|')[0],q),q[0]);const wrong=['metadata','foreign key','timestamp','DDL','normalization','MongoDB'].find(a=>!q[1].split('|').map(X.norm).includes(X.norm(a)));assert(!X.identificationMatches(wrong,q),q[0]+' accepted '+wrong)}});
