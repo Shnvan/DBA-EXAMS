@@ -1,0 +1,43 @@
+const fs=require('fs'),path=require('path'),assert=require('assert/strict');
+const {chromium}=require('C:/Users/Ivan/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules/playwright');
+const dir=path.resolve(__dirname,'..','verification-artifacts'),checks=[],contrast=[];
+(async()=>{const browser=await chromium.launch({headless:true,executablePath:'C:/Program Files/Google/Chrome/Application/chrome.exe'});
+for(const width of [1440,380])for(const theme of ['light','dark']){
+ const context=await browser.newContext({viewport:{width,height:900}}),page=await context.newPage(),requests=[],errors=[];
+ page.on('request',r=>{if(/^https?:/.test(r.url()))requests.push(r.url())});page.on('pageerror',e=>errors.push(e.message));
+ const check=(name,ok)=>{assert(ok,`${width}/${theme}: ${name}`);checks.push({width,theme,name})};
+ await page.goto('file:///C:/Projects/DBA%20MIDTERM/DBMS_midterm_practice.html');
+ check('Light is default',await page.evaluate(()=>document.documentElement.dataset.theme!='dark'));
+ await page.getByRole('button',{name:'Switch to dark mode',exact:true}).click();if(theme=='light')await page.getByRole('button',{name:'Switch to light mode',exact:true}).click();
+ await page.reload();check('Theme persists across reload',await page.evaluate(t=>(document.documentElement.dataset.theme||'light')==t,theme));
+ await page.keyboard.press('Tab');check('Keyboard focus has visible outline',await page.evaluate(()=>getComputedStyle(document.activeElement).outlineStyle=='solid'&&parseFloat(getComputedStyle(document.activeElement).outlineWidth)>=3));
+ check('Header controls do not overlap',await page.evaluate(()=>{const a=[...document.querySelectorAll('header button')].map(e=>e.getBoundingClientRect());return a.every((r,i)=>a.every((s,j)=>i==j||r.right<=s.left||s.right<=r.left||r.bottom<=s.top||s.bottom<=r.top))}));
+ await page.getByRole('button',{name:'SQL lab',exact:true}).click();await page.locator('.pick button').nth(5).click();
+ await page.locator('#sql').fill('SHOW TABLES');await page.locator('#sql').press('Control+Enter');check('Run restores focus to the SQL editor',await page.locator('#sql').evaluate(e=>e==document.activeElement));check('Keyboard Run submits SQL',await page.locator('#out').innerText().then(t=>t.includes('Tables_in_practice')));
+ await page.getByRole('button',{name:'Check answer',exact:true}).click();check('Wrong answer rejected',await page.locator('#fb').innerText().then(t=>t.includes('Not yet')));
+ await page.getByRole('button',{name:'Show solution',exact:true}).click();check('Show retains draft',await page.locator('#sql').inputValue().then(t=>t=='SHOW TABLES'));
+ await page.locator('#sql').fill('SELECT firstName, lastName, jobTitle FROM employees');await page.getByRole('button',{name:'Check answer',exact:true}).click();
+ // The module task reference is authoritative; select it to check the accepted solution.
+ const reference=await page.evaluate(()=>TS(cur)[ti][2]);await page.locator('#sql').fill(reference);await page.getByRole('button',{name:'Check answer',exact:true}).click();check('Solved count refreshes immediately',await page.locator('.pick button').nth(5).innerText().then(t=>t.includes('1 of 30 solved')));check('Reference answer accepted',await page.locator('#fb').innerText().then(t=>t.startsWith('Correct.')));
+ await page.locator('#sql').fill('retained draft');await page.locator('#preview-details summary').click();await page.locator('#preview-table').selectOption('orders');check('Preview keeps SQL and expansion',await page.locator('#sql').inputValue().then(t=>t=='retained draft')&&await page.locator('#preview-details').evaluate(e=>e.open));
+ await page.locator('.pick button').nth(0).click();await page.locator('#sql').fill('other track draft');await page.locator('.pick button').nth(5).click();check('Track changes retain drafts',await page.locator('#sql').inputValue().then(t=>t=='retained draft'));
+ await page.getByRole('button',{name:'DBMS practice',exact:true}).click();await page.getByRole('button',{name:'SQL lab',exact:true}).click();check('Navigation retains draft',await page.locator('#sql').inputValue().then(t=>t=='retained draft'));
+ await page.getByRole('button',{name:'Reset database',exact:true}).click();check('Reset retains draft',await page.locator('#sql').inputValue().then(t=>t=='retained draft'));
+ await page.locator('#sql').fill('CREATE DATABASE mydb; USE mydb; CREATE TABLE x(id INT); INSERT INTO x VALUES(1); SELECT * FROM x; SELECT missing FROM x');await page.getByRole('button',{name:'Run query',exact:true}).click();
+ check('Batch retains successful results and locates error',await page.locator('#out').innerText().then(t=>t.includes('ERROR 1054 (42S22)')&&t.includes('Statement 6')&&t.includes('Query OK')));
+ check('Session status refreshes',await page.locator('.session').innerText().then(t=>t.includes('MariaDB [mydb]')));
+ await page.getByRole('button',{name:'Reset database',exact:true}).click();await page.locator('#sql').fill('GRANT SELECT ON employees TO user_name');await page.getByRole('button',{name:'Run query',exact:true}).click();await page.locator('#practice-user').selectOption('user_name');
+ await page.locator('#sql').fill('SELECT * FROM employees');await page.getByRole('button',{name:'Run query',exact:true}).click();check('Granted SELECT works',await page.locator('#out table').count()>0);
+ await page.locator('#sql').fill('DELETE FROM employees');await page.getByRole('button',{name:'Run query',exact:true}).click();check('Ungrant­ed DELETE rejected',await page.locator('#out').innerText().then(t=>t.includes('ERROR 1142 (42000)')));
+ await page.getByRole('button',{name:'Reset database',exact:true}).click();await page.locator('#sql').fill("SELECT '<img src=x onerror=alert(1)>' AS literal");await page.getByRole('button',{name:'Run query',exact:true}).click();check('Result literals render as text',await page.locator('#out img').count()==0&&await page.locator('#out').innerText().then(t=>t.includes('<img src=')));
+ await page.locator('#sql').fill("SHOW TABLE STATUS LIKE 'employees' \\G");await page.getByRole('button',{name:'Run query',exact:true}).click();check('Vertical monitor output has offline-statistics notice',await page.locator('#out').innerText().then(t=>t.includes('1. row')&&t.includes('unavailable in offline practice')));
+ check('Wide content remains contained',await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth&&[...document.querySelectorAll('.sc')].every(e=>getComputedStyle(e).overflowX=='auto')));
+ await page.getByRole('button',{name:'Exam',exact:true}).click();await page.locator('#i0').fill('DBMS');await page.getByRole('button',{name:'Submit exam',exact:true}).click();check('Partial exam scored correctly',await page.locator('#res h3').innerText().then(t=>t=='1 out of 216'));
+ const audit=await page.evaluate(()=>{
+ const rgb=s=>(s.match(/[\d.]+/g)||[]).slice(0,3).map(Number),lum=c=>c.map(v=>v/255).map(v=>v<=.04045?v/12.92:((v+.055)/1.055)**2.4).reduce((s,v,i)=>s+v*[.2126,.7152,.0722][i],0),ratio=(a,b)=>(Math.max(lum(a),lum(b))+.05)/(Math.min(lum(a),lum(b))+.05);
+ const bg=e=>{while(e){const s=getComputedStyle(e).backgroundColor;if(s!='transparent'&&s!='rgba(0, 0, 0, 0)')return rgb(s);e=e.parentElement}return rgb(getComputedStyle(document.documentElement).getPropertyValue('--bg'))};
+ const out=[];for(const e of document.querySelectorAll('body *')){if(e.namespaceURI!='http://www.w3.org/1999/xhtml'||!e.getClientRects().length||!getComputedStyle(e).visibility.includes('visible'))continue;const text=[...e.childNodes].filter(n=>n.nodeType==3).map(n=>n.textContent.trim()).join(' ');if(!text)continue;const s=getComputedStyle(e),r=ratio(rgb(s.color),bg(e)),large=parseFloat(s.fontSize)>=24||parseFloat(s.fontSize)>=18.66&&parseInt(s.fontWeight)>=700;out.push({text:text.slice(0,60),ratio:r,required:large?3:4.5})}const probe=document.createElement('span');probe.style.color='var(--focus)';document.body.append(probe);const focus=getComputedStyle(probe).color;probe.remove();return{failures:out.filter(x=>x.ratio+.01<x.required),minimum:Math.min(...out.map(x=>x.ratio)),focusRatio:ratio(rgb(focus),bg(document.body))}});
+ contrast.push({width,theme,...audit});check('Text contrast passes',audit.failures.length==0);check('Focus contrast passes',audit.focusRatio>=3);
+ check('No runtime network requests',requests.length==0);check('No browser script errors',errors.length==0);await context.close();
+}await browser.close();fs.writeFileSync(path.join(dir,'browser-behavior.json'),JSON.stringify({passed:checks.length,checks,contrast},null,2));console.log(JSON.stringify({passed:checks.length,contrast},null,2));
+})().catch(e=>{console.error(e);process.exit(1)});

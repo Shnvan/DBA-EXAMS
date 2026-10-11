@@ -1,0 +1,2 @@
+const {mysql,X,verifyServer,seedServer,actual,simulated}=require('./compare.cjs');
+(async()=>{const c=await mysql.createConnection({host:'127.0.0.1',port:13307,user:'root',rowsAsArray:true});await verifyServer(c,13307);await seedServer(c);const q=X.ME[23][2];console.log(JSON.stringify({actual:await actual(c,q),simulated:simulated(q).results},null,2));await c.end()})().catch(e=>{console.error(e);process.exitCode=1});
