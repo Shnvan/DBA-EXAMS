@@ -1,0 +1,5569 @@
+{
+  "pdfPages": 105,
+  "identification": 237,
+  "multipleChoice": 271,
+  "concepts": [
+    {
+      "concept": "dbms",
+      "page": 17,
+      "module": 1,
+      "identification": [
+        "id-0"
+      ],
+      "multipleChoice": [
+        "mc-60"
+      ],
+      "source": "Original question and mode counterpart",
+      "questionPages": {
+        "id-0": 17,
+        "mc-60": 17
+      }
+    },
+    {
+      "concept": "tuple",
+      "page": 14,
+      "module": 1,
+      "identification": [
+        "id-1"
+      ],
+      "multipleChoice": [
+        "mc-61"
+      ],
+      "source": "Original question and mode counterpart",
+      "questionPages": {
+        "id-1": 14,
+        "mc-61": 14
+      }
+    },
+    {
+      "concept": "order by",
+      "page": 71,
+      "module": 4,
+      "identification": [
+        "id-2"
+      ],
+      "multipleChoice": [
+        "mc-29"
+      ],
+      "source": "Original question and mode counterpart",
+      "questionPages": {
+        "id-2": 71,
+        "mc-29": 72
+      }
+    },
+    {
+      "concept": "dcl",
+      "page": 65,
+      "module": 3,
+      "identification": [
+        "id-3"
+      ],
+      "multipleChoice": [
+        "mc-62"
+      ],
+      "source": "Original question and mode counterpart",
+      "questionPages": {
+        "id-3": 65,
+        "mc-62": 65
+      }
+    },
+    {
+      "concept": "null",
+      "page": 42,
+      "module": 2,
+      "identification": [
+        "id-4"
+      ],
+      "multipleChoice": [
+        "mc-63"
+      ],
+      "source": "Original question and mode counterpart",
+      "questionPages": {
+        "id-4": 42,
+        "mc-63": 42
+      }
+    },
+    {
+      "concept": "drop",
+      "page": 54,
+      "module": 3,
+      "identification": [
+        "id-5"
+      ],
+      "multipleChoice": [
+        "mc-26"
+      ],
+      "source": "Original question and mode counterpart",
+      "questionPages": {
+        "id-5": 54,
+        "mc-26": 54
+      }
+    },
+    {
+      "concept": "where",
+      "page": 74,
+      "module": 4,
+      "identification": [
+        "id-6"
+      ],
+      "multipleChoice": [
+        "mc-64"
+      ],
+      "source": "Original question and mode counterpart",
+      "questionPages": {
+        "id-6": 74,
+        "mc-64": 74
+      }
+    },
+    {
+      "concept": "metadata",
+      "page": 11,
+      "module": 1,
+      "identification": [
+        "id-7"
+      ],
+      "multipleChoice": [
+        "mc-65"
+      ],
+      "source": "Original question and mode counterpart",
+      "questionPages": {
+        "id-7": 11,
+        "mc-65": 11
+      }
+    },
+    {
+      "concept": "data dictionary",
+      "page": 11,
+      "module": 1,
+      "identification": [
+        "id-8"
+      ],
+      "multipleChoice": [
+        "mc-66"
+      ],
+      "source": "Original question and mode counterpart",
+      "questionPages": {
+        "id-8": 11,
+        "mc-66": 11
+      }
+    },
+    {
+      "concept": "flat file",
+      "page": 11,
+      "module": 1,
+      "identification": [
+        "id-9"
+      ],
+      "multipleChoice": [
+        "mc-67"
+      ],
+      "source": "Original question and mode counterpart",
+      "questionPages": {
+        "id-9": 11,
+        "mc-67": 11
+      }
+    },
+    {
+      "concept": "foreign key",
+      "page": 15,
+      "module": 1,
+      "identification": [
+        "id-10"
+      ],
+      "multipleChoice": [
+        "mc-68"
+      ],
+      "source": "Original question and mode counterpart",
+      "questionPages": {
+        "id-10": 15,
+        "mc-68": 15
+      }
+    },
+    {
+      "concept": "attribute",
+      "page": 13,
+      "module": 1,
+      "identification": [
+        "id-11"
+      ],
+      "multipleChoice": [
+        "mc-69"
+      ],
+      "source": "Original question and mode counterpart",
+      "questionPages": {
+        "id-11": 13,
+        "mc-69": 13
+      }
+    },
+    {
+      "concept": "data item",
+      "page": 14,
+      "module": 1,
+      "identification": [
+        "id-12"
+      ],
+      "multipleChoice": [
+        "mc-70"
+      ],
+      "source": "Original question and mode counterpart",
+      "questionPages": {
+        "id-12": 14,
+        "mc-70": 14
+      }
+    },
+    {
+      "concept": "primary key",
+      "page": 15,
+      "module": 1,
+      "identification": [
+        "id-13"
+      ],
+      "multipleChoice": [
+        "mc-71"
+      ],
+      "source": "Original question and mode counterpart",
+      "questionPages": {
+        "id-13": 15,
+        "mc-71": 15
+      }
+    },
+    {
+      "concept": "isolation",
+      "page": 18,
+      "module": 1,
+      "identification": [
+        "id-14"
+      ],
+      "multipleChoice": [
+        "mc-72"
+      ],
+      "source": "Original question and mode counterpart",
+      "questionPages": {
+        "id-14": 18,
+        "mc-72": 18
+      }
+    },
+    {
+      "concept": "normalization",
+      "page": 17,
+      "module": 1,
+      "identification": [
+        "id-15"
+      ],
+      "multipleChoice": [
+        "mc-73"
+      ],
+      "source": "Original question and mode counterpart",
+      "questionPages": {
+        "id-15": 17,
+        "mc-73": 17
+      }
+    },
+    {
+      "concept": "codd",
+      "page": 19,
+      "module": 1,
+      "identification": [
+        "id-16"
+      ],
+      "multipleChoice": [
+        "mc-74"
+      ],
+      "source": "Original question and mode counterpart",
+      "questionPages": {
+        "id-16": 19,
+        "mc-74": 19
+      }
+    },
+    {
+      "concept": "enterprise",
+      "page": 12,
+      "module": 1,
+      "identification": [
+        "id-17"
+      ],
+      "multipleChoice": [
+        "mc-75"
+      ],
+      "source": "Original question and mode counterpart",
+      "questionPages": {
+        "id-17": 12,
+        "mc-75": 12
+      }
+    },
+    {
+      "concept": "relation",
+      "page": 19,
+      "module": 1,
+      "identification": [
+        "id-18"
+      ],
+      "multipleChoice": [
+        "mc-76"
+      ],
+      "source": "Original question and mode counterpart",
+      "questionPages": {
+        "id-18": 19,
+        "mc-76": 19
+      }
+    },
+    {
+      "concept": "not only sql",
+      "page": 21,
+      "module": 1,
+      "identification": [
+        "id-19"
+      ],
+      "multipleChoice": [
+        "mc-77"
+      ],
+      "source": "Original question and mode counterpart",
+      "questionPages": {
+        "id-19": 21,
+        "mc-77": 21
+      }
+    },
+    {
+      "concept": "graph",
+      "page": 21,
+      "module": 1,
+      "identification": [
+        "id-20"
+      ],
+      "multipleChoice": [
+        "mc-78"
+      ],
+      "source": "Original question and mode counterpart",
+      "questionPages": {
+        "id-20": 21,
+        "mc-78": 21
+      }
+    },
+    {
+      "concept": "oodbms",
+      "page": 22,
+      "module": 1,
+      "identification": [
+        "id-21"
+      ],
+      "multipleChoice": [
+        "mc-54"
+      ],
+      "source": "Original question and mode counterpart",
+      "questionPages": {
+        "id-21": 22,
+        "mc-54": 22
+      }
+    },
+    {
+      "concept": "hierarchical",
+      "page": 23,
+      "module": 1,
+      "identification": [
+        "id-22"
+      ],
+      "multipleChoice": [
+        "mc-5"
+      ],
+      "source": "Original question and mode counterpart",
+      "questionPages": {
+        "id-22": 23,
+        "mc-5": 22
+      }
+    },
+    {
+      "concept": "network",
+      "page": 23,
+      "module": 1,
+      "identification": [
+        "id-23"
+      ],
+      "multipleChoice": [
+        "mc-15"
+      ],
+      "source": "Original question and mode counterpart",
+      "questionPages": {
+        "id-23": 23,
+        "mc-15": 23
+      }
+    },
+    {
+      "concept": "concurrency control",
+      "page": 25,
+      "module": 1,
+      "identification": [
+        "id-24"
+      ],
+      "multipleChoice": [
+        "mc-79"
+      ],
+      "source": "Original question and mode counterpart",
+      "questionPages": {
+        "id-24": 25,
+        "mc-79": 25
+      }
+    },
+    {
+      "concept": "chamberlin",
+      "page": 28,
+      "module": 2,
+      "identification": [
+        "id-25"
+      ],
+      "multipleChoice": [
+        "mc-80"
+      ],
+      "source": "Original question and mode counterpart",
+      "questionPages": {
+        "id-25": 28,
+        "mc-80": 28
+      }
+    },
+    {
+      "concept": "nonprocedural",
+      "page": 29,
+      "module": 2,
+      "identification": [
+        "id-26"
+      ],
+      "multipleChoice": [
+        "mc-81"
+      ],
+      "source": "Original question and mode counterpart",
+      "questionPages": {
+        "id-26": 29,
+        "mc-81": 29
+      }
+    },
+    {
+      "concept": "decimal",
+      "page": 32,
+      "module": 2,
+      "identification": [
+        "id-27"
+      ],
+      "multipleChoice": [
+        "mc-82"
+      ],
+      "source": "Original question and mode counterpart",
+      "questionPages": {
+        "id-27": 32,
+        "mc-82": 32
+      }
+    },
+    {
+      "concept": "char",
+      "page": 35,
+      "module": 2,
+      "identification": [
+        "id-28"
+      ],
+      "multipleChoice": [
+        "mc-83"
+      ],
+      "source": "Original question and mode counterpart",
+      "questionPages": {
+        "id-28": 35,
+        "mc-83": 35
+      }
+    },
+    {
+      "concept": "blob",
+      "page": 37,
+      "module": 2,
+      "identification": [
+        "id-29"
+      ],
+      "multipleChoice": [
+        "mc-20"
+      ],
+      "source": "Original question and mode counterpart",
+      "questionPages": {
+        "id-29": 37,
+        "mc-20": 37
+      }
+    },
+    {
+      "concept": "boolean",
+      "page": 40,
+      "module": 2,
+      "identification": [
+        "id-30"
+      ],
+      "multipleChoice": [
+        "mc-84"
+      ],
+      "source": "Original question and mode counterpart",
+      "questionPages": {
+        "id-30": 40,
+        "mc-84": 40
+      }
+    },
+    {
+      "concept": "enum",
+      "page": 41,
+      "module": 2,
+      "identification": [
+        "id-31"
+      ],
+      "multipleChoice": [
+        "mc-1"
+      ],
+      "source": "Original question and mode counterpart",
+      "questionPages": {
+        "id-31": 41,
+        "mc-1": 41
+      }
+    },
+    {
+      "concept": "set",
+      "page": 41,
+      "module": 2,
+      "identification": [
+        "id-32"
+      ],
+      "multipleChoice": [
+        "mc-19"
+      ],
+      "source": "Original question and mode counterpart",
+      "questionPages": {
+        "id-32": 41,
+        "mc-19": 41
+      }
+    },
+    {
+      "concept": "coalesce",
+      "page": 42,
+      "module": 2,
+      "identification": [
+        "id-33"
+      ],
+      "multipleChoice": [
+        "mc-85"
+      ],
+      "source": "Original question and mode counterpart",
+      "questionPages": {
+        "id-33": 42,
+        "mc-85": 42
+      }
+    },
+    {
+      "concept": "show databases",
+      "page": 45,
+      "module": 2,
+      "identification": [
+        "id-34"
+      ],
+      "multipleChoice": [
+        "mc-86"
+      ],
+      "source": "Original question and mode counterpart",
+      "questionPages": {
+        "id-34": 45,
+        "mc-86": 45
+      }
+    },
+    {
+      "concept": "show tables",
+      "page": 45,
+      "module": 2,
+      "identification": [
+        "id-35"
+      ],
+      "multipleChoice": [
+        "mc-24"
+      ],
+      "source": "Original question and mode counterpart",
+      "questionPages": {
+        "id-35": 45,
+        "mc-24": 45
+      }
+    },
+    {
+      "concept": "describe",
+      "page": 61,
+      "module": 3,
+      "identification": [
+        "id-36"
+      ],
+      "multipleChoice": [
+        "mc-87"
+      ],
+      "source": "Original question and mode counterpart",
+      "questionPages": {
+        "id-36": 61,
+        "mc-87": 61
+      }
+    },
+    {
+      "concept": "update",
+      "page": 66,
+      "module": 3,
+      "identification": [
+        "id-37"
+      ],
+      "multipleChoice": [
+        "mc-25"
+      ],
+      "source": "Original question and mode counterpart",
+      "questionPages": {
+        "id-37": 66,
+        "mc-25": 50
+      }
+    },
+    {
+      "concept": "set",
+      "page": 50,
+      "module": 3,
+      "identification": [
+        "id-38"
+      ],
+      "multipleChoice": [
+        "mc-88"
+      ],
+      "source": "Original question and mode counterpart",
+      "questionPages": {
+        "id-38": 50,
+        "mc-88": 50
+      }
+    },
+    {
+      "concept": "insert",
+      "page": 49,
+      "module": 3,
+      "identification": [
+        "id-39"
+      ],
+      "multipleChoice": [
+        "mc-28"
+      ],
+      "source": "Original question and mode counterpart",
+      "questionPages": {
+        "id-39": 49,
+        "mc-28": 64
+      }
+    },
+    {
+      "concept": "cross join",
+      "page": 56,
+      "module": 3,
+      "identification": [
+        "id-40"
+      ],
+      "multipleChoice": [
+        "mc-89"
+      ],
+      "source": "Original question and mode counterpart",
+      "questionPages": {
+        "id-40": 56,
+        "mc-89": 56
+      }
+    },
+    {
+      "concept": "data definition language",
+      "page": 62,
+      "module": 3,
+      "identification": [
+        "id-41"
+      ],
+      "multipleChoice": [
+        "mc-90"
+      ],
+      "source": "Original question and mode counterpart",
+      "questionPages": {
+        "id-41": 62,
+        "mc-90": 62
+      }
+    },
+    {
+      "concept": "data query language",
+      "page": 63,
+      "module": 3,
+      "identification": [
+        "id-42"
+      ],
+      "multipleChoice": [
+        "mc-91"
+      ],
+      "source": "Original question and mode counterpart",
+      "questionPages": {
+        "id-42": 63,
+        "mc-91": 63
+      }
+    },
+    {
+      "concept": "data manipulation language",
+      "page": 64,
+      "module": 3,
+      "identification": [
+        "id-43"
+      ],
+      "multipleChoice": [
+        "mc-92"
+      ],
+      "source": "Original question and mode counterpart",
+      "questionPages": {
+        "id-43": 64,
+        "mc-92": 64
+      }
+    },
+    {
+      "concept": "select",
+      "page": 63,
+      "module": 3,
+      "identification": [
+        "id-44"
+      ],
+      "multipleChoice": [
+        "mc-93"
+      ],
+      "source": "Original question and mode counterpart",
+      "questionPages": {
+        "id-44": 63,
+        "mc-93": 63
+      }
+    },
+    {
+      "concept": "grant",
+      "page": 65,
+      "module": 3,
+      "identification": [
+        "id-45"
+      ],
+      "multipleChoice": [
+        "mc-94"
+      ],
+      "source": "Original question and mode counterpart",
+      "questionPages": {
+        "id-45": 65,
+        "mc-94": 65
+      }
+    },
+    {
+      "concept": "truncate",
+      "page": 62,
+      "module": 3,
+      "identification": [
+        "id-46"
+      ],
+      "multipleChoice": [
+        "mc-95"
+      ],
+      "source": "Original question and mode counterpart",
+      "questionPages": {
+        "id-46": 62,
+        "mc-95": 62
+      }
+    },
+    {
+      "concept": "query",
+      "page": 61,
+      "module": 3,
+      "identification": [
+        "id-47"
+      ],
+      "multipleChoice": [
+        "mc-96"
+      ],
+      "source": "Original question and mode counterpart",
+      "questionPages": {
+        "id-47": 61,
+        "mc-96": 61
+      }
+    },
+    {
+      "concept": "constraint",
+      "page": 61,
+      "module": 3,
+      "identification": [
+        "id-48"
+      ],
+      "multipleChoice": [
+        "mc-97"
+      ],
+      "source": "Original question and mode counterpart",
+      "questionPages": {
+        "id-48": 61,
+        "mc-97": 61
+      }
+    },
+    {
+      "concept": "expression",
+      "page": 67,
+      "module": 4,
+      "identification": [
+        "id-49"
+      ],
+      "multipleChoice": [
+        "mc-98"
+      ],
+      "source": "Original question and mode counterpart",
+      "questionPages": {
+        "id-49": 67,
+        "mc-98": 67
+      }
+    },
+    {
+      "concept": "semicolon",
+      "page": 68,
+      "module": 4,
+      "identification": [
+        "id-50"
+      ],
+      "multipleChoice": [
+        "mc-30"
+      ],
+      "source": "Original question and mode counterpart",
+      "questionPages": {
+        "id-50": 68,
+        "mc-30": 79
+      }
+    },
+    {
+      "concept": "desc",
+      "page": 71,
+      "module": 4,
+      "identification": [
+        "id-51"
+      ],
+      "multipleChoice": [
+        "mc-99"
+      ],
+      "source": "Original question and mode counterpart",
+      "questionPages": {
+        "id-51": 71,
+        "mc-99": 71
+      }
+    },
+    {
+      "concept": "asc",
+      "page": 71,
+      "module": 4,
+      "identification": [
+        "id-52"
+      ],
+      "multipleChoice": [
+        "mc-100"
+      ],
+      "source": "Original question and mode counterpart",
+      "questionPages": {
+        "id-52": 71,
+        "mc-100": 71
+      }
+    },
+    {
+      "concept": "short circuit evaluation",
+      "page": 81,
+      "module": 4,
+      "identification": [
+        "id-53"
+      ],
+      "multipleChoice": [
+        "mc-101"
+      ],
+      "source": "Original question and mode counterpart",
+      "questionPages": {
+        "id-53": 81,
+        "mc-101": 81
+      }
+    },
+    {
+      "concept": "and",
+      "page": 84,
+      "module": 4,
+      "identification": [
+        "id-54"
+      ],
+      "multipleChoice": [
+        "mc-102"
+      ],
+      "source": "Original question and mode counterpart",
+      "questionPages": {
+        "id-54": 84,
+        "mc-102": 84
+      }
+    },
+    {
+      "concept": "join",
+      "page": 88,
+      "module": 5,
+      "identification": [
+        "id-55"
+      ],
+      "multipleChoice": [
+        "mc-103"
+      ],
+      "source": "Original question and mode counterpart",
+      "questionPages": {
+        "id-55": 88,
+        "mc-103": 88
+      }
+    },
+    {
+      "concept": "left join",
+      "page": 94,
+      "module": 5,
+      "identification": [
+        "id-56"
+      ],
+      "multipleChoice": [
+        "mc-104"
+      ],
+      "source": "Original question and mode counterpart",
+      "questionPages": {
+        "id-56": 94,
+        "mc-104": 94
+      }
+    },
+    {
+      "concept": "using",
+      "page": 91,
+      "module": 5,
+      "identification": [
+        "id-57"
+      ],
+      "multipleChoice": [
+        "mc-33"
+      ],
+      "source": "Original question and mode counterpart",
+      "questionPages": {
+        "id-57": 91,
+        "mc-33": 91
+      }
+    },
+    {
+      "concept": "tcl",
+      "page": 61,
+      "module": 3,
+      "identification": [
+        "id-58"
+      ],
+      "multipleChoice": [
+        "mc-36"
+      ],
+      "source": "Original question and mode counterpart",
+      "questionPages": {
+        "id-58": 61,
+        "mc-36": 61
+      }
+    },
+    {
+      "concept": "having",
+      "page": 63,
+      "module": 3,
+      "identification": [
+        "id-59"
+      ],
+      "multipleChoice": [
+        "mc-105"
+      ],
+      "source": "Original question and mode counterpart",
+      "questionPages": {
+        "id-59": 63,
+        "mc-105": 63
+      }
+    },
+    {
+      "concept": "distinct",
+      "page": 63,
+      "module": 3,
+      "identification": [
+        "id-60"
+      ],
+      "multipleChoice": [
+        "mc-106"
+      ],
+      "source": "Original question and mode counterpart",
+      "questionPages": {
+        "id-60": 63,
+        "mc-106": 63
+      }
+    },
+    {
+      "concept": "limit",
+      "page": 63,
+      "module": 3,
+      "identification": [
+        "id-61"
+      ],
+      "multipleChoice": [
+        "mc-107"
+      ],
+      "source": "Original question and mode counterpart",
+      "questionPages": {
+        "id-61": 63,
+        "mc-107": 63
+      }
+    },
+    {
+      "concept": "full join",
+      "page": 56,
+      "module": 3,
+      "identification": [
+        "id-62"
+      ],
+      "multipleChoice": [
+        "mc-108"
+      ],
+      "source": "Original question and mode counterpart",
+      "questionPages": {
+        "id-62": 56,
+        "mc-108": 56
+      }
+    },
+    {
+      "concept": "smallint",
+      "page": 32,
+      "module": 2,
+      "identification": [
+        "id-63"
+      ],
+      "multipleChoice": [
+        "mc-38"
+      ],
+      "source": "Original question and mode counterpart",
+      "questionPages": {
+        "id-63": 32,
+        "mc-38": 32
+      }
+    },
+    {
+      "concept": "bigint",
+      "page": 32,
+      "module": 2,
+      "identification": [
+        "id-64"
+      ],
+      "multipleChoice": [
+        "mc-37"
+      ],
+      "source": "Original question and mode counterpart",
+      "questionPages": {
+        "id-64": 32,
+        "mc-37": 32
+      }
+    },
+    {
+      "concept": "float",
+      "page": 33,
+      "module": 2,
+      "identification": [
+        "id-65"
+      ],
+      "multipleChoice": [
+        "mc-109"
+      ],
+      "source": "Original question and mode counterpart",
+      "questionPages": {
+        "id-65": 33,
+        "mc-109": 33
+      }
+    },
+    {
+      "concept": "double",
+      "page": 34,
+      "module": 2,
+      "identification": [
+        "id-66"
+      ],
+      "multipleChoice": [
+        "mc-110"
+      ],
+      "source": "Original question and mode counterpart",
+      "questionPages": {
+        "id-66": 34,
+        "mc-110": 34
+      }
+    },
+    {
+      "concept": "real",
+      "page": 33,
+      "module": 2,
+      "identification": [
+        "id-67"
+      ],
+      "multipleChoice": [
+        "mc-111"
+      ],
+      "source": "Original question and mode counterpart",
+      "questionPages": {
+        "id-67": 33,
+        "mc-111": 33
+      }
+    },
+    {
+      "concept": "varbinary",
+      "page": 36,
+      "module": 2,
+      "identification": [
+        "id-68"
+      ],
+      "multipleChoice": [
+        "mc-40"
+      ],
+      "source": "Original question and mode counterpart",
+      "questionPages": {
+        "id-68": 36,
+        "mc-40": 36
+      }
+    },
+    {
+      "concept": "time",
+      "page": 38,
+      "module": 2,
+      "identification": [
+        "id-69"
+      ],
+      "multipleChoice": [
+        "mc-41"
+      ],
+      "source": "Original question and mode counterpart",
+      "questionPages": {
+        "id-69": 38,
+        "mc-41": 38
+      }
+    },
+    {
+      "concept": "datetime",
+      "page": 39,
+      "module": 2,
+      "identification": [
+        "id-70"
+      ],
+      "multipleChoice": [
+        "mc-42"
+      ],
+      "source": "Original question and mode counterpart",
+      "questionPages": {
+        "id-70": 39,
+        "mc-42": 39
+      }
+    },
+    {
+      "concept": "timestamp",
+      "page": 39,
+      "module": 2,
+      "identification": [
+        "id-71"
+      ],
+      "multipleChoice": [
+        "mc-43"
+      ],
+      "source": "Original question and mode counterpart",
+      "questionPages": {
+        "id-71": 39,
+        "mc-43": 39
+      }
+    },
+    {
+      "concept": "mediumtext",
+      "page": 62,
+      "module": 3,
+      "identification": [
+        "id-72"
+      ],
+      "multipleChoice": [
+        "mc-44"
+      ],
+      "source": "Original question and mode counterpart",
+      "questionPages": {
+        "id-72": 62,
+        "mc-44": 62
+      }
+    },
+    {
+      "concept": "mediumblob",
+      "page": 62,
+      "module": 3,
+      "identification": [
+        "id-73"
+      ],
+      "multipleChoice": [
+        "mc-45"
+      ],
+      "source": "Original question and mode counterpart",
+      "questionPages": {
+        "id-73": 62,
+        "mc-45": 62
+      }
+    },
+    {
+      "concept": "auto_increment",
+      "page": 60,
+      "module": 3,
+      "identification": [
+        "id-74"
+      ],
+      "multipleChoice": [
+        "mc-112"
+      ],
+      "source": "Original question and mode counterpart",
+      "questionPages": {
+        "id-74": 60,
+        "mc-112": 60
+      }
+    },
+    {
+      "concept": "create database",
+      "page": 52,
+      "module": 3,
+      "identification": [
+        "id-75"
+      ],
+      "multipleChoice": [
+        "mc-113"
+      ],
+      "source": "Original question and mode counterpart",
+      "questionPages": {
+        "id-75": 52,
+        "mc-113": 52
+      }
+    },
+    {
+      "concept": "drop database",
+      "page": 54,
+      "module": 3,
+      "identification": [
+        "id-76"
+      ],
+      "multipleChoice": [
+        "mc-114"
+      ],
+      "source": "Original question and mode counterpart",
+      "questionPages": {
+        "id-76": 54,
+        "mc-114": 54
+      }
+    },
+    {
+      "concept": "audit trail",
+      "page": 24,
+      "module": 1,
+      "identification": [
+        "id-77"
+      ],
+      "multipleChoice": [
+        "mc-49"
+      ],
+      "source": "Original question and mode counterpart",
+      "questionPages": {
+        "id-77": 24,
+        "mc-49": 24
+      }
+    },
+    {
+      "concept": "encryption",
+      "page": 24,
+      "module": 1,
+      "identification": [
+        "id-78"
+      ],
+      "multipleChoice": [
+        "mc-50"
+      ],
+      "source": "Original question and mode counterpart",
+      "questionPages": {
+        "id-78": 24,
+        "mc-50": 24
+      }
+    },
+    {
+      "concept": "dynamodb",
+      "page": 21,
+      "module": 1,
+      "identification": [
+        "id-79"
+      ],
+      "multipleChoice": [
+        "mc-115"
+      ],
+      "source": "Original question and mode counterpart",
+      "questionPages": {
+        "id-79": 21,
+        "mc-115": 21
+      }
+    },
+    {
+      "concept": "document oriented",
+      "page": 21,
+      "module": 1,
+      "identification": [
+        "id-80"
+      ],
+      "multipleChoice": [
+        "mc-52"
+      ],
+      "source": "Original question and mode counterpart",
+      "questionPages": {
+        "id-80": 21,
+        "mc-52": 21
+      }
+    },
+    {
+      "concept": "column family",
+      "page": 21,
+      "module": 1,
+      "identification": [
+        "id-81"
+      ],
+      "multipleChoice": [
+        "mc-53"
+      ],
+      "source": "Original question and mode counterpart",
+      "questionPages": {
+        "id-81": 21,
+        "mc-53": 21
+      }
+    },
+    {
+      "concept": "oodbms",
+      "page": 22,
+      "module": 1,
+      "identification": [
+        "id-82"
+      ],
+      "multipleChoice": [
+        "mc-54"
+      ],
+      "source": "Original question and mode counterpart",
+      "questionPages": {
+        "id-82": 22,
+        "mc-54": 22
+      }
+    },
+    {
+      "concept": "predicate",
+      "page": 75,
+      "module": 4,
+      "identification": [
+        "id-83"
+      ],
+      "multipleChoice": [
+        "mc-116"
+      ],
+      "source": "Original question and mode counterpart",
+      "questionPages": {
+        "id-83": 75,
+        "mc-116": 75
+      }
+    },
+    {
+      "concept": "not",
+      "page": 75,
+      "module": 4,
+      "identification": [
+        "id-84"
+      ],
+      "multipleChoice": [
+        "mc-117"
+      ],
+      "source": "Original question and mode counterpart",
+      "questionPages": {
+        "id-84": 75,
+        "mc-117": 75
+      }
+    },
+    {
+      "concept": "mysql",
+      "page": 44,
+      "module": 2,
+      "identification": [
+        "id-85"
+      ],
+      "multipleChoice": [
+        "mc-118"
+      ],
+      "source": "Original question and mode counterpart",
+      "questionPages": {
+        "id-85": 44,
+        "mc-118": 44
+      }
+    },
+    {
+      "concept": "alias",
+      "page": 90,
+      "module": 5,
+      "identification": [
+        "id-86"
+      ],
+      "multipleChoice": [
+        "mc-119"
+      ],
+      "source": "Original question and mode counterpart",
+      "questionPages": {
+        "id-86": 90,
+        "mc-119": 90
+      }
+    },
+    {
+      "concept": "rename",
+      "page": 62,
+      "module": 3,
+      "identification": [
+        "id-87"
+      ],
+      "multipleChoice": [
+        "mc-120"
+      ],
+      "source": "Original question and mode counterpart",
+      "questionPages": {
+        "id-87": 62,
+        "mc-120": 62
+      }
+    },
+    {
+      "concept": "comment",
+      "page": 62,
+      "module": 3,
+      "identification": [
+        "id-88"
+      ],
+      "multipleChoice": [
+        "mc-121"
+      ],
+      "source": "Original question and mode counterpart",
+      "questionPages": {
+        "id-88": 62,
+        "mc-121": 62
+      }
+    },
+    {
+      "concept": "Database",
+      "page": 12,
+      "module": 1,
+      "identification": [
+        "id-89"
+      ],
+      "multipleChoice": [
+        "mc-122"
+      ],
+      "source": "Definition, nested bullet, table, diagram or example in PDF",
+      "questionPages": {
+        "id-89": 12,
+        "mc-122": 12
+      }
+    },
+    {
+      "concept": "Table",
+      "page": 13,
+      "module": 1,
+      "identification": [
+        "id-90"
+      ],
+      "multipleChoice": [
+        "mc-123"
+      ],
+      "source": "Definition, nested bullet, table, diagram or example in PDF",
+      "questionPages": {
+        "id-90": 13,
+        "mc-123": 13
+      }
+    },
+    {
+      "concept": "Column",
+      "page": 13,
+      "module": 1,
+      "identification": [
+        "id-91"
+      ],
+      "multipleChoice": [
+        "mc-124"
+      ],
+      "source": "Definition, nested bullet, table, diagram or example in PDF",
+      "questionPages": {
+        "id-91": 13,
+        "mc-124": 13
+      }
+    },
+    {
+      "concept": "Row",
+      "page": 14,
+      "module": 1,
+      "identification": [
+        "id-92"
+      ],
+      "multipleChoice": [
+        "mc-125"
+      ],
+      "source": "Definition, nested bullet, table, diagram or example in PDF",
+      "questionPages": {
+        "id-92": 14,
+        "mc-125": 14
+      }
+    },
+    {
+      "concept": "Column name",
+      "page": 14,
+      "module": 1,
+      "identification": [
+        "id-93"
+      ],
+      "multipleChoice": [
+        "mc-126"
+      ],
+      "source": "Definition, nested bullet, table, diagram or example in PDF",
+      "questionPages": {
+        "id-93": 14,
+        "mc-126": 14
+      }
+    },
+    {
+      "concept": "Personal database",
+      "page": 11,
+      "module": 1,
+      "identification": [
+        "id-94"
+      ],
+      "multipleChoice": [
+        "mc-127"
+      ],
+      "source": "Definition, nested bullet, table, diagram or example in PDF",
+      "questionPages": {
+        "id-94": 11,
+        "mc-127": 11
+      }
+    },
+    {
+      "concept": "Group database",
+      "page": 12,
+      "module": 1,
+      "identification": [
+        "id-95"
+      ],
+      "multipleChoice": [
+        "mc-128"
+      ],
+      "source": "Definition, nested bullet, table, diagram or example in PDF",
+      "questionPages": {
+        "id-95": 12,
+        "mc-128": 12
+      }
+    },
+    {
+      "concept": "Enterprise database",
+      "page": 12,
+      "module": 1,
+      "identification": [
+        "id-96"
+      ],
+      "multipleChoice": [
+        "mc-129"
+      ],
+      "source": "Definition, nested bullet, table, diagram or example in PDF",
+      "questionPages": {
+        "id-96": 12,
+        "mc-129": 12
+      }
+    },
+    {
+      "concept": "Cloud",
+      "page": 16,
+      "module": 1,
+      "identification": [
+        "id-97"
+      ],
+      "multipleChoice": [
+        "mc-130"
+      ],
+      "source": "Definition, nested bullet, table, diagram or example in PDF",
+      "questionPages": {
+        "id-97": 16,
+        "mc-130": 16
+      }
+    },
+    {
+      "concept": "Database engine",
+      "page": 17,
+      "module": 1,
+      "identification": [
+        "id-98"
+      ],
+      "multipleChoice": [
+        "mc-131"
+      ],
+      "source": "Definition, nested bullet, table, diagram or example in PDF",
+      "questionPages": {
+        "id-98": 17,
+        "mc-131": 17
+      }
+    },
+    {
+      "concept": "Schema",
+      "page": 20,
+      "module": 1,
+      "identification": [
+        "id-99"
+      ],
+      "multipleChoice": [
+        "mc-132"
+      ],
+      "source": "Definition, nested bullet, table, diagram or example in PDF",
+      "questionPages": {
+        "id-99": 20,
+        "mc-132": 20
+      }
+    },
+    {
+      "concept": "Domain",
+      "page": 20,
+      "module": 1,
+      "identification": [
+        "id-100"
+      ],
+      "multipleChoice": [
+        "mc-133"
+      ],
+      "source": "Definition, nested bullet, table, diagram or example in PDF",
+      "questionPages": {
+        "id-100": 20,
+        "mc-133": 20
+      }
+    },
+    {
+      "concept": "Data Definition",
+      "page": 18,
+      "module": 1,
+      "identification": [
+        "id-101"
+      ],
+      "multipleChoice": [
+        "mc-134"
+      ],
+      "source": "Definition, nested bullet, table, diagram or example in PDF",
+      "questionPages": {
+        "id-101": 18,
+        "mc-134": 18
+      }
+    },
+    {
+      "concept": "Schema Definition",
+      "page": 18,
+      "module": 1,
+      "identification": [
+        "id-102"
+      ],
+      "multipleChoice": [
+        "mc-135"
+      ],
+      "source": "Definition, nested bullet, table, diagram or example in PDF",
+      "questionPages": {
+        "id-102": 18,
+        "mc-135": 18
+      }
+    },
+    {
+      "concept": "Data Types",
+      "page": 18,
+      "module": 1,
+      "identification": [
+        "id-103"
+      ],
+      "multipleChoice": [
+        "mc-136"
+      ],
+      "source": "Definition, nested bullet, table, diagram or example in PDF",
+      "questionPages": {
+        "id-103": 18,
+        "mc-136": 18
+      }
+    },
+    {
+      "concept": "Data Manipulation",
+      "page": 18,
+      "module": 1,
+      "identification": [
+        "id-104"
+      ],
+      "multipleChoice": [
+        "mc-137"
+      ],
+      "source": "Definition, nested bullet, table, diagram or example in PDF",
+      "questionPages": {
+        "id-104": 18,
+        "mc-137": 18
+      }
+    },
+    {
+      "concept": "Query Processing",
+      "page": 18,
+      "module": 1,
+      "identification": [
+        "id-105"
+      ],
+      "multipleChoice": [
+        "mc-138"
+      ],
+      "source": "Definition, nested bullet, table, diagram or example in PDF",
+      "questionPages": {
+        "id-105": 18,
+        "mc-138": 18
+      }
+    },
+    {
+      "concept": "Data Update",
+      "page": 18,
+      "module": 1,
+      "identification": [
+        "id-106"
+      ],
+      "multipleChoice": [
+        "mc-139"
+      ],
+      "source": "Definition, nested bullet, table, diagram or example in PDF",
+      "questionPages": {
+        "id-106": 18,
+        "mc-139": 18
+      }
+    },
+    {
+      "concept": "Transaction Management",
+      "page": 18,
+      "module": 1,
+      "identification": [
+        "id-107"
+      ],
+      "multipleChoice": [
+        "mc-140"
+      ],
+      "source": "Definition, nested bullet, table, diagram or example in PDF",
+      "questionPages": {
+        "id-107": 18,
+        "mc-140": 18
+      }
+    },
+    {
+      "concept": "Data Security and Integrity",
+      "page": 18,
+      "module": 1,
+      "identification": [
+        "id-108"
+      ],
+      "multipleChoice": [
+        "mc-141"
+      ],
+      "source": "Definition, nested bullet, table, diagram or example in PDF",
+      "questionPages": {
+        "id-108": 18,
+        "mc-141": 18
+      }
+    },
+    {
+      "concept": "Access Control",
+      "page": 18,
+      "module": 1,
+      "identification": [
+        "id-109"
+      ],
+      "multipleChoice": [
+        "mc-142"
+      ],
+      "source": "Definition, nested bullet, table, diagram or example in PDF",
+      "questionPages": {
+        "id-109": 18,
+        "mc-142": 18
+      }
+    },
+    {
+      "concept": "Integrity Constraints",
+      "page": 18,
+      "module": 1,
+      "identification": [
+        "id-110"
+      ],
+      "multipleChoice": [
+        "mc-143"
+      ],
+      "source": "Definition, nested bullet, table, diagram or example in PDF",
+      "questionPages": {
+        "id-110": 18,
+        "mc-143": 18
+      }
+    },
+    {
+      "concept": "Data Storage and Retrieval",
+      "page": 18,
+      "module": 1,
+      "identification": [
+        "id-111"
+      ],
+      "multipleChoice": [
+        "mc-144"
+      ],
+      "source": "Definition, nested bullet, table, diagram or example in PDF",
+      "questionPages": {
+        "id-111": 18,
+        "mc-144": 18
+      }
+    },
+    {
+      "concept": "Storage Management",
+      "page": 18,
+      "module": 1,
+      "identification": [
+        "id-112"
+      ],
+      "multipleChoice": [
+        "mc-145"
+      ],
+      "source": "Definition, nested bullet, table, diagram or example in PDF",
+      "questionPages": {
+        "id-112": 18,
+        "mc-145": 18
+      }
+    },
+    {
+      "concept": "Indexing",
+      "page": 18,
+      "module": 1,
+      "identification": [
+        "id-113"
+      ],
+      "multipleChoice": [
+        "mc-146"
+      ],
+      "source": "Definition, nested bullet, table, diagram or example in PDF",
+      "questionPages": {
+        "id-113": 18,
+        "mc-146": 18
+      }
+    },
+    {
+      "concept": "Backup and Recovery",
+      "page": 18,
+      "module": 1,
+      "identification": [
+        "id-114"
+      ],
+      "multipleChoice": [
+        "mc-147"
+      ],
+      "source": "Definition, nested bullet, table, diagram or example in PDF",
+      "questionPages": {
+        "id-114": 18,
+        "mc-147": 18
+      }
+    },
+    {
+      "concept": "Data Administration",
+      "page": 18,
+      "module": 1,
+      "identification": [
+        "id-115"
+      ],
+      "multipleChoice": [
+        "mc-148"
+      ],
+      "source": "Definition, nested bullet, table, diagram or example in PDF",
+      "questionPages": {
+        "id-115": 18,
+        "mc-148": 18
+      }
+    },
+    {
+      "concept": "Database Tuning",
+      "page": 18,
+      "module": 1,
+      "identification": [
+        "id-116"
+      ],
+      "multipleChoice": [
+        "mc-149"
+      ],
+      "source": "Definition, nested bullet, table, diagram or example in PDF",
+      "questionPages": {
+        "id-116": 18,
+        "mc-149": 18
+      }
+    },
+    {
+      "concept": "Monitoring and Maintenance",
+      "page": 18,
+      "module": 1,
+      "identification": [
+        "id-117"
+      ],
+      "multipleChoice": [
+        "mc-150"
+      ],
+      "source": "Definition, nested bullet, table, diagram or example in PDF",
+      "questionPages": {
+        "id-117": 18,
+        "mc-150": 18
+      }
+    },
+    {
+      "concept": "Relational DBMS",
+      "page": 21,
+      "module": 1,
+      "identification": [
+        "id-118"
+      ],
+      "multipleChoice": [
+        "mc-151"
+      ],
+      "source": "Definition, nested bullet, table, diagram or example in PDF",
+      "questionPages": {
+        "id-118": 21,
+        "mc-151": 21
+      }
+    },
+    {
+      "concept": "NoSQL DBMS",
+      "page": 21,
+      "module": 1,
+      "identification": [
+        "id-119"
+      ],
+      "multipleChoice": [
+        "mc-152"
+      ],
+      "source": "Definition, nested bullet, table, diagram or example in PDF",
+      "questionPages": {
+        "id-119": 21,
+        "mc-152": 21
+      }
+    },
+    {
+      "concept": "Key-value store",
+      "page": 21,
+      "module": 1,
+      "identification": [
+        "id-120"
+      ],
+      "multipleChoice": [
+        "mc-153"
+      ],
+      "source": "Definition, nested bullet, table, diagram or example in PDF",
+      "questionPages": {
+        "id-120": 21,
+        "mc-153": 21
+      }
+    },
+    {
+      "concept": "Centralized Data Management",
+      "page": 23,
+      "module": 1,
+      "identification": [
+        "id-121"
+      ],
+      "multipleChoice": [
+        "mc-154"
+      ],
+      "source": "Definition, nested bullet, table, diagram or example in PDF",
+      "questionPages": {
+        "id-121": 23,
+        "mc-154": 23
+      }
+    },
+    {
+      "concept": "Improved Data Security",
+      "page": 24,
+      "module": 1,
+      "identification": [
+        "id-122"
+      ],
+      "multipleChoice": [
+        "mc-155"
+      ],
+      "source": "Definition, nested bullet, table, diagram or example in PDF",
+      "questionPages": {
+        "id-122": 24,
+        "mc-155": 24
+      }
+    },
+    {
+      "concept": "Efficient Data Retrieval and Manipulation",
+      "page": 24,
+      "module": 1,
+      "identification": [
+        "id-123"
+      ],
+      "multipleChoice": [
+        "mc-156"
+      ],
+      "source": "Definition, nested bullet, table, diagram or example in PDF",
+      "questionPages": {
+        "id-123": 24,
+        "mc-156": 24
+      }
+    },
+    {
+      "concept": "Data Consistency and Integrity",
+      "page": 24,
+      "module": 1,
+      "identification": [
+        "id-124"
+      ],
+      "multipleChoice": [
+        "mc-157"
+      ],
+      "source": "Definition, nested bullet, table, diagram or example in PDF",
+      "questionPages": {
+        "id-124": 24,
+        "mc-157": 24
+      }
+    },
+    {
+      "concept": "Scalability and Flexibility",
+      "page": 24,
+      "module": 1,
+      "identification": [
+        "id-125"
+      ],
+      "multipleChoice": [
+        "mc-158"
+      ],
+      "source": "Definition, nested bullet, table, diagram or example in PDF",
+      "questionPages": {
+        "id-125": 24,
+        "mc-158": 24
+      }
+    },
+    {
+      "concept": "Vertical scaling",
+      "page": 25,
+      "module": 1,
+      "identification": [
+        "id-126"
+      ],
+      "multipleChoice": [
+        "mc-159"
+      ],
+      "source": "Definition, nested bullet, table, diagram or example in PDF",
+      "questionPages": {
+        "id-126": 25,
+        "mc-159": 25
+      }
+    },
+    {
+      "concept": "Horizontal scaling",
+      "page": 25,
+      "module": 1,
+      "identification": [
+        "id-127"
+      ],
+      "multipleChoice": [
+        "mc-160"
+      ],
+      "source": "Definition, nested bullet, table, diagram or example in PDF",
+      "questionPages": {
+        "id-127": 25,
+        "mc-160": 25
+      }
+    },
+    {
+      "concept": "Locking",
+      "page": 25,
+      "module": 1,
+      "identification": [
+        "id-128"
+      ],
+      "multipleChoice": [
+        "mc-161"
+      ],
+      "source": "Definition, nested bullet, table, diagram or example in PDF",
+      "questionPages": {
+        "id-128": 25,
+        "mc-161": 25
+      }
+    },
+    {
+      "concept": "Cost Efficiency",
+      "page": 25,
+      "module": 1,
+      "identification": [
+        "id-129"
+      ],
+      "multipleChoice": [
+        "mc-162"
+      ],
+      "source": "Definition, nested bullet, table, diagram or example in PDF",
+      "questionPages": {
+        "id-129": 25,
+        "mc-162": 25
+      }
+    },
+    {
+      "concept": "IBM IMS",
+      "page": 23,
+      "module": 1,
+      "identification": [
+        "id-130"
+      ],
+      "multipleChoice": [
+        "mc-163"
+      ],
+      "source": "Definition, nested bullet, table, diagram or example in PDF",
+      "questionPages": {
+        "id-130": 23,
+        "mc-163": 23
+      }
+    },
+    {
+      "concept": "IDMS",
+      "page": 23,
+      "module": 1,
+      "identification": [
+        "id-131"
+      ],
+      "multipleChoice": [
+        "mc-164"
+      ],
+      "source": "Definition, nested bullet, table, diagram or example in PDF",
+      "questionPages": {
+        "id-131": 23,
+        "mc-164": 23
+      }
+    },
+    {
+      "concept": "MongoDB",
+      "page": 21,
+      "module": 1,
+      "identification": [
+        "id-132"
+      ],
+      "multipleChoice": [
+        "mc-165"
+      ],
+      "source": "Definition, nested bullet, table, diagram or example in PDF",
+      "questionPages": {
+        "id-132": 21,
+        "mc-165": 21
+      }
+    },
+    {
+      "concept": "Redis",
+      "page": 21,
+      "module": 1,
+      "identification": [
+        "id-133"
+      ],
+      "multipleChoice": [
+        "mc-166"
+      ],
+      "source": "Definition, nested bullet, table, diagram or example in PDF",
+      "questionPages": {
+        "id-133": 21,
+        "mc-166": 21
+      }
+    },
+    {
+      "concept": "Cassandra",
+      "page": 21,
+      "module": 1,
+      "identification": [
+        "id-134"
+      ],
+      "multipleChoice": [
+        "mc-167"
+      ],
+      "source": "Definition, nested bullet, table, diagram or example in PDF",
+      "questionPages": {
+        "id-134": 21,
+        "mc-167": 21
+      }
+    },
+    {
+      "concept": "Neo4j",
+      "page": 21,
+      "module": 1,
+      "identification": [
+        "id-135"
+      ],
+      "multipleChoice": [
+        "mc-168"
+      ],
+      "source": "Definition, nested bullet, table, diagram or example in PDF",
+      "questionPages": {
+        "id-135": 21,
+        "mc-168": 21
+      }
+    },
+    {
+      "concept": "ObjectDB",
+      "page": 22,
+      "module": 1,
+      "identification": [
+        "id-136"
+      ],
+      "multipleChoice": [
+        "mc-169"
+      ],
+      "source": "Definition, nested bullet, table, diagram or example in PDF",
+      "questionPages": {
+        "id-136": 22,
+        "mc-169": 22
+      }
+    },
+    {
+      "concept": "SQL",
+      "page": 28,
+      "module": 2,
+      "identification": [
+        "id-137"
+      ],
+      "multipleChoice": [
+        "mc-170"
+      ],
+      "source": "Definition, nested bullet, table, diagram or example in PDF",
+      "questionPages": {
+        "id-137": 28,
+        "mc-170": 28
+      }
+    },
+    {
+      "concept": "Procedural language",
+      "page": 29,
+      "module": 2,
+      "identification": [
+        "id-138"
+      ],
+      "multipleChoice": [
+        "mc-171"
+      ],
+      "source": "Definition, nested bullet, table, diagram or example in PDF",
+      "questionPages": {
+        "id-138": 29,
+        "mc-171": 29
+      }
+    },
+    {
+      "concept": "Numeric data types",
+      "page": 31,
+      "module": 2,
+      "identification": [
+        "id-139"
+      ],
+      "multipleChoice": [
+        "mc-172"
+      ],
+      "source": "Definition, nested bullet, table, diagram or example in PDF",
+      "questionPages": {
+        "id-139": 31,
+        "mc-172": 31
+      }
+    },
+    {
+      "concept": "INT",
+      "page": 31,
+      "module": 2,
+      "identification": [
+        "id-140"
+      ],
+      "multipleChoice": [
+        "mc-173"
+      ],
+      "source": "Definition, nested bullet, table, diagram or example in PDF",
+      "questionPages": {
+        "id-140": 31,
+        "mc-173": 31
+      }
+    },
+    {
+      "concept": "TINYINT",
+      "page": 32,
+      "module": 2,
+      "identification": [
+        "id-141"
+      ],
+      "multipleChoice": [
+        "mc-174"
+      ],
+      "source": "Definition, nested bullet, table, diagram or example in PDF",
+      "questionPages": {
+        "id-141": 32,
+        "mc-174": 32
+      }
+    },
+    {
+      "concept": "Precision",
+      "page": 32,
+      "module": 2,
+      "identification": [
+        "id-142"
+      ],
+      "multipleChoice": [
+        "mc-175"
+      ],
+      "source": "Definition, nested bullet, table, diagram or example in PDF",
+      "questionPages": {
+        "id-142": 32,
+        "mc-175": 32
+      }
+    },
+    {
+      "concept": "Scale",
+      "page": 32,
+      "module": 2,
+      "identification": [
+        "id-143"
+      ],
+      "multipleChoice": [
+        "mc-176"
+      ],
+      "source": "Definition, nested bullet, table, diagram or example in PDF",
+      "questionPages": {
+        "id-143": 32,
+        "mc-176": 32
+      }
+    },
+    {
+      "concept": "Character string data types",
+      "page": 34,
+      "module": 2,
+      "identification": [
+        "id-144"
+      ],
+      "multipleChoice": [
+        "mc-177"
+      ],
+      "source": "Definition, nested bullet, table, diagram or example in PDF",
+      "questionPages": {
+        "id-144": 34,
+        "mc-177": 34
+      }
+    },
+    {
+      "concept": "VARCHAR",
+      "page": 35,
+      "module": 2,
+      "identification": [
+        "id-145"
+      ],
+      "multipleChoice": [
+        "mc-178"
+      ],
+      "source": "Definition, nested bullet, table, diagram or example in PDF",
+      "questionPages": {
+        "id-145": 35,
+        "mc-178": 35
+      }
+    },
+    {
+      "concept": "TEXT",
+      "page": 35,
+      "module": 2,
+      "identification": [
+        "id-146"
+      ],
+      "multipleChoice": [
+        "mc-179"
+      ],
+      "source": "Definition, nested bullet, table, diagram or example in PDF",
+      "questionPages": {
+        "id-146": 35,
+        "mc-179": 35
+      }
+    },
+    {
+      "concept": "Binary data types",
+      "page": 36,
+      "module": 2,
+      "identification": [
+        "id-147"
+      ],
+      "multipleChoice": [
+        "mc-180"
+      ],
+      "source": "Definition, nested bullet, table, diagram or example in PDF",
+      "questionPages": {
+        "id-147": 36,
+        "mc-180": 36
+      }
+    },
+    {
+      "concept": "BINARY",
+      "page": 36,
+      "module": 2,
+      "identification": [
+        "id-148"
+      ],
+      "multipleChoice": [
+        "mc-181"
+      ],
+      "source": "Definition, nested bullet, table, diagram or example in PDF",
+      "questionPages": {
+        "id-148": 36,
+        "mc-181": 36
+      }
+    },
+    {
+      "concept": "Date and time data types",
+      "page": 37,
+      "module": 2,
+      "identification": [
+        "id-149"
+      ],
+      "multipleChoice": [
+        "mc-182"
+      ],
+      "source": "Definition, nested bullet, table, diagram or example in PDF",
+      "questionPages": {
+        "id-149": 37,
+        "mc-182": 37
+      }
+    },
+    {
+      "concept": "DATE",
+      "page": 37,
+      "module": 2,
+      "identification": [
+        "id-150"
+      ],
+      "multipleChoice": [
+        "mc-183"
+      ],
+      "source": "Definition, nested bullet, table, diagram or example in PDF",
+      "questionPages": {
+        "id-150": 37,
+        "mc-183": 37
+      }
+    },
+    {
+      "concept": "YEAR",
+      "page": 39,
+      "module": 2,
+      "identification": [
+        "id-151"
+      ],
+      "multipleChoice": [
+        "mc-184"
+      ],
+      "source": "Definition, nested bullet, table, diagram or example in PDF",
+      "questionPages": {
+        "id-151": 39,
+        "mc-184": 39
+      }
+    },
+    {
+      "concept": "Miscellaneous data types",
+      "page": 40,
+      "module": 2,
+      "identification": [
+        "id-152"
+      ],
+      "multipleChoice": [
+        "mc-185"
+      ],
+      "source": "Definition, nested bullet, table, diagram or example in PDF",
+      "questionPages": {
+        "id-152": 40,
+        "mc-185": 40
+      }
+    },
+    {
+      "concept": "Spatial data types",
+      "page": 40,
+      "module": 2,
+      "identification": [
+        "id-153"
+      ],
+      "multipleChoice": [
+        "mc-186"
+      ],
+      "source": "Definition, nested bullet, table, diagram or example in PDF",
+      "questionPages": {
+        "id-153": 40,
+        "mc-186": 40
+      }
+    },
+    {
+      "concept": "JSON",
+      "page": 40,
+      "module": 2,
+      "identification": [
+        "id-154"
+      ],
+      "multipleChoice": [
+        "mc-187"
+      ],
+      "source": "Definition, nested bullet, table, diagram or example in PDF",
+      "questionPages": {
+        "id-154": 40,
+        "mc-187": 40
+      }
+    },
+    {
+      "concept": "IS NULL",
+      "page": 42,
+      "module": 2,
+      "identification": [
+        "id-155"
+      ],
+      "multipleChoice": [
+        "mc-188"
+      ],
+      "source": "Definition, nested bullet, table, diagram or example in PDF",
+      "questionPages": {
+        "id-155": 42,
+        "mc-188": 42
+      }
+    },
+    {
+      "concept": "IS NOT NULL",
+      "page": 42,
+      "module": 2,
+      "identification": [
+        "id-156"
+      ],
+      "multipleChoice": [
+        "mc-189"
+      ],
+      "source": "Definition, nested bullet, table, diagram or example in PDF",
+      "questionPages": {
+        "id-156": 42,
+        "mc-189": 42
+      }
+    },
+    {
+      "concept": "COALESCE",
+      "page": 42,
+      "module": 2,
+      "identification": [
+        "id-157"
+      ],
+      "multipleChoice": [
+        "mc-190"
+      ],
+      "source": "Definition, nested bullet, table, diagram or example in PDF",
+      "questionPages": {
+        "id-157": 42,
+        "mc-190": 42
+      }
+    },
+    {
+      "concept": "IFNULL",
+      "page": 42,
+      "module": 2,
+      "identification": [
+        "id-158"
+      ],
+      "multipleChoice": [
+        "mc-191"
+      ],
+      "source": "Definition, nested bullet, table, diagram or example in PDF",
+      "questionPages": {
+        "id-158": 42,
+        "mc-191": 42
+      }
+    },
+    {
+      "concept": "USE",
+      "page": 45,
+      "module": 2,
+      "identification": [
+        "id-159"
+      ],
+      "multipleChoice": [
+        "mc-192"
+      ],
+      "source": "Definition, nested bullet, table, diagram or example in PDF",
+      "questionPages": {
+        "id-159": 45,
+        "mc-192": 45
+      }
+    },
+    {
+      "concept": "SHOW COLUMNS",
+      "page": 45,
+      "module": 2,
+      "identification": [
+        "id-160"
+      ],
+      "multipleChoice": [
+        "mc-193"
+      ],
+      "source": "Definition, nested bullet, table, diagram or example in PDF",
+      "questionPages": {
+        "id-160": 45,
+        "mc-193": 45
+      }
+    },
+    {
+      "concept": "SHOW INDEX",
+      "page": 45,
+      "module": 2,
+      "identification": [
+        "id-161"
+      ],
+      "multipleChoice": [
+        "mc-194"
+      ],
+      "source": "Definition, nested bullet, table, diagram or example in PDF",
+      "questionPages": {
+        "id-161": 45,
+        "mc-194": 45
+      }
+    },
+    {
+      "concept": "SHOW TABLE STATUS",
+      "page": 45,
+      "module": 2,
+      "identification": [
+        "id-162"
+      ],
+      "multipleChoice": [
+        "mc-195"
+      ],
+      "source": "Definition, nested bullet, table, diagram or example in PDF",
+      "questionPages": {
+        "id-162": 45,
+        "mc-195": 45
+      }
+    },
+    {
+      "concept": "Vertical display delimiter",
+      "page": 45,
+      "module": 2,
+      "identification": [
+        "id-163"
+      ],
+      "multipleChoice": [
+        "mc-196"
+      ],
+      "source": "Definition, nested bullet, table, diagram or example in PDF",
+      "questionPages": {
+        "id-163": 45,
+        "mc-196": 45
+      }
+    },
+    {
+      "concept": "root",
+      "page": 44,
+      "module": 2,
+      "identification": [
+        "id-164"
+      ],
+      "multipleChoice": [
+        "mc-197"
+      ],
+      "source": "Definition, nested bullet, table, diagram or example in PDF",
+      "questionPages": {
+        "id-164": 44,
+        "mc-197": 44
+      }
+    },
+    {
+      "concept": "Password option",
+      "page": 59,
+      "module": 3,
+      "identification": [
+        "id-165"
+      ],
+      "multipleChoice": [
+        "mc-198"
+      ],
+      "source": "Definition, nested bullet, table, diagram or example in PDF",
+      "questionPages": {
+        "id-165": 59,
+        "mc-198": 59
+      }
+    },
+    {
+      "concept": "Username option",
+      "page": 59,
+      "module": 3,
+      "identification": [
+        "id-166"
+      ],
+      "multipleChoice": [
+        "mc-199"
+      ],
+      "source": "Definition, nested bullet, table, diagram or example in PDF",
+      "questionPages": {
+        "id-166": 59,
+        "mc-199": 59
+      }
+    },
+    {
+      "concept": "CRUD",
+      "page": 66,
+      "module": 3,
+      "identification": [
+        "id-167"
+      ],
+      "multipleChoice": [
+        "mc-200"
+      ],
+      "source": "Definition, nested bullet, table, diagram or example in PDF",
+      "questionPages": {
+        "id-167": 66,
+        "mc-200": 66
+      }
+    },
+    {
+      "concept": "UPDATE",
+      "page": 50,
+      "module": 3,
+      "identification": [
+        "id-168"
+      ],
+      "multipleChoice": [
+        "mc-201"
+      ],
+      "source": "Definition, nested bullet, table, diagram or example in PDF",
+      "questionPages": {
+        "id-168": 50,
+        "mc-201": 50
+      }
+    },
+    {
+      "concept": "DELETE",
+      "page": 51,
+      "module": 3,
+      "identification": [
+        "id-169"
+      ],
+      "multipleChoice": [
+        "mc-202"
+      ],
+      "source": "Definition, nested bullet, table, diagram or example in PDF",
+      "questionPages": {
+        "id-169": 51,
+        "mc-202": 51
+      }
+    },
+    {
+      "concept": "CREATE",
+      "page": 52,
+      "module": 3,
+      "identification": [
+        "id-170"
+      ],
+      "multipleChoice": [
+        "mc-203"
+      ],
+      "source": "Definition, nested bullet, table, diagram or example in PDF",
+      "questionPages": {
+        "id-170": 52,
+        "mc-203": 52
+      }
+    },
+    {
+      "concept": "CREATE TABLE",
+      "page": 52,
+      "module": 3,
+      "identification": [
+        "id-171"
+      ],
+      "multipleChoice": [
+        "mc-204"
+      ],
+      "source": "Definition, nested bullet, table, diagram or example in PDF",
+      "questionPages": {
+        "id-171": 52,
+        "mc-204": 52
+      }
+    },
+    {
+      "concept": "ALTER TABLE",
+      "page": 53,
+      "module": 3,
+      "identification": [
+        "id-172"
+      ],
+      "multipleChoice": [
+        "mc-205"
+      ],
+      "source": "Definition, nested bullet, table, diagram or example in PDF",
+      "questionPages": {
+        "id-172": 53,
+        "mc-205": 53
+      }
+    },
+    {
+      "concept": "ADD",
+      "page": 53,
+      "module": 3,
+      "identification": [
+        "id-173"
+      ],
+      "multipleChoice": [
+        "mc-206"
+      ],
+      "source": "Definition, nested bullet, table, diagram or example in PDF",
+      "questionPages": {
+        "id-173": 53,
+        "mc-206": 53
+      }
+    },
+    {
+      "concept": "DROP COLUMN",
+      "page": 54,
+      "module": 3,
+      "identification": [
+        "id-174"
+      ],
+      "multipleChoice": [
+        "mc-207"
+      ],
+      "source": "Definition, nested bullet, table, diagram or example in PDF",
+      "questionPages": {
+        "id-174": 54,
+        "mc-207": 54
+      }
+    },
+    {
+      "concept": "MODIFY COLUMN",
+      "page": 54,
+      "module": 3,
+      "identification": [
+        "id-175"
+      ],
+      "multipleChoice": [
+        "mc-208"
+      ],
+      "source": "Definition, nested bullet, table, diagram or example in PDF",
+      "questionPages": {
+        "id-175": 54,
+        "mc-208": 54
+      }
+    },
+    {
+      "concept": "VALUES",
+      "page": 49,
+      "module": 3,
+      "identification": [
+        "id-176"
+      ],
+      "multipleChoice": [
+        "mc-209"
+      ],
+      "source": "Definition, nested bullet, table, diagram or example in PDF",
+      "questionPages": {
+        "id-176": 49,
+        "mc-209": 49
+      }
+    },
+    {
+      "concept": "NOT NULL",
+      "page": 60,
+      "module": 3,
+      "identification": [
+        "id-177"
+      ],
+      "multipleChoice": [
+        "mc-210"
+      ],
+      "source": "Definition, nested bullet, table, diagram or example in PDF",
+      "questionPages": {
+        "id-177": 60,
+        "mc-210": 60
+      }
+    },
+    {
+      "concept": "UNIQUE",
+      "page": 60,
+      "module": 3,
+      "identification": [
+        "id-178"
+      ],
+      "multipleChoice": [
+        "mc-211"
+      ],
+      "source": "Definition, nested bullet, table, diagram or example in PDF",
+      "questionPages": {
+        "id-178": 60,
+        "mc-211": 60
+      }
+    },
+    {
+      "concept": "DEFAULT",
+      "page": 62,
+      "module": 3,
+      "identification": [
+        "id-179"
+      ],
+      "multipleChoice": [
+        "mc-212"
+      ],
+      "source": "Definition, nested bullet, table, diagram or example in PDF",
+      "questionPages": {
+        "id-179": 62,
+        "mc-212": 62
+      }
+    },
+    {
+      "concept": "Result set",
+      "page": 63,
+      "module": 3,
+      "identification": [
+        "id-180"
+      ],
+      "multipleChoice": [
+        "mc-213"
+      ],
+      "source": "Definition, nested bullet, table, diagram or example in PDF",
+      "questionPages": {
+        "id-180": 63,
+        "mc-213": 63
+      }
+    },
+    {
+      "concept": "FROM",
+      "page": 63,
+      "module": 3,
+      "identification": [
+        "id-181"
+      ],
+      "multipleChoice": [
+        "mc-214"
+      ],
+      "source": "Definition, nested bullet, table, diagram or example in PDF",
+      "questionPages": {
+        "id-181": 63,
+        "mc-214": 63
+      }
+    },
+    {
+      "concept": "GROUP BY",
+      "page": 63,
+      "module": 3,
+      "identification": [
+        "id-182"
+      ],
+      "multipleChoice": [
+        "mc-215"
+      ],
+      "source": "Definition, nested bullet, table, diagram or example in PDF",
+      "questionPages": {
+        "id-182": 63,
+        "mc-215": 63
+      }
+    },
+    {
+      "concept": "GRANT",
+      "page": 65,
+      "module": 3,
+      "identification": [
+        "id-183"
+      ],
+      "multipleChoice": [
+        "mc-216"
+      ],
+      "source": "Definition, nested bullet, table, diagram or example in PDF",
+      "questionPages": {
+        "id-183": 65,
+        "mc-216": 65
+      }
+    },
+    {
+      "concept": "REVOKE",
+      "page": 65,
+      "module": 3,
+      "identification": [
+        "id-184"
+      ],
+      "multipleChoice": [
+        "mc-217"
+      ],
+      "source": "Definition, nested bullet, table, diagram or example in PDF",
+      "questionPages": {
+        "id-184": 65,
+        "mc-217": 65
+      }
+    },
+    {
+      "concept": "COMMIT",
+      "page": 61,
+      "module": 3,
+      "identification": [
+        "id-185"
+      ],
+      "multipleChoice": [
+        "mc-218"
+      ],
+      "source": "Definition, nested bullet, table, diagram or example in PDF",
+      "questionPages": {
+        "id-185": 61,
+        "mc-218": 61
+      }
+    },
+    {
+      "concept": "ROLLBACK",
+      "page": 61,
+      "module": 3,
+      "identification": [
+        "id-186"
+      ],
+      "multipleChoice": [
+        "mc-219"
+      ],
+      "source": "Definition, nested bullet, table, diagram or example in PDF",
+      "questionPages": {
+        "id-186": 61,
+        "mc-219": 61
+      }
+    },
+    {
+      "concept": "SAVEPOINT",
+      "page": 61,
+      "module": 3,
+      "identification": [
+        "id-187"
+      ],
+      "multipleChoice": [
+        "mc-220"
+      ],
+      "source": "Definition, nested bullet, table, diagram or example in PDF",
+      "questionPages": {
+        "id-187": 61,
+        "mc-220": 61
+      }
+    },
+    {
+      "concept": "SQL View",
+      "page": 58,
+      "module": 3,
+      "identification": [
+        "id-188"
+      ],
+      "multipleChoice": [
+        "mc-221"
+      ],
+      "source": "Definition, nested bullet, table, diagram or example in PDF",
+      "questionPages": {
+        "id-188": 58,
+        "mc-221": 58
+      }
+    },
+    {
+      "concept": "Query by example",
+      "page": 57,
+      "module": 3,
+      "identification": [
+        "id-189"
+      ],
+      "multipleChoice": [
+        "mc-222"
+      ],
+      "source": "Definition, nested bullet, table, diagram or example in PDF",
+      "questionPages": {
+        "id-189": 57,
+        "mc-222": 57
+      }
+    },
+    {
+      "concept": "Select list",
+      "page": 68,
+      "module": 4,
+      "identification": [
+        "id-190"
+      ],
+      "multipleChoice": [
+        "mc-223"
+      ],
+      "source": "Definition, nested bullet, table, diagram or example in PDF",
+      "questionPages": {
+        "id-190": 68,
+        "mc-223": 68
+      }
+    },
+    {
+      "concept": "Asterisk",
+      "page": 68,
+      "module": 4,
+      "identification": [
+        "id-191"
+      ],
+      "multipleChoice": [
+        "mc-224"
+      ],
+      "source": "Definition, nested bullet, table, diagram or example in PDF",
+      "questionPages": {
+        "id-191": 68,
+        "mc-224": 68
+      }
+    },
+    {
+      "concept": "Search condition",
+      "page": 75,
+      "module": 4,
+      "identification": [
+        "id-192"
+      ],
+      "multipleChoice": [
+        "mc-225"
+      ],
+      "source": "Definition, nested bullet, table, diagram or example in PDF",
+      "questionPages": {
+        "id-192": 75,
+        "mc-225": 75
+      }
+    },
+    {
+      "concept": "Equality operator",
+      "page": 76,
+      "module": 4,
+      "identification": [
+        "id-193"
+      ],
+      "multipleChoice": [
+        "mc-226"
+      ],
+      "source": "Definition, nested bullet, table, diagram or example in PDF",
+      "questionPages": {
+        "id-193": 76,
+        "mc-226": 76
+      }
+    },
+    {
+      "concept": "Greater-than operator",
+      "page": 83,
+      "module": 4,
+      "identification": [
+        "id-194"
+      ],
+      "multipleChoice": [
+        "mc-227"
+      ],
+      "source": "Definition, nested bullet, table, diagram or example in PDF",
+      "questionPages": {
+        "id-194": 83,
+        "mc-227": 83
+      }
+    },
+    {
+      "concept": "BETWEEN",
+      "page": 78,
+      "module": 4,
+      "identification": [
+        "id-195"
+      ],
+      "multipleChoice": [
+        "mc-228"
+      ],
+      "source": "Definition, nested bullet, table, diagram or example in PDF",
+      "questionPages": {
+        "id-195": 78,
+        "mc-228": 78
+      }
+    },
+    {
+      "concept": "LIKE",
+      "page": 79,
+      "module": 4,
+      "identification": [
+        "id-196"
+      ],
+      "multipleChoice": [
+        "mc-229"
+      ],
+      "source": "Definition, nested bullet, table, diagram or example in PDF",
+      "questionPages": {
+        "id-196": 79,
+        "mc-229": 79
+      }
+    },
+    {
+      "concept": "Percent wildcard",
+      "page": 79,
+      "module": 4,
+      "identification": [
+        "id-197"
+      ],
+      "multipleChoice": [
+        "mc-230"
+      ],
+      "source": "Definition, nested bullet, table, diagram or example in PDF",
+      "questionPages": {
+        "id-197": 79,
+        "mc-230": 79
+      }
+    },
+    {
+      "concept": "Underscore wildcard",
+      "page": 79,
+      "module": 4,
+      "identification": [
+        "id-198"
+      ],
+      "multipleChoice": [
+        "mc-231"
+      ],
+      "source": "Definition, nested bullet, table, diagram or example in PDF",
+      "questionPages": {
+        "id-198": 79,
+        "mc-231": 79
+      }
+    },
+    {
+      "concept": "AND",
+      "page": 80,
+      "module": 4,
+      "identification": [
+        "id-199"
+      ],
+      "multipleChoice": [
+        "mc-232"
+      ],
+      "source": "Definition, nested bullet, table, diagram or example in PDF",
+      "questionPages": {
+        "id-199": 80,
+        "mc-232": 80
+      }
+    },
+    {
+      "concept": "OR",
+      "page": 83,
+      "module": 4,
+      "identification": [
+        "id-200"
+      ],
+      "multipleChoice": [
+        "mc-233"
+      ],
+      "source": "Definition, nested bullet, table, diagram or example in PDF",
+      "questionPages": {
+        "id-200": 83,
+        "mc-233": 83
+      }
+    },
+    {
+      "concept": "Operator precedence",
+      "page": 84,
+      "module": 4,
+      "identification": [
+        "id-201"
+      ],
+      "multipleChoice": [
+        "mc-234"
+      ],
+      "source": "Definition, nested bullet, table, diagram or example in PDF",
+      "questionPages": {
+        "id-201": 84,
+        "mc-234": 84
+      }
+    },
+    {
+      "concept": "Parentheses",
+      "page": 86,
+      "module": 4,
+      "identification": [
+        "id-202"
+      ],
+      "multipleChoice": [
+        "mc-235"
+      ],
+      "source": "Definition, nested bullet, table, diagram or example in PDF",
+      "questionPages": {
+        "id-202": 86,
+        "mc-235": 86
+      }
+    },
+    {
+      "concept": "INNER JOIN",
+      "page": 89,
+      "module": 5,
+      "identification": [
+        "id-203"
+      ],
+      "multipleChoice": [
+        "mc-236"
+      ],
+      "source": "Definition, nested bullet, table, diagram or example in PDF",
+      "questionPages": {
+        "id-203": 89,
+        "mc-236": 89
+      }
+    },
+    {
+      "concept": "RIGHT JOIN",
+      "page": 100,
+      "module": 5,
+      "identification": [
+        "id-204"
+      ],
+      "multipleChoice": [
+        "mc-237"
+      ],
+      "source": "Definition, nested bullet, table, diagram or example in PDF",
+      "questionPages": {
+        "id-204": 100,
+        "mc-237": 100
+      }
+    },
+    {
+      "concept": "ON",
+      "page": 89,
+      "module": 5,
+      "identification": [
+        "id-205"
+      ],
+      "multipleChoice": [
+        "mc-238"
+      ],
+      "source": "Definition, nested bullet, table, diagram or example in PDF",
+      "questionPages": {
+        "id-205": 89,
+        "mc-238": 89
+      }
+    },
+    {
+      "concept": "Join condition",
+      "page": 89,
+      "module": 5,
+      "identification": [
+        "id-206"
+      ],
+      "multipleChoice": [
+        "mc-239"
+      ],
+      "source": "Definition, nested bullet, table, diagram or example in PDF",
+      "questionPages": {
+        "id-206": 89,
+        "mc-239": 89
+      }
+    },
+    {
+      "concept": "AS",
+      "page": 90,
+      "module": 5,
+      "identification": [
+        "id-207"
+      ],
+      "multipleChoice": [
+        "mc-240"
+      ],
+      "source": "Definition, nested bullet, table, diagram or example in PDF",
+      "questionPages": {
+        "id-207": 90,
+        "mc-240": 90
+      }
+    },
+    {
+      "concept": "Left anti-join filter",
+      "page": 96,
+      "module": 5,
+      "identification": [
+        "id-208"
+      ],
+      "multipleChoice": [
+        "mc-241"
+      ],
+      "source": "Definition, nested bullet, table, diagram or example in PDF",
+      "questionPages": {
+        "id-208": 96,
+        "mc-241": 96
+      }
+    },
+    {
+      "concept": "Right anti-join filter",
+      "page": 104,
+      "module": 5,
+      "identification": [
+        "id-209"
+      ],
+      "multipleChoice": [
+        "mc-242"
+      ],
+      "source": "Definition, nested bullet, table, diagram or example in PDF",
+      "questionPages": {
+        "id-209": 104,
+        "mc-242": 104
+      }
+    },
+    {
+      "concept": "One-to-many relationship",
+      "page": 97,
+      "module": 5,
+      "identification": [
+        "id-210"
+      ],
+      "multipleChoice": [
+        "mc-243"
+      ],
+      "source": "Definition, nested bullet, table, diagram or example in PDF",
+      "questionPages": {
+        "id-210": 97,
+        "mc-243": 97
+      }
+    },
+    {
+      "concept": "Product line link",
+      "page": 91,
+      "module": 5,
+      "identification": [
+        "id-211"
+      ],
+      "multipleChoice": [
+        "mc-244"
+      ],
+      "source": "Definition, nested bullet, table, diagram or example in PDF",
+      "questionPages": {
+        "id-211": 91,
+        "mc-244": 91
+      }
+    },
+    {
+      "concept": "Sales representative link",
+      "page": 102,
+      "module": 5,
+      "identification": [
+        "id-212"
+      ],
+      "multipleChoice": [
+        "mc-245"
+      ],
+      "source": "Definition, nested bullet, table, diagram or example in PDF",
+      "questionPages": {
+        "id-212": 102,
+        "mc-245": 102
+      }
+    },
+    {
+      "concept": "SUM",
+      "page": 93,
+      "module": 5,
+      "identification": [
+        "id-213"
+      ],
+      "multipleChoice": [
+        "mc-246"
+      ],
+      "source": "Definition, nested bullet, table, diagram or example in PDF",
+      "questionPages": {
+        "id-213": 93,
+        "mc-246": 93
+      }
+    },
+    {
+      "concept": "ACID Atomicity expansion",
+      "page": 18,
+      "module": 1,
+      "identification": [
+        "id-214"
+      ],
+      "multipleChoice": [
+        "mc-247"
+      ],
+      "source": "SQL example / truth table / diagram result",
+      "questionPages": {
+        "id-214": 18,
+        "mc-247": 18
+      }
+    },
+    {
+      "concept": "ACID Consistency expansion",
+      "page": 18,
+      "module": 1,
+      "identification": [
+        "id-215"
+      ],
+      "multipleChoice": [
+        "mc-248"
+      ],
+      "source": "SQL example / truth table / diagram result",
+      "questionPages": {
+        "id-215": 18,
+        "mc-248": 18
+      }
+    },
+    {
+      "concept": "ACID Durability expansion",
+      "page": 18,
+      "module": 1,
+      "identification": [
+        "id-216"
+      ],
+      "multipleChoice": [
+        "mc-249"
+      ],
+      "source": "SQL example / truth table / diagram result",
+      "questionPages": {
+        "id-216": 18,
+        "mc-249": 18
+      }
+    },
+    {
+      "concept": "UPDATE without WHERE",
+      "page": 50,
+      "module": 3,
+      "identification": [
+        "id-217"
+      ],
+      "multipleChoice": [
+        "mc-250"
+      ],
+      "source": "SQL example / truth table / diagram result",
+      "questionPages": {
+        "id-217": 50,
+        "mc-250": 50
+      }
+    },
+    {
+      "concept": "DELETE without WHERE",
+      "page": 51,
+      "module": 3,
+      "identification": [
+        "id-218"
+      ],
+      "multipleChoice": [
+        "mc-251"
+      ],
+      "source": "SQL example / truth table / diagram result",
+      "questionPages": {
+        "id-218": 51,
+        "mc-251": 51
+      }
+    },
+    {
+      "concept": "Keyword case",
+      "page": 68,
+      "module": 4,
+      "identification": [
+        "id-219"
+      ],
+      "multipleChoice": [
+        "mc-252"
+      ],
+      "source": "SQL example / truth table / diagram result",
+      "questionPages": {
+        "id-219": 68,
+        "mc-252": 68
+      }
+    },
+    {
+      "concept": "FROM before SELECT",
+      "page": 68,
+      "module": 4,
+      "identification": [
+        "id-220"
+      ],
+      "multipleChoice": [
+        "mc-253"
+      ],
+      "source": "SQL example / truth table / diagram result",
+      "questionPages": {
+        "id-220": 68,
+        "mc-253": 68
+      }
+    },
+    {
+      "concept": "WHERE evaluation order",
+      "page": 75,
+      "module": 4,
+      "identification": [
+        "id-221"
+      ],
+      "multipleChoice": [
+        "mc-254"
+      ],
+      "source": "SQL example / truth table / diagram result",
+      "questionPages": {
+        "id-221": 75,
+        "mc-254": 75
+      }
+    },
+    {
+      "concept": "Unsorted result",
+      "page": 71,
+      "module": 4,
+      "identification": [
+        "id-222"
+      ],
+      "multipleChoice": [
+        "mc-255"
+      ],
+      "source": "SQL example / truth table / diagram result",
+      "questionPages": {
+        "id-222": 71,
+        "mc-255": 71
+      }
+    },
+    {
+      "concept": "Secondary sort",
+      "page": 72,
+      "module": 4,
+      "identification": [
+        "id-223"
+      ],
+      "multipleChoice": [
+        "mc-256"
+      ],
+      "source": "SQL example / truth table / diagram result",
+      "questionPages": {
+        "id-223": 72,
+        "mc-256": 72
+      }
+    },
+    {
+      "concept": "Inclusive BETWEEN",
+      "page": 78,
+      "module": 4,
+      "identification": [
+        "id-224"
+      ],
+      "multipleChoice": [
+        "mc-257"
+      ],
+      "source": "SQL example / truth table / diagram result",
+      "questionPages": {
+        "id-224": 78,
+        "mc-257": 78
+      }
+    },
+    {
+      "concept": "Suffix pattern",
+      "page": 79,
+      "module": 4,
+      "identification": [
+        "id-225"
+      ],
+      "multipleChoice": [
+        "mc-258"
+      ],
+      "source": "SQL example / truth table / diagram result",
+      "questionPages": {
+        "id-225": 79,
+        "mc-258": 79
+      }
+    },
+    {
+      "concept": "AND false with NULL",
+      "page": 80,
+      "module": 4,
+      "identification": [
+        "id-226"
+      ],
+      "multipleChoice": [
+        "mc-259"
+      ],
+      "source": "SQL example / truth table / diagram result",
+      "questionPages": {
+        "id-226": 80,
+        "mc-259": 80
+      }
+    },
+    {
+      "concept": "AND true with NULL",
+      "page": 80,
+      "module": 4,
+      "identification": [
+        "id-227"
+      ],
+      "multipleChoice": [
+        "mc-260"
+      ],
+      "source": "SQL example / truth table / diagram result",
+      "questionPages": {
+        "id-227": 80,
+        "mc-260": 80
+      }
+    },
+    {
+      "concept": "AND NULL with NULL",
+      "page": 80,
+      "module": 4,
+      "identification": [
+        "id-228"
+      ],
+      "multipleChoice": [
+        "mc-261"
+      ],
+      "source": "SQL example / truth table / diagram result",
+      "questionPages": {
+        "id-228": 80,
+        "mc-261": 80
+      }
+    },
+    {
+      "concept": "OR true with NULL",
+      "page": 83,
+      "module": 4,
+      "identification": [
+        "id-229"
+      ],
+      "multipleChoice": [
+        "mc-262"
+      ],
+      "source": "SQL example / truth table / diagram result",
+      "questionPages": {
+        "id-229": 83,
+        "mc-262": 83
+      }
+    },
+    {
+      "concept": "OR false with NULL",
+      "page": 83,
+      "module": 4,
+      "identification": [
+        "id-230"
+      ],
+      "multipleChoice": [
+        "mc-263"
+      ],
+      "source": "SQL example / truth table / diagram result",
+      "questionPages": {
+        "id-230": 83,
+        "mc-263": 83
+      }
+    },
+    {
+      "concept": "OR NULL with NULL",
+      "page": 83,
+      "module": 4,
+      "identification": [
+        "id-231"
+      ],
+      "multipleChoice": [
+        "mc-264"
+      ],
+      "source": "SQL example / truth table / diagram result",
+      "questionPages": {
+        "id-231": 83,
+        "mc-264": 83
+      }
+    },
+    {
+      "concept": "AND before OR outcome",
+      "page": 85,
+      "module": 4,
+      "identification": [
+        "id-232"
+      ],
+      "multipleChoice": [
+        "mc-265"
+      ],
+      "source": "SQL example / truth table / diagram result",
+      "questionPages": {
+        "id-232": 85,
+        "mc-265": 85
+      }
+    },
+    {
+      "concept": "Unmatched INNER JOIN",
+      "page": 90,
+      "module": 5,
+      "identification": [
+        "id-233"
+      ],
+      "multipleChoice": [
+        "mc-266"
+      ],
+      "source": "SQL example / truth table / diagram result",
+      "questionPages": {
+        "id-233": 90,
+        "mc-266": 90
+      }
+    },
+    {
+      "concept": "Unmatched LEFT JOIN columns",
+      "page": 95,
+      "module": 5,
+      "identification": [
+        "id-234"
+      ],
+      "multipleChoice": [
+        "mc-267"
+      ],
+      "source": "SQL example / truth table / diagram result",
+      "questionPages": {
+        "id-234": 95,
+        "mc-267": 95
+      }
+    },
+    {
+      "concept": "Unmatched RIGHT JOIN columns",
+      "page": 100,
+      "module": 5,
+      "identification": [
+        "id-235"
+      ],
+      "multipleChoice": [
+        "mc-268"
+      ],
+      "source": "SQL example / truth table / diagram result",
+      "questionPages": {
+        "id-235": 100,
+        "mc-268": 100
+      }
+    },
+    {
+      "concept": "Unassigned sales representative",
+      "page": 102,
+      "module": 5,
+      "identification": [
+        "id-236"
+      ],
+      "multipleChoice": [
+        "mc-269"
+      ],
+      "source": "SQL example / truth table / diagram result",
+      "questionPages": {
+        "id-236": 102,
+        "mc-269": 102
+      }
+    },
+    {
+      "concept": "DBMS classification criteria",
+      "page": 17,
+      "module": 1,
+      "identification": [],
+      "multipleChoice": [
+        "mc-270"
+      ],
+      "source": "DBMS definition paragraph",
+      "exclusion": "This asks for a set of classification criteria rather than one unique concept name; the named database types and size categories have separate identification questions.",
+      "questionPages": {
+        "mc-270": 17
+      }
+    },
+    {
+      "concept": "Which of these is NOT a NoSQL database type?",
+      "page": 21,
+      "module": 1,
+      "identification": [],
+      "multipleChoice": [
+        "mc-0"
+      ],
+      "source": "Original multiple-choice application",
+      "exclusion": "Identification counterpart is covered by the named concept questions; this item assesses a choice/result rather than a unique concept name.",
+      "questionPages": {
+        "mc-0": 21
+      }
+    },
+    {
+      "concept": "After a LEFT JOIN, which condition finds customers with no orders?",
+      "page": 99,
+      "module": 5,
+      "identification": [],
+      "multipleChoice": [
+        "mc-2"
+      ],
+      "source": "Original multiple-choice application",
+      "exclusion": "Identification counterpart is covered by the named concept questions; this item assesses a choice/result rather than a unique concept name.",
+      "questionPages": {
+        "mc-2": 99
+      }
+    },
+    {
+      "concept": "Which statement changes the structure of an existing table?",
+      "page": 53,
+      "module": 3,
+      "identification": [],
+      "multipleChoice": [
+        "mc-3"
+      ],
+      "source": "Original multiple-choice application",
+      "exclusion": "Identification counterpart is covered by the named concept questions; this item assesses a choice/result rather than a unique concept name.",
+      "questionPages": {
+        "mc-3": 53
+      }
+    },
+    {
+      "concept": "Which pattern matches last names that end in \"son\"?",
+      "page": 79,
+      "module": 4,
+      "identification": [],
+      "multipleChoice": [
+        "mc-4"
+      ],
+      "source": "Original multiple-choice application",
+      "exclusion": "Identification counterpart is covered by the named concept questions; this item assesses a choice/result rather than a unique concept name.",
+      "questionPages": {
+        "mc-4": 79
+      }
+    },
+    {
+      "concept": "Which of these is a document-oriented NoSQL database?",
+      "page": 21,
+      "module": 1,
+      "identification": [],
+      "multipleChoice": [
+        "mc-6"
+      ],
+      "source": "Original multiple-choice application",
+      "exclusion": "Identification counterpart is covered by the named concept questions; this item assesses a choice/result rather than a unique concept name.",
+      "questionPages": {
+        "mc-6": 21
+      }
+    },
+    {
+      "concept": "What is the collection of valid values for a column called?",
+      "page": 20,
+      "module": 1,
+      "identification": [],
+      "multipleChoice": [
+        "mc-7"
+      ],
+      "source": "Original multiple-choice application",
+      "exclusion": "Identification counterpart is covered by the named concept questions; this item assesses a choice/result rather than a unique concept name.",
+      "questionPages": {
+        "mc-7": 20
+      }
+    },
+    {
+      "concept": "Which database category is meant for a department or team?",
+      "page": 12,
+      "module": 1,
+      "identification": [],
+      "multipleChoice": [
+        "mc-8"
+      ],
+      "source": "Original multiple-choice application",
+      "exclusion": "Identification counterpart is covered by the named concept questions; this item assesses a choice/result rather than a unique concept name.",
+      "questionPages": {
+        "mc-8": 12
+      }
+    },
+    {
+      "concept": "Indexing, storage management and backup and recovery belong to which DBMS function?",
+      "page": 18,
+      "module": 1,
+      "identification": [],
+      "multipleChoice": [
+        "mc-9"
+      ],
+      "source": "Original multiple-choice application",
+      "exclusion": "Identification counterpart is covered by the named concept questions; this item assesses a choice/result rather than a unique concept name.",
+      "questionPages": {
+        "mc-9": 18
+      }
+    },
+    {
+      "concept": "Query processing and transaction management belong to which DBMS function?",
+      "page": 18,
+      "module": 1,
+      "identification": [],
+      "multipleChoice": [
+        "mc-10"
+      ],
+      "source": "Original multiple-choice application",
+      "exclusion": "Identification counterpart is covered by the named concept questions; this item assesses a choice/result rather than a unique concept name.",
+      "questionPages": {
+        "mc-10": 18
+      }
+    },
+    {
+      "concept": "Access control and integrity constraints belong to which DBMS function?",
+      "page": 18,
+      "module": 1,
+      "identification": [],
+      "multipleChoice": [
+        "mc-11"
+      ],
+      "source": "Original multiple-choice application",
+      "exclusion": "Identification counterpart is covered by the named concept questions; this item assesses a choice/result rather than a unique concept name.",
+      "questionPages": {
+        "mc-11": 18
+      }
+    },
+    {
+      "concept": "Database tuning and monitoring belong to which DBMS function?",
+      "page": 18,
+      "module": 1,
+      "identification": [],
+      "multipleChoice": [
+        "mc-12"
+      ],
+      "source": "Original multiple-choice application",
+      "exclusion": "Identification counterpart is covered by the named concept questions; this item assesses a choice/result rather than a unique concept name.",
+      "questionPages": {
+        "mc-12": 18
+      }
+    },
+    {
+      "concept": "Which advantage means a DBMS can scale up or scale out as demand grows?",
+      "page": 24,
+      "module": 1,
+      "identification": [],
+      "multipleChoice": [
+        "mc-13"
+      ],
+      "source": "Original multiple-choice application",
+      "exclusion": "Identification counterpart is covered by the named concept questions; this item assesses a choice/result rather than a unique concept name.",
+      "questionPages": {
+        "mc-13": 24
+      }
+    },
+    {
+      "concept": "Which of these is an OODBMS?",
+      "page": 22,
+      "module": 1,
+      "identification": [],
+      "multipleChoice": [
+        "mc-14"
+      ],
+      "source": "Original multiple-choice application",
+      "exclusion": "Identification counterpart is covered by the named concept questions; this item assesses a choice/result rather than a unique concept name.",
+      "questionPages": {
+        "mc-14": 22
+      }
+    },
+    {
+      "concept": "Which statement about a network DBMS is true?",
+      "page": 22,
+      "module": 1,
+      "identification": [],
+      "multipleChoice": [
+        "mc-16"
+      ],
+      "source": "Original multiple-choice application",
+      "exclusion": "Identification counterpart is covered by the named concept questions; this item assesses a choice/result rather than a unique concept name.",
+      "questionPages": {
+        "mc-16": 22
+      }
+    },
+    {
+      "concept": "Who developed SQL at IBM in the early 1970s?",
+      "page": 28,
+      "module": 2,
+      "identification": [],
+      "multipleChoice": [
+        "mc-17"
+      ],
+      "source": "Original multiple-choice application",
+      "exclusion": "Identification counterpart is covered by the named concept questions; this item assesses a choice/result rather than a unique concept name.",
+      "questionPages": {
+        "mc-17": 28
+      }
+    },
+    {
+      "concept": "Which statement best describes SQL?",
+      "page": 29,
+      "module": 2,
+      "identification": [],
+      "multipleChoice": [
+        "mc-18"
+      ],
+      "source": "Original multiple-choice application",
+      "exclusion": "Identification counterpart is covered by the named concept questions; this item assesses a choice/result rather than a unique concept name.",
+      "questionPages": {
+        "mc-18": 29
+      }
+    },
+    {
+      "concept": "Which value can DECIMAL(10,2) store?",
+      "page": 32,
+      "module": 2,
+      "identification": [],
+      "multipleChoice": [
+        "mc-21"
+      ],
+      "source": "Original multiple-choice application",
+      "exclusion": "Identification counterpart is covered by the named concept questions; this item assesses a choice/result rather than a unique concept name.",
+      "questionPages": {
+        "mc-21": 32
+      }
+    },
+    {
+      "concept": "Apart from the special 0000 value, what four-digit range does MySQL YEAR support?",
+      "page": 39,
+      "module": 2,
+      "identification": [],
+      "multipleChoice": [
+        "mc-22"
+      ],
+      "source": "Original multiple-choice application",
+      "exclusion": "Identification counterpart is covered by the named concept questions; this item assesses a choice/result rather than a unique concept name.",
+      "questionPages": {
+        "mc-22": 39
+      }
+    },
+    {
+      "concept": "Which statement about NULL is true?",
+      "page": 42,
+      "module": 2,
+      "identification": [],
+      "multipleChoice": [
+        "mc-23"
+      ],
+      "source": "Original multiple-choice application",
+      "exclusion": "Identification counterpart is covered by the named concept questions; this item assesses a choice/result rather than a unique concept name.",
+      "questionPages": {
+        "mc-23": 42
+      }
+    },
+    {
+      "concept": "Which pair are DCL commands?",
+      "page": 65,
+      "module": 3,
+      "identification": [],
+      "multipleChoice": [
+        "mc-27"
+      ],
+      "source": "Original multiple-choice application",
+      "exclusion": "Identification counterpart is covered by the named concept questions; this item assesses a choice/result rather than a unique concept name.",
+      "questionPages": {
+        "mc-27": 65
+      }
+    },
+    {
+      "concept": "What does SELECT true OR false AND false return in MySQL?",
+      "page": 85,
+      "module": 4,
+      "identification": [],
+      "multipleChoice": [
+        "mc-31"
+      ],
+      "source": "Original multiple-choice application",
+      "exclusion": "Identification counterpart is covered by the named concept questions; this item assesses a choice/result rather than a unique concept name.",
+      "questionPages": {
+        "mc-31": 85
+      }
+    },
+    {
+      "concept": "Which JOIN returns only rows that match in both tables?",
+      "page": 89,
+      "module": 5,
+      "identification": [],
+      "multipleChoice": [
+        "mc-32"
+      ],
+      "source": "Original multiple-choice application",
+      "exclusion": "Identification counterpart is covered by the named concept questions; this item assesses a choice/result rather than a unique concept name.",
+      "questionPages": {
+        "mc-32": 89
+      }
+    },
+    {
+      "concept": "Which JOIN returns all rows from the right table?",
+      "page": 100,
+      "module": 5,
+      "identification": [],
+      "multipleChoice": [
+        "mc-34"
+      ],
+      "source": "Original multiple-choice application",
+      "exclusion": "Identification counterpart is covered by the named concept questions; this item assesses a choice/result rather than a unique concept name.",
+      "questionPages": {
+        "mc-34": 100
+      }
+    },
+    {
+      "concept": "How can you emulate a FULL OUTER JOIN in MySQL?",
+      "page": 88,
+      "module": 5,
+      "identification": [],
+      "multipleChoice": [
+        "mc-35"
+      ],
+      "source": "Original multiple-choice application",
+      "exclusion": "Identification counterpart is covered by the named concept questions; this item assesses a choice/result rather than a unique concept name.",
+      "questionPages": {
+        "mc-35": 88
+      }
+    },
+    {
+      "concept": "Which pair represents floating-point types in the module?",
+      "page": 34,
+      "module": 2,
+      "identification": [],
+      "multipleChoice": [
+        "mc-39"
+      ],
+      "source": "Original multiple-choice application",
+      "exclusion": "Identification counterpart is covered by the named concept questions; this item assesses a choice/result rather than a unique concept name.",
+      "questionPages": {
+        "mc-39": 34
+      }
+    },
+    {
+      "concept": "What is AUTO_INCREMENT used for in the page 60 example?",
+      "page": 60,
+      "module": 3,
+      "identification": [],
+      "multipleChoice": [
+        "mc-46"
+      ],
+      "source": "Original multiple-choice application",
+      "exclusion": "Identification counterpart is covered by the named concept questions; this item assesses a choice/result rather than a unique concept name.",
+      "questionPages": {
+        "mc-46": 60
+      }
+    },
+    {
+      "concept": "Which statement creates a database named practice2?",
+      "page": 52,
+      "module": 3,
+      "identification": [],
+      "multipleChoice": [
+        "mc-47"
+      ],
+      "source": "Original multiple-choice application",
+      "exclusion": "Identification counterpart is covered by the named concept questions; this item assesses a choice/result rather than a unique concept name.",
+      "questionPages": {
+        "mc-47": 52
+      }
+    },
+    {
+      "concept": "Which statement removes a database named practice2?",
+      "page": 54,
+      "module": 3,
+      "identification": [],
+      "multipleChoice": [
+        "mc-48"
+      ],
+      "source": "Original multiple-choice application",
+      "exclusion": "Identification counterpart is covered by the named concept questions; this item assesses a choice/result rather than a unique concept name.",
+      "questionPages": {
+        "mc-48": 54
+      }
+    },
+    {
+      "concept": "DynamoDB is listed under which NoSQL type?",
+      "page": 21,
+      "module": 1,
+      "identification": [],
+      "multipleChoice": [
+        "mc-51"
+      ],
+      "source": "Original multiple-choice application",
+      "exclusion": "Identification counterpart is covered by the named concept questions; this item assesses a choice/result rather than a unique concept name.",
+      "questionPages": {
+        "mc-51": 21
+      }
+    },
+    {
+      "concept": "What is a predicate in a WHERE condition?",
+      "page": 75,
+      "module": 4,
+      "identification": [],
+      "multipleChoice": [
+        "mc-55"
+      ],
+      "source": "Original multiple-choice application",
+      "exclusion": "Identification counterpart is covered by the named concept questions; this item assesses a choice/result rather than a unique concept name.",
+      "questionPages": {
+        "mc-55": 75
+      }
+    },
+    {
+      "concept": "What does TRUE AND NULL evaluate to?",
+      "page": 80,
+      "module": 4,
+      "identification": [],
+      "multipleChoice": [
+        "mc-56"
+      ],
+      "source": "Original multiple-choice application",
+      "exclusion": "Identification counterpart is covered by the named concept questions; this item assesses a choice/result rather than a unique concept name.",
+      "questionPages": {
+        "mc-56": 80
+      }
+    },
+    {
+      "concept": "What does FALSE OR NULL evaluate to?",
+      "page": 83,
+      "module": 4,
+      "identification": [],
+      "multipleChoice": [
+        "mc-57"
+      ],
+      "source": "Original multiple-choice application",
+      "exclusion": "Identification counterpart is covered by the named concept questions; this item assesses a choice/result rather than a unique concept name.",
+      "questionPages": {
+        "mc-57": 83
+      }
+    },
+    {
+      "concept": "In FROM members AS m, what does m represent?",
+      "page": 90,
+      "module": 5,
+      "identification": [],
+      "multipleChoice": [
+        "mc-58"
+      ],
+      "source": "Original multiple-choice application",
+      "exclusion": "Identification counterpart is covered by the named concept questions; this item assesses a choice/result rather than a unique concept name.",
+      "questionPages": {
+        "mc-58": 90
+      }
+    },
+    {
+      "concept": "Which condition selects employees without customers after the RIGHT JOIN shown on page 104?",
+      "page": 104,
+      "module": 5,
+      "identification": [],
+      "multipleChoice": [
+        "mc-59"
+      ],
+      "source": "Original multiple-choice application",
+      "exclusion": "Identification counterpart is covered by the named concept questions; this item assesses a choice/result rather than a unique concept name.",
+      "questionPages": {
+        "mc-59": 104
+      }
+    }
+  ],
+  "pageReview": [
+    {
+      "page": 1,
+      "status": "front matter excluded",
+      "questionIds": [],
+      "reason": "Introduction, summary, reference, administrative material or duplicate teaching content; see exclusions."
+    },
+    {
+      "page": 2,
+      "status": "front matter excluded",
+      "questionIds": [],
+      "reason": "Introduction, summary, reference, administrative material or duplicate teaching content; see exclusions."
+    },
+    {
+      "page": 3,
+      "status": "front matter excluded",
+      "questionIds": [],
+      "reason": "Introduction, summary, reference, administrative material or duplicate teaching content; see exclusions."
+    },
+    {
+      "page": 4,
+      "status": "front matter excluded",
+      "questionIds": [],
+      "reason": "Introduction, summary, reference, administrative material or duplicate teaching content; see exclusions."
+    },
+    {
+      "page": 5,
+      "status": "front matter excluded",
+      "questionIds": [],
+      "reason": "Introduction, summary, reference, administrative material or duplicate teaching content; see exclusions."
+    },
+    {
+      "page": 6,
+      "status": "front matter excluded",
+      "questionIds": [],
+      "reason": "Introduction, summary, reference, administrative material or duplicate teaching content; see exclusions."
+    },
+    {
+      "page": 7,
+      "status": "front matter excluded",
+      "questionIds": [],
+      "reason": "Introduction, summary, reference, administrative material or duplicate teaching content; see exclusions."
+    },
+    {
+      "page": 8,
+      "status": "front matter excluded",
+      "questionIds": [],
+      "reason": "Introduction, summary, reference, administrative material or duplicate teaching content; see exclusions."
+    },
+    {
+      "page": 9,
+      "status": "front matter excluded",
+      "questionIds": [],
+      "reason": "Introduction, summary, reference, administrative material or duplicate teaching content; see exclusions."
+    },
+    {
+      "page": 10,
+      "status": "repeat/administration/erratum excluded",
+      "questionIds": [],
+      "reason": "Introduction, summary, reference, administrative material or duplicate teaching content; see exclusions."
+    },
+    {
+      "page": 11,
+      "status": "inventoried",
+      "questionIds": [
+        "id-7",
+        "mc-65",
+        "id-8",
+        "mc-66",
+        "id-9",
+        "mc-67",
+        "id-94",
+        "mc-127"
+      ],
+      "reason": "Lesson concepts, nested bullets, types, diagrams or example behavior are linked above."
+    },
+    {
+      "page": 12,
+      "status": "inventoried",
+      "questionIds": [
+        "id-17",
+        "mc-75",
+        "id-89",
+        "mc-122",
+        "id-95",
+        "mc-128",
+        "id-96",
+        "mc-129",
+        "mc-8"
+      ],
+      "reason": "Lesson concepts, nested bullets, types, diagrams or example behavior are linked above."
+    },
+    {
+      "page": 13,
+      "status": "inventoried",
+      "questionIds": [
+        "id-11",
+        "mc-69",
+        "id-90",
+        "mc-123",
+        "id-91",
+        "mc-124"
+      ],
+      "reason": "Lesson concepts, nested bullets, types, diagrams or example behavior are linked above."
+    },
+    {
+      "page": 14,
+      "status": "inventoried",
+      "questionIds": [
+        "id-1",
+        "mc-61",
+        "id-12",
+        "mc-70",
+        "id-92",
+        "mc-125",
+        "id-93",
+        "mc-126"
+      ],
+      "reason": "Lesson concepts, nested bullets, types, diagrams or example behavior are linked above."
+    },
+    {
+      "page": 15,
+      "status": "inventoried",
+      "questionIds": [
+        "id-10",
+        "mc-68",
+        "id-13",
+        "mc-71"
+      ],
+      "reason": "Lesson concepts, nested bullets, types, diagrams or example behavior are linked above."
+    },
+    {
+      "page": 16,
+      "status": "inventoried",
+      "questionIds": [
+        "id-97",
+        "mc-130"
+      ],
+      "reason": "Lesson concepts, nested bullets, types, diagrams or example behavior are linked above."
+    },
+    {
+      "page": 17,
+      "status": "inventoried",
+      "questionIds": [
+        "id-0",
+        "mc-60",
+        "id-15",
+        "mc-73",
+        "id-98",
+        "mc-131",
+        "mc-270"
+      ],
+      "reason": "Lesson concepts, nested bullets, types, diagrams or example behavior are linked above."
+    },
+    {
+      "page": 18,
+      "status": "inventoried",
+      "questionIds": [
+        "id-14",
+        "mc-72",
+        "id-101",
+        "mc-134",
+        "id-102",
+        "mc-135",
+        "id-103",
+        "mc-136",
+        "id-104",
+        "mc-137",
+        "id-105",
+        "mc-138",
+        "id-106",
+        "mc-139",
+        "id-107",
+        "mc-140",
+        "id-108",
+        "mc-141",
+        "id-109",
+        "mc-142",
+        "id-110",
+        "mc-143",
+        "id-111",
+        "mc-144",
+        "id-112",
+        "mc-145",
+        "id-113",
+        "mc-146",
+        "id-114",
+        "mc-147",
+        "id-115",
+        "mc-148",
+        "id-116",
+        "mc-149",
+        "id-117",
+        "mc-150",
+        "id-214",
+        "mc-247",
+        "id-215",
+        "mc-248",
+        "id-216",
+        "mc-249",
+        "mc-9",
+        "mc-10",
+        "mc-11",
+        "mc-12"
+      ],
+      "reason": "Lesson concepts, nested bullets, types, diagrams or example behavior are linked above."
+    },
+    {
+      "page": 19,
+      "status": "inventoried",
+      "questionIds": [
+        "id-16",
+        "mc-74",
+        "id-18",
+        "mc-76"
+      ],
+      "reason": "Lesson concepts, nested bullets, types, diagrams or example behavior are linked above."
+    },
+    {
+      "page": 20,
+      "status": "inventoried",
+      "questionIds": [
+        "id-99",
+        "mc-132",
+        "id-100",
+        "mc-133",
+        "mc-7"
+      ],
+      "reason": "Lesson concepts, nested bullets, types, diagrams or example behavior are linked above."
+    },
+    {
+      "page": 21,
+      "status": "inventoried",
+      "questionIds": [
+        "id-19",
+        "mc-77",
+        "id-20",
+        "mc-78",
+        "id-79",
+        "mc-115",
+        "id-80",
+        "mc-52",
+        "id-81",
+        "mc-53",
+        "id-118",
+        "mc-151",
+        "id-119",
+        "mc-152",
+        "id-120",
+        "mc-153",
+        "id-132",
+        "mc-165",
+        "id-133",
+        "mc-166",
+        "id-134",
+        "mc-167",
+        "id-135",
+        "mc-168",
+        "mc-0",
+        "mc-6",
+        "mc-51"
+      ],
+      "reason": "Lesson concepts, nested bullets, types, diagrams or example behavior are linked above."
+    },
+    {
+      "page": 22,
+      "status": "inventoried",
+      "questionIds": [
+        "id-21",
+        "mc-54",
+        "id-22",
+        "mc-5",
+        "id-82",
+        "id-136",
+        "mc-169",
+        "mc-14",
+        "mc-16"
+      ],
+      "reason": "Lesson concepts, nested bullets, types, diagrams or example behavior are linked above."
+    },
+    {
+      "page": 23,
+      "status": "inventoried",
+      "questionIds": [
+        "id-22",
+        "mc-5",
+        "id-23",
+        "mc-15",
+        "id-121",
+        "mc-154",
+        "id-130",
+        "mc-163",
+        "id-131",
+        "mc-164"
+      ],
+      "reason": "Lesson concepts, nested bullets, types, diagrams or example behavior are linked above."
+    },
+    {
+      "page": 24,
+      "status": "inventoried",
+      "questionIds": [
+        "id-77",
+        "mc-49",
+        "id-78",
+        "mc-50",
+        "id-122",
+        "mc-155",
+        "id-123",
+        "mc-156",
+        "id-124",
+        "mc-157",
+        "id-125",
+        "mc-158",
+        "mc-13"
+      ],
+      "reason": "Lesson concepts, nested bullets, types, diagrams or example behavior are linked above."
+    },
+    {
+      "page": 25,
+      "status": "inventoried",
+      "questionIds": [
+        "id-24",
+        "mc-79",
+        "id-126",
+        "mc-159",
+        "id-127",
+        "mc-160",
+        "id-128",
+        "mc-161",
+        "id-129",
+        "mc-162"
+      ],
+      "reason": "Lesson concepts, nested bullets, types, diagrams or example behavior are linked above."
+    },
+    {
+      "page": 26,
+      "status": "repeat/administration/erratum excluded",
+      "questionIds": [],
+      "reason": "Introduction, summary, reference, administrative material or duplicate teaching content; see exclusions."
+    },
+    {
+      "page": 27,
+      "status": "repeat/administration/erratum excluded",
+      "questionIds": [],
+      "reason": "Introduction, summary, reference, administrative material or duplicate teaching content; see exclusions."
+    },
+    {
+      "page": 28,
+      "status": "inventoried",
+      "questionIds": [
+        "id-25",
+        "mc-80",
+        "id-137",
+        "mc-170",
+        "mc-17"
+      ],
+      "reason": "Lesson concepts, nested bullets, types, diagrams or example behavior are linked above."
+    },
+    {
+      "page": 29,
+      "status": "inventoried",
+      "questionIds": [
+        "id-26",
+        "mc-81",
+        "id-138",
+        "mc-171",
+        "mc-18"
+      ],
+      "reason": "Lesson concepts, nested bullets, types, diagrams or example behavior are linked above."
+    },
+    {
+      "page": 30,
+      "status": "repeat/administration/erratum excluded",
+      "questionIds": [],
+      "reason": "Ad-hoc SQL and embedded reporting approaches have no formal concept label; contextual use is covered by SQL. No invented identification name."
+    },
+    {
+      "page": 31,
+      "status": "inventoried",
+      "questionIds": [
+        "id-139",
+        "mc-172",
+        "id-140",
+        "mc-173"
+      ],
+      "reason": "Lesson concepts, nested bullets, types, diagrams or example behavior are linked above."
+    },
+    {
+      "page": 32,
+      "status": "inventoried",
+      "questionIds": [
+        "id-27",
+        "mc-82",
+        "id-63",
+        "mc-38",
+        "id-64",
+        "mc-37",
+        "id-141",
+        "mc-174",
+        "id-142",
+        "mc-175",
+        "id-143",
+        "mc-176",
+        "mc-21"
+      ],
+      "reason": "Lesson concepts, nested bullets, types, diagrams or example behavior are linked above."
+    },
+    {
+      "page": 33,
+      "status": "inventoried",
+      "questionIds": [
+        "id-65",
+        "mc-109",
+        "id-67",
+        "mc-111"
+      ],
+      "reason": "Lesson concepts, nested bullets, types, diagrams or example behavior are linked above."
+    },
+    {
+      "page": 34,
+      "status": "inventoried",
+      "questionIds": [
+        "id-66",
+        "mc-110",
+        "id-144",
+        "mc-177",
+        "mc-39"
+      ],
+      "reason": "Lesson concepts, nested bullets, types, diagrams or example behavior are linked above."
+    },
+    {
+      "page": 35,
+      "status": "inventoried",
+      "questionIds": [
+        "id-28",
+        "mc-83",
+        "id-145",
+        "mc-178",
+        "id-146",
+        "mc-179"
+      ],
+      "reason": "Lesson concepts, nested bullets, types, diagrams or example behavior are linked above."
+    },
+    {
+      "page": 36,
+      "status": "inventoried",
+      "questionIds": [
+        "id-68",
+        "mc-40",
+        "id-147",
+        "mc-180",
+        "id-148",
+        "mc-181"
+      ],
+      "reason": "Lesson concepts, nested bullets, types, diagrams or example behavior are linked above."
+    },
+    {
+      "page": 37,
+      "status": "inventoried",
+      "questionIds": [
+        "id-29",
+        "mc-20",
+        "id-149",
+        "mc-182",
+        "id-150",
+        "mc-183"
+      ],
+      "reason": "Lesson concepts, nested bullets, types, diagrams or example behavior are linked above."
+    },
+    {
+      "page": 38,
+      "status": "inventoried",
+      "questionIds": [
+        "id-69",
+        "mc-41"
+      ],
+      "reason": "Lesson concepts, nested bullets, types, diagrams or example behavior are linked above."
+    },
+    {
+      "page": 39,
+      "status": "inventoried",
+      "questionIds": [
+        "id-70",
+        "mc-42",
+        "id-71",
+        "mc-43",
+        "id-151",
+        "mc-184",
+        "mc-22"
+      ],
+      "reason": "Lesson concepts, nested bullets, types, diagrams or example behavior are linked above."
+    },
+    {
+      "page": 40,
+      "status": "inventoried",
+      "questionIds": [
+        "id-30",
+        "mc-84",
+        "id-152",
+        "mc-185",
+        "id-153",
+        "mc-186",
+        "id-154",
+        "mc-187"
+      ],
+      "reason": "Lesson concepts, nested bullets, types, diagrams or example behavior are linked above."
+    },
+    {
+      "page": 41,
+      "status": "inventoried",
+      "questionIds": [
+        "id-31",
+        "mc-1",
+        "id-32",
+        "mc-19"
+      ],
+      "reason": "Lesson concepts, nested bullets, types, diagrams or example behavior are linked above."
+    },
+    {
+      "page": 42,
+      "status": "inventoried",
+      "questionIds": [
+        "id-4",
+        "mc-63",
+        "id-33",
+        "mc-85",
+        "id-155",
+        "mc-188",
+        "id-156",
+        "mc-189",
+        "id-157",
+        "mc-190",
+        "id-158",
+        "mc-191",
+        "mc-23"
+      ],
+      "reason": "Lesson concepts, nested bullets, types, diagrams or example behavior are linked above."
+    },
+    {
+      "page": 43,
+      "status": "repeat/administration/erratum excluded",
+      "questionIds": [],
+      "reason": "NULL examples repeat p42; the NUMERIC overflow example is wrong and recorded in errata."
+    },
+    {
+      "page": 44,
+      "status": "inventoried",
+      "questionIds": [
+        "id-85",
+        "mc-118",
+        "id-164",
+        "mc-197"
+      ],
+      "reason": "Lesson concepts, nested bullets, types, diagrams or example behavior are linked above."
+    },
+    {
+      "page": 45,
+      "status": "inventoried",
+      "questionIds": [
+        "id-34",
+        "mc-86",
+        "id-35",
+        "mc-24",
+        "id-159",
+        "mc-192",
+        "id-160",
+        "mc-193",
+        "id-161",
+        "mc-194",
+        "id-162",
+        "mc-195",
+        "id-163",
+        "mc-196"
+      ],
+      "reason": "Lesson concepts, nested bullets, types, diagrams or example behavior are linked above."
+    },
+    {
+      "page": 46,
+      "status": "repeat/administration/erratum excluded",
+      "questionIds": [],
+      "reason": "Introduction, summary, reference, administrative material or duplicate teaching content; see exclusions."
+    },
+    {
+      "page": 47,
+      "status": "repeat/administration/erratum excluded",
+      "questionIds": [],
+      "reason": "Introduction, summary, reference, administrative material or duplicate teaching content; see exclusions."
+    },
+    {
+      "page": 48,
+      "status": "covered by linked recurring concept",
+      "questionIds": [],
+      "reason": "SELECT retrieval and select list, inventoried at pages 63 and 68."
+    },
+    {
+      "page": 49,
+      "status": "inventoried",
+      "questionIds": [
+        "id-39",
+        "mc-28",
+        "id-176",
+        "mc-209"
+      ],
+      "reason": "Lesson concepts, nested bullets, types, diagrams or example behavior are linked above."
+    },
+    {
+      "page": 50,
+      "status": "inventoried",
+      "questionIds": [
+        "id-37",
+        "mc-25",
+        "id-38",
+        "mc-88",
+        "id-168",
+        "mc-201",
+        "id-217",
+        "mc-250"
+      ],
+      "reason": "Lesson concepts, nested bullets, types, diagrams or example behavior are linked above."
+    },
+    {
+      "page": 51,
+      "status": "inventoried",
+      "questionIds": [
+        "id-169",
+        "mc-202",
+        "id-218",
+        "mc-251"
+      ],
+      "reason": "Lesson concepts, nested bullets, types, diagrams or example behavior are linked above."
+    },
+    {
+      "page": 52,
+      "status": "inventoried",
+      "questionIds": [
+        "id-75",
+        "mc-113",
+        "id-170",
+        "mc-203",
+        "id-171",
+        "mc-204",
+        "mc-47"
+      ],
+      "reason": "Lesson concepts, nested bullets, types, diagrams or example behavior are linked above."
+    },
+    {
+      "page": 53,
+      "status": "inventoried",
+      "questionIds": [
+        "id-172",
+        "mc-205",
+        "id-173",
+        "mc-206",
+        "mc-3"
+      ],
+      "reason": "Lesson concepts, nested bullets, types, diagrams or example behavior are linked above."
+    },
+    {
+      "page": 54,
+      "status": "inventoried",
+      "questionIds": [
+        "id-5",
+        "mc-26",
+        "id-76",
+        "mc-114",
+        "id-174",
+        "mc-207",
+        "id-175",
+        "mc-208",
+        "mc-48"
+      ],
+      "reason": "Lesson concepts, nested bullets, types, diagrams or example behavior are linked above."
+    },
+    {
+      "page": 55,
+      "status": "covered by linked recurring concept",
+      "questionIds": [],
+      "reason": "DROP and JOIN introductions, inventoried at pages 54, 56 and 88."
+    },
+    {
+      "page": 56,
+      "status": "inventoried",
+      "questionIds": [
+        "id-40",
+        "mc-89",
+        "id-62",
+        "mc-108"
+      ],
+      "reason": "Lesson concepts, nested bullets, types, diagrams or example behavior are linked above."
+    },
+    {
+      "page": 57,
+      "status": "inventoried",
+      "questionIds": [
+        "id-189",
+        "mc-222"
+      ],
+      "reason": "Lesson concepts, nested bullets, types, diagrams or example behavior are linked above."
+    },
+    {
+      "page": 58,
+      "status": "inventoried",
+      "questionIds": [
+        "id-188",
+        "mc-221"
+      ],
+      "reason": "Lesson concepts, nested bullets, types, diagrams or example behavior are linked above."
+    },
+    {
+      "page": 59,
+      "status": "inventoried",
+      "questionIds": [
+        "id-165",
+        "mc-198",
+        "id-166",
+        "mc-199"
+      ],
+      "reason": "Lesson concepts, nested bullets, types, diagrams or example behavior are linked above."
+    },
+    {
+      "page": 60,
+      "status": "inventoried",
+      "questionIds": [
+        "id-74",
+        "mc-112",
+        "id-177",
+        "mc-210",
+        "id-178",
+        "mc-211",
+        "mc-46"
+      ],
+      "reason": "Lesson concepts, nested bullets, types, diagrams or example behavior are linked above."
+    },
+    {
+      "page": 61,
+      "status": "inventoried",
+      "questionIds": [
+        "id-36",
+        "mc-87",
+        "id-47",
+        "mc-96",
+        "id-48",
+        "mc-97",
+        "id-58",
+        "mc-36",
+        "id-185",
+        "mc-218",
+        "id-186",
+        "mc-219",
+        "id-187",
+        "mc-220"
+      ],
+      "reason": "Lesson concepts, nested bullets, types, diagrams or example behavior are linked above."
+    },
+    {
+      "page": 62,
+      "status": "inventoried",
+      "questionIds": [
+        "id-41",
+        "mc-90",
+        "id-46",
+        "mc-95",
+        "id-72",
+        "mc-44",
+        "id-73",
+        "mc-45",
+        "id-87",
+        "mc-120",
+        "id-88",
+        "mc-121",
+        "id-179",
+        "mc-212"
+      ],
+      "reason": "Lesson concepts, nested bullets, types, diagrams or example behavior are linked above."
+    },
+    {
+      "page": 63,
+      "status": "inventoried",
+      "questionIds": [
+        "id-42",
+        "mc-91",
+        "id-44",
+        "mc-93",
+        "id-59",
+        "mc-105",
+        "id-60",
+        "mc-106",
+        "id-61",
+        "mc-107",
+        "id-180",
+        "mc-213",
+        "id-181",
+        "mc-214",
+        "id-182",
+        "mc-215"
+      ],
+      "reason": "Lesson concepts, nested bullets, types, diagrams or example behavior are linked above."
+    },
+    {
+      "page": 64,
+      "status": "inventoried",
+      "questionIds": [
+        "id-39",
+        "mc-28",
+        "id-43",
+        "mc-92"
+      ],
+      "reason": "Lesson concepts, nested bullets, types, diagrams or example behavior are linked above."
+    },
+    {
+      "page": 65,
+      "status": "inventoried",
+      "questionIds": [
+        "id-3",
+        "mc-62",
+        "id-45",
+        "mc-94",
+        "id-183",
+        "mc-216",
+        "id-184",
+        "mc-217",
+        "mc-27"
+      ],
+      "reason": "Lesson concepts, nested bullets, types, diagrams or example behavior are linked above."
+    },
+    {
+      "page": 66,
+      "status": "inventoried",
+      "questionIds": [
+        "id-37",
+        "mc-25",
+        "id-167",
+        "mc-200"
+      ],
+      "reason": "Lesson concepts, nested bullets, types, diagrams or example behavior are linked above."
+    },
+    {
+      "page": 67,
+      "status": "inventoried",
+      "questionIds": [
+        "id-49",
+        "mc-98"
+      ],
+      "reason": "Lesson concepts, nested bullets, types, diagrams or example behavior are linked above."
+    },
+    {
+      "page": 68,
+      "status": "inventoried",
+      "questionIds": [
+        "id-50",
+        "mc-30",
+        "id-190",
+        "mc-223",
+        "id-191",
+        "mc-224",
+        "id-219",
+        "mc-252",
+        "id-220",
+        "mc-253"
+      ],
+      "reason": "Lesson concepts, nested bullets, types, diagrams or example behavior are linked above."
+    },
+    {
+      "page": 69,
+      "status": "covered by linked recurring concept",
+      "questionIds": [],
+      "reason": "Single-column SELECT example, covered by SELECT and select list."
+    },
+    {
+      "page": 70,
+      "status": "covered by linked recurring concept",
+      "questionIds": [],
+      "reason": "Multiple-column SELECT and result diagram, covered by SELECT, asterisk and select list."
+    },
+    {
+      "page": 71,
+      "status": "inventoried",
+      "questionIds": [
+        "id-2",
+        "mc-29",
+        "id-51",
+        "mc-99",
+        "id-52",
+        "mc-100",
+        "id-222",
+        "mc-255"
+      ],
+      "reason": "Lesson concepts, nested bullets, types, diagrams or example behavior are linked above."
+    },
+    {
+      "page": 72,
+      "status": "inventoried",
+      "questionIds": [
+        "id-2",
+        "mc-29",
+        "id-223",
+        "mc-256"
+      ],
+      "reason": "Lesson concepts, nested bullets, types, diagrams or example behavior are linked above."
+    },
+    {
+      "page": 73,
+      "status": "covered by linked recurring concept",
+      "questionIds": [],
+      "reason": "ORDER BY examples, covered by sort directions and secondary sorting."
+    },
+    {
+      "page": 74,
+      "status": "inventoried",
+      "questionIds": [
+        "id-6",
+        "mc-64"
+      ],
+      "reason": "Lesson concepts, nested bullets, types, diagrams or example behavior are linked above."
+    },
+    {
+      "page": 75,
+      "status": "inventoried",
+      "questionIds": [
+        "id-83",
+        "mc-116",
+        "id-84",
+        "mc-117",
+        "id-192",
+        "mc-225",
+        "id-221",
+        "mc-254",
+        "mc-55"
+      ],
+      "reason": "Lesson concepts, nested bullets, types, diagrams or example behavior are linked above."
+    },
+    {
+      "page": 76,
+      "status": "inventoried",
+      "questionIds": [
+        "id-193",
+        "mc-226"
+      ],
+      "reason": "Lesson concepts, nested bullets, types, diagrams or example behavior are linked above."
+    },
+    {
+      "page": 77,
+      "status": "covered by linked recurring concept",
+      "questionIds": [],
+      "reason": "AND filter example, covered by AND and search conditions."
+    },
+    {
+      "page": 78,
+      "status": "inventoried",
+      "questionIds": [
+        "id-195",
+        "mc-228",
+        "id-224",
+        "mc-257"
+      ],
+      "reason": "Lesson concepts, nested bullets, types, diagrams or example behavior are linked above."
+    },
+    {
+      "page": 79,
+      "status": "inventoried",
+      "questionIds": [
+        "id-50",
+        "mc-30",
+        "id-196",
+        "mc-229",
+        "id-197",
+        "mc-230",
+        "id-198",
+        "mc-231",
+        "id-225",
+        "mc-258",
+        "mc-4"
+      ],
+      "reason": "Lesson concepts, nested bullets, types, diagrams or example behavior are linked above."
+    },
+    {
+      "page": 80,
+      "status": "inventoried",
+      "questionIds": [
+        "id-199",
+        "mc-232",
+        "id-226",
+        "mc-259",
+        "id-227",
+        "mc-260",
+        "id-228",
+        "mc-261",
+        "mc-56"
+      ],
+      "reason": "Lesson concepts, nested bullets, types, diagrams or example behavior are linked above."
+    },
+    {
+      "page": 81,
+      "status": "inventoried",
+      "questionIds": [
+        "id-53",
+        "mc-101"
+      ],
+      "reason": "Lesson concepts, nested bullets, types, diagrams or example behavior are linked above."
+    },
+    {
+      "page": 82,
+      "status": "covered by linked recurring concept",
+      "questionIds": [],
+      "reason": "Country/state conjunction example, covered by AND and predicates."
+    },
+    {
+      "page": 83,
+      "status": "inventoried",
+      "questionIds": [
+        "id-194",
+        "mc-227",
+        "id-200",
+        "mc-233",
+        "id-229",
+        "mc-262",
+        "id-230",
+        "mc-263",
+        "id-231",
+        "mc-264",
+        "mc-57"
+      ],
+      "reason": "Lesson concepts, nested bullets, types, diagrams or example behavior are linked above."
+    },
+    {
+      "page": 84,
+      "status": "inventoried",
+      "questionIds": [
+        "id-54",
+        "mc-102",
+        "id-201",
+        "mc-234"
+      ],
+      "reason": "Lesson concepts, nested bullets, types, diagrams or example behavior are linked above."
+    },
+    {
+      "page": 85,
+      "status": "inventoried",
+      "questionIds": [
+        "id-232",
+        "mc-265",
+        "mc-31"
+      ],
+      "reason": "Lesson concepts, nested bullets, types, diagrams or example behavior are linked above."
+    },
+    {
+      "page": 86,
+      "status": "inventoried",
+      "questionIds": [
+        "id-202",
+        "mc-235"
+      ],
+      "reason": "Lesson concepts, nested bullets, types, diagrams or example behavior are linked above."
+    },
+    {
+      "page": 87,
+      "status": "repeat/administration/erratum excluded",
+      "questionIds": [],
+      "reason": "Introduction, summary, reference, administrative material or duplicate teaching content; see exclusions."
+    },
+    {
+      "page": 88,
+      "status": "inventoried",
+      "questionIds": [
+        "id-55",
+        "mc-103",
+        "mc-35"
+      ],
+      "reason": "Lesson concepts, nested bullets, types, diagrams or example behavior are linked above."
+    },
+    {
+      "page": 89,
+      "status": "inventoried",
+      "questionIds": [
+        "id-203",
+        "mc-236",
+        "id-205",
+        "mc-238",
+        "id-206",
+        "mc-239",
+        "mc-32"
+      ],
+      "reason": "Lesson concepts, nested bullets, types, diagrams or example behavior are linked above."
+    },
+    {
+      "page": 90,
+      "status": "inventoried",
+      "questionIds": [
+        "id-86",
+        "mc-119",
+        "id-207",
+        "mc-240",
+        "id-233",
+        "mc-266",
+        "mc-58"
+      ],
+      "reason": "Lesson concepts, nested bullets, types, diagrams or example behavior are linked above."
+    },
+    {
+      "page": 91,
+      "status": "inventoried",
+      "questionIds": [
+        "id-57",
+        "mc-33",
+        "id-211",
+        "mc-244"
+      ],
+      "reason": "Lesson concepts, nested bullets, types, diagrams or example behavior are linked above."
+    },
+    {
+      "page": 92,
+      "status": "covered by linked recurring concept",
+      "questionIds": [],
+      "reason": "Product/productline INNER JOIN example and result; covered by INNER JOIN, ON and productLine relationship."
+    },
+    {
+      "page": 93,
+      "status": "inventoried",
+      "questionIds": [
+        "id-213",
+        "mc-246"
+      ],
+      "reason": "Lesson concepts, nested bullets, types, diagrams or example behavior are linked above."
+    },
+    {
+      "page": 94,
+      "status": "inventoried",
+      "questionIds": [
+        "id-56",
+        "mc-104"
+      ],
+      "reason": "Lesson concepts, nested bullets, types, diagrams or example behavior are linked above."
+    },
+    {
+      "page": 95,
+      "status": "inventoried",
+      "questionIds": [
+        "id-234",
+        "mc-267"
+      ],
+      "reason": "Lesson concepts, nested bullets, types, diagrams or example behavior are linked above."
+    },
+    {
+      "page": 96,
+      "status": "inventoried",
+      "questionIds": [
+        "id-208",
+        "mc-241"
+      ],
+      "reason": "Lesson concepts, nested bullets, types, diagrams or example behavior are linked above."
+    },
+    {
+      "page": 97,
+      "status": "inventoried",
+      "questionIds": [
+        "id-210",
+        "mc-243"
+      ],
+      "reason": "Lesson concepts, nested bullets, types, diagrams or example behavior are linked above."
+    },
+    {
+      "page": 98,
+      "status": "covered by linked recurring concept",
+      "questionIds": [],
+      "reason": "Customer/order LEFT JOIN example; covered by LEFT JOIN, unmatched NULLs and one-to-many relationship."
+    },
+    {
+      "page": 99,
+      "status": "inventoried",
+      "questionIds": [
+        "mc-2"
+      ],
+      "reason": "Lesson concepts, nested bullets, types, diagrams or example behavior are linked above."
+    },
+    {
+      "page": 100,
+      "status": "inventoried",
+      "questionIds": [
+        "id-204",
+        "mc-237",
+        "id-235",
+        "mc-268",
+        "mc-34"
+      ],
+      "reason": "Lesson concepts, nested bullets, types, diagrams or example behavior are linked above."
+    },
+    {
+      "page": 101,
+      "status": "covered by linked recurring concept",
+      "questionIds": [],
+      "reason": "RIGHT OUTER JOIN synonym and result diagram; accepted as RIGHT JOIN variant, with erroneous NULL-side prose documented."
+    },
+    {
+      "page": 102,
+      "status": "inventoried",
+      "questionIds": [
+        "id-212",
+        "mc-245",
+        "id-236",
+        "mc-269"
+      ],
+      "reason": "Lesson concepts, nested bullets, types, diagrams or example behavior are linked above."
+    },
+    {
+      "page": 103,
+      "status": "covered by linked recurring concept",
+      "questionIds": [],
+      "reason": "Employee/customer RIGHT JOIN example; covered by RIGHT JOIN, sales representative link and unmatched-row test."
+    },
+    {
+      "page": 104,
+      "status": "inventoried",
+      "questionIds": [
+        "id-209",
+        "mc-242",
+        "mc-59"
+      ],
+      "reason": "Lesson concepts, nested bullets, types, diagrams or example behavior are linked above."
+    },
+    {
+      "page": 105,
+      "status": "repeat/administration/erratum excluded",
+      "questionIds": [],
+      "reason": "Introduction, summary, reference, administrative material or duplicate teaching content; see exclusions."
+    }
+  ],
+  "exclusions": [
+    {
+      "pages": "1–9",
+      "reason": "Cover, copyright, institutional/program outcomes, references, contents and grading administration. The data-structures preface and ITE112/C-language syllabus are unrelated template material, not taught DBMS lesson content."
+    },
+    {
+      "pages": "10,26–28,46–47,66–67,87–88,105",
+      "reason": "Introductions, learning outcomes and summaries repeat concepts inventoried in the lessons. Bibliographic author names, examination dates and motivational prose are not DBMS exam concepts."
+    },
+    {
+      "pages": "13–15,69–70,73–74,76–86,90–104",
+      "reason": "Specific sample people, addresses, employee identifiers and decorative formatting are illustrative values. Structure, relationships, query techniques, result behavior and truth-table outcomes are covered; memorizing each sample row is excluded."
+    },
+    {
+      "pages": "18",
+      "reason": "ACID expansions are printed; Isolation is quizzed directly and Transaction Management includes all four names. The module does not define each ACID property individually, so no speculative property definitions are introduced."
+    },
+    {
+      "pages": "22",
+      "reason": "Inheritance, encapsulation and polymorphism name OODBMS capabilities but are not defined here. They appear in the OODBMS question; invented standalone definitions are excluded."
+    },
+    {
+      "pages": "30",
+      "reason": "Direct ad-hoc queries and SQL embedded in reporting programs are described as approaches; no unique formal subfunction name is given. These uses are included in the SQL/application context rather than inventing a label."
+    },
+    {
+      "pages": "31–39,41,43",
+      "reason": "Unsupported historical/general claims, implementation-dependent ranges and incorrect NULL-overflow example are documented separately as module errata; accurate named types and explicitly qualified module descriptions remain examinable."
+    },
+    {
+      "pages": "105",
+      "reason": "Subqueries, views and stored procedures are listed as future topics without instruction. They are not expanded into invented lessons."
+    }
+  ],
+  "errata": [
+    "p11: Flat files can contain metadata; the module contrasts them with an integrated database data dictionary.",
+    "p15: A primary key need not be the first column; the sentence \"Now two rows\" is a typo. Foreign keys may be composite and NULL allowance depends on constraints.",
+    "p22: A hierarchical non-root node normally has one parent; the root has none.",
+    "p31: MySQL SMALLINT and INT have different storage/ranges. SQL precision and support depend on the implementation.",
+    "p33–34: REAL is dialect/SQL-mode dependent; the module single-precision description is explicitly qualified in review.",
+    "p35–37: TEXT capacity is measured in bytes in MySQL; BLOB comparison/locator restrictions are not universal. VARCHAR and VARBINARY declare a maximum, not a minimum length.",
+    "p38–39: DATE/DATETIME ranges and TIME WITH/WITHOUT TIME ZONE syntax mix dialects. MySQL DATE normally starts at 1000; DATETIME starts at 1000, not 1753. TIMESTAMP conversion uses the session time zone, rather than storing a zone name.",
+    "p39: MySQL YEAR also permits 0000; obsolete two-digit YEAR is not taught as current behavior.",
+    "p41: Invalid ENUM handling depends on SQL mode; it is not invariably an error.",
+    "p43: 999999.99 fits NUMERIC(8,2). Out-of-range numbers do not automatically become NULL.",
+    "p45: SHOW TABLE standing is a transcription error for SHOW TABLE STATUS.",
+    "p54–56: DDL recovery/rollback differs by engine. FULL OUTER JOIN syntax is not supported natively by MySQL/MariaDB; the concept is taught and the lab explicitly uses the UNION workaround.",
+    "p58–59: SELECT FROM INHERITANCE is incomplete; CREATE TABLE INHERITANCESQL is missing a comma after PropositionID INTEGER. Statement terminators are a client/batch requirement, not a universal property of every SQL API.",
+    "p62: COMMENT ON TABLE is dialect-specific and not a standalone MySQL command. The question explicitly names the module table.",
+    "p72: ORDER BY column1,column2 defaults both columns to ascending; the prose incorrectly describes column2 as descending.",
+    "p78: OR is inclusive: either or both conditions may be TRUE, not exactly one.",
+    "p101: Unmatched RIGHT JOIN rows have NULL in left-table columns; the prose repeats \"right\" incorrectly.",
+    "Table of contents and p9: module numbers/course labels are inconsistent; the five actual module headings and PDF page ranges define the app categories."
+  ]
+}

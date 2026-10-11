@@ -1,0 +1,1117 @@
+{
+  "ID": [
+    [
+      "The software that acts as the interface between users and a database. Give the acronym.",
+      "dbms|database management system",
+      17
+    ],
+    [
+      "Another name for a row in a table, besides \"record\".",
+      "tuple|tuples",
+      14
+    ],
+    [
+      "Which clause sorts a result set?",
+      "order by",
+      71
+    ],
+    [
+      "Which SQL command category (abbreviation) contains GRANT and REVOKE?",
+      "dcl|data control language",
+      65
+    ],
+    [
+      "What marker stands for a missing or unknown value and is tested with IS NULL?",
+      "null",
+      42
+    ],
+    [
+      "Which statement permanently removes an entire table, structure and data?",
+      "drop|drop table",
+      54
+    ],
+    [
+      "The SQL clause that filters rows using a search condition.",
+      "where",
+      74
+    ],
+    [
+      "The data about data that defines a database’s structure.",
+      "metadata",
+      11
+    ],
+    [
+      "The component that holds a database’s metadata, such as its tables, rows and columns.",
+      "data dictionary|data dictionaries",
+      11
+    ],
+    [
+      "Which kind of file system, unlike a database, holds no metadata? (two words)",
+      "flat file|flat files|flat file system|flat file systems",
+      11
+    ],
+    [
+      "A column that refers to the primary key of another table.",
+      "foreign key|foreign keys",
+      15
+    ],
+    [
+      "A column is also called a field or an ____.",
+      "attribute|attributes",
+      13
+    ],
+    [
+      "The value stored where one row and one column cross.",
+      "data item|data items|cell|column value",
+      14
+    ],
+    [
+      "The unique identifier for each row in a table.",
+      "primary key|primary keys",
+      15
+    ],
+    [
+      "ACID stands for Atomicity, Consistency, ____, Durability.",
+      "isolation",
+      18
+    ],
+    [
+      "The design technique that splits a table with redundant values into smaller tables.",
+      "normalization|normalisation",
+      17
+    ],
+    [
+      "Who pioneered the relational database at IBM? (surname is enough)",
+      "codd|edgar codd|edgar f codd|edgar frank codd",
+      19
+    ],
+    [
+      "Databases by size: personal, group and ____.",
+      "enterprise",
+      12
+    ],
+    [
+      "In an RDBMS, another name for a table.",
+      "relation|relations",
+      19
+    ],
+    [
+      "What does NoSQL stand for?",
+      "not only sql",
+      21
+    ],
+    [
+      "Neo4j and ArangoDB are examples of which NoSQL type?",
+      "graph|graph database|graph databases",
+      21
+    ],
+    [
+      "Which DBMS type supports inheritance, encapsulation and polymorphism?",
+      "oodbms|object oriented|objectoriented|object oriented dbms|objectoriented dbms|object oriented database management system|object oriented database",
+      22
+    ],
+    [
+      "IBM IMS is an example of which DBMS type?",
+      "hierarchical|hierarchical dbms",
+      23
+    ],
+    [
+      "IDMS is an example of which DBMS type?",
+      "network|network dbms",
+      23
+    ],
+    [
+      "Which DBMS advantage lets many users access data at once without conflicts?",
+      "concurrency control|concurrency",
+      25
+    ],
+    [
+      "Name one of the two IBM researchers who developed SQL.",
+      "chamberlin|donald chamberlin|donald d chamberlin|boyce|raymond boyce|raymond f boyce",
+      28
+    ],
+    [
+      "SQL is a ____ language: you state what you want and the DBMS decides how.",
+      "nonprocedural|non procedural",
+      29
+    ],
+    [
+      "Which numeric type stores fixed-point values using precision and scale?",
+      "decimal|numeric",
+      32
+    ],
+    [
+      "Which character type has a fixed length and pads with spaces?",
+      "char|character",
+      35
+    ],
+    [
+      "Which data type stores large binary files such as images? (acronym)",
+      "blob|binary large object",
+      37
+    ],
+    [
+      "Which data type stores true or false values?",
+      "boolean|bool",
+      40
+    ],
+    [
+      "Which MySQL data type stores one value from a predefined list?",
+      "enum",
+      41
+    ],
+    [
+      "Which MySQL data type stores several values from a predefined list?",
+      "set",
+      41
+    ],
+    [
+      "Name one function that supplies a default value when a value is NULL.",
+      "coalesce|ifnull",
+      42
+    ],
+    [
+      "Which MySQL command lists the databases on the server?",
+      "show databases",
+      45
+    ],
+    [
+      "Which MySQL command lists the tables of the selected database?",
+      "show tables",
+      45
+    ],
+    [
+      "Name one command that shows the structure of a table.",
+      "describe|desc|show columns|show columns from",
+      61
+    ],
+    [
+      "CRUD stands for Create, Read, ____, Delete.",
+      "update",
+      66
+    ],
+    [
+      "Which keyword in UPDATE lists the columns and their new values?",
+      "set",
+      50
+    ],
+    [
+      "Which statement adds new rows to a table?",
+      "insert|insert into",
+      49
+    ],
+    [
+      "Which JOIN returns the Cartesian product of two tables?",
+      "cross join|cross",
+      56
+    ],
+    [
+      "What does DDL stand for?",
+      "data definition language",
+      62
+    ],
+    [
+      "What does DQL stand for?",
+      "data query language",
+      63
+    ],
+    [
+      "What does DML stand for?",
+      "data manipulation language",
+      64
+    ],
+    [
+      "What is the only command in DQL?",
+      "select",
+      63
+    ],
+    [
+      "Name one DCL command.",
+      "grant|revoke",
+      65
+    ],
+    [
+      "Which DDL command removes all records from a table but keeps the table?",
+      "truncate|truncate table",
+      62
+    ],
+    [
+      "A request to access or modify data is called a ____.",
+      "query|queries",
+      61
+    ],
+    [
+      "Rules applied to a column to make sure the data is valid.",
+      "constraint|constraints",
+      61
+    ],
+    [
+      "A formula made of column names, literal values, operators and functions.",
+      "expression|expressions",
+      67
+    ],
+    [
+      "What is the name of the symbol that ends a MySQL statement?",
+      "semicolon|;|semi colon",
+      68
+    ],
+    [
+      "Which keyword sorts a result in descending order?",
+      "desc|descending",
+      71
+    ],
+    [
+      "What is the default sort direction of ORDER BY?",
+      "asc|ascending",
+      71
+    ],
+    [
+      "MySQL stops evaluating an AND or OR once the result is known. What is this called?",
+      "short circuit evaluation|shortcircuit evaluation|short circuit|shortcircuit",
+      81
+    ],
+    [
+      "Which operator is evaluated first, AND or OR?",
+      "and",
+      84
+    ],
+    [
+      "The operation that combines rows from two or more tables using a related column.",
+      "join|joins|sql join",
+      88
+    ],
+    [
+      "Which JOIN keeps every left-table row and uses NULL for missing right-table matches?",
+      "left join|left outer join|left",
+      94
+    ],
+    [
+      "Which keyword replaces ON when both join columns have the same name?",
+      "using",
+      91
+    ],
+    [
+      "Which SQL command category (abbreviation) contains COMMIT, SAVEPOINT and ROLLBACK?",
+      "tcl|transaction control language",
+      61
+    ],
+    [
+      "Which clause filters the results of GROUP BY?",
+      "having",
+      63
+    ],
+    [
+      "Which keyword removes duplicate rows from a result set?",
+      "distinct",
+      63
+    ],
+    [
+      "Which clause limits the number of rows a SELECT returns?",
+      "limit",
+      63
+    ],
+    [
+      "Which JOIN returns rows when there is a match in one of the two tables, with NULL where there is none? (module page 56 syntax)",
+      "full join|full outer join|full",
+      56
+    ],
+    [
+      "Which integer type is intended for smaller whole numbers, with examples -32768 and 32767?",
+      "smallint",
+      32
+    ],
+    [
+      "Which integer type stores very large whole numbers, such as 9223372036854775807?",
+      "bigint",
+      32
+    ],
+    [
+      "Which type is introduced as single-precision floating-point storage?",
+      "float",
+      33
+    ],
+    [
+      "Which type is introduced as double-precision floating-point storage?",
+      "double|double precision",
+      34
+    ],
+    [
+      "Which floating-point type is described in the module as another term for single precision?",
+      "real",
+      33,
+      "Module wording. In the XAMPP lab, REAL is a DOUBLE synonym unless REAL_AS_FLOAT is enabled."
+    ],
+    [
+      "Which type stores binary data of variable length, up to a declared byte limit?",
+      "varbinary|binary varying",
+      36
+    ],
+    [
+      "Which temporal type stores a time such as 13:45:30 without a calendar date?",
+      "time",
+      38
+    ],
+    [
+      "Which temporal type combines a calendar date and clock time? Give the type named in section c.",
+      "datetime",
+      39,
+      "The module gives a 1753 minimum, which comes from SQL Server; MariaDB/MySQL DATETIME starts at 1000."
+    ],
+    [
+      "Which temporal type is introduced in section d with the example 2023-07-06 13:45:30.123456?",
+      "timestamp",
+      39,
+      "The module uses general SQL time-zone wording. MariaDB TIMESTAMP converts between the session time zone and UTC; it does not retain a time-zone name in each value."
+    ],
+    [
+      "Which text type is used for htmlDescription in the CREATE TABLE productlines example?",
+      "mediumtext",
+      62
+    ],
+    [
+      "Which binary type is used for image in that CREATE TABLE productlines example?",
+      "mediumblob",
+      62
+    ],
+    [
+      "Which column attribute generates a new employee_id when it is omitted during insertion?",
+      "auto_increment|auto increment|autoincrement",
+      60
+    ],
+    [
+      "Which SQL statement creates a new database? Give both keywords.",
+      "create database|create schema",
+      52
+    ],
+    [
+      "Which SQL statement removes an entire database? Give both keywords.",
+      "drop database|drop schema",
+      54
+    ],
+    [
+      "Which DBMS security feature records who accessed or changed data?",
+      "audit trail|audit trails|auditing",
+      24
+    ],
+    [
+      "Which DBMS security feature protects data by encoding it?",
+      "encryption|data encryption",
+      24
+    ],
+    [
+      "Which Amazon database is listed as a key-value NoSQL example?",
+      "dynamodb|amazon dynamodb",
+      21
+    ],
+    [
+      "Which NoSQL type includes CouchDB?",
+      "document oriented|document database|document databases|document oriented database|document oriented databases",
+      21
+    ],
+    [
+      "Which NoSQL type includes HBase?",
+      "column family|column family store|column family stores|column family database|column family databases",
+      21
+    ],
+    [
+      "Which DBMS type includes db4o?",
+      "oodbms|object oriented|object oriented dbms|object oriented database management system|object oriented database",
+      22
+    ],
+    [
+      "A Boolean expression that evaluates to TRUE, FALSE, or UNKNOWN is called a ____.",
+      "predicate|predicates",
+      75
+    ],
+    [
+      "Which logical operator negates a condition?",
+      "not",
+      75
+    ],
+    [
+      "What is the command-line monitoring program introduced in Lesson 3 called?",
+      "mysql|mysql monitor|mariadb|mariadb monitor",
+      44,
+      "The module calls it MySQL. XAMPP uses the mysql executable with a MariaDB server."
+    ],
+    [
+      "In FROM members AS m, what is m called?",
+      "alias|table alias|aliases|table aliases",
+      90
+    ],
+    [
+      "Which DDL statement changes a table name, using old_table_name TO new_table_name?",
+      "rename|rename table",
+      62
+    ],
+    [
+      "Which DDL command category adds descriptive comments to database objects in Table 3.1?",
+      "comment",
+      62,
+      "The module prints COMMENT ON TABLE; MariaDB uses a COMMENT table option instead."
+    ]
+  ],
+  "MC": [
+    [
+      "Which of these is NOT a NoSQL database type?",
+      [
+        "Relational",
+        "Key-value",
+        "Graph",
+        "Document-oriented"
+      ],
+      0,
+      21
+    ],
+    [
+      "Which data type stores exactly one value from a predefined list?",
+      [
+        "SET",
+        "YEAR",
+        "BLOB",
+        "ENUM"
+      ],
+      3,
+      41
+    ],
+    [
+      "After a LEFT JOIN, which condition finds customers with no orders?",
+      [
+        "WHERE o.orderNumber IS NULL",
+        "WHERE o.orderNumber = 0",
+        "WHERE o.orderNumber IS NOT NULL",
+        "HAVING o.orderNumber = NULL"
+      ],
+      0,
+      99
+    ],
+    [
+      "Which statement changes the structure of an existing table?",
+      [
+        "ALTER",
+        "UPDATE",
+        "INSERT",
+        "SELECT"
+      ],
+      0,
+      53
+    ],
+    [
+      "Which pattern matches last names that end in \"son\"?",
+      [
+        "LIKE 'son%'",
+        "LIKE '%son'",
+        "= '%son'",
+        "LIKE '_son'"
+      ],
+      1,
+      79
+    ],
+    [
+      "In which DBMS type does every record have exactly one parent?",
+      [
+        "Network",
+        "Hierarchical",
+        "Object-oriented",
+        "Relational"
+      ],
+      1,
+      22
+    ],
+    [
+      "Which of these is a document-oriented NoSQL database?",
+      [
+        "MongoDB",
+        "Redis",
+        "Neo4j",
+        "Cassandra"
+      ],
+      0,
+      21
+    ],
+    [
+      "What is the collection of valid values for a column called?",
+      [
+        "Domain",
+        "Schema",
+        "Constraint",
+        "Metadata"
+      ],
+      0,
+      20
+    ],
+    [
+      "Which database category is meant for a department or team?",
+      [
+        "Personal",
+        "Enterprise",
+        "Group",
+        "Cloud"
+      ],
+      2,
+      12
+    ],
+    [
+      "Indexing, storage management and backup and recovery belong to which DBMS function?",
+      [
+        "Data definition",
+        "Data storage and retrieval",
+        "Data security",
+        "Data administration"
+      ],
+      1,
+      18
+    ],
+    [
+      "Query processing and transaction management belong to which DBMS function?",
+      [
+        "Data definition",
+        "Data administration",
+        "Data security and integrity",
+        "Data manipulation"
+      ],
+      3,
+      18
+    ],
+    [
+      "Access control and integrity constraints belong to which DBMS function?",
+      [
+        "Data definition",
+        "Data security and integrity",
+        "Data manipulation",
+        "Data administration"
+      ],
+      1,
+      18
+    ],
+    [
+      "Database tuning and monitoring belong to which DBMS function?",
+      [
+        "Data definition",
+        "Data administration",
+        "Data security and integrity",
+        "Data manipulation"
+      ],
+      1,
+      18
+    ],
+    [
+      "Which advantage means a DBMS can scale up or scale out as demand grows?",
+      [
+        "Centralized data management",
+        "Scalability and flexibility",
+        "Concurrency control",
+        "Cost efficiency"
+      ],
+      1,
+      24
+    ],
+    [
+      "Which of these is an OODBMS?",
+      [
+        "ObjectDB",
+        "MongoDB",
+        "IDMS",
+        "IBM IMS"
+      ],
+      0,
+      22
+    ],
+    [
+      "IDMS is an example of which DBMS type?",
+      [
+        "Hierarchical",
+        "Document",
+        "Network",
+        "Relational"
+      ],
+      2,
+      23
+    ],
+    [
+      "Which statement about a network DBMS is true?",
+      [
+        "Every record has one parent",
+        "It allows multiple parent-child relationships",
+        "It is always simpler than hierarchical",
+        "It stores data as documents"
+      ],
+      1,
+      22
+    ],
+    [
+      "Who developed SQL at IBM in the early 1970s?",
+      [
+        "Edgar Codd",
+        "Larry Ellison",
+        "Chamberlin and Boyce",
+        "Michael Stonebraker"
+      ],
+      2,
+      28
+    ],
+    [
+      "Which statement best describes SQL?",
+      [
+        "A procedural language like C",
+        "A non-procedural language: you say what, the DBMS decides how",
+        "A markup language",
+        "A language that only creates tables"
+      ],
+      1,
+      29
+    ],
+    [
+      "Which data type stores a value such as red,blue chosen from a list?",
+      [
+        "ENUM",
+        "BOOLEAN",
+        "VARCHAR",
+        "SET"
+      ],
+      3,
+      41
+    ],
+    [
+      "Which data type fits images and audio files?",
+      [
+        "CHAR",
+        "BLOB",
+        "TEXT",
+        "DATE"
+      ],
+      1,
+      37
+    ],
+    [
+      "Which value can DECIMAL(10,2) store?",
+      [
+        "1234567890.12",
+        "123456789.12",
+        "12345678901.2",
+        "12345.67"
+      ],
+      3,
+      32
+    ],
+    [
+      "What range does the YEAR type support?",
+      [
+        "1000 to 9999",
+        "1901 to 2155",
+        "0000 to 2000",
+        "1970 to 2038"
+      ],
+      1,
+      39
+    ],
+    [
+      "Which statement about NULL is true?",
+      [
+        "It equals zero",
+        "It equals an empty string",
+        "It marks a missing or unknown value",
+        "It is tested with = NULL"
+      ],
+      2,
+      42
+    ],
+    [
+      "Which command shows the tables of the selected database?",
+      [
+        "SHOW DATABASES",
+        "SHOW INDEX",
+        "USE",
+        "SHOW TABLES"
+      ],
+      3,
+      45
+    ],
+    [
+      "Which statement modifies existing values in a table?",
+      [
+        "INSERT INTO",
+        "ALTER",
+        "UPDATE",
+        "CREATE"
+      ],
+      2,
+      50
+    ],
+    [
+      "Which statement is irreversible and removes a table with its data?",
+      [
+        "DROP",
+        "UPDATE",
+        "DELETE",
+        "SELECT"
+      ],
+      0,
+      54
+    ],
+    [
+      "Which pair are DCL commands?",
+      [
+        "GRANT and REVOKE",
+        "CREATE and DROP",
+        "INSERT and UPDATE",
+        "SELECT and WHERE"
+      ],
+      0,
+      65
+    ],
+    [
+      "Which of these is a DML command?",
+      [
+        "GRANT",
+        "RENAME",
+        "CREATE",
+        "INSERT"
+      ],
+      3,
+      64
+    ],
+    [
+      "Which clause is evaluated after FROM and SELECT?",
+      [
+        "WHERE",
+        "JOIN",
+        "ORDER BY",
+        "USING"
+      ],
+      2,
+      72
+    ],
+    [
+      "Which LIKE wildcard matches exactly one character?",
+      [
+        "%",
+        "_",
+        "*",
+        "?"
+      ],
+      1,
+      79
+    ],
+    [
+      "What does SELECT true OR false AND false return in MySQL?",
+      [
+        "0",
+        "NULL",
+        "1",
+        "An error"
+      ],
+      2,
+      85
+    ],
+    [
+      "Which JOIN returns only rows that match in both tables?",
+      [
+        "LEFT JOIN",
+        "RIGHT JOIN",
+        "INNER JOIN",
+        "CROSS JOIN"
+      ],
+      2,
+      89
+    ],
+    [
+      "Which keyword can replace ON when both join columns have the same name?",
+      [
+        "HAVING",
+        "WHERE",
+        "USING",
+        "GROUP BY"
+      ],
+      2,
+      91
+    ],
+    [
+      "Which JOIN returns all rows from the right table?",
+      [
+        "RIGHT JOIN",
+        "LEFT JOIN",
+        "INNER JOIN",
+        "CROSS JOIN"
+      ],
+      0,
+      100
+    ],
+    [
+      "How can you emulate a FULL OUTER JOIN in MySQL?",
+      [
+        "Use the FULL JOIN keyword",
+        "Use INNER JOIN with IS NULL",
+        "Combine LEFT JOIN and RIGHT JOIN with UNION",
+        "Use CROSS JOIN"
+      ],
+      2,
+      88,
+      "Beyond module: the UNION workaround is not printed in the module. Page 56 describes FULL JOIN, which is not a native MariaDB/MySQL join type."
+    ],
+    [
+      "Which category do COMMIT and ROLLBACK belong to?",
+      [
+        "DDL",
+        "DML",
+        "DCL",
+        "TCL"
+      ],
+      3,
+      61
+    ],
+    [
+      "Which type is suitable for a whole number larger than the INT range?",
+      [
+        "BIGINT",
+        "TIME",
+        "CHAR",
+        "ENUM"
+      ],
+      0,
+      32
+    ],
+    [
+      "Which type is associated with smaller whole-number examples such as -32768?",
+      [
+        "DOUBLE",
+        "SMALLINT",
+        "BLOB",
+        "SET"
+      ],
+      1,
+      32
+    ],
+    [
+      "Which pair represents floating-point types in the module?",
+      [
+        "ENUM and SET",
+        "CHAR and VARCHAR",
+        "DATE and TIME",
+        "FLOAT and DOUBLE"
+      ],
+      3,
+      34
+    ],
+    [
+      "Which type stores variable-length binary data?",
+      [
+        "INT",
+        "CHAR",
+        "DATE",
+        "VARBINARY"
+      ],
+      3,
+      36
+    ],
+    [
+      "Which temporal type stores a clock-time value without a date?",
+      [
+        "TIME",
+        "DATE",
+        "YEAR",
+        "VARCHAR"
+      ],
+      0,
+      38
+    ],
+    [
+      "Which type combines calendar date and clock time?",
+      [
+        "SMALLINT",
+        "TIME",
+        "YEAR",
+        "DATETIME"
+      ],
+      3,
+      39
+    ],
+    [
+      "Which type is introduced with the fractional date-time example on page 39?",
+      [
+        "TIMESTAMP",
+        "YEAR",
+        "DATE",
+        "BINARY"
+      ],
+      0,
+      39
+    ],
+    [
+      "Which type is assigned to htmlDescription in the page 62 table example?",
+      [
+        "MEDIUMBLOB",
+        "MEDIUMTEXT",
+        "SMALLINT",
+        "TIME"
+      ],
+      1,
+      62
+    ],
+    [
+      "Which type is assigned to image in the page 62 table example?",
+      [
+        "MEDIUMBLOB",
+        "MEDIUMTEXT",
+        "CHAR",
+        "YEAR"
+      ],
+      0,
+      62
+    ],
+    [
+      "What is AUTO_INCREMENT used for in the page 60 example?",
+      [
+        "Sorting employee names",
+        "Generating successive employee_id values",
+        "Making every column unique",
+        "Encrypting employee records"
+      ],
+      1,
+      60
+    ],
+    [
+      "Which statement creates a database named practice2?",
+      [
+        "USE practice2",
+        "CREATE TABLE practice2",
+        "CREATE DATABASE practice2",
+        "SHOW DATABASES"
+      ],
+      2,
+      52
+    ],
+    [
+      "Which statement removes a database named practice2?",
+      [
+        "DROP DATABASE practice2",
+        "DELETE DATABASE practice2",
+        "TRUNCATE DATABASE practice2",
+        "DROP COLUMN practice2"
+      ],
+      0,
+      54
+    ],
+    [
+      "Which feature helps track access and changes to database data?",
+      [
+        "Audit trails",
+        "Floating-point precision",
+        "Table aliases",
+        "Cartesian products"
+      ],
+      0,
+      24
+    ],
+    [
+      "Which security feature encodes data to protect it?",
+      [
+        "Normalization",
+        "Encryption",
+        "ORDER BY",
+        "AUTO_INCREMENT"
+      ],
+      1,
+      24
+    ],
+    [
+      "DynamoDB is listed under which NoSQL type?",
+      [
+        "Object-oriented",
+        "Graph",
+        "Key-value",
+        "Relational"
+      ],
+      2,
+      21
+    ],
+    [
+      "CouchDB is listed under which NoSQL type?",
+      [
+        "Network",
+        "Graph",
+        "Hierarchical",
+        "Document-oriented"
+      ],
+      3,
+      21
+    ],
+    [
+      "HBase is listed under which NoSQL type?",
+      [
+        "Graph",
+        "Key-value",
+        "Column-family",
+        "Object-oriented"
+      ],
+      2,
+      21
+    ],
+    [
+      "db4o is an example of which DBMS type?",
+      [
+        "Column-family",
+        "Hierarchical",
+        "Network",
+        "Object-oriented"
+      ],
+      3,
+      22
+    ],
+    [
+      "What is a predicate in a WHERE condition?",
+      [
+        "A command that creates a table",
+        "The name of a database server",
+        "A fixed-length binary column",
+        "A Boolean expression that can be TRUE, FALSE, or UNKNOWN"
+      ],
+      3,
+      75
+    ],
+    [
+      "What does TRUE AND NULL evaluate to?",
+      [
+        "A syntax error",
+        "TRUE",
+        "FALSE",
+        "NULL"
+      ],
+      3,
+      80
+    ],
+    [
+      "What does FALSE OR NULL evaluate to?",
+      [
+        "FALSE",
+        "TRUE",
+        "NULL",
+        "A syntax error"
+      ],
+      2,
+      83
+    ],
+    [
+      "In FROM members AS m, what does m represent?",
+      [
+        "A primary-key constraint",
+        "A new column",
+        "A new database",
+        "A table alias"
+      ],
+      3,
+      90
+    ],
+    [
+      "Which condition selects employees without customers after the RIGHT JOIN shown on page 104?",
+      [
+        "WHERE customerNumber = NULL",
+        "WHERE employeeNumber IS NULL",
+        "WHERE customerNumber IS NULL",
+        "WHERE employeeNumber = 0"
+      ],
+      2,
+      104
+    ]
+  ]
+}

@@ -1,0 +1,126 @@
+# page | concept | identification prompt | accepted names | three MC distractors
+12|Database|This is an organized collection of related data representing an aspect of the real world and stored electronically. What is it?|database|Table;DBMS;Query
+13|Table|This database structure organizes related records into rows and columns. Identify it.|table|Column;Data item;Database engine
+13|Column|This vertical element of a table represents one field or attribute. What is it?|column|Row;Table;Data item
+14|Row|This horizontal element contains all field values for one record. Identify it.|row|Column;Column name;Domain
+14|Column name|This is the unique label used to identify a field, such as ID or NAME. What is it?|column name|Data item;Row;Foreign key
+11|Personal database|Which database size category is the smallest and is stored on an individual user's computer?|personal database|Group database;Enterprise database;Network DBMS
+12|Group database|Which database size category serves a department or team and must support access from several devices?|group database|Personal database;Enterprise database;Hierarchical DBMS
+12|Enterprise database|Which database size category describes large, complex systems requiring dependable equipment for organization-wide use?|enterprise database|Personal database;Group database;Flat file
+16|Cloud|This collection of computers makes computing and storage resources available over the Internet. Identify it.|cloud|Data dictionary;Local table;Primary key
+17|Database engine|Which managed component is named alongside data and the database schema in the module's DBMS definition?|database engine|Data dictionary;Query result;Database user
+20|Schema|This is the logical design of a database, describing its tables and organization. Identify the design, rather than the process that defines it.|schema|Domain;Data item;Query
+20|Domain|This is the set of allowed values of an attribute, such as the available colors of a vehicle. Identify it.|domain|Schema;Table;Query
+18|Data Definition|This DBMS function defines the database structure, including tables, fields, relationships, constraints, and data types. What is it?|data definition|Data Manipulation;Data Storage and Retrieval;Data Administration
+18|Schema Definition|This defines the database structure, including tables, fields, relationships, and constraints. What is this subfunction called?|schema definition|Data Types;Query Processing;Access Control
+18|Data Types|These specify what kinds of values can be stored in database columns, such as integers, strings, and dates. What are they called?|data types|Integrity Constraints;Indexes;Records
+18|Data Manipulation|This DBMS function includes retrieving information, inserting, modifying, and deleting records, and reliably processing transactions. What is it?|data manipulation|Data Definition;Data Security and Integrity;Data Administration
+18|Query Processing|This allows users to retrieve specific data using a query language such as SQL. Identify the subfunction.|query processing|Data Update;Storage Management;Access Control
+18|Data Update|This enables the insertion, modification, and deletion of records in a database. Identify the subfunction.|data update|Query Processing;Schema Definition;Database Tuning
+18|Transaction Management|This DBMS subfunction ensures that database transactions are processed reliably and follow the ACID properties: Atomicity, Consistency, Isolation, and Durability.|transaction management|Query Processing;Monitoring and Maintenance;Storage Management
+18|Data Security and Integrity|This DBMS function protects information by managing permissions and enforcing rules that keep data accurate and consistent. What is it?|data security and integrity|Data Definition;Data Manipulation;Data Storage and Retrieval
+18|Access Control|This manages user permissions to ensure only authorized users can access or modify database information. Identify the subfunction.|access control|Integrity Constraints;Backup and Recovery;Data Update
+18|Integrity Constraints|These enforce rules to maintain data accuracy and consistency, including primary key and foreign key rules. What are they called?|integrity constraints|Data Types;Audit Trails;Queries
+18|Data Storage and Retrieval|This DBMS function covers physical storage on disk drives, creating indexes for faster retrieval, and restoring lost or corrupted information. Identify it.|data storage and retrieval|Data Definition;Data Security and Integrity;Data Administration
+18|Storage Management|This handles the physical storage of data on disk drives. What subfunction is being described?|storage management|Indexing;Query Processing;Schema Definition
+18|Indexing|This creates special indexes that help speed up data retrieval operations. Identify the technique.|indexing|Encryption;Normalization;Access Control
+18|Backup and Recovery|This provides mechanisms to save copies of information and restore it in cases of data loss or corruption. What is it called?|backup and recovery|Storage Management;Data Update;Database Tuning
+18|Data Administration|This DBMS function encompasses performance tuning, tracking database performance, and performing regular maintenance tasks. Identify it.|data administration|Data Definition;Data Manipulation;Data Security and Integrity
+18|Database Tuning|This optimizes database performance through techniques such as indexing and query optimization. What is it?|database tuning|Monitoring and Maintenance;Access Control;Schema Definition
+18|Monitoring and Maintenance|This tracks database performance and performs regular tasks to keep the database operating properly. What is it?|monitoring and maintenance|Database Tuning;Query Processing;Backup and Recovery
+21|Relational DBMS|This DBMS type organizes data into relations with rows and columns and commonly uses SQL. Identify the type.|relational dbms~rdbms~relational database management system|NoSQL DBMS;Object-oriented DBMS;Hierarchical DBMS
+21|NoSQL DBMS|This DBMS family offers flexible models for large volumes of unstructured or semi-structured data, including document, key-value, column-family and graph stores. Identify it.|nosql~nosql dbms|Relational DBMS;Hierarchical DBMS;Object-oriented DBMS
+21|Key-value store|This NoSQL type stores data as pairs of a key and its associated value. Identify the type, not a product.|key value store~key value database|Document-oriented database;Column-family store;Graph database
+23|Centralized Data Management|Which DBMS advantage stores data centrally, simplifying retrieval and reducing scattered duplicate copies?|centralized data management~centralised data management|Improved Data Security;Cost Efficiency;Concurrency Control
+24|Improved Data Security|Which DBMS advantage combines access controls, encryption and audit trails to protect information?|improved data security~data security|Centralized Data Management;Scalability and Flexibility;Cost Efficiency
+24|Efficient Data Retrieval and Manipulation|Which DBMS advantage uses query languages and indexing for fast retrieval, complex queries and ad-hoc reports?|efficient data retrieval and manipulation|Data Consistency and Integrity;Cost Efficiency;Improved Data Security
+24|Data Consistency and Integrity|Which DBMS advantage enforces rules and relationships to prevent data anomalies and maintain reliable, accurate data?|data consistency and integrity|Efficient Data Retrieval and Manipulation;Centralized Data Management;Scalability and Flexibility
+24|Scalability and Flexibility|Which DBMS advantage supports growing data and user loads while adapting to changing requirements and data structures?|scalability and flexibility|Cost Efficiency;Concurrency Control;Improved Data Security
+25|Vertical scaling|This scaling approach increases the resources of an existing system, described as scaling up. Identify it.|vertical scaling~scale up~scaling up|Horizontal scaling;Normalization;Encryption
+25|Horizontal scaling|This scaling approach expands across more systems, described as scaling out. Identify it.|horizontal scaling~scale out~scaling out|Vertical scaling;Indexing;Encryption
+25|Locking|Which concurrency mechanism controls simultaneous access by placing locks on data?|locking~locking mechanism~locking mechanisms|Encryption;Backup;Normalization
+25|Cost Efficiency|Which DBMS advantage reduces long-term operational and maintenance costs through better resource use?|cost efficiency|Data Consistency and Integrity;Concurrency Control;Scalability and Flexibility
+23|IBM IMS|Which product is the hierarchical DBMS example in Table 1.1? Give the product name.|ibm ims~ims|IDMS;MySQL;ObjectDB
+23|IDMS|Which product is the network DBMS example in Table 1.1? Give the product name.|idms|IBM IMS;PostgreSQL;ObjectDB
+21|MongoDB|Which document-oriented NoSQL example is paired with CouchDB in the module?|mongodb|Redis;Cassandra;Neo4j
+21|Redis|Which key-value NoSQL example is paired with DynamoDB in the module?|redis|CouchDB;HBase;ArangoDB
+21|Cassandra|Which column-family NoSQL example is paired with HBase in the module?|cassandra|MongoDB;Redis;Neo4j
+21|Neo4j|Which graph database example is paired with ArangoDB in the module?|neo4j|CouchDB;DynamoDB;HBase
+22|ObjectDB|Which object-oriented DBMS product is paired with db4o in the module?|objectdb|IDMS;IBM IMS;Redis
+28|SQL|This standardized language manages and queries relational databases. Give its acronym or full name.|sql~structured query language|DBMS;DDL;NoSQL
+29|Procedural language|This language style requires the programmer to specify the sequence of steps, unlike SQL's declarative approach. Identify it.|procedural language~procedural programming language|Nonprocedural language;Query language;Data definition language
+31|Numeric data types|Which data-type family includes INT, SMALLINT, DECIMAL and FLOAT?|numeric data types~numeric types|Character String Data Types;Binary Data Types;Date and Time Data Types
+31|INT|Which SQL type stores ordinary whole numbers, such as 123, -456 and 0? Give the type named in section a.|int~integer|DECIMAL;FLOAT;VARCHAR
+32|TINYINT|Which integer type has a signed range of -128 to 127 and an unsigned range of 0 to 255 in the module?|tinyint|SMALLINT;INT;BIGINT
+32|Precision|In DECIMAL(p,s), what is p called, representing the total number of digits?|precision|Scale;Length;Index
+32|Scale|In DECIMAL(p,s), what is s called, representing digits after the decimal point?|scale|Precision;Domain;Offset
+34|Character string data types|Which data-type family includes CHAR, VARCHAR and TEXT?|character string data types~character data types~string data types|Numeric Data Types;Binary Data Types;Date and Time Data Types
+35|VARCHAR|Which character type stores a variable-length string up to a declared maximum length?|varchar~character varying|CHAR;TEXT;BINARY
+35|TEXT|Which character type is designed for long paragraphs or documents rather than a short bounded VARCHAR string?|text|CHAR;BLOB;INT
+36|Binary data types|Which data-type family includes BINARY, VARBINARY and BLOB?|binary data types~binary types|Character String Data Types;Numeric Data Types;Date and Time Data Types
+36|BINARY|Which type stores fixed-length binary data, such as a declared five-byte value?|binary|VARBINARY;BLOB;CHAR
+37|Date and time data types|Which data-type family includes DATE, TIME, DATETIME, TIMESTAMP and YEAR?|date and time data types~datetime types~temporal data types|Numeric Data Types;Binary Data Types;Character String Data Types
+37|DATE|Which temporal type stores a calendar date with year, month and day, without a time of day?|date|TIME;DATETIME;YEAR
+39|YEAR|Which temporal type stores only the year component, such as 2023?|year|DATE;TIME;DATETIME
+40|Miscellaneous data types|Which module data-type category contains specialized types including ENUM and SET?|miscellaneous data types~miscellaneous types|Numeric Data Types;Character String Data Types;Binary Data Types
+40|Spatial data types|Which specialized data types represent geographic information?|spatial data types~spatial types|JSON;ENUM;BOOLEAN
+40|JSON|Which specialized type named in the module stores structured data in JavaScript Object Notation?|json|BLOB;SET;ENUM
+42|IS NULL|Which SQL operator specifically tests whether a value is missing or unknown?|is null|= NULL;IS NOT NULL;= 0
+42|IS NOT NULL|Which SQL operator specifically tests that a value is present rather than NULL?|is not null|!= NULL;IS NULL;= NULL
+42|COALESCE|Which NULL-handling function returns the first non-NULL value from its arguments? Give the function that can accept several alternatives.|coalesce|IFNULL;COUNT;SUM
+42|IFNULL|Which MySQL NULL-handling function takes a value and a replacement, returning the replacement if the value is NULL?|ifnull|COALESCE;SUM;AVG
+45|USE|Which MySQL statement selects the database to work in?|use|SHOW DATABASES;CREATE DATABASE;SHOW TABLES
+45|SHOW COLUMNS|Which SHOW command lists a table's column types, keys, NULL allowance and defaults?|show columns~show columns from|SHOW INDEX;SHOW TABLES;SHOW DATABASES
+45|SHOW INDEX|Which SHOW command displays the indexes defined on a table?|show index~show index from~show indexes~show indexes from~show keys~show keys from|SHOW COLUMNS;SHOW DATABASES;SHOW TABLE STATUS
+45|SHOW TABLE STATUS|Which SHOW command reports table information and statistics, optionally with LIKE and vertical display?|show table status|SHOW TABLES;SHOW INDEX;SHOW DATABASES
+45|Vertical display delimiter|Which MySQL monitor terminator displays query output vertically instead of as a horizontal table?|\\G|semicolon;comma;parentheses
+44|root|What is the MySQL administrator account introduced in the monitor lesson called?|root|guest;public;anonymous
+59|Password option|In mysql -u username -p, which option prompts for the password?|-p| -u; -h; -D
+59|Username option|In mysql -u username -p, which option specifies the username?|-u| -p; -h; -D
+66|CRUD|Which acronym represents Create, Read, Update and Delete operations?|crud|DDL;DQL;DCL
+50|UPDATE|Which SQL statement modifies values in existing table rows, rather than the table structure?|update|ALTER TABLE;INSERT;DROP TABLE
+51|DELETE|Which SQL statement removes selected table rows while leaving the table structure in place?|delete~delete from|DROP TABLE;TRUNCATE TABLE;ALTER TABLE
+52|CREATE|Which general SQL statement family creates objects such as databases and tables?|create|INSERT;UPDATE;ALTER
+52|CREATE TABLE|Which SQL statement defines a new table's columns, data types and constraints? Give both keywords.|create table|CREATE DATABASE;INSERT INTO;ALTER TABLE
+53|ALTER TABLE|Which SQL statement changes an existing table's structure by adding, dropping or modifying columns?|alter table~alter|UPDATE;CREATE TABLE;DELETE
+53|ADD|In ALTER TABLE, which operation adds a new column?|add~add column|DROP COLUMN;MODIFY COLUMN;SET
+54|DROP COLUMN|In ALTER TABLE, which operation removes an existing column? Give both keywords.|drop column|DROP TABLE;DELETE FROM;MODIFY COLUMN
+54|MODIFY COLUMN|In the module's ALTER TABLE examples, which operation changes a column's data type?|modify column~modify|SET;ADD COLUMN;DROP COLUMN
+49|VALUES|Which INSERT keyword introduces the list of values for the new row?|values|SET;WHERE;FROM
+60|NOT NULL|Which column constraint requires a value and prohibits a missing-value marker?|not null|UNIQUE;DEFAULT;AUTO_INCREMENT
+60|UNIQUE|Which constraint prohibits duplicate non-NULL values in a column such as an email address?|unique~unique constraint|NOT NULL;DEFAULT;AUTO_INCREMENT
+62|DEFAULT|Which column clause supplies a value when an insertion omits that column?|default|UNIQUE;PRIMARY KEY;NOT NULL
+63|Result set|What is the temporary collection of rows returned by a SELECT query called?|result set|Schema;Data dictionary;Transaction
+63|FROM|Which SELECT clause names the source table?|from|WHERE;ORDER BY;HAVING
+63|GROUP BY|Which SELECT clause groups rows for aggregate calculations?|group by|ORDER BY;WHERE;LIMIT
+65|GRANT|Which DCL command gives a user permissions such as SELECT or UPDATE?|grant|REVOKE;COMMIT;CREATE
+65|REVOKE|Which DCL command removes previously granted permissions?|revoke|GRANT;ROLLBACK;DELETE
+61|COMMIT|Which transaction-control command makes a transaction's changes permanent?|commit|ROLLBACK;SAVEPOINT;GRANT
+61|ROLLBACK|Which transaction-control command undoes the current transaction's uncommitted changes?|rollback|COMMIT;SAVEPOINT;TRUNCATE
+61|SAVEPOINT|Which transaction-control command marks a point that permits a later partial rollback?|savepoint|COMMIT;GRANT;REVOKE
+58|SQL View|Which Microsoft Access view allows you to write and edit the SQL text of a query?|sql view|Design View;Datasheet View;Form View
+57|Query by example|Which visual query method uses an Access grid to specify a query rather than typing its entire SQL statement?|query by example~qbe|SQL View;Command-line monitor;Data dictionary
+68|Select list|What is the list of columns or expressions immediately following SELECT called?|select list~selection list|FROM clause;Search condition;Join condition
+68|Asterisk|Which symbol in SELECT * requests every column? Give the symbol or its name.|asterisk~star~*|semicolon;underscore;percent sign
+75|Search condition|What is the Boolean condition after WHERE that decides which rows are included called?|search condition|Select list;Sort direction;Table alias
+76|Equality operator|Which comparison operator selects rows whose jobTitle exactly equals 'Sales Rep'? Give its symbol or name.|=~equal~equals~equal to~equality operator|Greater than;Less than;Not equal
+83|Greater-than operator|Which comparison operator implements creditLimit greater than 100000? Give its symbol or name.|>~greater than~greater than operator|Greater than or equal to;Less than;Equal to
+78|BETWEEN|Which SQL operator tests an inclusive lower-to-upper range?|between|LIKE;IN;IS NULL
+79|LIKE|Which SQL operator compares a value with a pattern using percent and underscore wildcards?|like|BETWEEN;IS NULL;IN
+79|Percent wildcard|Which LIKE wildcard matches zero or more characters? Give the symbol or name.|percent~percent sign~%|underscore;asterisk;semicolon
+79|Underscore wildcard|Which LIKE wildcard matches exactly one character? Give the symbol or name.|underscore~_|percent sign;asterisk;semicolon
+80|AND|Which logical operator requires both Boolean conditions to be TRUE for a TRUE result?|and|OR;NOT;BETWEEN
+83|OR|Which logical operator returns TRUE when at least one of its Boolean conditions is TRUE?|or|AND;NOT;LIKE
+84|Operator precedence|What is the rule that determines which operators are evaluated first in a combined expression called?|operator precedence~precedence|Short-circuit evaluation;Grouping;Aliasing
+86|Parentheses|Which punctuation groups OR conditions before an AND filter in (country='USA' OR country='France') AND creditLimit>100000?|parentheses~parenthesis~round brackets|Commas;Semicolons;Quotation marks
+89|INNER JOIN|Which JOIN returns only pairs of rows that satisfy its join condition?|inner join~inner|LEFT JOIN;RIGHT JOIN;CROSS JOIN
+100|RIGHT JOIN|Which JOIN preserves every right-table row and supplies NULLs for unmatched left-table columns?|right join~right outer join~right|LEFT JOIN;INNER JOIN;CROSS JOIN
+89|ON|Which JOIN keyword introduces an explicit matching condition such as a.id=b.id?|on|USING;WHERE;HAVING
+89|Join condition|What is the rule after ON that decides which rows from two tables match called?|join condition~join predicate|Search condition;Select list;Sort direction
+90|AS|Which keyword introduces an alias, as in name AS member?|as|ON;USING;WHERE
+96|Left anti-join filter|After members LEFT JOIN committees, which test on the nonnullable right-side key selects members with no committee match?|is null~c.committee_id is null~committee_id is null|IS NOT NULL;= NULL;= 0
+104|Right anti-join filter|After customers RIGHT JOIN employees, which condition selects employees who have no matching customer?|customernumber is null~is null|employeeNumber IS NULL;customerNumber = NULL;customerNumber IS NOT NULL
+97|One-to-many relationship|In the module diagram, one customer may have many orders and each order belongs to one customer. Name this relationship.|one to many~one to many relationship~1 to many~1 to n|One-to-one;Many-to-many;No relationship
+91|Product line link|Which column in products references the productlines table in the module diagram?|productline~product line|productCode;productName;quantityInStock
+102|Sales representative link|Which customers column references employees.employeeNumber in the module's diagram?|salesrepemployeenumber|customerNumber;reportsTo;officeCode
+93|SUM|Which aggregate function totals quantityOrdered * priceEach for each order in the joined GROUP BY example?|sum|COUNT;AVG;MAX

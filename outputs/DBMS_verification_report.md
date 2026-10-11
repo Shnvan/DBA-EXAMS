@@ -1,65 +1,71 @@
-# DBMS practice page — clearer labs and dark default
+# DBMS midterm verification report
 
-## Changes in this update
+Release reviewed on 12 October 2026. The written exam now contains **237 identification questions and 271 multiple-choice questions** across the five actual PDF modules. Regular SQL tasks have independent saved sessions; guided challenges remain cumulative and Free practice remains separate.
 
-- Removed the answer-revealing **Required structure** panel. The seven table questions describe records, required capacities, permitted NULL values and relationships. Students select the SQL data types, keys and constraints.
-- Rewrote all twelve guided questions. Exact sample records and attempted operations are supplied for the later questions. Hints start closed; **Show solution** reveals one possible solution only when requested.
-- Changed **Check structure** to **Check answer**, and **Sandbox** to **Free practice**. Student-created structures, data previews and actual foreign-key diagrams remain visible.
-- Replaced exact type/column-order comparison with explicit question rules. Accepted alternatives include reordered columns and combined keys, larger text lengths, compatible integer types/signedness, alternate constraint names and larger exact decimal scales. Required relationships and constraints still apply. TEXT capacity is checked in bytes for the utf8mb4 configuration.
-- Reference INSERT statements specify column names. Sample records are compared by column name and exact numeric value, so column order and decimal scale do not cause false failures.
-- Error challenges now verify the specific requested record change as well as the operation, native error number/SQLSTATE and unchanged database. Wrong duplicate records, nonexistent student 998 instead of 999, and deletion of the wrong student cannot pass.
-- Simplified wording across all SQL lab tracks, including the 30 Module queries. Questions no longer depend on an unspecified previous question. Corrected the AND/OR instructions to request nine columns in one row; supplied previously implicit example values. SQL statements, page numbers, keywords and database error messages are preserved.
-- Dark mode is the initial default, including when storage is blocked or the preference is invalid. Valid saved light/dark preferences remain honored. The theme is applied before CSS/first rendering and the keyboard-accessible toggle still saves the choice.
+## PDF coverage
 
-The question format was informed by [Swarthmore’s SQL assignment](https://www.cs.swarthmore.edu/courses/CS44/F20/WeeklyLabs/wlab09/sqlite_hw.html) and this [registration database exercise](https://drcs.codes/databases/exercises/registration-database.html). The table-design questions remain explicitly marked as constructed additional practice rather than printed module exercises.
+All 105 pages were extracted and visually reviewed, with enlarged inspection of table, command, diagram and truth-table pages. The inventory in `verification/module-coverage.json` and `verification/module-coverage.md` links questions to their source pages, records every page's disposition, and explains exclusions. The seven full-PDF contact sheets and larger table/diagram sheets are included in the evidence ZIP.
 
-## Verification retained from the table-design update
+All 17 supplied key-function questions are represented as separate parent/subfunction concepts in both modes. Added material includes database/table elements, size categories, schemas/domains, NoSQL types/products, eight DBMS benefits and their mechanisms, numeric/string/binary/temporal/other types, precision/scale, NULL handling, monitor commands, CRUD and command families, SQL clauses, logical operators/truth tables, matching patterns, aliases, joins and relationship/example behavior. Individual illustrative names, every repeated sample row, administrative pages and unelaborated future-topic definitions are excluded with reasons.
 
-- **208 Node VM/jsdom checks passed.** These cover seven valid designs through all twelve challenges, deliberately incorrect designs, constraints, exact error attempts, unchanged-state checks, terminators, root-only controls, hints, solutions, previews, diagrams, isolation, resets, drafts, exams and text-answer matching. A test-only disabled primary-key checker was detected by a negative control.
-- **398 Playwright checks passed**, plus 44 existing-view captures/checks and 12 contrast checks. Chrome was exercised at 1440px and 380px in both themes. New/saved/invalid/blocked-storage theme cases were checked on the first animation frame. Keyboard hints, Run, Check focus, PDF downloads and valid/invalid designs were exercised.
-- **265 PNG screenshots from that update** are included: home, exam before/after, all existing tracks and errors, all guided challenges, free practice, default-theme cases, hints, alternate/incorrect designs and revised Module essentials questions. No document overflow, overlapping header buttons, external requests or JavaScript errors were observed. Selected desktop/mobile and light/dark views were visually inspected. Text contrast is at least 4.67:1 and focus contrast at least 3.19:1 in the measured views. The written exam now has 149 questions: 89 identification and 60 multiple choice; True/False is removed.
-- **84 new native comparison cases per server**, covering all twelve challenges under seven designs:
+Original question identities and answer keys remain at their original indices. An append-only semantic registry fixes the new question identities and MC option order independently of source inventory order. A regression test reverses the concept inventory and verifies identical generated question content. Identification accepts curated variants, case and punctuation, singular/plural forms and symbols. Parent functions, subfunctions, SQL categories and different technical types are distinguished in their prompts and grading. MC correct options use the same formatting as distractors.
 
-| Isolated server | Passed | Port |
-|---|---:|---:|
-| 10.4.32-MariaDB | 84/84 | 13307 |
-| 10.11.14-MariaDB-0ubuntu0.24.04.1 | 84/84 | 13311 |
-| 8.0.46-0ubuntu0.24.04.4 | 84/84 | 13308 |
+| Part | PDF pages | Identification | Multiple choice |
+|---|---|---:|---:|
+| 1 ? Database Management System | 10?27 | 77 | 89 |
+| 2 ? SQL Basics | 28?46 | 50 | 56 |
+| 3 ? Creation of Own Database | 47?66 | 54 | 59 |
+| 4 ? A Revisit in MySQL Query | 67?87 | 37 | 42 |
+| 5 ? Understanding SQL Joins with MySQL | 88?105 | 19 | 25 |
 
-Native comparison checks result columns and records, affected rows, warning codes, error number/SQLSTATE, table metadata, indexes, foreign keys, automatic-number counters and final state. Error-message wording across server versions is not claimed to be identical. The MariaDB 10.4 target used SQL mode NO_ZERO_IN_DATE,NO_ZERO_DATE,NO_ENGINE_SUBSTITUTION and utf8mb4_general_ci.
+Only the selected part is rendered. Any part may be submitted independently, then locks and shows its score, answers and references. Continue/Stay choices retain review or open the next unsubmitted part. Fisher?Yates shuffles inside each module only. Start over retains mode, part categories and order. Hidden/unrendered answers are preserved during navigation and submission.
 
-The original 125 generated, 30 Module-query and 28 Module-essentials reference SQL statements are unchanged and all still pass the browser engine’s checks. Their previous native audit is preserved as historical comparison evidence; this update did not repeat the completed module-answer/page-reference audit.
+## SQL audit and fixes
 
-## Preserved content and limits
+The evidence ZIP includes `sql-task-audit.json`: prompt, reference SQL, starting-state hash and results/error for all **183 regular tasks**, plus cumulative validation of all **12 guided challenges**. Findings and reproduction cases are in `verification/sql-audit-findings.md`.
 
-The audited identification and multiple-choice exam banks and seeded tables are unchanged; stable identities and page references are preserved. Required semicolons, the supported vertical terminator \G, root-only execution, separate guided/free-practice sessions and drafts remain intact. Draft/session retention is within the open page, not across reloads. All data remains offline.
+Run executes in the selected task's saved session. Check evaluates the current draft on an isolated fresh starting database. The grader compares required results/state and explicitly requested techniques, and tests numeric boundaries and varied values to catch accidental matches on the small seed. It rejects omitted BETWEEN, NOT, aliases, vertical display and requested join forms. Multiple-primary-key error tasks must still use the requested columns and types. The final builder join is checked with alternate course terms and ordering data to catch incomplete composite matching.
 
-The PDF is still the exact supplied UPDATED-DBMS_MIDTERM_MODULE.pdf, embedded in the single HTML. Both download controls produce the original filename and bytes. PDF SHA-256: bd934884252012c84dd9536e847f5006fa79ef8422578ef9bf65fe1e837f892c.
+Edited SQL removes stale Correct feedback and labels prior output. Builder output/check feedback also records the database state that produced it. Task reset retains drafts and affects only that task; changed databases require confirmation, including inactive databases in the builder. Completed-history markers remain historical. Last-task navigation ends explicitly. Partial batches explain which earlier statements succeeded and that their changes can remain. The DISTINCT/LIMIT country task now specifies alphabetical order. SHOW-command p45 labels are corrected to Module 2.
 
-Retained module notes include FULL JOIN/FULL OUTER JOIN behavior, the beyond-module UNION workaround, missing DESC on p.72, the SQL Server DATETIME minimum attributed to p.39, and the earlier REAL, temporal, COMMENT, ENUM, RIGHT JOIN and diagnostic caveats. The page still marks additional commands and foreign-key SQL beyond the printed examples.
+## Saved progress
 
-This update does not implement a complete MariaDB server. Existing unsupported features such as views, stored programs, window functions, subqueries, arbitrary server settings and CASCADE/SET NULL remain outside the offline engine. Real-world schema design is broader than these guided questions: they require their named columns and stated relationships; Free practice accepts custom designs without scoring. The permissive key comparison does not waive the database engine’s required referenced-index order or compatible foreign-key types.
+Versioned localStorage key: `dbms-progress-v1`; current content version: `module-coverage-task-sessions-v3`. Theme remains separate. Typed input saves after 250 ms; selections/actions save immediately. Hidden, pagehide and beforeunload flush pending changes.
 
-Only verified isolated datadirs on ports 13307, 13311 and 13308 were used and all were shut down. Existing XAMPP databases on port 3307 and the original Downloads files were untouched. Identical deliverables are placed in Windows outputs and /mnt/user-data/outputs.
+Snapshots store selected mode/part, stable orders/answers, submitted scores/structured reviews, focus/scroll, task drafts/completion, per-task databases, transactions/savepoints, outputs/feedback, and both builder modes with previews/latest attempts. No saved HTML is restored. SQL values and feedback are escaped during rendering.
 
-## Files
+Known legacy versions preserve compatible answers by identity/signature and reopen changed/expanded exam parts. Old shared SQL databases are archived with a recovery button into Free practice; drafts, solved history and builder databases are retained. Old regular run/check feedback is cleared because it belongs to the previous shared starting state. Malformed saves and unknown versions are rejected with a notice. Blocked/full storage retains the previous successful snapshot and keeps the app usable.
 
-- DBMS_midterm_practice.html — 2,710,128 bytes; SHA-256 460d8f3fc39583a795a1e08a414cd7ea1f32c49fc27d826a78aab36d10b77dc7.
-- DBMS_verification_evidence.zip — current screenshots, verification scripts, current results and retained native comparison evidence.
+Chrome persistent-profile tests verified file-page reopening of partial/submitted identification, partial MC, transactions/savepoints, and expected-error attempts without rerunning SQL. Storage remains specific to browser profile and location; other browsers' file-URL behavior can differ.
 
-## Follow-up: shorter lab messages
+## Current verification
 
-Removed repeated offline explanations from questions, root status headers, the PDF badge and GRANT output. SHOW INDEX and SHOW TABLE STATUS retain a short explanation of unavailable fields inside a closed, keyboard-accessible About this result disclosure. The shared footer explains the browser practice model once; unsupported commands and module caveats remain explicit.
+**1,075 checks passed** for the current implementation:
 
-After this cleanup, all 39 existing VM/jsdom smoke checks passed. Twenty additional browser checks/screenshots cover regular queries, indexes, table status, grants and the table builder at 1440px/380px in both themes. The result notes open with the keyboard and start closed. No page overflow or JavaScript errors were observed. The exam, all 183 original reference statements/page labels and embedded PDF bytes are unchanged. No real-server rerun was needed for these presentation-only changes. Earlier screenshots and native comparison evidence are retained with the new cleanup screenshots.
-## Written exam modes and progress saving
+| Suite | Passed |
+|---|---:|
+| Existing smoke/engine checks | 39 |
+| Existing lab/design checks | 121 |
+| Existing follow-up checks | 43 |
+| Existing extra builder checks | 5 |
+| Exam/progress/shuffle checks | 27 |
+| New coverage, task assessment, migration and realistic workflow checks | 456 |
+| Whole-app browser workflows across ten width/theme configurations | 350 |
+| Persistent Chrome reopening, expected errors, real 200% CSS zoom and resets | 22 |
+| Contrast checks | 12 |
 
-The written exam opens with only **Identification** and **Multiple Choice**. Each mode keeps its 149-question source coverage and groups questions into five fixed module parts using PDF pages 10?27, 28?46, 47?66, 67?87, and 88?105. Questions shuffle independently inside their module; multiple-choice options keep their source order.
+Browser layouts: 1440, 768, 720, 360 and 320 CSS pixels, each in light/dark themes. Actual CSS 200% zoom was also checked at a 1440px viewport. Captures cover home, both exam reviews, SQL lab, guided builder and Free practice. Checks cover keyboard focus, single-part navigation, cancellation, stale feedback, escaping HTML-valued SQL, database isolation, restoration and page overflow. No script errors or overlapping header controls were detected. Visual review of desktop, narrow mobile and zoom captures found no layout overlaps. Result tables and relationship diagrams use deliberate internal scrolling for wide data. Minimum checked text contrast was 4.67:1; focus contrast was 3.18:1.
 
-Every module part can be submitted independently and in any order. Submission records a score, escaped answer feedback and the source page, locks that part, and leaves the other parts editable. The app offers a continue-to-next-part prompt, a progress summary, Start over (same mode and order), and mode/shuffle confirmations that clear only exam progress.
+Existing native MariaDB comparison evidence is retained as historical evidence; it was not rerun for this release. The offline engine's supported SQL scope and limitations remain documented in the app footer. Current checks independently test all reference statements and the newly discovered grading/state defects.
 
-The versioned `dbms-progress-v1` snapshot restores the selected mode, per-module orders, answers, submitted scores/reviews, current part, focus and scroll position, SQL drafts/results/feedback, database transactions and savepoints, and both guided/free-practice sessions. Typing is debounced at 250 ms; navigation, selections, execution, checking, submission, shuffling and resets save immediately. Visibility and pagehide flush pending saves. Theme remains in `dbms-theme`.
+## Integrity and reproducibility
 
-Old `216-67-60-183-12` snapshots migrate their SQL and builder state and reset the incompatible exam to the chooser. Malformed, incompatible, blocked and full storage cases keep the app usable and report a brief status. Restored feedback and SQL values are rendered from structured data through the existing escaping functions.
+HTML bytes: 2,818,890; SHA-256: `7167ba2a11b546af0be9452e5bc10703acc90692654e638ca35b78ffe2786b55`.
 
-Verification: 39 VM/jsdom smoke checks, 121 clearer-lab checks, 43 follow-up checks, 5 builder checks, 27 focused exam/persistence checks, source audit for all 149 questions, and 20 Chrome checks at 1440px and 380px in both themes passed, including the single-part workspace and inline continue prompt. The focused suite covers exact module coverage, repeated shuffles, option order, all mode/module grading variants, arbitrary submission order, locking, confirmation cancellation, reload restoration, legacy migration, transactions/savepoints, escaped HTML values, malformed saves, and storage failures.
+Embedded PDF bytes: 1,896,645; SHA-256: `bd934884252012c84dd9536e847f5006fa79ef8422578ef9bf65fe1e837f892c`. Embedded bytes equal the supplied PDF exactly. Root and packaged HTML/report copies are verified byte for byte; supplemental content, grading, identification and UI fragments match the embedded source. The ZIP is checked for matching copies and readable entries.
+
+Build/sync: `node verification/build-coverage.cjs` then `node verification/sync-app.cjs`. Run the suite scripts listed above with isolated JSDOM/browser storage. Scripts use the installed Chrome/Playwright environment; see their source for local runtime paths.
+
+## Primary sources for module errata
+
+The module remains the teaching source. Its erroneous or dialect-dependent claims are explicitly qualified rather than silently presented as universal behavior. Corrections were checked against [MariaDB YEAR](https://mariadb.com/docs/server/reference/data-types/date-and-time-data-types/year-data-type), [DATETIME](https://mariadb.com/docs/server/reference/data-types/date-and-time-data-types/datetime), [implicit-commit statements](https://mariadb.com/docs/server/reference/sql-statements/transactions/sql-statements-that-cause-an-implicit-commit), and [ENUM non-strict behavior](https://mariadb.com/docs/server/reference/data-types/string-data-types/enum). A fuller errata list is in the coverage inventory.

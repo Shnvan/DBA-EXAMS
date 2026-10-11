@@ -1,0 +1,114 @@
+/* Deterministic, reviewed content generation. No live PDF or network dependency. */
+const fs=require('fs'),path=require('path');
+const root=path.resolve(__dirname,'..'),base=JSON.parse(fs.readFileSync(path.join(__dirname,'base-exam.json'),'utf8'));
+const ID=structuredClone(base.ID),MC=structuredClone(base.MC),fixes={id:{},mc:{}},concepts=[];
+const identityFile=path.join(__dirname,'exam-identities.json'),identities=fs.existsSync(identityFile)?JSON.parse(fs.readFileSync(identityFile,'utf8')):{id:[],mc:[]};
+function identityIndex(mode,key){let index=identities[mode].indexOf(key);if(index<0){index=identities[mode].length;identities[mode].push(key)}return base[mode==='id'?'ID':'MC'].length+index}
+function fix(mode,index,prompt,note){const bank=mode==='id'?ID:MC;bank[index][0]=prompt;if(note)bank[index][mode==='id'?3:4]=note;fixes[mode][index]=bank[index]}
+fix('id',9,'According to the module, which file-system model lacks the database-style data dictionary described on page 11?','Module wording: individual file formats can contain metadata; the comparison is about integrated database metadata.');
+fix('id',5,'Which statement removes an entire table, including its structure and data?','MariaDB/MySQL DROP TABLE implicitly commits; recovering a dropped table requires a backup or other recovery mechanism.');
+fix('mc',5,'In a hierarchical database, how many parents does a non-root record normally have?');
+fix('mc',22,'Apart from the special 0000 value, what four-digit range does MySQL YEAR support?');
+fix('mc',26,'Which statement removes a table together with its structure and data?','MariaDB/MySQL DROP TABLE implicitly commits; recovery is a separate backup/recovery operation.');
+fix('id',88,'Which DDL command shown in Table 3.1 adds descriptive comments to database objects? Give the command name.','Module terminology: COMMENT ON TABLE belongs to another dialect; MariaDB uses a COMMENT table option.');
+fix('id',20,'This NoSQL type models relationships using graph structures; Neo4j and ArangoDB are examples. Identify the type.');
+fix('id',22,'This DBMS type organizes records into a tree in which a non-root record has one parent. IBM IMS is an example. Identify the type.');
+fix('id',23,'This DBMS type allows multiple parent-child relationships in a graph-like structure. IDMS is an example. Identify the type.');
+fix('id',80,'This NoSQL type stores data as documents; MongoDB and CouchDB are examples. Identify the type.');
+fix('id',81,'This NoSQL type organizes data in column families; Cassandra and HBase are examples. Identify the type.');
+const moduleOf=p=>p<28?1:p<47?2:p<67?3:p<88?4:5;
+const norm=s=>s.toLowerCase().replace(/[_-]/g,' ').replace(/[^a-z0-9 ]/g,'').replace(/\s+/g,' ').trim();
+const distractors=Object.fromEntries(fs.readFileSync(path.join(__dirname,'coverage-existing-distractors.txt'),'utf8').trim().split(/\r?\n/).map(l=>{const [i,v]=l.split('|');return[i,v.split(';')]}));
+function choiceCase(text){const preserve=new Set(['SQL','DBMS','RDBMS','OODBMS','DDL','DML','DQL','DCL','TCL','CRUD','ACID','INT','INTEGER','SMALLINT','TINYINT','BIGINT','DECIMAL','NUMERIC','FLOAT','REAL','DOUBLE','CHAR','VARCHAR','TEXT','BINARY','VARBINARY','BLOB','MEDIUMBLOB','MEDIUMTEXT','DATE','TIME','DATETIME','TIMESTAMP','YEAR','BOOLEAN','ENUM','SET','JSON','NULL','TRUE','FALSE','SELECT','INSERT','UPDATE','DELETE','CREATE','DROP','TRUNCATE','ALTER','RENAME','GRANT','REVOKE','COMMIT','ROLLBACK','SAVEPOINT','FROM','WHERE','HAVING','ORDER','BY','GROUP','DISTINCT','LIMIT','JOIN','INNER','LEFT','RIGHT','CROSS','FULL','ON','AS','USING','IS','NOT','DEFAULT','UNIQUE','PRIMARY','KEY','TABLE','DATABASE','SHOW','INDEX','COLUMNS','DATABASES','TABLES','STATUS','AUTO_INCREMENT','SUM','COUNT','AVG','MAX','COALESCE','IFNULL','IBM','IMS','IDMS']);return text.split(' ').map(w=>preserve.has(w.toUpperCase())?w.toUpperCase():w.charAt(0).toUpperCase()+w.slice(1).toLowerCase()).join(' ')}
+function addMC(key,prompt,answer,d,page,note){const index=identityIndex('mc',key),options=[answer,...d].map(choiceCase);const correct=index%4;options.splice(correct,0,options.shift());MC[index]=[prompt,options,correct,page,...(note?[note]:[])];return index}
+// Existing questions remain at their stable indices. Add missing mode counterparts.
+for(let i=0;i<base.ID.length;i++){
+ const q=ID[i],variants=q[1].split('|').map(norm),matched=MC.map((x,j)=>variants.includes(norm(x[1][x[2]]))?j:-1).filter(j=>j>=0&&moduleOf(MC[j][3])===moduleOf(q[2]));
+ const mc=matched.length?matched:[addMC('id-counterpart-'+i,q[0],q[1].split('|')[0].toUpperCase(),distractors[i],q[2],q[3])];
+ concepts.push({concept:q[1].split('|')[0],page:q[2],module:moduleOf(q[2]),identification:['id-'+i],multipleChoice:mc.map(j=>'mc-'+j),source:'Original question and mode counterpart'});
+}
+const rows=fs.readFileSync(path.join(__dirname,'coverage-concepts.txt'),'utf8').split(/\r?\n/).filter(l=>l.trim()&&!l.startsWith('#')).map(l=>{const [page,concept,prompt,answers,d]=l.split('|');return{page:+page,concept,prompt,answers:answers.split('~'),d:d.split(';')}});
+for(const row of rows){
+ const plurals={'Data Types':['data type'],'Integrity Constraints':['integrity constraint'],'Column':['columns','field','fields','attribute','attributes'],'Row':['rows','record','records','tuple','tuples'],'Column name':['column names','field name','field names'],'Personal database':['personal databases'],'Group database':['group databases'],'Enterprise database':['enterprise databases'],'Key-value store':['key value stores'],'Database':['databases'],'Table':['tables'],'Domain':['domains'],'Schema':['schemas'],'Data Administration':['database administration'],'Database Tuning':['database performance tuning','performance tuning']};
+ row.answers.push(...(plurals[row.concept]||[]));
+ let note='';
+ if(row.concept==='SHOW TABLE STATUS')note='The PDF prints "SHOW TABLE standing"; the MariaDB/MySQL command is SHOW TABLE STATUS.';
+ if(['COMMIT','ROLLBACK','SAVEPOINT'].includes(row.concept))note='TCL commands appear in Figure 3.1 on page 61. Transaction rollback applies to transactional changes; DDL implicitly commits in MariaDB/MySQL.';
+ const key='concept-'+moduleOf(row.page)+':'+row.concept,id=identityIndex('id',key);ID[id]=[row.prompt,row.answers.join('|'),row.page,...(note?[note]:[])];
+ const mc=addMC(key,row.prompt,row.answers[0].toUpperCase(),row.d,row.page,note);
+ concepts.push({concept:row.concept,page:row.page,module:moduleOf(row.page),identification:['id-'+id],multipleChoice:['mc-'+mc],source:'Definition, nested bullet, table, diagram or example in PDF'});
+}
+// Reasoning outcomes are separately examinable; Identification asks for the result.
+const applications=[
+ [18,'ACID Atomicity expansion','Which word does A stand for in the ACID transaction properties?','atomicity',['Accuracy','Availability','Administration']],
+ [18,'ACID Consistency expansion','Which word does C stand for in the ACID transaction properties?','consistency',['Concurrency','Control','Completeness']],
+ [18,'ACID Durability expansion','Which word does D stand for in the ACID transaction properties?','durability',['Definition','Distribution','Deletion']],
+ [50,'UPDATE without WHERE','What set of rows is affected by UPDATE when its WHERE clause is omitted?','all rows|every row',['Only the first row','No rows','Only NULL rows']],
+ [51,'DELETE without WHERE','What set of rows is removed by DELETE FROM table_name when WHERE is omitted?','all rows|every row',['Only the first row','No rows','The table structure']],
+ [68,'Keyword case','Are SQL keywords case-sensitive or case-insensitive?','case insensitive|caseinsensitive',['Case-sensitive','Must be uppercase','Must be lowercase']],
+ [68,'FROM before SELECT','Which clause is logically evaluated first in a basic SELECT select_list FROM table_name statement?','from',['SELECT','ORDER BY','HAVING']],
+ [75,'WHERE evaluation order','Which clause is logically evaluated between FROM and SELECT in the module\'s filtered SELECT example?','where',['ORDER BY','HAVING','LIMIT']],
+ [71,'Unsorted result','Without ORDER BY, is the result row order guaranteed or unspecified?','unspecified|not guaranteed|undefined',['Always insertion order','Always primary-key order','Always alphabetical']],
+ [72,'Secondary sort','In ORDER BY lastName DESC, firstName ASC, which column breaks ties between equal lastName values?','firstname|first name',['lastName','Both independently','Neither']],
+ [78,'Inclusive BETWEEN','Does BETWEEN 1 AND 3 include both boundary values 1 and 3? Answer inclusive or exclusive.','inclusive',['Exclusive','Lower only','Upper only']],
+ [79,'Suffix pattern','Which LIKE pattern matches names ending with son? Give the pattern only.','%son',['son%','%son%','_son']],
+ [80,'AND false with NULL','What does FALSE AND NULL evaluate to? Give the Boolean result.','false|0',['TRUE','NULL','An error']],
+ [80,'AND true with NULL','What does TRUE AND NULL evaluate to? Give the result.','null|unknown',['TRUE','FALSE','An error']],
+ [80,'AND NULL with NULL','What does NULL AND NULL evaluate to? Give the result.','null|unknown',['TRUE','FALSE','An error']],
+ [83,'OR true with NULL','What does TRUE OR NULL evaluate to? Give the Boolean result.','true|1',['FALSE','NULL','An error']],
+ [83,'OR false with NULL','What does FALSE OR NULL evaluate to? Give the result.','null|unknown',['TRUE','FALSE','An error']],
+ [83,'OR NULL with NULL','What does NULL OR NULL evaluate to? Give the result.','null|unknown',['TRUE','FALSE','An error']],
+ [85,'AND before OR outcome','What does TRUE OR FALSE AND FALSE return in MySQL? Give the Boolean result.','true|1',['FALSE','NULL','An error']],
+ [90,'Unmatched INNER JOIN','What result does INNER JOIN return when no pair of rows satisfies its join condition?','empty result set|empty set|no rows|zero rows',['All left rows','All right rows','A syntax error']],
+ [95,'Unmatched LEFT JOIN columns','What value appears in right-table columns for an unmatched LEFT JOIN row?','null',['Zero','Empty string','Previous row value']],
+ [100,'Unmatched RIGHT JOIN columns','What value appears in left-table columns for an unmatched RIGHT JOIN row?','null',['Zero','Empty string','Previous row value']],
+ [102,'Unassigned sales representative','What does NULL in customers.salesRepEmployeeNumber mean in the module example?','no sales representative|no assigned sales representative|no sales rep',['No customer','Employee number zero','Customer has no orders']]
+];
+for(const [page,concept,prompt,answers,d] of applications){const key='application-'+moduleOf(page)+':'+concept,i=identityIndex('id',key);ID[i]=[prompt,answers,page];const j=addMC(key,prompt,answers.split('|')[0].toUpperCase(),d,page);concepts.push({concept,page,module:moduleOf(page),identification:['id-'+i],multipleChoice:['mc-'+j],source:'SQL example / truth table / diagram result'})}
+const classification=addMC('classification-criteria','Which three criteria are named for classifying DBMSs on page 17?','Data model, database distribution and user numbers',['Font, screen size and theme','Column names, row colors and file icons','Only hardware price, age and vendor'],17);
+concepts.push({concept:'DBMS classification criteria',page:17,module:1,identification:[],multipleChoice:['mc-'+classification],source:'DBMS definition paragraph',exclusion:'This asks for a set of classification criteria rather than one unique concept name; the named database types and size categories have separate identification questions.'});
+// Every original MC has an inventory link, including application-only questions.
+for(let j=0;j<base.MC.length;j++)if(!concepts.some(c=>c.multipleChoice.includes('mc-'+j))){const q=MC[j];concepts.push({concept:q[0],page:q[3],module:moduleOf(q[3]),identification:[],multipleChoice:['mc-'+j],source:'Original multiple-choice application',exclusion:'Identification counterpart is covered by the named concept questions; this item assesses a choice/result rather than a unique concept name.'})}
+const exclusions=[
+ {pages:'1–9',reason:'Cover, copyright, institutional/program outcomes, references, contents and grading administration. The data-structures preface and ITE112/C-language syllabus are unrelated template material, not taught DBMS lesson content.'},
+ {pages:'10,26–28,46–47,66–67,87–88,105',reason:'Introductions, learning outcomes and summaries repeat concepts inventoried in the lessons. Bibliographic author names, examination dates and motivational prose are not DBMS exam concepts.'},
+ {pages:'13–15,69–70,73–74,76–86,90–104',reason:'Specific sample people, addresses, employee identifiers and decorative formatting are illustrative values. Structure, relationships, query techniques, result behavior and truth-table outcomes are covered; memorizing each sample row is excluded.'},
+ {pages:'18',reason:'ACID expansions are printed; Isolation is quizzed directly and Transaction Management includes all four names. The module does not define each ACID property individually, so no speculative property definitions are introduced.'},
+ {pages:'22',reason:'Inheritance, encapsulation and polymorphism name OODBMS capabilities but are not defined here. They appear in the OODBMS question; invented standalone definitions are excluded.'},
+ {pages:'30',reason:'Direct ad-hoc queries and SQL embedded in reporting programs are described as approaches; no unique formal subfunction name is given. These uses are included in the SQL/application context rather than inventing a label.'},
+ {pages:'31–39,41,43',reason:'Unsupported historical/general claims, implementation-dependent ranges and incorrect NULL-overflow example are documented separately as module errata; accurate named types and explicitly qualified module descriptions remain examinable.'},
+ {pages:'105',reason:'Subqueries, views and stored procedures are listed as future topics without instruction. They are not expanded into invented lessons.'}
+];
+const errata=[
+ 'p11: Flat files can contain metadata; the module contrasts them with an integrated database data dictionary.',
+ 'p15: A primary key need not be the first column; the sentence "Now two rows" is a typo. Foreign keys may be composite and NULL allowance depends on constraints.',
+ 'p22: A hierarchical non-root node normally has one parent; the root has none.',
+ 'p31: MySQL SMALLINT and INT have different storage/ranges. SQL precision and support depend on the implementation.',
+ 'p33–34: REAL is dialect/SQL-mode dependent; the module single-precision description is explicitly qualified in review.',
+ 'p35–37: TEXT capacity is measured in bytes in MySQL; BLOB comparison/locator restrictions are not universal. VARCHAR and VARBINARY declare a maximum, not a minimum length.',
+ 'p38–39: DATE/DATETIME ranges and TIME WITH/WITHOUT TIME ZONE syntax mix dialects. MySQL DATE normally starts at 1000; DATETIME starts at 1000, not 1753. TIMESTAMP conversion uses the session time zone, rather than storing a zone name.',
+ 'p39: MySQL YEAR also permits 0000; obsolete two-digit YEAR is not taught as current behavior.',
+ 'p41: Invalid ENUM handling depends on SQL mode; it is not invariably an error.',
+ 'p43: 999999.99 fits NUMERIC(8,2). Out-of-range numbers do not automatically become NULL.',
+ 'p45: SHOW TABLE standing is a transcription error for SHOW TABLE STATUS.',
+ 'p54–56: DDL recovery/rollback differs by engine. FULL OUTER JOIN syntax is not supported natively by MySQL/MariaDB; the concept is taught and the lab explicitly uses the UNION workaround.',
+ 'p58–59: SELECT FROM INHERITANCE is incomplete; CREATE TABLE INHERITANCESQL is missing a comma after PropositionID INTEGER. Statement terminators are a client/batch requirement, not a universal property of every SQL API.',
+ 'p62: COMMENT ON TABLE is dialect-specific and not a standalone MySQL command. The question explicitly names the module table.',
+ 'p72: ORDER BY column1,column2 defaults both columns to ascending; the prose incorrectly describes column2 as descending.',
+ 'p78: OR is inclusive: either or both conditions may be TRUE, not exactly one.',
+ 'p101: Unmatched RIGHT JOIN rows have NULL in left-table columns; the prose repeats "right" incorrectly.',
+ 'Table of contents and p9: module numbers/course labels are inconsistent; the five actual module headings and PDF page ranges define the app categories.'
+];
+const payload={fixes,identification:ID.slice(base.ID.length),multipleChoice:MC.slice(base.MC.length)};
+const baseCatalog=Object.fromEntries(['id','mc'].map(k=>[k,base[k==='id'?'ID':'MC'].map((q,i)=>({id:k+'-'+i,signature:JSON.stringify(q)}))]));
+const content='const EXAM_BASE_CATALOG='+JSON.stringify(baseCatalog)+';\n/* Reviewed PDF coverage: append-only stable identities. Generated by build-coverage.cjs. */\nconst EXAM_EXPANSION='+JSON.stringify(payload)+';\nfor(const [i,q] of Object.entries(EXAM_EXPANSION.fixes.id))ID[+i]=q;\nfor(const [i,q] of Object.entries(EXAM_EXPANSION.fixes.mc))MC[+i]=q;\nID.push(...EXAM_EXPANSION.identification);MC.push(...EXAM_EXPANSION.multipleChoice);\nMQ[29]=[\'Module 3 · p.63\',\'Display the first three different country values from customers in alphabetical order, using DISTINCT, ORDER BY country and LIMIT 3.\',\'SELECT DISTINCT country FROM customers ORDER BY country LIMIT 3\'];\nfor(let i=0;i<3;i++)ME[i][0]=\'Module 2 · p.45\';\n';
+fs.writeFileSync(path.join(__dirname,'exam-content.js'),content);
+for(const c of concepts)c.questionPages=Object.fromEntries([...c.identification,...c.multipleChoice].map(key=>{const [kind,i]=key.split('-');return[key,(kind==='id'?ID:MC)[+i][kind==='id'?2:3]]}));
+const repeated={48:'SELECT retrieval and select list, inventoried at pages 63 and 68.',55:'DROP and JOIN introductions, inventoried at pages 54, 56 and 88.',69:'Single-column SELECT example, covered by SELECT and select list.',70:'Multiple-column SELECT and result diagram, covered by SELECT, asterisk and select list.',73:'ORDER BY examples, covered by sort directions and secondary sorting.',77:'AND filter example, covered by AND and search conditions.',82:'Country/state conjunction example, covered by AND and predicates.',92:'Product/productline INNER JOIN example and result; covered by INNER JOIN, ON and productLine relationship.',98:'Customer/order LEFT JOIN example; covered by LEFT JOIN, unmatched NULLs and one-to-many relationship.',101:'RIGHT OUTER JOIN synonym and result diagram; accepted as RIGHT JOIN variant, with erroneous NULL-side prose documented.',103:'Employee/customer RIGHT JOIN example; covered by RIGHT JOIN, sales representative link and unmatched-row test.'};
+const pageReview=Array.from({length:105},(_,i)=>{const page=i+1,links=concepts.filter(c=>c.page===page||Object.values(c.questionPages).includes(page)).flatMap(c=>[...c.identification,...c.multipleChoice]);return{page,status:links.length?'inventoried':page<10?'front matter excluded':repeated[page]?'covered by linked recurring concept':'repeat/administration/erratum excluded',questionIds:[...new Set(links)],reason:links.length?'Lesson concepts, nested bullets, types, diagrams or example behavior are linked above.':repeated[page]||({30:'Ad-hoc SQL and embedded reporting approaches have no formal concept label; contextual use is covered by SQL. No invented identification name.',43:'NULL examples repeat p42; the NUMERIC overflow example is wrong and recorded in errata.'}[page])||'Introduction, summary, reference, administrative material or duplicate teaching content; see exclusions.'}});
+const inventory={pdfPages:105,identification:ID.length,multipleChoice:MC.length,concepts,pageReview,exclusions,errata};
+fs.writeFileSync(path.join(__dirname,'module-coverage.json'),JSON.stringify(inventory,null,2));
+fs.writeFileSync(identityFile,JSON.stringify(identities,null,2));
+fs.writeFileSync(path.join(__dirname,'module-coverage.md'),'# PDF coverage inventory\n\n'+ID.length+' identification and '+MC.length+' multiple-choice questions. Original stable IDs are retained; added identities are appended. Coverage is based on definitions, subtopics and application behavior, not an item quota.\n\n| Concept | PDF page | Module | Identification | Multiple choice |\n|---|---:|---:|---|---|\n'+concepts.map(c=>'| '+c.concept.replace(/\|/g,'/')+' | '+c.page+' | '+c.module+' | '+(c.identification.join(', ')||c.exclusion)+' | '+c.multipleChoice.join(', ')+' |').join('\n')+'\n\n## Exclusions\n\n'+exclusions.map(x=>'- Pages '+x.pages+': '+x.reason).join('\n')+'\n\n## Module errata and dialect notes\n\n'+errata.map(x=>'- '+x).join('\n')+'\n');
+console.log(JSON.stringify({identification:ID.length,multipleChoice:MC.length,inventoryEntries:concepts.length}));
+fs.appendFileSync(path.join(__dirname,'module-coverage.md'),'\n## Page-by-page review\n\n| PDF page | Status | Reason |\n|---:|---|---|\n'+pageReview.map(x=>'| '+x.page+' | '+x.status+' | '+x.reason+' |').join('\n')+'\n');

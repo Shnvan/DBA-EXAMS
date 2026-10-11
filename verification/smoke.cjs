@@ -2,7 +2,7 @@ const fs=require('fs'),path=require('path'),assert=require('assert/strict'),vm=r
 const {JSDOM}=require('../.cache/test-runtime/node_modules/jsdom');const {X,source}=require('./load.cjs')();
 const html=fs.readFileSync(path.resolve(__dirname,'..','DBMS_midterm_practice.html'),'utf8');const report={checks:[]};let count=0;
 const check=(name,fn)=>{fn();report.checks.push(name);count++};
-check('Bank balance and references',()=>{assert.equal(X.ID.length,89);assert.equal(X.MC.length,60);assert.deepEqual([0,1,2,3].map(k=>X.MC.filter(q=>q[2]==k).length),[15,15,15,15]);for(const q of X.ID)assert(q[2]>=10&&q[2]<=105);for(const q of X.MC)assert.equal(new Set(q[1]).size,4)});
+check('Bank balance and references',()=>{assert.equal(X.ID.length,require('./module-coverage.json').identification);assert.equal(X.MC.length,require('./module-coverage.json').multipleChoice);for(const q of X.ID)assert(q[2]>=10&&q[2]<=105);for(const q of X.MC)assert.equal(new Set(q[1]).size,4)});
 const id=fragment=>X.ID.find(q=>q[0].includes(fragment));
 for(const[fragment,typed,pass]of[
  ['refers to the primary key','foreign-keys',true],['unique identifier','primary keys',true],['interface between users','Database-Management-System',true],['interface between users','database managemnt system',true],

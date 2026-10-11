@@ -1,0 +1,89 @@
+0|SQL;Database;Schema
+1|Attribute;Relation;Domain
+2|WHERE;GROUP BY;HAVING
+3|DDL;DML;TCL
+4|Zero;Empty string;Default
+5|DELETE;TRUNCATE;UPDATE
+6|HAVING;ORDER BY;FROM
+7|Row data;Query;Transaction
+8|Result set;Transaction log;Index
+9|Relational database;Object database;Network database
+10|Primary key;Column name;Data type
+11|Record;Tuple;Relation
+12|Column name;Data type;Constraint
+13|Indexing;Integrity;Inheritance
+14|Indexing;Encryption;Replication
+15|Indexing;Encryption;Denormalization
+16|Chamberlin;Boyce;Sheldon
+17|Network;Hierarchical;Relational
+18|Attribute;Tuple;Domain
+19|No Structured Language;Nonstandard Query Language;Network SQL
+20|Document database;Key-value store;Column-family store
+21|Relational DBMS;Hierarchical DBMS;Network DBMS
+22|Network DBMS;Relational DBMS;Object-oriented DBMS
+23|Hierarchical DBMS;Relational DBMS;Object-oriented DBMS
+24|Encryption;Normalization;Indexing
+25|Codd;Sheldon;Moes
+26|Procedural;Sequential;Imperative
+27|FLOAT;DOUBLE;INT
+28|VARCHAR;TEXT;VARBINARY
+29|TEXT;VARBINARY;CHAR
+30|ENUM;SET;TINYINT UNSIGNED
+31|SET;VARCHAR;BOOLEAN
+32|ENUM;CHAR;BOOLEAN
+33|SUM;COUNT;AVG
+34|SHOW TABLES;SHOW COLUMNS;SHOW INDEX
+35|SHOW DATABASES;SHOW COLUMNS;SHOW INDEX
+36|SHOW TABLES;SHOW DATABASES;SHOW INDEX
+37|Use;Upload;Unique
+38|VALUES;WHERE;FROM
+39|UPDATE;CREATE TABLE;ALTER TABLE
+40|INNER JOIN;LEFT JOIN;RIGHT JOIN
+41|Data Manipulation Language;Data Query Language;Data Control Language
+42|Data Definition Language;Data Control Language;Transaction Control Language
+43|Data Definition Language;Data Query Language;Data Control Language
+44|INSERT;GRANT;CREATE
+45|COMMIT;ROLLBACK;SAVEPOINT
+46|DROP TABLE;DELETE FROM with WHERE;ALTER TABLE
+47|Constraint;Schema;Index
+48|Queries;Records;Data items
+49|Table alias;Data type;Schema
+50|Comma;Colon;Period
+51|ASC;DISTINCT;LIMIT
+52|DESC;Random;Unspecified
+53|Operator precedence;Grouping;Aliasing
+54|OR;Both simultaneously;Neither
+55|UNION;GROUP BY;ORDER BY
+56|RIGHT JOIN;INNER JOIN;CROSS JOIN
+57|WHERE;HAVING;GROUP BY
+58|DDL;DML;DCL
+59|WHERE;ORDER BY;LIMIT
+60|ORDER BY;GROUP BY;HAVING
+61|WHERE;HAVING;ORDER BY
+62|INNER JOIN;LEFT JOIN;CROSS JOIN
+63|TINYINT;INT;BIGINT
+64|TINYINT;SMALLINT;INT
+65|DOUBLE;DECIMAL;INT
+66|FLOAT;DECIMAL;SMALLINT
+67|DECIMAL;CHAR;BOOLEAN
+68|BINARY;BLOB;VARCHAR
+69|DATE;DATETIME;YEAR
+70|DATE;TIME;YEAR
+71|YEAR;DATE;TIME
+72|MEDIUMBLOB;CHAR;SMALLINT
+73|MEDIUMTEXT;TEXT;VARCHAR
+74|DEFAULT NULL;UNIQUE;NOT NULL
+75|USE;CREATE TABLE;SHOW DATABASES
+76|DELETE DATABASE;DROP TABLE;TRUNCATE TABLE
+77|Encryption;Indexing;Normalization
+78|Indexing;Normalization;Auditing
+79|CouchDB;HBase;Neo4j
+80|Key-value store;Graph database;Column-family store
+81|Graph database;Document database;Key-value store
+82|Relational DBMS;Hierarchical DBMS;Network DBMS
+83|Constraint;Alias;Schema
+84|AND;OR;LIKE
+85|MySQL Workbench;Microsoft Access;Oracle SQL Developer
+86|Column alias;Constraint name;Database name
+87|ALTER COLUMN;UPDATE;CREATE TABLE
+88|INDEX;VIEW;QUERY
