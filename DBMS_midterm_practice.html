@@ -66,6 +66,71 @@ footer{border-top:1px solid var(--ln);padding:22px 0 40px;color:var(--mu);font-s
 @media(max-width:420px){.logo{flex-basis:100%}.top{gap:4px}.nav .tgl{margin-left:0}.pane{padding:16px}.w{padding:0 20px}}
 @media(prefers-reduced-motion:reduce){*{transition:none!important}}
 .build-tabs{margin:16px 0 22px}.build-inspector{margin-top:22px}.build-inspector h3{margin:18px 0 6px}.build-inspector h3:first-child{margin-top:0}.relationship-list{padding-left:22px}.relationship-list li{margin:12px 0;overflow-wrap:anywhere}.diagram{max-width:100%;background:var(--bg);border-radius:10px}.diagram svg{display:block;max-width:none}.build-inspector select{margin:8px 0}.pane ul{padding-left:22px}.build-tabs button[aria-pressed="true"]{box-shadow:0 0 0 2px var(--focus)}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* lab-ui start */
+/* Lab layout and controls. Loaded after the shared styles. */
+.lab.course-layout{grid-template-columns:minmax(190px,250px) minmax(0,1fr)}
+.level-heading-row{align-items:center;justify-content:space-between;margin-bottom:12px}
+.level-heading-row h3{min-width:0;flex:1 1 260px}
+.level-actions{margin:12px 0 20px;align-items:center}
+.level-actions .btn[aria-pressed="true"],.track-pick .btn[aria-pressed="true"]{border-color:var(--focus);box-shadow:inset 0 0 0 1px var(--focus);background:var(--cd)}
+.level-pick .card{min-width:0;min-height:44px}
+.level-pick.compact{display:flex;flex-wrap:wrap;gap:10px;margin:8px 0 20px}
+.level-pick.compact .card{padding:10px 16px;border-radius:10px;justify-content:center}
+.course-layout .pane,.course-layout .tl,.lab .pane,.lab .tl{min-width:0}
+.lab .tk{min-height:44px;line-height:1.45;overflow-wrap:anywhere;flex-shrink:0}
+.lab .tk:disabled{cursor:not-allowed;opacity:.55}
+.lab-actions{align-items:stretch;margin-top:14px;gap:10px}
+.lab-actions .btn,.course-navigation .btn{min-height:44px;white-space:normal;overflow-wrap:anywhere}
+.course-navigation{align-items:center;gap:10px;margin-top:20px;padding-top:16px}
+.course-nav-help{flex-basis:100%;margin:0}
+.course-reference{margin-top:0}
+.course-task{margin:14px 0 18px}
+.course-task p{margin:10px 0}
+.course-task ul,.course-task ol{padding-left:24px}
+.course-task li{margin:10px 0;overflow-wrap:anywhere}
+.course-task code{overflow-wrap:anywhere}
+.course-hint,.course-notes{margin:12px 0}
+.course-summary{margin:20px 0}
+.course-progress{margin:12px 10px 0}
+.course-layout .tl{overscroll-behavior:contain}
+.lab details summary{min-height:44px;display:list-item;padding:8px 0}
+.lab details summary::marker{color:var(--mu)}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+button:disabled{cursor:not-allowed}
+.btn:disabled{opacity:.5}
+@media(max-width:900px){
+ .lab,.lab.course-layout,.level-pick{grid-template-columns:minmax(0,1fr)}
+ .lab .tl{max-height:240px;border:1px solid var(--ln);border-radius:12px}
+ .level-pick .card{padding:16px}
+ .level-heading-row{gap:12px}
+}
+@media(max-width:520px){
+ .lab-actions{display:grid;grid-template-columns:repeat(2,minmax(0,1fr))}
+ .lab-actions .btn{padding:10px 12px;min-width:0}
+ .course-navigation{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,2fr);align-items:stretch}
+ .course-nav-help{grid-column:1/-1}
+ .track-pick,.level-actions{gap:10px}
+}
+
+.course-archives{margin-top:20px;padding:14px 16px;border:1px solid var(--ln);border-radius:12px}
+.course-archive{margin-top:12px;padding-top:12px;border-top:1px solid var(--ln)}
+.course-archive p{margin:0 0 10px;overflow-wrap:anywhere}
+.course-archives>summary{min-height:44px;padding:8px 0}
+/* lab-ui end */
 </style>
 </head>
 <body>
@@ -583,7 +648,7 @@ const ME=[
 ];
 const TS=i=>i<CFG.length?TK(CFG[i]):i==CFG.length?MQ:ME,NM=i=>i<CFG.length?CFG[i].t:i==CFG.length?'module':'essentials';let pvt='customers';
 function canonicalSession(s){
- const sort=(a,b)=>a[0].localeCompare(b[0]),databaseShape=databases=>Object.entries(databases).sort(sort).map(([name,db])=>[name,Object.entries(db).sort(sort).map(([n,t])=>[n,t.cols.map(c=>[K(c),c.t,+!!c.pk,+!!c.nn,+!!c.ai,+!!c.hasDefault,c.default??null,c.onUpdate??null,c.comment||'']),t.primary||t.cols.filter(c=>c.pk).map(K),(t.indexes||[]).map(x=>[x.name,x.cols,+!!x.nonUnique]).sort(sort),(t.foreign||[]).map(x=>[x.cols,{n:x.target.n,d:x.target.d||name},x.refCols]),t.cols.some(c=>c.ai)?t.next:null,t.comment||'',t.rows.map(r=>t.cols.map(c=>r[K(c)]??null)).map(r=>JSON.stringify(r)).sort()])]);
+ const sort=(a,b)=>a[0].localeCompare(b[0]),databaseShape=databases=>Object.entries(databases).sort(sort).map(([name,db])=>[name,Object.entries(db).sort(sort).map(([n,t])=>[n,t.cols.map(c=>[K(c),c.t,+!!c.pk,+!!c.nn,+!!c.ai,+!!c.hasDefault,c.default??null,c.onUpdate??null,c.comment||'']),t.primary||t.cols.filter(c=>c.pk).map(K),(t.indexes||[]).map(x=>[x.name,x.cols,+!!x.nonUnique]).sort(sort),(t.foreign||[]).map(x=>[x.cols,{n:x.target.n,d:x.target.d||name},x.refCols,x.onDelete||'RESTRICT',x.onUpdate||'RESTRICT']).sort((a,b)=>JSON.stringify(a).localeCompare(JSON.stringify(b))),t.cols.some(c=>c.ai)?t.next:null,t.comment||'',t.rows.map(r=>t.cols.map(c=>r[K(c)]??null)).map(r=>JSON.stringify(r)).sort()])]);
  return{current:s.current,databases:databaseShape(s.databases),accounts:Object.entries(s.accounts).sort(sort).map(([n,a])=>[n,a.global.slice().sort(),Object.entries(a.grants).sort(sort).map(([k,v])=>[k,v.slice().sort()])]),autocommit:s.autocommit??1,transaction:s.transaction?databaseShape(s.transaction):null,savepoints:Object.entries(s.savepoints).sort(sort).map(([n,db])=>[n,databaseShape(db)])};
 }
 function outcome(sql,ordered=false,clock){const db=newSession();db.clock=clock;let results=[],error=null;try{results=exec(sql,db)}catch(e){results=e.R||[];error=e}const normalizeResult=r=>r.rows?{cols:r.cols.map(c=>c.includes('(')?c.replace(/\s+/g,'').toLowerCase():c.toLowerCase()),rows:ordered?r.rows:r.rows.slice().sort((a,b)=>JSON.stringify(a).localeCompare(JSON.stringify(b)))}:{affectedRows:r.affectedRows??0,status:r.msg=='Database changed'?'use':'ok'};return{results:results.map(normalizeResult),state:canonicalSession(db),error:error?{code:error.code,sqlState:error.sqlState,message:error.message.replace(/ at line \d+$/,''),statement:error.statement}:null}}
@@ -840,7 +905,7 @@ for (const level of Object.keys(SQL_CURRICULA)) for (const q of SQL_CURRICULA[le
 /* Task-aware SQL assessment. The visible database is never touched by grading. */
 function gradingStatements(sql){return splitStatements(sql).filter(p=>tok(p.sql).length).map(p=>({part:p,ast:parse(tok(p.sql))}))}
 function gradingNodes(value){const all=[];const visit=v=>{if(!v||typeof v!=='object')return;if(!Array.isArray(v))all.push(v);for(const child of Object.values(v))if(child&&typeof child==='object')visit(child)};visit(value);return all}
-function sqlTechniqueProblems(sql,q){
+function legacySqlTechniqueProblems(sql,q){
  const prompt=q[1].replace(/<[^>]*>/g,' '),problems=[];
  let actual,expected;try{actual=gradingStatements(sql);expected=gradingStatements(q[2])}catch(e){return ['Use the SQL operation described in the task.']}
  const an=gradingNodes(actual.map(x=>x.ast)),en=gradingNodes(expected.map(x=>x.ast));
@@ -895,10 +960,10 @@ function gradeSqlTask(sql,q){
    }
    return true;
   }
-  if(!same(sql,q[2])||sqlTechniqueProblems(sql,q).length)return false;
+  if(!(typeof regularTaskMatches==='function'?regularTaskMatches(sql,q):same(sql,q[2]))||sqlTechniqueProblems(sql,q).length)return false;
   const statements=gradingStatements(q[2]);if(statements.length===1&&statements[0].ast.kind==='query'){
    const ordered=!!statements[0].ast.query.order.length;
-   for(const session of gradingProbeSessions(q[2],newSession()))if(!gradingSelectMatches(sql,q[2],session,ordered))return false;
+   for(const session of [...gradingProbeSessions(q[2],newSession()),...(typeof relationshipProbeSessions==='function'?relationshipProbeSessions(q[2],newSession()):[]),...(typeof queryCardinalityProbes==='function'?queryCardinalityProbes(newSession(),q[2]):[])])if(!(typeof taskSelectMatches==='function'?taskSelectMatches(sql,q[2],session,ordered):gradingSelectMatches(sql,q[2],session,ordered)))return false;
   }
   return true;
  }catch(e){return false}
@@ -919,46 +984,644 @@ function gradeBuilderQuery(sql,reference,before){
  }catch(e){return false}
 }
 
-/* Three levels, cumulative checkpoints, and isolated lesson assessment. */
+/* Learner-facing task contracts. SQL answers remain in the original banks. */
+const LAB_TASK_CONTENT=Object.create(null),COURSE_TASK_CONTENT=Object.create(null),BUILD_TASK_CONTENT=Object.create(null);
+const LAB_HINT='Check each requirement against the table structure and the records. Change only what this task asks for.';
+const labText=text=>({kind:'text',text});
+const labCleanAst=value=>Array.isArray(value)?value.map(labCleanAst):value&&typeof value==='object'?Object.fromEntries(Object.entries(value).filter(([k])=>!['pos','end','raw','spelling'].includes(k)).map(([k,v])=>[k,labCleanAst(v)])):value;
+function labAst(sql){return splitStatements(sql).filter(p=>tok(p.sql).length).map(p=>({ast:parse(tok(p.sql)),vertical:!!p.vertical}));}
+function labValue(expr){
+ if(expr==null)return 'missing value';
+ if(typeof expr!=='object')return String(expr);
+ if(expr.kind==='literal')return expr.value==null?'missing value':expr.value===''?'empty text ("")':typeof expr.value==='object'&&expr.value.num!=null?String(expr.value.num):typeof expr.value==='object'&&expr.value.bin!=null?'hexadecimal bytes '+String(expr.value.bin):typeof expr.value==='object'&&expr.value.hex!=null?'hexadecimal bytes '+String(expr.value.hex):String(expr.value);
+ if(expr.kind==='unary'&&expr.op==='-'&&expr.a.kind==='literal')return '-'+labValue(expr.a);
+ if(expr.kind==='default')return 'leave this field out so its default is used';
+ if(expr.num!=null)return String(expr.num);
+ if(['call','function'].includes(expr.kind)&&/GEOMFROMTEXT/i.test(expr.name||expr.fn||''))return labSpatial(expr.args?.[0]?.value||'');
+ return labExpr(expr,{});
+}
+function labSpatial(value){const s=String(value);let m=s.match(/^POINT\s*\(([-\d.]+)\s+([-\d.]+)\)$/i);if(m)return `point at x=${m[1]}, y=${m[2]}`;m=s.match(/^POLYGON\s*\(\((.+)\)\)$/i);if(m)return 'closed polygon through coordinates '+m[1].split(',').map(x=>'('+x.trim().replace(/\s+/,', ')+')').join(', ');return s;}
+function labColumnName(n,aliases={}){return (n.qualifier?`${aliases[n.qualifier]||n.qualifier}.`:'')+(n.qualifier?n.column||n.n:n.spelling||n.column||n.n||'value');}
+function labPattern(column,pattern,neg=false){const p=String(pattern),v=JSON.stringify(p.replace(/^%|%$/g,''));let description;if(/^%[^%_]+%$/.test(p))description=`contains ${v}`;else if(/^[^%_]+%$/.test(p))description=`starts with ${v}`;else if(/^%[^%_]+$/.test(p))description=`ends with ${v}`;else description=`matches the text pattern ${JSON.stringify(p)} (% means any number of characters; _ means one character)`;return `${column} ${neg?'does not '+description.replace(/s\b/,''):description}`;}
+function labExpr(n,aliases={}){
+ if(!n)return '';if(n.kind==='literal')return n.value===null?'a missing value':n.value===true?'true':n.value===false?'false':typeof n.value==='string'?JSON.stringify(n.value):labValue(n);
+ if(n.kind==='column')return labColumnName(n,aliases);if(n.kind==='star')return 'every column';
+ if(n.kind==='binary'){const op={AND:'and',OR:'or','=':'equals','!=':'does not equal','<>':'does not equal','>':'is greater than','>=':'is at least','<':'is less than','<=':'is at most','+':'plus','-':'minus','*':'multiplied by','/':'divided by','%':'remainder after division by','<=>':'has the same value as (including missing values)'}[n.op]||n.op.toLowerCase();return `(${labExpr(n.a,aliases)} ${op} ${labExpr(n.b,aliases)})`;}
+ if(n.kind==='unary')return n.op==='NOT'?`the opposite of (${labExpr(n.a,aliases)})`:`negative ${labExpr(n.a,aliases)}`;
+ if(n.kind==='between')return `${labExpr(n.a,aliases)} ${n.neg?'is outside':'is within'} ${labExpr(n.lo,aliases)} through ${labExpr(n.hi,aliases)}, including both endpoints`;
+ if(n.kind==='in')return `${labExpr(n.a,aliases)} ${n.neg?'is none of':'is one of'} ${n.args.map(x=>labExpr(x,aliases)).join(', ')}`;
+ if(n.kind==='is')return `${labExpr(n.a,aliases)} ${n.neg?'is not':'is'} ${n.test==null?'missing':n.test?'true':'false'}`;
+ if(n.kind==='like')return labPattern(labExpr(n.a,aliases),n.b.value,n.neg);
+ if(['call','function'].includes(n.kind)){const fn=(n.name||n.fn||'').toUpperCase(),args=n.args||[],first=args[0];const a=args.map(x=>labExpr(x,aliases));
+  if(fn==='COUNT')return n.star||first?.kind==='star'?'number of records':`number of non-missing ${a[0]} values`;
+  if(fn==='AVG')return `arithmetic mean of the non-missing ${a[0]} values`;if(fn==='SUM')return `total of ${a[0]}`;if(fn==='MIN')return `smallest ${a[0]}`;if(fn==='MAX')return `largest ${a[0]}`;
+  if(['COALESCE','IFNULL'].includes(fn))return `${a[0]}, or ${a.slice(1).join(' then ')} when the preceding value is missing`;
+  if(fn==='ST_ASTEXT'||fn==='ASTEXT')return `${a[0]} as standard text coordinates`;
+  if(/GEOMFROMTEXT/.test(fn))return labSpatial(first?.value||'');
+  if(fn==='JSON_VALID')return `whether ${a[0]} contains a valid structured document`;
+  if(fn==='JSON_EXTRACT')return `the structured-document value at path ${a[1]} in ${a[0]}`;
+  if(fn==='JSON_UNQUOTE')return `the text value of ${a[0]} without document quotation marks`;
+  if(fn==='DATABASE')return 'the currently selected database name';
+  return `the ${fn.toLowerCase().replace(/_/g,' ')} calculation for ${a.join(', ')}`;
+ }
+ if(n.kind==='output')return `output column ${n.index+1}`;
+ throw Error('Missing learner description for expression '+n.kind);
+}
+function labTypeRule(c,table){const s=c.spec||parse(tok(c.t),true),b=s.base,a=s.args||[],ranges={TINYINT:['-128','127','0','255'],SMALLINT:['-32768','32767','0','65535'],INT:['-2147483648','2147483647','0','4294967295'],BIGINT:['-9223372036854775808','9223372036854775807','0','18446744073709551615']};let family=b.toLowerCase(),description,capacity=null,range=null;
+ if(b==='TIMESTAMP'&&!c.nullDeclared)c={...c,nn:1,hasDefault:c.hasDefault||true,default:c.hasDefault?c.default:{currentTimestamp:true,precision:a[0]||0},onUpdate:c.onUpdate||(!c.hasDefault?{currentTimestamp:true,precision:a[0]||0}:undefined)};
+ if(ranges[b]){family='integer';range=s.unsigned?ranges[b].slice(2):ranges[b].slice(0,2);description=`Whole-number storage that must support ${range[0]} through ${range[1]}${s.unsigned?'; negative values are not allowed':''}`;if(b==='TINYINT'&&a[0]===1)description+='; this is the module’s logical-value indicator (its storage remains an integer in this dialect)';}
+ else if(b==='DECIMAL'){family='decimal';description=`Exact decimal storage with capacity for at least ${a[0]-a[1]} digits before the decimal point and ${a[1]} after it${s.unsigned?'; negative values are not allowed':''}`;}
+ else if(b==='FLOAT'||b==='DOUBLE'){family='approximate';description=`Approximate ${b==='FLOAT'?'single':'double'}-precision numbers (${b==='FLOAT'?'32':'64'}-bit storage)${s.unsigned?'; negative values are not allowed':''}`;}
+ else if(b==='CHAR'){family='text';capacity=a[0];description=`Fixed-length text occupying exactly ${a[0]} character positions; shorter values are padded`;}else if(b==='VARCHAR'){family='text';capacity=a[0];description=`Variable-length text with capacity for ${a[0]} characters`;}
+ else if(b==='TEXT'||b==='MEDIUMTEXT'){family='large-text';capacity=b==='TEXT'?65535:16777215;description=`Long variable-length text with a capacity of ${capacity.toLocaleString('en-US')} bytes (the module’s ${b==='TEXT'?'regular':'medium-size'} text family)`;}
+ else if(b==='BINARY'||b==='VARBINARY'){family='binary';capacity=a[0];description=`${b==='BINARY'?'Fixed-length bytes occupying exactly':'Variable-length bytes with capacity for'} ${a[0]} bytes${b==='BINARY'?'; shorter values are padded with zero bytes':''}`;}
+ else if(b==='BLOB'||b==='MEDIUMBLOB'){family='large-binary';capacity=b==='BLOB'?65535:16777215;description=`Variable-length binary file contents with a capacity of ${capacity.toLocaleString('en-US')} bytes (the module’s ${b==='BLOB'?'regular':'medium-size'} binary-object family)`;}
+ else if(b==='DATE')description='Calendar date without a clock time';else if(b==='TIME')description=`Clock-time or duration value with ${a[0]||0} fractional-second digits`;
+ else if(b==='DATETIME')description=`Calendar date and clock time stored together, with ${a[0]||0} fractional-second digits`;
+ else if(b==='TIMESTAMP')description=`Timestamp-style date and clock time with ${a[0]||0} fractional-second digits${!c.nullDeclared?'; preserve its automatic current-time behavior when a value is omitted and when the record changes':''}`;
+ else if(b==='YEAR')description='Four-digit calendar year in the supported 1901 through 2155 range (zero is also supported)';
+ else if(b==='ENUM')description='One value from the ordered permitted list: '+a.map(x=>JSON.stringify(x)).join(', ');
+ else if(b==='SET')description='Zero or more values from the ordered permitted list: '+a.map(x=>JSON.stringify(x)).join(', ')+'; several values may be stored together';
+ else if(b==='JSON')description='A structured document that must be valid when stored; reject malformed document text';
+ else if(b==='POINT')description='One spatial point consisting of an x coordinate and a y coordinate';
+ else if(b==='GEOMETRY')description='A spatial shape that can represent points, lines, or polygons';else description='A value in the module’s '+b.toLowerCase()+' storage family';
+ const nullable=!c.nn&&!c.pk;description+=nullable?'. A missing value is allowed.':'. Every record must supply a value.';
+ if(c.pk)description+=' This column uniquely identifies the row.';if(c.uq)description+=' Repeated non-missing values are not allowed.';if(c.ai)description+=' Generate the next identifier automatically when no identifier is supplied.';
+ if(c.hasDefault)description+=' When omitted, use '+(c.default?.currentTimestamp?'the current date and time':c.default===null?'a missing value':JSON.stringify(c.default)) +'.';
+ if(c.comment)description+=' Store the column description '+JSON.stringify(c.comment)+'.';
+ return{table,name:c.n,family,base:b,capacity,precision:b==='DECIMAL'?a[0]:null,scale:b==='DECIMAL'?a[1]:null,unsigned:!!s.unsigned,range,nullable,automatic:!!c.ai,defaultSpecified:!!c.hasDefault,defaultValue:labCleanAst(c.default??null),onUpdate:labCleanAst(c.onUpdate??null),fixedLength:['CHAR','BINARY'].includes(b),allowedValues:['ENUM','SET'].includes(b)?a.slice():null,fractionalSeconds:['TIME','DATETIME','TIMESTAMP'].includes(b)?a[0]||0:null,description};
+}
+function labSourceColumnNames(table){const seeded=newSession().databases.practice?.[table];if(seeded)return seeded.cols.map(c=>c.n);for(const [name,sql] of campusTables){if(name===table)return labAst(sql)[0].ast.defs.filter(c=>c.n).map(c=>c.n);}if(typeof BUILD_DEFS!=='undefined')for(const [name,,sql]of BUILD_DEFS){if(name===table)return labAst(sql)[0].ast.defs.filter(c=>c.n).map(c=>c.n);}return [];}
+function labSchemaBlocks(ast,requirements){const table=ast.table.n,primaryMembers=ast.defs.filter(c=>c.key==='PRIMARY').flatMap(c=>c.cols),columns=ast.defs.filter(c=>c.n).map(c=>labTypeRule(primaryMembers.includes(c.n.toLowerCase())?{...c,nn:1}:c,table)),keys=ast.defs.filter(c=>c.key).map(k=>({table,columns:k.cols,primary:k.key==='PRIMARY',unique:k.key==='PRIMARY'||!!k.unique}));for(const c of ast.defs.filter(c=>c.n)){if(c.pk)keys.push({table,columns:[c.n.toLowerCase()],primary:true,unique:true});else if(c.uq)keys.push({table,columns:[c.n.toLowerCase()],primary:false,unique:true});}
+ const foreign=ast.defs.filter(c=>c.foreign).map(f=>({table,columns:f.cols,targetTable:f.target.n,targetDatabase:f.target.d||null,targetColumns:f.refCols,onDelete:f.onDelete||'RESTRICT',onUpdate:f.onUpdate||'RESTRICT'}));
+ requirements.columns.push(...columns.map(({description,...r})=>r));requirements.keys.push(...keys);requirements.foreign.push(...foreign);
+ const blocks=[labText(`Create a table named ${table} with the following columns and rules. You may choose the column order.`),labText('Add only the listed columns and constraints. Values may repeat unless a uniqueness rule is stated.'),{kind:'columns',items:columns.map(c=>({name:c.name,description:c.description}))}];
+ if(keys.filter(k=>k.primary).length>1)blocks.push(labText('Declare each listed row identifier as a separate primary key. Do not combine them into one key; this is a deliberately invalid definition.'));
+ for(const key of keys.filter(k=>k.columns.length>1))blocks.push(labText(`${key.primary?'Use one row identifier containing':'Do not allow repeated combinations of'} ${key.columns.join(', ')} together. ${key.primary?'The combination must be unique and no component may be missing.':''}`));
+ for(const f of foreign){let t=`${f.columns.join(', ')} must refer to an existing ${f.targetTable} record using ${f.targetColumns.join(', ')}${f.columns.length>1?' together':''}.`;if(f.onDelete==='CASCADE')t+=' When the referenced parent is removed, automatically remove its dependent rows.';else if(f.onDelete==='SET NULL')t+=' When the referenced parent is removed, retain the dependent row but clear its reference to a missing value.';else t+=' Prevent removing a parent while this table still refers to it.';if(f.onUpdate==='CASCADE')t+=' A changed parent key must automatically propagate to this reference.';else if(f.onUpdate==='SET NULL')t+=' A changed parent key must clear this reference to a missing value.';else t+=' Prevent changing a referenced parent key to a value that would leave an orphan.';blocks.push(labText(t));}
+ if(ast.comment)blocks.push(labText('Store this table description: '+JSON.stringify(ast.comment)+'.'));return blocks;
+}
+function labQueryBlocks(st,requirements){const q=st.query,aliases={};if(q.from)aliases[q.from.alias]=q.from.n;for(const j of q.joins)aliases[j.table.alias]=j.table.n;const blocks=[];
+ if(q.from)blocks.push(labText(`Read ${q.from.n} records without changing stored data.`));else blocks.push(labText('Evaluate the expressions below without reading or changing a table. Return one row.'));
+ for(const j of q.joins){let txt;if(j.type==='CROSS')txt=`Pair every ${q.from?.n} record with every ${j.table.n} record.`;else{const relationship=j.using?j.using.map(c=>`${c} has the same value in both tables`).join(' and '):labExpr(j.on,aliases);txt=`Connect ${j.table.n} records when ${relationship}. `+(j.type==='LEFT'?'Keep every record from the left side, even when no matching right-side record exists.':j.type==='RIGHT'?'Keep every record from the right side, even when no matching left-side record exists.':'Include only matching records.');}blocks.push(labText(txt));}
+ if(q.where)blocks.push(labText('Include records only when '+labExpr(q.where,aliases)+'.'));
+ if(q.distinct)blocks.push(labText('Return each distinct output combination only once.'));
+ if(q.group.length)blocks.push(labText('Make one group for each different combination of '+q.group.map(n=>labExpr(n,aliases)).join(', ')+'.'));
+ if(q.having)blocks.push(labText('Keep groups only when '+labExpr(q.having,aliases)+'.'));
+ const output=q.items.map((item,i)=>({name:item.alias||item.expr?.kind==='column'?(item.alias||item.expr.column):Object.hasOwn(item,'star')?'Every column':`Output ${i+1}`,description:Object.hasOwn(item,'star')?'All columns in their existing table order':labExpr(item.expr,aliases)+(item.alias?`; use exactly ${item.alias} as the output heading`:'')}));
+ requirements.output.push(...q.items.map((i,n)=>({name:i.alias||i.label,aliasRequired:!!i.alias,expression:Object.hasOwn(i,'star')?{kind:'star',qualifier:i.star}:labCleanAst(i.expr),position:n})));
+ blocks.push({kind:'output',items:output});
+ const order=st.order||q.order;if(order.length)blocks.push(labText('Sort by '+order.map(o=>labExpr(o.expr,aliases)+(o.dir<0?' from largest to smallest':' from smallest to largest')).join(', then ')+'.'));
+ const limit=st.limit??q.limit;if(limit!=null)blocks.push(labText(`Return only ${limit} records${(st.offset??q.offset)?' after skipping the first '+(st.offset??q.offset):''}.`));
+ if(st.unions?.length){for(const u of st.unions){blocks.push(labText(`Combine this with another result from ${u.query.from?.n||'the next expression'}${u.all?'; keep repeated rows':'; eliminate repeated rows'}. The same output positions must have compatible values.`));blocks.push(...labQueryBlocks({query:u.query,unions:[]},requirements));}}
+ return blocks;
+}
+function labStatementBlocks(parsed,requirements,knownColumns){const st=parsed.ast;requirements.statements.push(labCleanAst(st));const table=st.table?.n;
+ switch(st.kind){
+ case'createDatabase':return[labText(`Create a database named ${st.name}.`)];case'use':return[labText(`Make ${st.name} the active database for the following work.`)];case'dropDatabase':return[labText(`Remove ${st.name}, including its tables and records.`)];
+ case'createTable':{knownColumns[table]=st.defs.filter(c=>c.n).map(c=>c.n);return labSchemaBlocks(st,requirements);}
+ case'insert':{const cols=st.cols||knownColumns[table]||labSourceColumnNames(table);return[labText(`Add the following ${st.values.length===1?'record':'records'} to ${table}. Keep the exact values and map them to the named columns. Columns not listed are omitted so their defaults or missing-value behavior apply.`),{kind:'records',table,columns:cols,rows:st.values.map(row=>row.map(labValue))}];}
+ case'update':return[labText(`Change ${table} records ${st.where?'only when '+labExpr(st.where):'without excluding any rows'}. Set ${st.assignments.map(a=>a.column+' to '+labValue(a.value)).join('; ')}. Keep every other value unchanged.`)];
+ case'delete':return[labText(`Remove ${table} records ${st.where?'only when '+labExpr(st.where):'without excluding any rows'}. Keep the table structure.`)];
+ case'query':return labQueryBlocks(st,requirements);
+ case'describe':return[labText(`Inspect the ${table} column definitions. Return names, storage types, missing-value rules, keys, defaults, and automatic behavior.`)];
+ case'showTables':return[labText(`List the tables in ${st.database||'the active database'}.`)];case'showDatabases':return[labText('List the available database names.')];
+ case'showIndex':return[labText(`Inspect ${table} indexes, including each index name, its uniqueness, and its member columns in order.`)];
+ case'showTableStatus':return[labText(`Inspect table status${st.pattern?' for '+st.pattern:''}, including the table name, engine and row estimate.${parsed.vertical?' Display the result as vertically listed field/value pairs.':''}`)];
+ case'createIndex':return[labText(`Add ${st.unique?'a uniqueness-enforcing':'a non-unique'} index named ${st.name} on ${table}, using ${st.cols.join(', ')} in that order. Keep the table and its data.`)];
+ case'dropIndex':return[labText(`Remove the index named ${st.name} from ${table}. Keep the table and every record.`)];
+ case'alter':return st.actions.flatMap(a=>{if(a.op==='add'&&a.def?.n){const rule=labTypeRule(a.def,table);requirements.columns.push((({description,...r})=>r)(rule));return[labText(`Add a column to ${table}, preserving all existing columns and records.`),{kind:'columns',items:[{name:rule.name,description:rule.description}]}];}if(a.op==='modify'){const rule=labTypeRule(a.def,table);requirements.columns.push((({description,...r})=>r)(rule));return[labText(`Change only the ${a.def.n} definition in ${table}. Preserve its values and the other columns.`),{kind:'columns',items:[{name:rule.name,description:rule.description}]}];}if(a.op==='drop')return[labText(`Remove the ${a.name} column and its values from ${table}. Keep the other columns.`)];if(a.op==='rename')return[labText(`Rename ${table} to ${a.target.n}, preserving its structure and data.`)];if(a.op==='comment')return[labText(`Store the table description ${JSON.stringify(a.value)} for ${table}.`)];if(a.op==='add'&&a.def?.key==='PRIMARY')return[labText(`Attempt to add an independent row identifier to ${table} using ${a.def.cols.join(', ')}. This table already has a row identifier; the attempted definition must be rejected.`)];return[labText(`Change the ${table} structure as described in this task.`)];});
+ case'rename':return st.pairs.map(p=>labText(`Rename ${p.table.n} to ${p.target.n}, preserving its columns, constraints, and records.`));
+ case'dropTable':return st.tables.map(t=>labText(`Remove ${t.n}, including its definition and records.`));
+ case'truncate':requirements.methods.push('truncate');return[labText(`Empty ${table} in one whole-table structural operation: remove every record, retain all columns and constraints, reset any generated identifier sequence, and finish any open transaction as this operation requires. This differs from removing individual rows.`)];
+ case'begin':requirements.methods.push('begin');return[labText('Begin a transaction so the following changes can be completed or undone as one unit.')];
+ case'savepoint':requirements.methods.push('savepoint');return[labText(`Create a named recovery point ${st.name} inside the open transaction.`)];
+ case'rollbackTo':requirements.methods.push('rollbackTo');return[labText(`Undo changes made after the recovery point ${st.name}, retaining earlier changes and keeping the transaction open.`)];
+ case'rollback':requirements.methods.push('rollback');return[labText('Undo all changes in the open transaction and end that transaction.')];
+ case'commit':requirements.methods.push('commit');return[labText('Finish the transaction and retain its changes.')];
+ case'release':requirements.methods.push('release');return[labText(`Remove only the named recovery point ${st.name}. Keep the changes made so far.`)];
+ case'grant':case'revoke':{const privileges=st.privileges.map(p=>({SELECT:'read records',UPDATE:'change existing records',INSERT:'add records',DELETE:'remove records',ALL:'perform every permitted operation'}[p]||p.toLowerCase())).join(' and ');return[labText(`${st.kind==='grant'?'Allow':'Stop allowing'} account ${st.account} to ${privileges} on ${st.target.d?st.target.d+'.':''}${st.target.n}. Do not change other permissions or stored data.`)];}
+ case'showGrants':return[labText(`Inspect the current permissions of account ${st.account||'the current account'}.`)];
+ default:return[labText('Complete the required database operation.')];
+ }
+}
+function labContract(sql,{title='Database task',errorCode=null,expectedError=false,explanation='',hint=LAB_HINT}={}){const requirements={statements:[],columns:[],keys:[],foreign:[],output:[],methods:[],error:null},knownColumns={},blocks=[];for(const parsed of labAst(sql))blocks.push(...labStatementBlocks(parsed,requirements,knownColumns));const records=blocks.filter(b=>b.kind==='records');if(records.some(b=>b.rows.some(r=>r.some(v=>v==='missing value'||v==='empty text ("")')))){const first=blocks.findIndex(b=>b.kind==='records');blocks.splice(first,0,labText('In the data below, “missing value” means absent information, not literal text. “Empty text” is a present zero-length string and is different from a missing value.'));}if(expectedError){requirements.error={code:errorCode,attempts:requirements.statements};blocks.push(labText(`Attempt the described invalid operation. The database must reject it${errorCode?' with error '+errorCode:''}; do not replace the attempt with a different failure. Earlier successful setup steps stay in place.`));}const prompt=blocks.find(b=>b.kind==='text')?.text||'Complete this task.';return{title,prompt,blocks,hint,explanation,requirements};}
+function labContentHtml(content){if(!content)return'';return content.blocks.map(b=>{if(b.kind==='text')return`<p>${h(b.text)}</p>`;if(b.kind==='columns'||b.kind==='output')return`<p class="sm">${b.kind==='columns'?'Columns and rules':'Required output, in this order'}</p><ol class="task-requirements">${b.items.map(i=>`<li><code>${h(i.name)}</code> — ${h(i.description)}</li>`).join('')}</ol>`;if(b.kind==='records')return`<section class="task-data"><h4>${h(b.table)} · records to add</h4>${grid({cols:b.columns,rows:b.rows})}</section>`;return'';}).join('');}
+function labSpecialUnsupported(index,q){if(index===25)return{title:'Test an unsupported documentation statement',prompt:'Try the standalone table-documentation form printed in the module.',blocks:[labText('The module presents a standalone table-documentation statement. Attempt that printed form for employees with the description “Employee records”. This dialect rejects the form; keep the data unchanged.')],hint:'Look at the PDF’s standalone table-documentation example; its form differs from a table option.',explanation:'This is a dialect-comparison exercise. The invalid syntax is shown only through Show solution.',requirements:{statements:[],columns:[],keys:[],foreign:[],output:[],methods:['module-comment'],error:{code:1064,sourceShape:'module-comment'}}};const outer=index===26;return{title:'Test a module join form',prompt:'Attempt the module’s native form for retaining unmatched rows on both sides.',blocks:[labText(`Attempt the module’s ${outer?'three-word':'two-word'} native join form that claims to keep matching and unmatched members and committees. Connect equal name values and return members.name, then committees.name. The form is unsupported in this dialect; this is an expected-error task.`)],hint:'Use the native form printed on the PDF join overview, rather than the workaround taught elsewhere.',explanation:'Some forms printed in the PDF are not supported by this browser’s SQL dialect. Review the resulting diagnostic.',requirements:{statements:[],columns:[],keys:[],foreign:[],output:[],methods:[outer?'unsupported-full-outer':'unsupported-full'],error:{code:outer?1064:1054,sourceShape:outer?'unsupported-full-outer':'unsupported-full'}}};}
+function labTaskContent(track,index){const key=NM(track)+':'+index;if(LAB_TASK_CONTENT[key])return LAB_TASK_CONTENT[key];const q=TS(track)[index];if(!q)return null;let c;if(track===CFG.length+1&&index>=25)c=labSpecialUnsupported(index,q);else{const err=q[3]?.match(/(?:ERROR\s*)?(\d{4})/i);c=labContract(q[2],{title:labTaskTitle(track,index),expectedError:!!q[3],errorCode:err?Number(err[1]):q[3]?1062:null});}
+ if(track<CFG.length&&index===12){const config=CFG[track],other=config.j[0];c.blocks=[labText(`Combine ${config.t} and ${other} where ${config.t}.${config.j[1]} and ${other}.${config.j[2]} have equal values. Return every record from both tables, including unmatched records; use missing values for the absent side. Remove repeated result rows.`),{kind:'output',items:[{name:config.s,description:config.t+'.'+config.s},{name:config.j[3],description:other+'.'+config.j[3]}]}];}
+ if(track===CFG.length&&[16,18,20,21,23].includes(index)){c.blocks.unshift(labText('Use the shared-column-name shortcut for the relationship rather than writing a separate equality condition.'));c.requirements.methods.push('using');c.requirements.usingColumns=c.requirements.statements.filter(s=>s.kind==='query').flatMap(s=>s.query.joins.flatMap(j=>j.using||[]));}
+ if(track===CFG.length+1&&index===19){c.blocks.unshift(labText('Temporarily refer to members under the short name m in this query.'));c.requirements.methods.push('tableAlias');c.requirements.tableAliases=[{table:'members',alias:'m'}];}
+ if(track===CFG.length+1&&[15,16].includes(index))c.blocks.unshift(labText('Use 1 for true, 0 for false, and a missing value for unknown. Evaluate every pair in the exact listed order; do not replace the expressions with fixed answers.'));
+ if(track===CFG.length&&[9,10,11].includes(index))c.blocks.unshift(labText('Evaluate the conditions themselves rather than typing a fixed answer. Use 1 for true and 0 for false.'));
+ c.prompt=c.blocks.find(b=>b.kind==='text')?.text||c.prompt;LAB_TASK_CONTENT[key]=c;return c;}
+function labTaskTitle(track,index){if(track<CFG.length){return['List the tables','Inspect a table','Read chosen columns','Find records by a value','Require both conditions','Allow either condition','Use an inclusive interval','Find a text pattern','Sort record values','Find missing information','Match related records','Find records without partners','Keep every record from both tables','Summarize record counts','Add a record','Change one record','Remove one record','Create an archive table','Extend an existing table','Test a repeated identifier','Identify rows by a pair','Test a repeated pair','Test separate row identifiers','Test a second row identifier','Remove a table'][index];}if(track===CFG.length)return['Read employee surnames','Read employee details','Sort customer contacts','Sort by two contact fields','Find employees by role','Require role and office','Allow role or office','Use an office interval','Find surname endings','Test short-circuit logic','Test alternative logic','Test logical precedence','Find a country and region','Add a credit condition','Group alternative countries','Match member names','Match common member names','Read product descriptions','Match common product lines','Summarize order values','Keep all members','Find members without committees','Keep all customers','Match a shared customer number','Find customers without orders','Keep all committees','Keep all employees','Find employees without customers','Count and filter groups','Return three different countries'][index];return['Inspect table indexes','Read table status vertically','List database names','Create a notes database','Remove a practice database','Compare whole-number capacities','Compare approximate precision','Store raw bytes','Store time and date values','Store larger media values','Generate record identifiers','Reject a repeated email','Supply an omitted-value default','Rename a table','Empty a table structurally','Evaluate every both-condition pair','Evaluate every either-condition pair','Negate an office condition','Find higher credit limits','Use a short table reference','Undo a transaction','Undo only a later change','Keep a transaction change','Manage table permissions','Remove a reading permission','Test unsupported documentation','Test a native join form','Test a second native join form'][index];}
+function courseTaskContent(id){return COURSE_TASK_CONTENT[id]||null;}
+function labReadContent(q){const notes={
+ 'campus-status':['Inspect table status','Review how table status reports the table name, storage engine, and row estimate. This is a reading note; no query submission is required.',q.explanation],
+ 'int-monitor':['Inspect table status','Review table status and the client’s vertical result layout. Identify what the table name and row estimate mean. This is a reading note; no query submission is required.',q.explanation],
+ 'campus-client':['Browser editor and external clients','Review how an external command-line client and a desktop database application differ from this browser editor. No terminal command needs to be entered here.',q.explanation],
+ 'campus-dialects':['Storage and dialect differences','Review why storage behavior can differ among database products. Distinguish exact values from approximate values, character counts from byte limits, and invalid values from missing information.',q.explanation],
+ 'campus-type-aliases':['Alternative type spellings','Review which module terms are aliases, descriptive headings, or unsupported dialect forms. No database change is required.',q.explanation],
+ 'sql-foundations':['What a query requests','Review how a relational query describes a desired result without prescribing every procedural step. Distinguish reading data, changing records, defining structures, and managing permissions.',q.explanation],
+ 'sql-module2-summary':['Review the storage foundations','Review the module’s storage families, missing-value behavior, inspection tools, and dialect differences. Explain why a missing value is different from zero and from an empty string.',q.explanation],
+ 'sql-module3-foundations':['Plan a connected database','Review how to plan entities, columns, unique identifiers, and relationships before building the database. No SQL submission is required for this reading note.',q.explanation]
+ };const [title,prompt,explanation]=notes[q.id]||['Review this topic','Review this factual note before continuing.',q.explanation];return{title,prompt,blocks:[labText(prompt)],hint:'Read the optional notes and the cited PDF page.',explanation,requirements:{statements:[],columns:[],keys:[],foreign:[],output:[],methods:[],error:null}};
+}
+const LAB_COURSE_TITLES={
+ 'campus-create':'Create the project database','int-create':'Create the module-practice database','campus-inspect':'Inspect an empty database','int-inspect':'Inspect an empty database','campus-columns':'Inspect the project structure','int-inspect-schema':'Inspect the project structure','campus-records':'Add the campus records','int-load-data':'Add the campus records','int-crud':'Make a sequence of record changes',
+ 'campus-select-all':'Read complete student records','int-query-select-all':'Read complete student records','campus-projection':'Choose output columns and headings','int-query-projection':'Choose output columns and headings','campus-where':'Require two conditions','int-query-where-logic':'Require two conditions','campus-null':'Find missing departments','int-query-null':'Find missing departments','campus-null-replacement':'Replace missing output values','int-query-null-functions':'Replace missing output values','campus-distinct':'List different departments','int-query-distinct':'List different departments','campus-sort-limit':'Find the two highest salaries','int-query-sort-limit':'Find the two highest salaries','campus-between':'Find grades in an interval','int-query-between':'Find grades in an interval','campus-in-like':'Combine a list and a text pattern','int-query-in-like':'Combine a list and a text pattern','campus-inner-join':'Match students and departments','int-query-inner-join':'Match students and departments','campus-left-join':'Keep students without a department','int-query-left-join':'Keep students without a department','campus-right-join':'Keep departments without students','campus-cross-join':'Generate every student-course pair','int-query-cross-join':'Generate every student-course pair','campus-self-join':'Find staff and their managers','campus-composite-join':'Match complete offering identifiers','campus-aggregate':'Count and average enrollment groups','int-query-aggregate-group':'Count and average enrollment groups','campus-full-join':'Keep every student and department','campus-spatial-read':'Display location coordinates','campus-update':'Assign a student’s department','campus-delete':'Remove one unreferenced student','campus-error-duplicate-key':'Test a repeated student identifier','int-constraints':'Test a repeated student identifier','campus-error-missing-parent':'Test a missing department','campus-error-composite-missing':'Test a nonexistent offering','campus-error-restrict':'Protect a referenced student','campus-error-two-primary':'Test two independent row identifiers','campus-error-null-required':'Test a missing required name','campus-error-tiny-range':'Observe a whole-number boundary warning','campus-cascade':'Remove a student and dependent profile','campus-set-null':'Remove an optional instructor','campus-alter-add':'Add an optional contact field','campus-alter-modify':'Increase contact-field capacity','campus-alter-drop':'Remove the optional contact field','campus-index':'Add a name-search index','campus-index-drop':'Remove the name-search index','campus-rename':'Rename a table and return its name','campus-truncate':'Empty the resources structurally','campus-drop-table':'Remove the locations table','campus-drop-database':'Remove the project database','campus-tcl':'Keep an earlier change and undo a later one','int-transaction':'Keep an earlier change and undo a later one','campus-rollback':'Undo a whole transaction','campus-release':'Remove a named recovery point','campus-grant':'Allow a reader account','campus-revoke':'Remove a reader’s permission','int-dcl':'Allow, inspect, and remove a permission','int-query-using-join':'Match a shared course field','int-query-union':'Combine department values','int-query-expressions':'Calculate a curved grade','campus-types-numeric':'Compare number storage','campus-types-character':'Compare text storage','campus-types-binary':'Compare byte storage','campus-types-temporal':'Compare date and time storage','campus-types-defaults':'Compare omitted and missing values','campus-types-choices':'Store one or several permitted choices','campus-types-json':'Store a validated structured document','campus-types-spatial':'Store and display a spatial shape','campus-unique-reference':'Refer to a unique department name','campus-error-incompatible-fk':'Test incompatible reference storage','campus-error-invalid-composite':'Test an incomplete combined reference','campus-comment':'Document a student-name column'
+};
+function labCourseTitle(q){if(LAB_COURSE_TITLES[q.id])return LAB_COURSE_TITLES[q.id];const m=q.id.match(/^(campus|int)-table-(.+)$/);if(m)return 'Create the '+m[2]+' table';return q.title;}
+function labNormalizeCourseRecords(q){if(!q.sql||q.kind==='read')return;const known={},parts=splitStatements(q.sql);let changed=false;for(const part of parts){if(!tok(part.sql).length)continue;const st=parse(tok(part.sql));if(st.kind==='createTable')known[st.table.n]=st.defs.filter(c=>c.n).map(c=>c.n);if(st.kind==='insert'&&!st.cols){const cols=known[st.table.n]||labSourceColumnNames(st.table.n);if(cols.length){part.sql=part.sql.replace(/^(\s*INSERT(?:\s+INTO)?\s+(?:`[^`]+`|[\w]+)(?:\.(?:`[^`]+`|[\w]+))?)\s+VALUES\b/i,(_,prefix)=>prefix+' ('+cols.join(', ')+') VALUES');changed=true;}}}if(changed){q.sql=parts.filter(p=>p.sql.trim()).map(p=>p.sql.trim()+(p.vertical?' \\G':';')).join('\n');q.example=q.sql;if(q.syntax)q.syntax=q.sql;}}
+function initializeLabCourseContent(){for(const level of Object.keys(SQL_CURRICULA))for(const q of SQL_CURRICULA[level]){
+ labNormalizeCourseRecords(q);
+ const c=q.kind==='read'?labReadContent(q):labContract(q.sql,{title:labCourseTitle(q),expectedError:q.kind==='error',errorCode:q.errorCode});
+ if(q.sandbox&&q.kind!=='read')c.blocks.unshift(labText('Work in this isolated project copy. Continuing keeps the main project intact.'));
+ if(q.id==='campus-types-defaults')c.blocks.unshift(labText('Compare three cases: omitted fields use defaults; explicitly missing fields remain missing; zero and empty text remain actual values.'));
+ if(q.id==='campus-error-tiny-range')c.blocks.push(labText('The course unit field holds at most 255. Attempting 256 produces warning 1264 in this permissive mode, stores the boundary value, and is not an exception. Inspect the warning after running.'));
+ if(q.id==='int-query-using-join'){c.blocks.unshift(labText('Use the shared-column-name shortcut rather than writing a separate equality condition. This exercise deliberately matches only course_code; it is a shared-name demonstration, not a safe match to one particular offering. Later work matches course_code, term and section together.'));c.requirements.methods.push('using');c.requirements.usingColumns=['course_code'];}
+ if(q.id==='campus-self-join')c.blocks=[labText('For each staff member, find their manager in the same staff table. Match the member’s manager_id to the manager’s staff_id. Keep staff members who have no manager, showing a missing manager name.'),{kind:'output',items:[{name:'full_name',description:'The staff member’s full_name'},{name:'manager',description:'Their manager’s full_name; use exactly manager as the output heading'}]}];
+ if(q.id==='campus-full-join')c.blocks=[labText('Connect students and departments where their dept_code values match. Return every student and every department, including students without departments and departments without students. Show missing values for the absent side and remove duplicate result rows.'),{kind:'output',items:[{name:'full_name',description:'students.full_name'},{name:'dept_name',description:'departments.dept_name'}]}];
+ if(q.id==='campus-error-invalid-composite'){const i=c.blocks.findIndex(b=>b.kind==='text'&&b.text.startsWith('course_code, term must refer'));c.blocks[i]=labText('Deliberately attempt a reference from the pair (course_code, term) in this table to only the course_code column of course_offerings. The unequal number of reference columns makes this definition invalid; do not correct the mismatch for this task.');}
+ if(q.id==='campus-cascade')c.blocks.push(labText('Remove the student’s enrollment rows first. The dependent profile must disappear automatically when the student is removed; do not remove the profile directly.'));
+ if(q.id==='campus-set-null')c.blocks.push(labText('The related offering must remain, but its instructor reference should become missing automatically. Do not remove or directly change the offering.'));
+ if(q.id==='campus-table-profiles')c.explanation='One student can have at most one profile. A student may have none. The dependent profile should follow the parent when the parent is removed.';
+ if(q.id==='campus-tcl'||q.id==='int-transaction')c.explanation='Use the named intermediate recovery point to discard the second salary change while preserving the first change.';
+ c.prompt=c.blocks.find(b=>b.kind==='text'&&!b.text.startsWith('Work in'))?.text||c.prompt;
+ q.task=c;q.taskRequirements=c.requirements;COURSE_TASK_CONTENT[q.id]=c;
+ }}
+function builderTaskContent(index){if(BUILD_TASK_CONTENT[index])return BUILD_TASK_CONTENT[index];const q=BUILD_TASKS[index];if(!q)return null;const c=labContract(q.sql,{title:index<7?'Create the '+q.table+' table':['Add the sample records','Test a repeated enrollment','Test a missing student','Protect a referenced student','Read students and their courses'][index-7],expectedError:q.kind==='error',errorCode:q.code});
+ if(index<7){const rules=BUILD_RULES[index],items=c.blocks.find(b=>b.kind==='columns').items;for(const item of items){const [family,capacity,nullable,automatic]=rules.cols[item.name],r=c.requirements.columns.find(x=>x.name===item.name);let text=family==='integer'?'Whole-number storage':family==='decimal'?'Exact decimal storage with at least two fractional digits and room for 100.00':`Text with room for at least ${capacity} characters`;
+ text+=nullable?'. A missing value is allowed.':'. Every record must supply a value.';if(rules.primary.length===1&&rules.primary.includes(item.name))text+=' This column uniquely identifies the row.';if(rules.unique.some(k=>k.length===1&&k[0]===item.name))text+=' Repeated non-missing values are not allowed.';if(automatic)text+=' Generate the next identifier automatically when no identifier is supplied.';item.description=text;r.family=family==='text'?'text':family;r.base=null;r.range=null;r.unsigned=null;r.capacity=capacity||null;r.fixedLength=null;if(family==='decimal'){r.precision=5;r.scale=2;}}
+ }
+ if(index===11)c.blocks.unshift(labText('Read each enrollment using all four related tables. Match a course offering by both its course code and term, so a course repeated in another term cannot produce a wrong match.'));c.hint=LAB_HINT;BUILD_TASK_CONTENT[index]=c;return c;}
+const LAB_FREE_PRACTICE={title:'Free practice',prompt:'Explore your own database in the browser editor. Changes here are separate from the guided project and prepared tasks.',hint:'Inspect the current database before changing it. Your draft and database are saved separately from guided work.'};
+initializeLabCourseContent();
+
+/* Relationship contracts compare referenced columns, not displayed SQL spellings. */
+function relationshipQueries(sql){const statements=gradingStatements(sql).filter(x=>x.ast.kind==='query');return statements.flatMap(x=>[x.ast.query,...(x.ast.unions||[]).map(u=>u.query)]);}
+function relationshipTables(query){return[query.from,...query.joins.map(j=>j.table)].filter(Boolean);}
+function relationshipColumns(expression,tableList){if(!expression||expression.kind!=='column')return null;const candidates=expression.qualifier?tableList.filter(t=>t.alias===expression.qualifier||t.n===expression.qualifier):tableList;if(candidates.length!==1)return null;return{alias:candidates[0].alias,column:expression.column.toLowerCase()};}
+function relationshipRequiredEdges(query){
+ const tables=relationshipTables(query),edges=[];
+ const add=(expression,preserved=[])=>{if(!expression)return;if(expression.kind==='binary'&&expression.op==='AND'){add(expression.a,preserved);add(expression.b,preserved);return}if(expression.kind!=='binary'||!['=','<=>'].includes(expression.op))return;const a=relationshipColumns(expression.a,tables),b=relationshipColumns(expression.b,tables);if(a&&b&&a.alias!==b.alias)edges.push({a,b,preserved:preserved.filter(alias=>alias===a.alias||alias===b.alias)});};
+ let left=query.from?[query.from.alias]:[];
+ for(const join of query.joins){const preserve=join.type==='LEFT'?left.slice():join.type==='RIGHT'?[join.table.alias]:[];if(join.using?.length){for(const column of join.using){const alias=left.find(a=>a!==join.table.alias);if(alias)edges.push({a:{alias,column},b:{alias:join.table.alias,column},preserved:preserve.filter(a=>a===alias||a===join.table.alias)});}}else add(join.on,preserve);left.push(join.table.alias);}
+ add(query.where);return edges;
+}
+function relationshipRoleMappings(reference,actual,base){
+ const refs=relationshipTables(reference),acts=relationshipTables(actual),mappings=[];
+ if(refs.length!==acts.length)return mappings;
+ const same=(r,a)=>r.n===a.n&&(!r.d&&!base||!a.d&&!base||(r.d||base?.current)===(a.d||base?.current));
+ const assign=(index,map,used)=>{if(mappings.length>=32)return;if(index===refs.length){mappings.push({...map});return}const r=refs[index];for(const a of acts)if(!used.has(a.alias)&&same(r,a)){map[r.alias]=a.alias;used.add(a.alias);assign(index+1,map,used);used.delete(a.alias);delete map[r.alias];}};
+ assign(0,{},new Set());return mappings;
+}
+function relationshipQueryMatches(reference,actual,base){
+ const expected=relationshipRequiredEdges(reference),found=relationshipRequiredEdges(actual),maps=relationshipRoleMappings(reference,actual,base);
+ if(!maps.length)return false;
+ return maps.some(mapping=>{
+  const parent=new Map(),key=column=>column.alias+'.'+column.column,find=k=>{if(!parent.has(k))parent.set(k,k);const p=parent.get(k);if(p!==k)parent.set(k,find(p));return parent.get(k)},connect=(a,b)=>parent.set(find(a),find(b));
+  for(const edge of found)connect(key(edge.a),key(edge.b));
+  return expected.every(edge=>{
+   const a={...edge.a,alias:mapping[edge.a.alias]},b={...edge.b,alias:mapping[edge.b.alias]};
+   if(find(key(a))!==find(key(b)))return false;
+   /* An outer relationship must keep its specified role. LEFT and reversed RIGHT are equivalent. */
+   for(const role of edge.preserved){const alias=mapping[role];if(!found.some(f=>f.preserved.includes(alias)&&find(key(f.a))===find(key(a))&&find(key(f.b))===find(key(b))))return false;}
+   return true;
+  });
+ });
+}
+function queryConnectionsMatch(sql,reference,base){
+ try{const expected=relationshipQueries(reference),actual=relationshipQueries(sql);if(expected.length!==actual.length)return false;
+  /* UNION branch order may change without changing the combined relation. */
+  const used=new Set();return expected.every(q=>{const i=actual.findIndex((a,i)=>!used.has(i)&&relationshipQueryMatches(q,a,base));if(i<0)return false;used.add(i);return true;});
+ }catch(e){return false;}
+}
+function relationshipProbeValid(session){const previousSession=SESSION,previousDatabase=DB;try{SESSION=session;DB=activeTables(session);validateAllTables();validateReferences();return true}catch(e){return false}finally{SESSION=previousSession;DB=previousDatabase;}}
+function relationshipProbeSessions(reference,base){
+ const probes=[],seen=new Set();let queries;try{queries=relationshipQueries(reference)}catch(e){return probes}
+ const put=probe=>{if(probes.length>=24||!relationshipProbeValid(probe))return;const shape=JSON.stringify(canonicalSession(probe));if(shape===JSON.stringify(canonicalSession(base))||seen.has(shape))return;seen.add(shape);probes.push(probe);};
+ for(const query of queries){const refs=relationshipTables(query),byAlias=Object.fromEntries(refs.map(t=>[t.alias,t]));
+  /* Reassign complete child references to another existing parent, keeping every constraint valid. */
+  for(const ref of refs){const db=ref.d||base.current,child=base.databases[db]?.[ref.n];if(!child)continue;for(const fk of child.foreign||[]){const parentDb=fk.target.d||db,parent=base.databases[parentDb]?.[fk.target.n];if(!parent||!refs.some(t=>t.n===fk.target.n&&(t.d||base.current)===parentDb))continue;
+    for(let i=0;i<Math.min(child.rows.length,3);i++)for(const row of parent.rows.slice(0,4)){const s=clone(base),target=s.databases[db][ref.n].rows[i];for(let k=0;k<fk.cols.length;k++)target[fk.cols[k]]=clone(row[fk.refCols[k]]);put(s);}
+    if(fk.cols.every(c=>!child.cols.find(x=>K(x)===c)?.nn))for(let i=0;i<Math.min(child.rows.length,2);i++){const s=clone(base);for(const c of fk.cols)s.databases[db][ref.n].rows[i][c]=null;put(s);}
+   }}
+  /* Prepared tables also teach joins without declaring physical foreign keys. */
+  for(const edge of relationshipRequiredEdges(query)){for(const[a,b]of[[edge.a,edge.b],[edge.b,edge.a]]){const ra=byAlias[a.alias],rb=byAlias[b.alias],db=ra?.d||base.current,parentDb=rb?.d||base.current,table=base.databases[db]?.[ra?.n],other=base.databases[parentDb]?.[rb?.n];if(!table||!other)continue;
+    const column=table.cols.find(c=>K(c)===a.column);if(!column)continue;for(let i=0;i<Math.min(table.rows.length,2);i++)for(const row of other.rows.slice(0,4)){if(row[b.column]==null)continue;const s=clone(base);s.databases[db][ra.n].rows[i][a.column]=clone(row[b.column]);put(s);}
+    if(!column.nn)for(let i=0;i<Math.min(table.rows.length,2);i++){const s=clone(base);s.databases[db][ra.n].rows[i][a.column]=null;put(s);}
+   }}
+ }
+ return probes;
+}
+
+/* Semantic task contracts; learner prose is never parsed as a grading rule. */
+function regularTaskContract(q){
+ for(let track=0;track<CFG.length+2;track++)for(const [index,task] of TS(track).entries())if(task[2]===q[2]&&task[0]===q[0])return labTaskContent(track,index).requirements;
+ return null;
+}
+function sqlTechniqueProblems(sql,q){
+ const contract=regularTaskContract(q);
+ if(!contract)return legacySqlTechniqueProblems(sql,q);
+ try{
+  const statements=gradingStatements(sql),reference=gradingStatements(q[2]);
+  if(reference.some(x=>x.part.vertical)&&!statements.some(x=>x.part.vertical))return ['Use the vertical result layout described in the task.'];
+  return taskTechniqueProblems(statements.map(x=>x.ast),contract);
+ }catch(e){return ['Complete the operation described in the task.'];}
+}
+function taskTechniqueProblems(asts,contract){
+ const nodes=gradingNodes(asts),requirements=contract?.techniques||[],errors=[];
+ for(const rule of requirements){
+  const kind=typeof rule==='string'?rule:rule.kind;
+  const matches={between:()=>nodes.some(n=>n.kind==='between'),like:()=>nodes.some(n=>n.kind==='like'),distinct:()=>nodes.some(n=>n.kind==='select'&&n.distinct),union:()=>nodes.some(n=>n.unions?.length),savepoint:()=>asts.some(n=>n.kind==='savepoint')};
+  if(matches[kind]&&!matches[kind]())errors.push('Use the method described in this task.');
+ }
+ for(const method of contract?.methods||[]){
+  if(['module-comment','unsupported-full','unsupported-full-outer'].includes(method))continue;
+  if(method==='using'){if(!nodes.some(n=>Array.isArray(n.using)&&n.using.length))errors.push('Use the shared-column-name shortcut described in the task.');}
+  else if(method==='tableAlias'){for(const alias of contract.tableAliases||[])if(!nodes.some(n=>n.n===alias.table&&n.alias===alias.alias))errors.push('Use the temporary table name described in the task.');}
+  else if(!asts.some(n=>n.kind===method))errors.push('Include the operation described in the task.');
+ }
+ return errors;
+}
+/* Keep child definitions compatible with accepted parent schemas. This executes
+   only on a grading copy; the user's visible database is never replayed. */
+function courseReferenceSql(q,start){
+ if(q.kind==='error'||q.kind==='read')return q.sql;
+ const schema=restoreSession(start);schema.clock='2026-10-12T00:00:00.000Z';const output=[];
+ for(const part of splitStatements(q.sql).filter(p=>tok(p.sql).length)){
+  let sql=part.sql;const ast=parse(tok(sql));
+  if(ast.kind==='createTable'){
+   const tokens=tok(sql),changes=[],fks=ast.defs.filter(d=>d.foreign),adapted=[];
+   for(const f of fks){
+    const parent=schema.databases[f.target.d||ast.table.d||schema.current]?.[f.target.n];if(!parent)continue;
+    for(let i=0;i<f.cols.length;i++){
+     const child=ast.defs.find(c=>c.n?.toLowerCase()===f.cols[i]),pc=parent.cols.find(c=>K(c)===f.refCols[i]);
+     if(!child||!pc||compatibleFK(child,pc))continue;
+     const at=tokens.findIndex(t=>t.pos===child.pos);let end=at+2;
+     if(tokens[end]?.v==='('){let depth=0;do{if(tokens[end].v==='(')depth++;if(tokens[end].v===')')depth--;end++}while(depth&&end<tokens.length)}
+     if(['UNSIGNED','SIGNED'].includes(tokens[end]?.up))end++;
+     changes.push({from:tokens[at+1].pos,to:tokens[end]?.pos??sql.length,text:typeLabel(pc.spec)+' '});
+    }
+    const key=tableKeys(parent).find(k=>k.cols.length>=f.refCols.length&&JSON.stringify(k.cols.slice(0,f.refCols.length).slice().sort())===JSON.stringify(f.refCols.slice().sort()));
+    if(key){const refs=key.cols.slice(0,f.refCols.length);adapted.push({f,cols:refs.map(r=>f.cols[f.refCols.indexOf(r)]),refs})}
+   }
+   for(const change of changes.sort((a,b)=>b.from-a.from))sql=sql.slice(0,change.from)+change.text+sql.slice(change.to);
+   let fkIndex=0;sql=sql.replace(/FOREIGN\s+KEY\s*(?:[`\w]+\s*)?\(([^)]*)\)\s+REFERENCES\s+([^\s(]+)\s*\(([^)]*)\)/gi,(match,_cols,target)=>{const f=fks[fkIndex++],a=adapted.find(x=>x.f===f);return a?'FOREIGN KEY ('+a.cols.map(n=>'`'+n+'`').join(', ')+') REFERENCES '+target+' ('+a.refs.map(n=>'`'+n+'`').join(', ')+')':match});
+  }
+  output.push(sql.trim()+(part.vertical?' \\G':';'));
+  try{exec(sql,schema)}catch(e){break}
+ }
+ return output.join('\n');
+}
+function stableAttemptAst(value){
+ if(Array.isArray(value))return value.map(stableAttemptAst);
+ if(!value||typeof value!=='object')return value;
+ const out={};for(const key of Object.keys(value).sort())if(!['pos','spelling','raw','alias','name','indexName','nullDeclared'].includes(key))out[key]=stableAttemptAst(value[key]);
+ if(out.defs)out.defs.sort((a,b)=>JSON.stringify(a).localeCompare(JSON.stringify(b)));
+ return out;
+}
+function courseErrorMatches(sql,q,start){
+ try{
+  const actual=gradingStatements(sql).map(x=>x.ast),expected=gradingStatements(q.sql).map(x=>x.ast);
+  if(actual.length!==expected.length||actual.some((a,i)=>a.kind!==expected[i].kind||a.table?.n!==expected[i].table?.n||(a.table?.d||start.current)!==(expected[i].table?.d||start.current)))return false;
+  if(expected.every(a=>['insert','update','delete'].includes(a.kind))){
+   const relax=()=>{const s=restoreSession(start);for(const db of Object.values(s.databases))for(const t of Object.values(db)){t.primary=[];t.foreign=[];t.indexes=(t.indexes||[]).filter(k=>k.nonUnique);for(const c of t.cols){c.pk=0;c.uq=0;c.nn=0}}return s};
+   const a=relax(),b=relax();exec(sql,a);exec(q.sql,b);return courseStateMatches(a,b,q);
+  }
+  return JSON.stringify(stableAttemptAst(actual))===JSON.stringify(stableAttemptAst(expected));
+ }catch(e){return false;}
+}
+function requirementColumnMatches(c,expected,rule){
+ if(!rule)return c.t===expected.t;
+ const s=c.spec,e=expected.spec;
+ if(!!c.nn!==!!expected.nn||!!c.ai!==!!expected.ai||!!c.hasDefault!==!!expected.hasDefault||JSON.stringify(c.default??null)!==JSON.stringify(expected.default??null)||JSON.stringify(c.onUpdate??null)!==JSON.stringify(expected.onUpdate??null))return false;
+ if(own(INT_RANGE,e.base)){
+  if(!own(INT_RANGE,s.base)||!!s.unsigned!==!!e.unsigned)return false;
+  const bounds=spec=>spec.unsigned?[0n,INT_RANGE[spec.base][1]*2n+1n]:INT_RANGE[spec.base];
+  const a=bounds(s),b=bounds(e);return a[0]<=b[0]&&a[1]>=b[1];
+ }
+ if(e.base==='VARCHAR')return s.base==='VARCHAR'&&s.args[0]>=e.args[0];
+ if(e.base==='VARBINARY')return s.base==='VARBINARY'&&s.args[0]>=e.args[0];
+ if(e.base==='DECIMAL')return s.base==='DECIMAL'&&s.args[1]>=e.args[1]&&s.args[0]-s.args[1]>=e.args[0]-e.args[1]&&!!s.unsigned===!!e.unsigned;
+ return typeLabel(s)===typeLabel(e);
+}
+function semanticSessionShape(session,contract,reference){
+ const s=clone(session),expected=reference;
+ const cell=v=>v&&typeof v==='object'&&v.num!=null?{num:decimalText(dec(v).n,dec(v).s).replace(/(\.\d*?)0+$/,'$1').replace(/\.$/,'')}:v;
+ const dbShape=dbs=>Object.entries(dbs).sort(([a],[b])=>a.localeCompare(b)).map(([d,db])=>[d,Object.entries(db).sort(([a],[b])=>a.localeCompare(b)).map(([name,t])=>{
+  const et=expected?.databases[d]?.[name],cols=t.cols.slice().sort((a,b)=>K(a).localeCompare(K(b))),rules=contract?.columns||[];
+  const columnShape=cols.map(c=>{const ec=et?.cols.find(x=>K(x)===K(c)),rule=rules.find(r=>r.table===name&&r.name.toLowerCase()===K(c));return[K(c),ec&&requirementColumnMatches(c,ec,rule)?ec.t:c.t,!!c.nn,!!c.ai,!!c.hasDefault,cell(c.default??null),cell(c.onUpdate??null),c.comment||'']});
+  const keys=[{cols:t.primary||[],primary:true},...(t.indexes||[]).filter(k=>!k.nonUnique).map(k=>({cols:k.cols,primary:false}))].filter(k=>k.cols.length).map(k=>[!!k.primary,k.cols.slice().sort()]).sort((a,b)=>JSON.stringify(a).localeCompare(JSON.stringify(b)));
+  const indexes=(t.indexes||[]).filter(k=>k.nonUnique).map(k=>[k.name.toLowerCase(),k.cols]).sort((a,b)=>JSON.stringify(a).localeCompare(JSON.stringify(b)));
+  const foreign=(t.foreign||[]).map(f=>[(f.target.d||d),f.target.n,f.cols.map((c,i)=>[c,f.refCols[i]]).sort(([a],[b])=>a.localeCompare(b)),f.onDelete||'RESTRICT',f.onUpdate||'RESTRICT']).sort((a,b)=>JSON.stringify(a).localeCompare(JSON.stringify(b)));
+  return[name,columnShape,keys,indexes,foreign,t.cols.some(c=>c.ai)?t.next:null,t.comment||'',t.rows.map(row=>cols.map(c=>cell(row[K(c)]??null))).map(r=>JSON.stringify(r)).sort()];
+ })]);
+ return{current:s.current,databases:dbShape(s.databases),accounts:canonicalSession(s).accounts,autocommit:s.autocommit??1,transaction:s.transaction?dbShape(s.transaction):null,savepoints:Object.entries(s.savepoints).sort(([a],[b])=>a.localeCompare(b)).map(([n,db])=>[n,dbShape(db)])};
+}
+function courseStateMatches(actual,expected,q){
+ const contract=courseTaskContent(q.id)?.requirements||{};
+ return JSON.stringify(semanticSessionShape(actual,contract,expected))===JSON.stringify(semanticSessionShape(expected,contract,expected));
+}
+function queryCardinalityProbes(base,reference){
+ const ast=gradingStatements(reference)[0]?.ast;if(ast?.kind!=='query')return[];
+ const probes=[];for(const table of gradingNodes(ast).filter(n=>n.n&&n.alias)){const db=table.d||base.current,t=base.databases[db]?.[table.n];if(!t?.rows.length)continue;const s=clone(base);s.databases[db][table.n].rows=[];probes.push(s)}return probes;
+}
+function courseQueryMatches(sql,q,start){
+ try{
+  const statements=gradingStatements(q.sql);if(statements.length!==1||statements[0].ast.kind!=='query')return courseReadStepsMatch(sql,courseReferenceSql(q,start),start,q);
+  if(typeof queryConnectionsMatch==='function'&&!queryConnectionsMatch(sql,q.sql,start))return false;
+  const ordered=!!statements[0].ast.query.order.length;
+  for(const probe of [...gradingProbeSessions(q.sql,start),...queryCardinalityProbes(start,q.sql),...(typeof relationshipProbeSessions==='function'?relationshipProbeSessions(q.sql,start):[])]){
+   const a=courseAttempt(sql,probe),b=courseAttempt(q.sql,probe);
+   if(a.error||b.error||!courseResultsMatch(a.results,b.results,q,sql)||!courseStateMatches(a.session,b.session,q))return false;
+  }
+  return true;
+ }catch(e){return false;}
+}
+function courseReadStepsMatch(sql,reference,start,q){
+ try{
+  const reads=text=>{const session=restoreSession(start);session.clock='2026-10-12T00:00:00.000Z';const steps=[];for(const part of splitStatements(text).filter(p=>tok(p.sql).length)){const ast=parse(tok(part.sql)),before=clone(session);const result=exec(part.sql,session);if(result.some(r=>r.rows))steps.push({sql:part.sql,ast,before})}return steps};
+  const a=reads(sql),b=reads(reference);if(a.length!==b.length)return false;
+  for(let i=0;i<b.length;i++){
+   if(b[i].ast.kind==='query'){
+    if(a[i].ast.kind!=='query'||typeof queryConnectionsMatch==='function'&&!queryConnectionsMatch(a[i].sql,b[i].sql,b[i].before))return false;
+    const query={...q,sql:b[i].sql,kind:'query'};if(!courseQueryMatches(a[i].sql,query,b[i].before))return false;
+   }else if(a[i].ast.kind!==b[i].ast.kind)return false;
+  }
+  return true;
+ }catch(e){return false;}
+}
+function taskResultSetsEquivalent(actual,expected,reference,ordered){
+ const asts=gradingStatements(reference).map(x=>x.ast),mixed=asts.some(a=>!['query','describe','showTables','showDatabases','showIndex','showTableStatus','showGrants'].includes(a.kind)),indices=expected.map((r,i)=>r.rows?i:-1).filter(i=>i>=0);
+ if(mixed){actual=actual.filter(r=>r.rows);expected=expected.filter(r=>r.rows)}
+ if(actual.length!==expected.length)return false;
+ for(let i=0;i<expected.length;i++){
+  const a=actual[i],b=expected[i];if(!!a.rows!==!!b.rows)return false;
+  if(!b.rows){if((a.affectedRows||0)!==(b.affectedRows||0)||(a.msg==='Database changed')!==(b.msg==='Database changed'))return false;continue;}
+  if(a.cols.length!==b.cols.length||!!a.vertical!==!!b.vertical)return false;
+  const items=asts[mixed?indices[i]:i]?.query?.items;
+  for(let k=0;k<b.cols.length;k++){
+   const item=items?.[k],normalize=x=>String(x).toLowerCase().replace(/\s+/g,'');
+   if(!item||Object.hasOwn(item,'star')||item.alias){if(normalize(a.cols[k])!==normalize(b.cols[k]))return false;}
+   else if(item.expr?.kind==='column'&&normalize(a.cols[k]).split('.').pop()!==normalize(b.cols[k]).split('.').pop())return false;
+  }
+  const rows=r=>ordered?r:r.slice().sort((x,y)=>JSON.stringify(x).localeCompare(JSON.stringify(y)));
+  if(JSON.stringify(rows(a.rows))!==JSON.stringify(rows(b.rows)))return false;
+ }
+ return true;
+}
+function taskSelectMatches(sql,reference,session,ordered){try{return taskResultSetsEquivalent(exec(sql,clone(session)),exec(reference,clone(session)),reference,ordered)}catch(e){return false}}
+function regularTaskMatches(sql,q){
+ const contract=regularTaskContract(q)||{};
+ try{
+  const clock=new Date().toISOString(),a=newSession(),b=newSession();a.clock=clock;b.clock=clock;
+  if(typeof queryConnectionsMatch==='function'&&!queryConnectionsMatch(sql,q[2],newSession()))return false;
+  const ar=exec(sql,a),br=exec(q[2],b),ordered=/\bORDER\s+BY\b/i.test(q[2]);
+  if(!taskResultSetsEquivalent(ar,br,q[2],ordered))return false;
+  const warnings=rs=>rs.flatMap(r=>(r.warnings||[]).map(w=>w.code)).sort((a,b)=>a-b).join(',');if(warnings(ar)!==warnings(br))return false;
+  if(!courseReadStepsMatch(sql,q[2],newSession(),{id:'regular-task',sql:q[2],kind:'mutation'}))return false;
+  return JSON.stringify(semanticSessionShape(a,contract,b))===JSON.stringify(semanticSessionShape(b,contract,b));
+ }catch(e){return false;}
+}
+
+/* Three levels, explicit editor ownership, cumulative checkpoints, isolated assessment. */
 function emptyCourseSession(){const s=newSession();s.databases=Object.create(null);s.current=null;s.transaction=null;s.savepoints=Object.create(null);return s}
-function makeCourseState(){return{session:emptyCourseSession(),lesson:0,style:'walkthrough',drafts:{},done:[],entries:{},work:{},checked:{},outputs:{},feedback:{},preview:''}}
+function makeCourseState(){return{session:emptyCourseSession(),lesson:0,style:'walkthrough',drafts:{},done:[],entries:{},work:{},checked:{},outputs:{},feedback:{},preview:'',previewExpanded:false,finished:false,archives:[]}}
 let labLevel=null;
 const courseStates={intermediate:makeCourseState(),advanced:makeCourseState()};
 const courseLessons=level=>SQL_CURRICULA[level];
 const courseState=()=>courseStates[labLevel];
 const courseLesson=()=>courseLessons(labLevel)[courseState().lesson];
-function rememberCourse(){if(!['intermediate','advanced'].includes(labLevel)||!$('#course-sql'))return;const b=courseState(),q=courseLesson();b.drafts[q.id]=$('#course-sql').value;b.work[q.id]=b.session}
-function chooseLabLevel(level){remember();rememberCourse();if(!['easy','intermediate','advanced'].includes(level))return;labLevel=level;if(level==='easy'&&(cur==null||cur>=CFG.length))cur=0;if(level==='easy')activateTask();lab();$('#level-heading')?.focus({preventScroll:true});saveProgressNow()}
-function renderLabLevels(){const descriptions={easy:['Easy','Prepared database','Practice with existing tables and sample rows. Each exercise has an independent database.'],intermediate:['Intermediate','Module practice','Create a database step by step, then practice the PDF queries and essentials.'],advanced:['Advanced','Complete database project','Learn Modules 2–3 in a connected campus project, then try challenges with optional hints.']};return`<div class="level-pick" aria-label="SQL practice levels">${Object.entries(descriptions).map(([id,[title,subtitle,text]])=>`<button class="card${labLevel===id?' on':''}" onclick="chooseLabLevel('${id}')"${labLevel===id?' aria-current="true"':''}><b>${title}</b><span>${subtitle}</span><span class="mu sm">${text}</span></button>`).join('')}</div>`}
-function renderThreeLevelLab(){rememberCourse();$('#lab').innerHTML=`<h2>SQL lab</h2><p class="mu">Choose your starting point. Progress in each level is saved separately.</p>${renderLabLevels()}<div id="level-content"></div>${legacySession?`<details class="fb"><summary>Previous shared database</summary><p>Your earlier database is preserved.</p><button class="btn l" onclick="recoverLegacySession()">Open previous database in Free practice</button></details>`:''}`;if(!labLevel)return;const content=$('#level-content');if(labLevel==='easy'){content.innerHTML=`<h3 id="level-heading" tabindex="-1">Easy: prepared database</h3><p class="mu sm">Run changes this task only. Check tests your draft on an isolated copy of its starting data.</p><div class="track-pick">${CFG.map((c,i)=>trackButton(c.t,i)).join('')}</div><div id="ws"></div>`;if(cur==null||cur>=CFG.length)cur=0;activateTask();ws()}else{content.innerHTML=`<div class="row"><h3 id="level-heading" tabindex="-1">${labLevel==='advanced'?'Advanced: complete database project':'Intermediate: module practice'}</h3>${labLevel==='advanced'?`<button class="btn l" onclick="openFreePractice()">Free practice</button>`:''}</div>${labLevel==='intermediate'?`<div class="row"><button class="btn l" onclick="openSetup()">Database setup walkthrough</button>${trackButton('Module queries',CFG.length)}${trackButton('Module essentials',CFG.length+1)}</div>`:`<div class="row" aria-label="Learning style"><button class="btn l${courseState().style==='walkthrough'?' on':''}" onclick="setCourseStyle('walkthrough')">Walkthrough</button><button class="btn l${courseState().style==='challenge'?' on':''}" onclick="setCourseStyle('challenge')">Challenges</button></div>`}<div id="course-workspace"></div><div id="ws"></div>${labLevel==='advanced'?`<details class="legacy-build"><summary>Previous table-building challenges</summary><p class="mu sm">Your earlier guided database and completion history are preserved.</p><button class="btn l" onclick="go('builder')">Open previous challenges</button></details>`:''}`;if(labLevel==='intermediate'&&cur>=CFG.length){activateTask();ws()}else renderCourse()}}
-function trackButton(title,i){return`<button class="btn l${cur===i?' on':''}" onclick="pick(${i})">${h(title)} <span class="mu sm">${TS(i).filter((_,k)=>done.has(NM(i)+':'+k)).length}/${TS(i).length}</span></button>`}
-function openSetup(){remember();rememberCourse();cur=null;lab();saveProgressNow()}
-function openFreePractice(){rememberCourse();buildMode='sandbox';go('builder')}
-function setCourseStyle(style){rememberCourse();if(!['walkthrough','challenge'].includes(style))return;courseState().style=style;renderCourse();saveProgressNow()}
-function ensureCourseEntry(b,q){if(!b.entries[q.id])b.entries[q.id]=plain(b.session);if(b.work[q.id])b.session=b.work[q.id]}
-function courseUnlocked(index){const b=courseState();return index===0||!!b.entries[courseLessons(labLevel)[index].id]}
-function openCourseLesson(index){rememberCourse();const list=courseLessons(labLevel);if(!Number.isInteger(index)||index<0||index>=list.length||!courseUnlocked(index))return;const b=courseState();b.lesson=index;const q=list[index];b.session=restoreSession(b.work[q.id]||b.entries[q.id]||emptyCourseSession());renderCourse();$('#course-title')?.focus({preventScroll:true});saveProgressNow()}
-function renderCourse(){const host=$('#course-workspace');if(!host)return;const b=courseState(),list=courseLessons(labLevel),q=list[b.lesson];ensureCourseEntry(b,q);const guided=b.style!=='challenge',checked=b.checked[q.id],fresh=checked?.sql===(b.drafts[q.id]||''),feedback=b.feedback[q.id],tables=activeTables(b.session),names=Object.keys(tables);if(!names.includes(b.preview))b.preview=names[0]||'';const table=tables[b.preview];
- host.innerHTML=`<div class="lab course-layout"><nav class="tl" aria-label="Lessons">${list.map((l,i)=>`<button class="tk${i===b.lesson?' on':''}" onclick="openCourseLesson(${i})"${courseUnlocked(i)?'':' disabled'}${i===b.lesson?' aria-current="step"':''}>${b.done.includes(l.id)?'&#10003; ':''}${i+1}. ${h(l.title)}</button>`).join('')}<p class="mu sm">${b.done.length} of ${list.length} completed</p></nav><div class="pane"><p class="mu sm">${q.pages?.length?'PDF pages '+q.pages.join(', '):'Practical extension'}${q.extension?' · Practical extension':''}${q.sandbox?' · Isolated demonstration':''}</p><h3 id="course-title" tabindex="-1">${h(q.title)}</h3>${q.objective?`<p>${h(q.objective)}</p>`:''}${guided||q.kind==='read'?`<p class="course-explanation">${h(q.explanation)}</p>${q.syntax?`<p class="sm">Syntax</p><pre>${h(q.syntax)}</pre>`:''}${q.example?`<details><summary>Worked example</summary><pre>${h(q.example)}</pre></details>`:''}`:`<details><summary>Explanation and syntax</summary><p>${h(q.explanation)}</p><pre>${h(q.syntax||'')}</pre></details>`}<p class="course-exercise"><b>${q.kind==='read'?'Review':'Exercise'}:</b> ${h(q.prompt||q.objective||q.title)}</p><details><summary>Hint</summary><p>${h(q.hint||'Compare your SQL with the lesson objective and the current schema.')}</p></details><p class="mu sm">${b.done.includes(q.id)?'Previously completed. Revisiting this lesson keeps later project checkpoints. ':''}${q.sandbox?'This exercise uses a project copy. Continue keeps the main project unchanged.':''}</p>${q.kind==='read'?`<button class="btn a" onclick="completeReading()">Mark reviewed</button>`:`<p class="session mu sm">MariaDB [${h(b.session.current||'none')}] / root</p><details><summary>Database preview${table?' ('+Math.min(8,table.rows.length)+' of '+table.rows.length+' rows)':''}</summary>${names.length?`<label for="course-preview">Table</label><select id="course-preview" onchange="coursePreview(this.value)">${names.map(n=>`<option${n===b.preview?' selected':''}>${h(n)}</option>`).join('')}</select>${grid({cols:table.cols.map(c=>c.n),rows:table.rows.slice(0,8).map(r=>table.cols.map(c=>resultValue(r[K(c)])))})}`:`<p class="mu sm">${b.session.current?'No tables yet. Create the required tables.':'No database selected. Create and select your database.'}</p>`}</details><label for="course-sql" class="sql-label sm">SQL statements</label><textarea id="course-sql" spellcheck="false" aria-describedby="course-help" oninput="courseInput()" onkeydown="if((event.ctrlKey||event.metaKey)&&event.key==='Enter'){event.preventDefault();runCourse()}">${h(b.drafts[q.id]||'')}</textarea><p id="course-help" class="mu sm">End statements with a semicolon. Run uses this lesson's working database. Check uses an isolated lesson-start copy and leaves your database unchanged.</p><div class="row"><button class="btn" onclick="runCourse()">Run query</button><button class="btn a" onclick="checkCourse()">Check answer</button><button class="btn l" onclick="showCourseSolution()">Show solution</button><button class="btn l" onclick="resetCourseLesson()">Reset lesson database</button></div>`}<div id="course-feedback" role="status" aria-live="polite">${feedback?.sql!==undefined&&feedback.sql!==(b.drafts[q.id]||'')?'':feedback?.solution?`<div class="fb"><pre>${h(q.sql||'')}</pre></div>`:feedback?`<div class="fb ${feedback.ok?'ok':'no'}">${h(feedback.message)}</div>`:''}</div><div id="course-output">${b.outputs[q.id]?.sql!==(b.drafts[q.id]||'')&&b.outputs[q.id]?'<p class="mu sm">Previous run output. Run again for the current draft.</p>':''}${outputHtml(b.outputs[q.id])}</div><div class="row course-navigation"><button class="btn l" onclick="openCourseLesson(${b.lesson-1})"${b.lesson?'':' disabled'}>Back</button>${fresh?`<button class="btn a" onclick="continueCourse()">${q.kind==='read'||q.sandbox||JSON.stringify(canonicalSession(b.session))===JSON.stringify(canonicalSession(checked.session))?'Continue':'Apply checked result and continue'}</button>`:''}${b.lesson===list.length-1&&fresh?'<span class="mu sm">Last lesson: continue to the completion summary.</span>':''}</div></div></div>`;
+function courseContent(q){return typeof courseTaskContent==='function'?courseTaskContent(q.id):q.task||{title:'Practice task',prompt:'Complete the requirements for this task.',blocks:[],hint:'Review the current tables and the task requirements.',explanation:''}}
+/* The editor carries its owner: changing the selected level cannot capture its draft into another course. */
+function rememberCourse(){
+ const editor=$('#course-sql');if(!editor)return;
+ const level=editor.dataset.courseLevel,id=editor.dataset.courseId,b=courseStates[level];
+ if(!b||!courseLessons(level).some(q=>q.id===id))return;
+ b.drafts[id]=editor.value;
+ if(courseLessons(level)[b.lesson]?.id===id)b.work[id]=b.session;
+ const preview=$('#course-preview-details');
+ if(preview&&preview.dataset.courseLevel===level)b.previewExpanded=preview.open;
 }
-function coursePreview(name){rememberCourse();courseState().preview=name;renderCourse();saveProgressNow()}
-function courseInput(){rememberCourse();const b=courseState(),q=courseLesson();delete b.checked[q.id];delete b.feedback[q.id];$('#course-feedback').innerHTML='';if(b.outputs[q.id])$('#course-output').innerHTML='<p class="mu sm">SQL edited. Previous run output follows.</p>'+outputHtml(b.outputs[q.id]);document.querySelector('.course-navigation .btn.a')?.remove();saveProgressSoon()}
-function runCourse(){rememberCourse();const b=courseState(),q=courseLesson(),sql=b.drafts[q.id]||'',pending=submissionProblem(sql);delete b.checked[q.id];delete b.feedback[q.id];if(pending)b.outputs[q.id]={kind:'message',message:pending,sql};else{let results=[],error=null;try{results=exec(sql,b.session)}catch(e){results=e.R||[];error=errorRecord(e)}b.outputs[q.id]={kind:'results',results:plain(results),error,sql};b.work[q.id]=b.session}renderCourse();$('#course-sql')?.focus({preventScroll:true});saveProgressNow()}
+function chooseLabLevel(level){
+ if(!['easy','intermediate','advanced'].includes(level))return;
+ remember();rememberCourse();labLevel=level;
+ if(level==='easy'&&(cur==null||cur>=CFG.length)){cur=0;ti=trackTasks[cur]||0}
+ if(level==='easy')activateTask();
+ lab();$('#level-heading')?.focus({preventScroll:true});saveProgressNow();
+}
+function renderLabLevels(){
+ const descriptions={easy:['Easy','Prepared database','Practice with existing tables and sample rows. Each exercise has an independent database.'],intermediate:['Intermediate','Module practice','Build a database, then work through the module exercises.'],advanced:['Advanced','Complete database project','Complete the connected campus project and its challenges.']};
+ return '<div class="level-pick'+(labLevel?' compact':'')+'" aria-label="SQL practice levels">'+Object.entries(descriptions).map(([id,[title,subtitle,text]])=>'<button class="card'+(labLevel===id?' on':'')+'" onclick="chooseLabLevel(\''+id+'\')" aria-pressed="'+(labLevel===id)+'"><b>'+title+'</b>'+(labLevel?'':'<span>'+subtitle+'</span><span class="mu sm">'+text+'</span>')+'</button>').join('')+'</div>';
+}
+function renderThreeLevelLab(){
+ /* Rendering never captures a textarea: callers capture outgoing state before navigation. */
+ $('#lab').innerHTML='<h2>SQL lab</h2><p class="mu'+(labLevel?' sm':'')+'">'+(labLevel?'Practice level':'Choose your starting point. Your progress is saved separately for each level.')+'</p>'+renderLabLevels()+'<div id="level-content"></div>'+(legacySession?'<details class="fb"><summary>Previous shared database</summary><p>Your earlier database is preserved.</p><button class="btn l" onclick="recoverLegacySession()">Open previous database in Free practice</button></details>':'');
+ if(!labLevel)return;
+ const content=$('#level-content');
+ if(labLevel==='easy'){
+  content.innerHTML='<h3 id="level-heading" tabindex="-1">Easy: prepared database</h3><p class="mu sm">Each task uses its own database. Checking your answer leaves your working database unchanged.</p><div class="track-pick">'+CFG.map((c,i)=>trackButton(c.t,i)).join('')+'</div><div id="ws"></div>';
+  if(cur==null||cur>=CFG.length){cur=0;ti=trackTasks[cur]||0}activateTask();ws();return;
+ }
+ const advanced=labLevel==='advanced';
+ content.innerHTML='<div class="row level-heading-row"><h3 id="level-heading" tabindex="-1">'+(advanced?'Advanced: complete database project':'Intermediate: module practice')+'</h3>'+(advanced?'<button class="btn l" onclick="openFreePractice()">Free practice</button>':'')+'</div>'+
+ (!advanced?'<div class="row level-actions"><button class="btn l" onclick="openSetup()" aria-pressed="'+(cur==null||cur<CFG.length)+'">Database setup walkthrough</button>'+trackButton('Module queries',CFG.length)+trackButton('Module essentials',CFG.length+1)+'</div>':'<div class="row level-actions" aria-label="Learning style"><button class="btn l" data-course-style="walkthrough" onclick="setCourseStyle(\'walkthrough\')">Walkthrough</button><button class="btn l" data-course-style="challenge" onclick="setCourseStyle(\'challenge\')">Challenges</button></div>')+
+ '<div id="course-workspace"></div><div id="ws"></div>'+(advanced?'<details class="legacy-build"><summary>Previous table-building challenges</summary><p class="mu sm">Your earlier database and completion history are preserved.</p><button class="btn l" onclick="openPreviousChallenges()">Open previous challenges</button></details>':'');
+ if(!advanced&&cur>=CFG.length){activateTask();ws()}else renderCourse();
+ updateCourseStyleControls();
+}
+function trackButton(title,i){return'<button class="btn l'+(cur===i?' on':'')+'" data-track="'+i+'" onclick="pick('+i+')" aria-pressed="'+(cur===i)+'">'+h(title)+' <span class="mu sm track-count">'+TS(i).filter((_,k)=>done.has(NM(i)+':'+k)).length+'/'+TS(i).length+'</span></button>'}
+function refreshTrackCounts(){document.querySelectorAll('[data-track]').forEach(button=>{const i=Number(button.dataset.track),span=button.querySelector('.track-count');if(span&&Number.isInteger(i)&&i>=0&&i<CFG.length+2)span.textContent=TS(i).filter((_,k)=>done.has(NM(i)+':'+k)).length+'/'+TS(i).length})}
+function openSetup(){remember();rememberCourse();cur=null;lab();$('#course-title')?.focus({preventScroll:true});saveProgressNow()}
+function openFreePractice(){rememberCourse();buildMode='sandbox';go('builder');$('#build-sql')?.focus({preventScroll:true})}
+function openPreviousChallenges(){rememberCourse();buildMode='guided';go('builder');$('#build-sql')?.focus({preventScroll:true})}
+function updateCourseStyleControls(){
+ if(!['intermediate','advanced'].includes(labLevel))return;
+ document.querySelectorAll('[data-course-style]').forEach(el=>{const selected=el.dataset.courseStyle===courseState().style;el.classList.toggle('on',selected);el.setAttribute('aria-pressed',String(selected))});
+}
+function setCourseStyle(style){
+ if(!['walkthrough','challenge'].includes(style)||!['intermediate','advanced'].includes(labLevel))return;
+ rememberCourse();courseState().style=style;renderCourse();updateCourseStyleControls();
+ document.querySelector('[data-course-style="'+style+'"]')?.focus({preventScroll:true});saveProgressNow();
+}
+function ensureCourseEntry(b,q){if(!b.entries[q.id])b.entries[q.id]=plain(b.session)}
+function courseUnlocked(index){const list=courseLessons(labLevel);return Number.isInteger(index)&&index>=0&&index<list.length&&(index===0||!!courseState().entries[list[index].id])}
+function openCourseLesson(index){
+ const list=courseLessons(labLevel);if(!courseUnlocked(index))return;
+ rememberCourse();const b=courseState();b.lesson=index;b.finished=false;const q=list[index];
+ b.session=restoreSession(b.work[q.id]||b.entries[q.id]||emptyCourseSession());ensureCourseEntry(b,q);
+ renderCourse();$('#course-title')?.focus({preventScroll:true});saveProgressNow();
+}
+function courseListHtml(){
+ const b=courseState(),list=courseLessons(labLevel);
+ return '<p id="course-prerequisite-help" class="mu sm">Complete the current task and continue to unlock the next task.</p>'+list.map((q,i)=>{
+  const available=courseUnlocked(i),task=courseContent(q);
+  return '<button class="tk'+(i===b.lesson?' on':'')+'" onclick="openCourseLesson('+i+')"'+(available?'':' disabled')+(i===b.lesson?' aria-current="step"':'')+'>'+(b.done.includes(q.id)?'<span aria-label="Completed">&#10003;</span> ':'' )+(i+1)+'. '+h(task.title)+(available?'':'<span class="sr-only"> (locked)</span>')+'</button>';
+ }).join('')+'<p class="mu sm course-progress">'+b.done.length+' of '+list.length+' completed</p>';
+}
+function courseArchiveHtml(){
+ const b=courseState();if(!b.archives?.length)return '';
+ return '<details class="course-archives"><summary>Previous course progress ('+b.archives.length+')</summary><p class="mu sm">Earlier branches are saved here. Restoring one also saves your current branch for recovery.</p>'+b.archives.map((archive,index)=>'<div class="course-archive"><p><b>'+h(archive.label)+'</b><br><span class="mu sm">'+h(archive.createdAt)+'</span></p><button class="btn l" onclick="restoreCourseArchive('+index+')">Restore branch</button></div>').join('')+'</details>';
+}
+function archiveCurrentCourse(label){
+ const b=courseState(),createdAt=new Date().toISOString(),id='branch-'+Date.now()+'-'+(b.archives.length+1);
+ return{id,label,createdAt,snapshot:courseSnapshot(b,false)};
+}
+function restoreCourseArchive(index){
+ const b=courseState();if(!Number.isInteger(index)||index<0||index>=b.archives.length)return;
+ rememberCourse();const branch=b.archives[index];
+ if(!confirm('Restore this previous course branch? Your current branch will be saved for recovery before it is replaced.'))return;
+ const archives=b.archives.slice(),current=archiveCurrentCourse('Before restoring '+branch.label),level=labLevel;
+ restoreCourse(level,branch.snapshot);courseState().archives=[...archives,current];
+ renderCourse();$('#course-title')?.focus({preventScroll:true});$('#course-summary')?.focus({preventScroll:true});saveProgressNow();
+}
+function courseFreshCheck(b,q){const checked=b.checked[q.id];return checked&&checked.sql===(b.drafts[q.id]||'')?checked:null}
+function courseNavigationHtml(){
+ const b=courseState(),q=courseLesson(),checked=courseFreshCheck(b,q),last=b.lesson===courseLessons(labLevel).length-1;
+ const unapplied=checked&&q.kind!=='read'&&!q.sandbox&&JSON.stringify(canonicalSession(b.session))!==JSON.stringify(canonicalSession(checked.session));
+ return '<button class="btn l" onclick="openCourseLesson('+(b.lesson-1)+')"'+(b.lesson?'':' disabled')+'>Back</button><button class="btn a" onclick="continueCourse()"'+(checked?'':' disabled')+'>'+((unapplied?'Apply checked result and ':'')+(last?'finish':'continue')).replace(/^./,c=>c.toUpperCase())+'</button>'+(!checked?'<p class="mu sm course-nav-help">Check your answer successfully before continuing.</p>':'');
+}
+function courseFeedbackHtml(b,q){
+ const feedback=b.feedback[q.id];if(!feedback||feedback.sql!==undefined&&feedback.sql!==(b.drafts[q.id]||''))return'';
+ if(feedback.solution)return'<div class="fb"><p>One possible solution. Use it to review your answer.</p><pre>'+h(courseReferenceSql(q,b.entries[q.id])||'')+'</pre></div>';
+ return'<div class="fb '+(feedback.ok?'ok':'no')+'">'+h(feedback.message)+'</div>';
+}
+function courseOutputHtml(b,q){
+ const out=b.outputs[q.id];if(!out)return'';
+ const stale=out.sql!==(b.drafts[q.id]||'')||out.stateSignature&&out.stateSignature!==JSON.stringify(canonicalSession(b.session));
+ return(stale?'<p class="mu sm">Previous run output. Run again to update it for your current answer and database.</p>':'')+outputHtml(out);
+}
+function renderCourse(){
+ const host=$('#course-workspace');if(!host)return;
+ const b=courseState(),list=courseLessons(labLevel),q=list[b.lesson],task=courseContent(q);
+ ensureCourseEntry(b,q);
+ if(b.finished){
+  const all=b.done.length===list.length;
+  host.innerHTML='<div class="course-summary pane" id="course-summary" tabindex="-1"><h3>'+(all?'Course complete':'You reached the end of this course')+'</h3><p>'+b.done.length+' of '+list.length+' tasks are complete. '+(all?'You can review your work or choose another level.':'Revisit unfinished tasks to complete the course.')+'</p><div class="row"><button class="btn l" onclick="reviewCourse()">Review tasks</button>'+(labLevel==='advanced'?'<button class="btn a" onclick="openFreePractice()">Free practice</button>':'')+'</div></div>'+courseArchiveHtml();return;
+ }
+ const feedback=b.feedback[q.id],tables=activeTables(b.session),names=Object.keys(tables);
+ if(!names.includes(b.preview))b.preview=names[0]||'';const table=tables[b.preview];
+ const notes=task.explanation&&b.style!=='challenge'?'<details class="course-notes"><summary>Task notes</summary><p>'+h(task.explanation)+'</p></details>':'';
+ const body=typeof labContentHtml==='function'?labContentHtml(task):'<p>'+h(task.prompt)+'</p>';
+ const preview='<details id="course-preview-details" data-course-level="'+labLevel+'"'+(b.previewExpanded?' open':'')+'><summary>Database preview'+(table?' ('+Math.min(8,table.rows.length)+' of '+table.rows.length+' rows)':'')+'</summary>'+(names.length?'<label for="course-preview">Table</label><select id="course-preview" onchange="coursePreview(this.value)">'+names.map(n=>'<option value="'+h(n)+'"'+(n===b.preview?' selected':'')+'>'+h(n)+'</option>').join('')+'</select>'+grid({cols:table.cols.map(c=>c.n),rows:table.rows.slice(0,8).map(r=>table.cols.map(c=>resultValue(r[K(c)])))}):'<p class="mu sm">'+(b.session.current?'No tables yet.':'Create and select the database described in this task.')+'</p>')+'</details>';
+ const editor=q.kind==='read'?'<button class="btn a" onclick="completeReading()">Mark reviewed</button>':preview+'<label for="course-sql" class="sql-label sm">Your SQL answer</label><textarea id="course-sql" data-course-level="'+labLevel+'" data-course-id="'+h(q.id)+'" spellcheck="false" aria-describedby="course-help" placeholder="Write your answer here." oninput="courseInput()" onkeydown="if((event.ctrlKey||event.metaKey)&&event.key===\'Enter\'){event.preventDefault();runCourse()}">'+h(b.drafts[q.id]||'')+'</textarea><p id="course-help" class="mu sm">End each statement with a semicolon. Ctrl+Enter or Command+Enter runs your answer. Checking your answer leaves the working database unchanged.</p><div class="row lab-actions"><button class="btn" onclick="runCourse()">Run query</button><button class="btn a" onclick="checkCourse()">Check answer</button><button class="btn l" onclick="showCourseSolution()" aria-controls="course-feedback" aria-expanded="'+!!feedback?.solution+'">Show solution</button><button class="btn l" onclick="resetCourseLesson()">Reset lesson database</button></div>';
+ host.innerHTML='<div class="lab course-layout"><nav class="tl" id="course-list" aria-label="Course tasks" aria-describedby="course-prerequisite-help">'+courseListHtml()+'</nav><div class="pane"><p class="mu sm course-reference">'+(q.pages?.length?'PDF pages '+q.pages.join(', '):'Practical extension')+(q.extension?' · Practical extension':'')+(q.sandbox?' · Practice copy':'')+'</p><h3 id="course-title" tabindex="-1">'+h(task.title)+'</h3><div class="course-task">'+body+'</div>'+notes+(task.hint?'<details class="course-hint"><summary>Hint</summary><p>'+h(task.hint)+'</p></details>':'')+(q.sandbox?'<p class="mu sm">This task uses a practice copy. Continuing keeps the main project unchanged.</p>':'')+editor+'<div id="course-feedback" tabindex="-1" role="status" aria-live="polite">'+courseFeedbackHtml(b,q)+'</div><div id="course-output" aria-live="polite">'+courseOutputHtml(b,q)+'</div><div class="row course-navigation">'+courseNavigationHtml()+'</div></div></div>'+courseArchiveHtml();
+}
+function reviewCourse(){courseState().finished=false;renderCourse();$('#course-title')?.focus({preventScroll:true});saveProgressNow()}
+function coursePreview(name){rememberCourse();courseState().preview=name;renderCourse();$('#course-preview')?.focus({preventScroll:true});saveProgressNow()}
+function invalidateCourseAnswer(b,q){delete b.checked[q.id];delete b.feedback[q.id];b.done=b.done.filter(id=>id!==q.id);b.finished=false}
+function courseInput(){
+ rememberCourse();const b=courseState(),q=courseLesson();invalidateCourseAnswer(b,q);
+ $('#course-feedback').innerHTML='';$('#course-output').innerHTML=courseOutputHtml(b,q);
+ $('#course-list').innerHTML=courseListHtml();document.querySelector('.course-navigation').innerHTML=courseNavigationHtml();saveProgressSoon();
+}
+function runCourse(){
+ rememberCourse();const b=courseState(),q=courseLesson(),sql=b.drafts[q.id]||'',pending=submissionProblem(sql);
+ invalidateCourseAnswer(b,q);
+ if(pending)b.outputs[q.id]={kind:'message',message:pending,sql};
+ else{let results=[],error=null;try{results=exec(sql,b.session)}catch(e){results=e.R||[];error=errorRecord(e)}b.outputs[q.id]={kind:'results',results:plain(results),error,sql,stateSignature:JSON.stringify(canonicalSession(b.session))};b.work[q.id]=b.session}
+ renderCourse();$('#course-sql')?.focus({preventScroll:true});saveProgressNow();
+}
 function courseAttempt(sql,start){const session=restoreSession(start);session.clock='2026-10-12T00:00:00.000Z';let results=[],error=null;try{results=exec(sql,session)}catch(e){results=e.R||[];error=errorRecord(e)}return{session,results:plain(results),error}}
-function courseTechniqueProblems(sql,q){const errors=[];let statements=[];try{statements=splitStatements(sql).filter(p=>p.sql.trim()).map(p=>parse(tok(p.sql)))}catch(e){return errors}const tokens=splitStatements(sql).flatMap(p=>tok(p.sql)).filter(t=>t.k==='w'&&!t.quoted).map(t=>t.up);for(const requirement of q.techniques||[]){const words=requirement.toUpperCase().split(' ');if(!tokens.some((_,i)=>words.every((w,j)=>tokens[i+j]===w)))errors.push('Use the requested '+requirement+' form.')}if(q.kind==='error'&&q.errorCode===1068){const creates=statements.filter(s=>s.kind==='createTable');if(!creates.some(s=>s.defs.filter(d=>d.pk||d.key==='PRIMARY').length>1))errors.push('Declare the two separate primary keys requested in this error exercise.')}return errors}
-function courseResultsMatch(a,b,sql){const ordered=/\bORDER\s+BY\b/i.test(sql),shape=results=>results.map(r=>r.rows?{cols:r.cols.map(c=>c.toLowerCase().replace(/\s+/g,'')),rows:ordered?r.rows:r.rows.slice().sort((x,y)=>JSON.stringify(x).localeCompare(JSON.stringify(y))),vertical:!!r.vertical}:{affectedRows:r.affectedRows||0,status:r.msg==='Database changed'?'use':'ok'});return JSON.stringify(shape(a))===JSON.stringify(shape(b))}
-function assessCourse(sql,q,start){const pending=submissionProblem(sql);if(pending||!sql.trim())return{ok:false,message:pending||'Write SQL before checking.'};const candidate=courseAttempt(sql,start),reference=courseAttempt(q.sql,start),techniques=courseTechniqueProblems(sql,q);let ok;if(q.kind==='error')ok=!!candidate.error&&candidate.error.code===(q.errorCode||reference.error?.code)&&JSON.stringify(canonicalSession(candidate.session))===JSON.stringify(canonicalSession(reference.session));else ok=!candidate.error&&!reference.error&&courseResultsMatch(candidate.results,reference.results,q.sql)&&JSON.stringify(canonicalSession(candidate.session))===JSON.stringify(canonicalSession(reference.session));if(candidate.results.some((r,i)=>(r.warnings||[]).map(w=>w.code).join(',')!==(reference.results[i]?.warnings||[]).map(w=>w.code).join(',')))ok=false;return{ok:ok&&!techniques.length,message:techniques.join(' ')||(ok?'Correct. Review your result, then continue when ready.':candidate.error&&q.kind!=='error'?candidate.error.message:'Not yet. Check the requested columns, values, conditions, constraints and command form.'),session:candidate.session}}
-function checkCourse(){rememberCourse();const b=courseState(),q=courseLesson(),sql=b.drafts[q.id]||'',assessment=assessCourse(sql,q,b.entries[q.id]);b.feedback[q.id]={ok:assessment.ok,message:assessment.message,sql};if(assessment.ok){b.checked[q.id]={sql,session:assessment.session};if(!b.done.includes(q.id))b.done.push(q.id)}else delete b.checked[q.id];renderCourse();$('#course-feedback')?.scrollIntoView({block:'nearest'});saveProgressNow()}
-function completeReading(){const b=courseState(),q=courseLesson();b.checked[q.id]={sql:'',session:plain(b.entries[q.id])};b.feedback[q.id]={ok:true,message:'Reviewed. Continue when ready.'};if(!b.done.includes(q.id))b.done.push(q.id);renderCourse();saveProgressNow()}
-function continueCourse(){rememberCourse();const b=courseState(),q=courseLesson(),checked=b.checked[q.id];if(!checked||checked.sql!==(b.drafts[q.id]||''))return;const next=courseLessons(labLevel)[b.lesson+1];if(!next){$('#course-feedback').innerHTML='<div class="fb ok">All lessons in this course are complete. Revisit any lesson, try the challenge style, or choose another level.</div>';saveProgressNow();return}if(!b.entries[next.id]){const after=q.sandbox?b.entries[q.id]:checked.session;b.entries[next.id]=plain(after);b.work[next.id]=plain(after)}openCourseLesson(b.lesson+1)}
-function showCourseSolution(){rememberCourse();const b=courseState(),q=courseLesson();b.feedback[q.id]={solution:true};renderCourse();saveProgressNow()}
-function resetCourseLesson(){rememberCourse();const b=courseState(),q=courseLesson();if(JSON.stringify(canonicalSession(b.session))!==JSON.stringify(canonicalSession(b.entries[q.id]))&&!confirm('Reset this lesson database to its starting checkpoint? Its results will be cleared. Your draft and other lessons are kept.'))return;b.session=restoreSession(b.entries[q.id]);b.work[q.id]=b.session;delete b.checked[q.id];delete b.outputs[q.id];delete b.feedback[q.id];renderCourse();saveProgressNow()}
-function courseSnapshot(b){const pool=[],map=new Map(),intern=s=>{const key=JSON.stringify(s);if(!map.has(key)){map.set(key,pool.length);pool.push(plain(s))}return map.get(key)},refs=o=>Object.fromEntries(Object.entries(o).map(([id,s])=>[id,intern(s)]));return{pool,session:intern(b.session),lesson:b.lesson,style:b.style,drafts:plain(b.drafts),done:[...b.done],entries:refs(b.entries),work:refs(b.work),checked:Object.fromEntries(Object.entries(b.checked).map(([id,c])=>[id,{sql:c.sql,session:intern(c.session)}])),outputs:plain(b.outputs),feedback:plain(b.feedback),preview:b.preview}}
-function restoreCourse(level,s){const b=courseStates[level],unpack=i=>restoreSession(s.pool[i]);b.session=unpack(s.session);b.lesson=s.lesson;b.style=s.style;b.drafts=plain(s.drafts);b.done=s.done.slice();b.entries=Object.fromEntries(Object.entries(s.entries).map(([id,i])=>[id,unpack(i)]));b.work=Object.fromEntries(Object.entries(s.work).map(([id,i])=>[id,unpack(i)]));b.checked=Object.fromEntries(Object.entries(s.checked).map(([id,c])=>[id,{sql:c.sql,session:unpack(c.session)}]));b.outputs=plain(s.outputs);b.feedback=plain(s.feedback);b.preview=s.preview||''}
-function validCourse(level,s){const ids=courseLessons(level).map(q=>q.id),known=id=>ids.includes(id),ref=i=>Number.isInteger(i)&&i>=0&&i<s.pool.length,mapping=(o,fn)=>isRecord(o)&&Object.entries(o).every(([id,v])=>known(id)&&fn(v));return isRecord(s)&&Array.isArray(s.pool)&&s.pool.length>0&&s.pool.every(validSession)&&ref(s.session)&&Number.isInteger(s.lesson)&&s.lesson>=0&&s.lesson<ids.length&&['walkthrough','challenge'].includes(s.style)&&Array.isArray(s.done)&&new Set(s.done).size===s.done.length&&s.done.every(known)&&mapping(s.entries,ref)&&mapping(s.work,ref)&&mapping(s.drafts,v=>typeof v==='string')&&mapping(s.checked,c=>isRecord(c)&&typeof c.sql==='string'&&ref(c.session))&&mapping(s.outputs,validOutput)&&mapping(s.feedback,v=>isRecord(v)&&(v.solution===true||typeof v.ok==='boolean'&&typeof v.message==='string'))&&(s.lesson===0||Object.hasOwn(s.entries,ids[s.lesson]))}
+function courseTechniqueProblems(sql,q){
+ try{
+  const actual=gradingStatements(sql),reference=gradingStatements(q.sql),contract=courseContent(q).requirements;
+  const errors=typeof taskTechniqueProblems==='function'?taskTechniqueProblems(actual.map(x=>x.ast),contract):[];
+  if(reference.some(x=>x.part.vertical)&&!actual.some(x=>x.part.vertical))errors.push('Use the vertical result layout described in this task.');
+  return errors;
+ }catch(e){return []}
+}
+function courseResultsMatch(a,b,q,actualSql){
+ let statements=[];try{statements=gradingStatements(q.sql)}catch(e){}
+ const mixed=statements.some(x=>!['query','describe','showTables','showDatabases','showIndex','showTableStatus','showGrants'].includes(x.ast.kind)),indices=b.map((r,i)=>r.rows?i:-1).filter(i=>i>=0);
+ if(mixed){a=a.filter(r=>r.rows);b=b.filter(r=>r.rows)}
+ if(a.length!==b.length)return false;
+ let actualQueries=null;try{if(actualSql)actualQueries=gradingStatements(actualSql).filter(x=>x.ast.kind==='query').map(x=>x.ast.query)}catch(e){}let queryIndex=0;
+ const numericType=t=>/^(?:bigint|int|smallint|tinyint|mediumint|decimal|float|double|year)/i.test(t||'');
+ const numericCell=value=>{if(value==null)return null;const {n,s}=dec(value);return decimalText(n,s).replace(/(\.\d*?)0+$/,'$1').replace(/\.$/,'')};
+ return b.every((expected,index)=>{
+  let actual=a[index];const statement=statements[mixed?indices[index]:index],query=statement?.ast?.query;
+  if(!!actual.rows!==!!expected.rows)return false;
+  if(!expected.rows)return(actual.affectedRows||0)===(expected.affectedRows||0)&&(actual.msg==='Database changed')===(expected.msg==='Database changed');
+  if(actual.cols.length!==expected.cols.length)return false;
+  const contract=statements.length===1&&query?courseContent(q)?.requirements?.output:null,items=query?.items||[];
+  const star=items.some(item=>Object.hasOwn(item,'star')),actualQuery=query?actualQueries?.[queryIndex++]:null;
+  if(star&&items.length===1&&(!actualQueries||actualQuery?.items.length===1&&Object.hasOwn(actualQuery.items[0],'star'))&&new Set(expected.cols).size===expected.cols.length&&new Set(actual.cols.map(c=>c.toLowerCase())).size===expected.cols.length){const mapping=expected.cols.map(c=>actual.cols.findIndex(n=>n.toLowerCase()===c.toLowerCase()));if(mapping.every(i=>i>=0))actual={...actual,cols:expected.cols,rows:actual.rows.map(row=>mapping.map(i=>row[i])),types:actual.types?mapping.map(i=>actual.types[i]):actual.types}}
+  for(let column=0;column<expected.cols.length;column++){
+   const rule=!star?(contract?.find(r=>r.position===column)||{aliasRequired:!!items[column]?.alias,expression:items[column]?.expr}):{expression:{kind:'star'}};
+   if(rule?.aliasRequired){if(actual.cols[column]!==expected.cols[column])return false}
+   else if(!rule?.expression||['column','star'].includes(rule.expression.kind)){if(String(actual.cols[column]).toLowerCase()!==String(expected.cols[column]).toLowerCase())return false}
+  }
+  const cells=rows=>rows.map(row=>row.map((value,column)=>numericType(expected.types?.[column])&&numericType(actual.types?.[column])?numericCell(value):value));
+  let x=cells(actual.rows),y=cells(expected.rows);
+  const ordered=!!(query?.order?.length||statement?.ast?.order?.length);
+  if(!ordered){const sort=rows=>rows.sort((u,v)=>JSON.stringify(u).localeCompare(JSON.stringify(v)));x=sort(x);y=sort(y)}
+  return JSON.stringify(x)===JSON.stringify(y)&&!!actual.vertical===!!expected.vertical;
+ });
+}
+function assessCourse(sql,q,start){
+ const pending=submissionProblem(sql);if(pending||!sql.trim())return{ok:false,message:pending||'Write SQL before checking.'};
+ const candidate=courseAttempt(sql,start),reference=courseAttempt(courseReferenceSql(q,start),start),techniques=courseTechniqueProblems(sql,q);let ok;
+ if(q.kind==='error')ok=!!candidate.error&&candidate.error.code===(q.errorCode||reference.error?.code)&&JSON.stringify(canonicalSession(candidate.session))===JSON.stringify(canonicalSession(reference.session))&&(typeof courseErrorMatches!=='function'||courseErrorMatches(sql,q,start));
+ else ok=!candidate.error&&!reference.error&&courseResultsMatch(candidate.results,reference.results,q,sql)&&(typeof courseStateMatches==='function'?courseStateMatches(candidate.session,reference.session,q):JSON.stringify(canonicalSession(candidate.session))===JSON.stringify(canonicalSession(reference.session)))&&(typeof courseQueryMatches!=='function'||courseQueryMatches(sql,q,start));
+ const warnings=rs=>rs.flatMap(r=>(r.warnings||[]).map(w=>w.code)).sort((a,b)=>a-b).join(',');if(warnings(candidate.results)!==warnings(reference.results))ok=false;
+ return{ok:ok&&!techniques.length,message:techniques.join(' ')||(ok?'Correct. Review your result, then continue when ready.':candidate.error&&q.kind!=='error'?candidate.error.message:'Not yet. Check the required columns, values, conditions and constraints.'),session:candidate.session};
+}
+function checkCourse(){
+ rememberCourse();const b=courseState(),q=courseLesson(),sql=b.drafts[q.id]||'',assessment=assessCourse(sql,q,b.entries[q.id]);
+ b.feedback[q.id]={ok:assessment.ok,message:assessment.message,sql};
+ if(assessment.ok){b.checked[q.id]={sql,session:assessment.session};if(!b.done.includes(q.id))b.done.push(q.id)}
+ else{delete b.checked[q.id];b.done=b.done.filter(id=>id!==q.id)}
+ renderCourse();$('#course-feedback')?.focus({preventScroll:true});$('#course-feedback')?.scrollIntoView({block:'nearest'});saveProgressNow();
+}
+function completeReading(){
+ const b=courseState(),q=courseLesson();b.drafts[q.id]='';b.checked[q.id]={sql:'',session:plain(b.entries[q.id])};b.feedback[q.id]={ok:true,message:'Reviewed. Continue when ready.'};
+ if(!b.done.includes(q.id))b.done.push(q.id);renderCourse();$('#course-feedback')?.focus({preventScroll:true});saveProgressNow();
+}
+function continueCourse(){
+ rememberCourse();const b=courseState(),q=courseLesson(),checked=courseFreshCheck(b,q);if(!checked)return;
+ const list=courseLessons(labLevel),next=list[b.lesson+1],after=q.sandbox?b.entries[q.id]:checked.session;
+ const differs=next&&b.entries[next.id]&&JSON.stringify(canonicalSession(after))!==JSON.stringify(canonicalSession(b.entries[next.id]));
+ if(differs){
+  if(!confirm('Your corrected answer changes the starting database for later tasks. Rebuild the remaining tasks from this result? Their previous progress will be saved as a recoverable branch, and every SQL draft will be kept.'))return;
+  b.archives.push(archiveCurrentCourse('Before rebuilding from task '+(b.lesson+2)+': '+courseContent(next).title));
+  const downstream=new Set(list.slice(b.lesson+1).map(task=>task.id));
+  for(const id of downstream){delete b.entries[id];delete b.work[id];delete b.checked[id];delete b.outputs[id];delete b.feedback[id]}
+  b.done=b.done.filter(id=>!downstream.has(id));b.finished=false;
+ }
+ /* Applying an already evaluated checkpoint never executes SQL again. */
+ if(!q.sandbox){b.session=restoreSession(after);b.work[q.id]=b.session}
+ if(!next){b.finished=true;renderCourse();$('#course-summary')?.focus({preventScroll:true});saveProgressNow();return}
+ if(!b.entries[next.id]){b.entries[next.id]=plain(after);b.work[next.id]=plain(after)}
+ openCourseLesson(b.lesson+1);
+}
+function showCourseSolution(){
+ rememberCourse();const b=courseState(),q=courseLesson();b.feedback[q.id]={solution:true};
+ renderCourse();$('#course-feedback')?.focus({preventScroll:true});$('#course-feedback')?.scrollIntoView({block:'nearest'});saveProgressNow();
+}
+function resetCourseLesson(){
+ rememberCourse();const b=courseState(),q=courseLesson();
+ if(JSON.stringify(canonicalSession(b.session))!==JSON.stringify(canonicalSession(b.entries[q.id]))&&!confirm('Reset this lesson database to its starting checkpoint? Its results will be cleared. Your draft and other lessons are kept.'))return;
+ b.session=restoreSession(b.entries[q.id]);b.work[q.id]=b.session;invalidateCourseAnswer(b,q);delete b.outputs[q.id];
+ renderCourse();$('#course-sql')?.focus({preventScroll:true});saveProgressNow();
+}
+function courseSnapshot(b,includeArchives=true){
+ const pool=[],map=new Map(),intern=s=>{const key=JSON.stringify(s);if(!map.has(key)){map.set(key,pool.length);pool.push(plain(s))}return map.get(key)},refs=o=>Object.fromEntries(Object.entries(o).map(([id,s])=>[id,intern(s)]));
+ return{pool,session:intern(b.session),lesson:b.lesson,style:b.style,drafts:plain(b.drafts),done:[...b.done],entries:refs(b.entries),work:refs(b.work),checked:Object.fromEntries(Object.entries(b.checked).map(([id,c])=>[id,{sql:c.sql,session:intern(c.session)}])),outputs:plain(b.outputs),feedback:plain(b.feedback),preview:b.preview,previewExpanded:!!b.previewExpanded,finished:!!b.finished,...(includeArchives?{archives:plain(b.archives||[])}:{})};
+}
+function restoreCourse(level,s){
+ const b=courseStates[level],unpack=i=>restoreSession(s.pool[i]);b.session=unpack(s.session);b.lesson=s.lesson;b.style=s.style;b.drafts=plain(s.drafts);b.done=s.done.slice();b.entries=Object.fromEntries(Object.entries(s.entries).map(([id,i])=>[id,unpack(i)]));b.work=Object.fromEntries(Object.entries(s.work).map(([id,i])=>[id,unpack(i)]));b.checked=Object.fromEntries(Object.entries(s.checked).map(([id,c])=>[id,{sql:c.sql,session:unpack(c.session)}]));b.outputs=plain(s.outputs);b.feedback=plain(s.feedback);b.preview=s.preview||'';b.previewExpanded=!!s.previewExpanded;b.finished=!!s.finished;b.archives=plain(s.archives||[]);
+}
+function validCourse(level,s,allowArchives=true){
+ const ids=courseLessons(level).map(q=>q.id),known=id=>ids.includes(id),ref=i=>Number.isInteger(i)&&i>=0&&i<s.pool.length,mapping=(o,fn)=>isRecord(o)&&Object.entries(o).every(([id,v])=>known(id)&&fn(v));
+ return isRecord(s)&&Array.isArray(s.pool)&&s.pool.length>0&&s.pool.every(validSession)&&ref(s.session)&&Number.isInteger(s.lesson)&&s.lesson>=0&&s.lesson<ids.length&&['walkthrough','challenge'].includes(s.style)&&Array.isArray(s.done)&&new Set(s.done).size===s.done.length&&s.done.every(known)&&mapping(s.entries,ref)&&mapping(s.work,ref)&&mapping(s.drafts,v=>typeof v==='string')&&mapping(s.checked,c=>isRecord(c)&&typeof c.sql==='string'&&ref(c.session))&&mapping(s.outputs,validOutput)&&mapping(s.feedback,v=>isRecord(v)&&(v.solution===true||typeof v.ok==='boolean'&&typeof v.message==='string'))&&(s.lesson===0||Object.hasOwn(s.entries,ids[s.lesson]))&&(s.previewExpanded===undefined||typeof s.previewExpanded==='boolean')&&(s.finished===undefined||typeof s.finished==='boolean')&&(allowArchives?(s.archives===undefined||Array.isArray(s.archives)&&s.archives.every(a=>isRecord(a)&&typeof a.id==='string'&&typeof a.label==='string'&&typeof a.createdAt==='string'&&Number.isFinite(Date.parse(a.createdAt))&&validCourse(level,a.snapshot,false))&&new Set(s.archives.map(a=>a.id)).size===s.archives.length):!Object.hasOwn(s,'archives'));
+}
 
 const $=s=>document.querySelector(s),h=s=>String(s).replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));
-const CONTENT_VERSION='full-terms-three-levels-v4';
+const CONTENT_VERSION='descriptive-lab-contracts-v5';
 const examCatalog=()=>({id:ID.map((q,i)=>({id:'id-'+i,signature:JSON.stringify(q)})),mc:MC.map((q,i)=>({id:'mc-'+i,signature:JSON.stringify(q)}))});
 const EXAM_MODULES=[
  {id:1,title:'Module 1 — Database Management System',from:10,to:27},
@@ -1001,25 +1664,25 @@ function taskFeedbackHtml(model,q){if(!model)return'';if(model.kind=='solution')
 function lab(){renderThreeLevelLab()}
 function activateTask(){live=taskSessions[taskKey()]||newSession()}
 function pick(i){if(!Number.isInteger(i)||i<0||i>=CFG.length+2)return;remember();cur=i;ti=trackTasks[i]||0;activateTask();labLevel=i<CFG.length?'easy':'intermediate';lab();saveProgressNow()}
-function tl(){$('#tl').innerHTML=TS(cur).map((q,k)=>`<button class="tk${k==ti?' on':''}" ${k==ti?'aria-current="step"':''} onclick="sel(${k})">${done.has(NM(cur)+':'+k)?'<i aria-label="Previously solved">&#10003;</i>':k+1}&nbsp; ${h(q[1].replace(/<[^>]+>/g,'').slice(0,44))}${q[1].replace(/<[^>]+>/g,'').length>44?'&hellip;':''}</button>`).join('')}
+function tl(){$('#tl').innerHTML=TS(cur).map((q,k)=>`<button class="tk${k==ti?' on':''}" ${k==ti?'aria-current="step"':''} onclick="sel(${k})">${done.has(NM(cur)+':'+k)?'<i aria-label="Previously solved">&#10003;</i>':k+1}&nbsp; ${h(labTaskContent(cur,k).title)}</button>`).join('')}
 function sel(k){if(cur==null||!Number.isInteger(k)||k<0||k>=TS(cur).length)return;remember();ti=k;trackTasks[cur]=k;activateTask();ws();$('#sql')?.focus({preventScroll:true});saveProgressNow()}
 function preview(value){remember();pvt=value;ws();$('#preview-table')?.focus({preventScroll:true});saveProgressNow()}
-function resetDatabase(){remember();if(JSON.stringify(canonicalSession(live))!==JSON.stringify(canonicalSession(newSession()))&&!confirm('Reset this task database? Its database changes and results will be cleared. Your draft and other tasks are kept.'))return;live=newSession();delete taskSessions[taskKey()];delete outputs[taskKey()];delete outputModels[taskKey()];delete feedbackModels[taskKey()];ws();saveProgressNow()}
+function resetDatabase(){remember();if(JSON.stringify(canonicalSession(live))!==JSON.stringify(canonicalSession(newSession()))&&!confirm('Reset this task database? Its database changes and results will be cleared. Your draft and other tasks are kept.'))return;live=newSession();delete taskSessions[taskKey()];delete outputs[taskKey()];delete outputModels[taskKey()];delete feedbackModels[taskKey()];done.delete(taskKey());ws();refreshTrackCounts();$('#task-reset')?.focus({preventScroll:true});saveProgressNow()}
 function canPreview(name){if(live.user=='root')return true;const a=live.accounts[live.user],grants=[...(a?.global||[]),...(a?.grants[live.current+'.*']||[]),...(a?.grants[live.current+'.'+name]||[])];return grants.includes('ALL')||grants.includes('SELECT')}
 function remember(){if(!$('#lab')||$('#lab').hidden)return;const key=taskKey(),textarea=$('#sql');if(key&&textarea)draft[key]=textarea.value;if($('#preview-details'))previewExpanded=$('#preview-details').open}
-function ws(){const q=TS(cur)[ti],tables=activeTables(live),names=Object.keys(tables).filter(canPreview);if(cur>=CFG.length&&!names.includes(pvt))pvt=names[0]||pvt;const pn=cur<CFG.length?CFG[cur].t:pvt,d=own(tables,pn)?tables[pn]:null,key=taskKey();outputs[key]=(outputModels[key]&&outputModels[key].sql!==draft[key]?'<p class="mu sm">Previous run output. Run again to update it for your current SQL and database.</p>':'')+outputHtml(outputModels[key]);feedback[key]=taskFeedbackHtml(feedbackModels[key]?.kind==='check'&&feedbackModels[key].sql!==draft[key]?null:feedbackModels[key],q);
- $('#ws').innerHTML=`<div class="lab"><div class="tl" id="tl" aria-label="Lab tasks"></div><div class="pane"><span class="pill">${q[0]}</span><p style="margin:0">${q[1]}</p>
- <div class="session"><span class="mu sm">MariaDB [${h(live.current||'none')}] / root / Task ${ti+1} of ${TS(cur).length}</span></div>
- <details id="preview-details"${previewExpanded?' open':''}><summary>Preview ${h(pn)}${d?' (first '+Math.min(8,d.rows.length)+' of '+d.rows.length+' rows)':''}</summary>${cur>=CFG.length?`<label class="sm" for="preview-table">Table</label> <select id="preview-table" aria-label="Table to preview" onchange="preview(this.value)"${names.length?'':' disabled'}>${names.map(n=>`<option value="${h(n)}"${n==pn?' selected':''}>${h(n)}</option>`).join('')}</select>`:''}${!live.current?'<p class="mu sm">No database selected. Use USE to select one, or Reset task database.</p>':!canPreview(pn)?'<p class="mu sm">This practice account has no SELECT privilege for this table.</p>':d?grid({cols:d.cols.map(c=>c.n),rows:d.rows.slice(0,8).map(r=>d.cols.map(c=>resultValue(r[K(c)])))}):'<p class="mu sm">This table no longer exists in the selected database. Reset task database to restore the practice tables.</p>'}</details>
+function ws(){const q=TS(cur)[ti],content=labTaskContent(cur,ti),tables=activeTables(live),names=Object.keys(tables).filter(canPreview);if(cur>=CFG.length&&!names.includes(pvt))pvt=names[0]||pvt;const pn=cur<CFG.length?CFG[cur].t:pvt,d=own(tables,pn)?tables[pn]:null,key=taskKey();outputs[key]=(outputModels[key]&&outputModels[key].sql!==draft[key]?'<p class="mu sm">Previous run output. Run again to update it for your current SQL and database.</p>':'')+outputHtml(outputModels[key]);feedback[key]=taskFeedbackHtml(feedbackModels[key]?.kind==='check'&&feedbackModels[key].sql!==draft[key]?null:feedbackModels[key],q);
+ $('#ws').innerHTML=`<div class="lab"><div class="tl" id="tl" aria-label="Lab tasks"></div><div class="pane"><span class="pill">${h(q[0])}</span><h3 id="task-title" tabindex="-1">${h(content.title)}</h3><div class="task-prompt">${labContentHtml(content)}</div>
+
+ <details id="preview-details"${previewExpanded?' open':''}><summary>Preview ${h(pn)}${d?' (first '+Math.min(8,d.rows.length)+' of '+d.rows.length+' rows)':''}</summary>${cur>=CFG.length?`<label class="sm" for="preview-table">Table</label> <select id="preview-table" aria-label="Table to preview" onchange="preview(this.value)"${names.length?'':' disabled'}>${names.map(n=>`<option value="${h(n)}"${n==pn?' selected':''}>${h(n)}</option>`).join('')}</select>`:''}${!live.current?'<p class="mu sm">No database is selected. Select the database in your answer, or reset this task to recover its starting data.</p>':!canPreview(pn)?'<p class="mu sm">This practice account has no SELECT privilege for this table.</p>':d?grid({cols:d.cols.map(c=>c.n),rows:d.rows.slice(0,8).map(r=>d.cols.map(c=>resultValue(r[K(c)])))}):'<p class="mu sm">This table no longer exists in the selected database. Reset task database to restore the practice tables.</p>'}</details>
  <label for="sql" class="sql-label sm">SQL statements</label><textarea id="sql" spellcheck="false" aria-describedby="sql-help" placeholder="Write SQL here. Ctrl+Enter or Command+Enter runs it." oninput="labInput()" onkeydown="if((event.ctrlKey||event.metaKey)&&event.key=='Enter'){event.preventDefault();runQ()}">${h(draft[key]||'')}</textarea>
- <p id="sql-help" class="mu sm">End each statement with a semicolon. Use \\G to display a result vertically. If a statement is unfinished, none of the statements run. The lab checks table and column names, SQL syntax, data types and constraints.</p>
- <div class="row"><button class="btn" onclick="runQ()">Run query</button><button class="btn a" onclick="chk()">Check answer</button><button class="btn l" onclick="show()">Show solution</button><button class="btn l" onclick="resetDatabase()">Reset task database</button></div>
+ <p id="sql-help" class="mu sm">End each statement with a semicolon. Ctrl+Enter or Command+Enter runs your answer. Run changes this task’s database; Check evaluates a separate starting copy.</p>
+ <div class="row lab-actions"><button id="task-run" class="btn" onclick="runQ()">Run query</button><button id="task-check" class="btn a" onclick="chk()">Check answer</button><button id="task-solution" class="btn l" onclick="show()">Show solution</button><button id="task-reset" class="btn l" onclick="resetDatabase()">Reset task database</button></div>
  <div id="fb" role="status" aria-live="polite">${feedback[key]||''}</div><div id="out" aria-live="polite">${outputs[key]||''}</div></div></div>`;tl();
 }
-function labInput(){remember();const key=taskKey();if(feedbackModels[key]?.kind==='check'){delete feedbackModels[key];$('#fb').innerHTML=''}if(outputModels[key]&&outputModels[key].sql!==draft[key])$('#out').innerHTML='<p class="mu sm">SQL edited. Previous run output is shown below; run again to update it.</p>'+outputHtml(outputModels[key]);saveProgressSoon()}
-function runQ(){remember();delete feedbackModels[taskKey()];const key=taskKey(),pending=submissionProblem(draft[key]||'');if(pending){outputModels[key]={kind:'message',message:pending,sql:draft[key]};ws();$('#sql').focus({preventScroll:true});saveProgressNow();return}live.user='root';let results=[],error=null;try{results=exec(draft[key],live)}catch(e){results=e.R||[];error=errorRecord(e)}taskSessions[key]=live;outputModels[key]={kind:'results',results:clone(results),error,sql:draft[key]};ws();$('#sql').focus({preventScroll:true});saveProgressNow()}
-function chk(){remember();const q=TS(cur)[ti],sql=draft[taskKey()]||'',pending=submissionProblem(sql),ok=!pending&&sql.trim()&&gradeSqlTask(sql,q);if(ok)done.add(taskKey());feedbackModels[taskKey()]={kind:'check',ok:Boolean(ok),pending:pending||(!ok?sqlTechniqueProblems(sql,q).join(' '):null)||null,sql};ws();tl();saveProgressNow()}
-function show(){remember();feedbackModels[taskKey()]={kind:'solution'};ws();saveProgressNow()}
+function labInput(){remember();const key=taskKey();done.delete(key);tl();refreshTrackCounts();if(feedbackModels[key]?.kind==='check'){delete feedbackModels[key];$('#fb').innerHTML=''}if(outputModels[key]&&outputModels[key].sql!==draft[key])$('#out').innerHTML='<p class="mu sm">SQL edited. Previous run output is shown below; run again to update it.</p>'+outputHtml(outputModels[key]);saveProgressSoon()}
+function runQ(){remember();done.delete(taskKey());refreshTrackCounts();delete feedbackModels[taskKey()];const key=taskKey(),pending=submissionProblem(draft[key]||'');if(pending){outputModels[key]={kind:'message',message:pending,sql:draft[key]};ws();$('#sql').focus({preventScroll:true});saveProgressNow();return}live.user='root';let results=[],error=null;try{results=exec(draft[key],live)}catch(e){results=e.R||[];error=errorRecord(e)}taskSessions[key]=live;outputModels[key]={kind:'results',results:clone(results),error,sql:draft[key]};ws();$('#sql').focus({preventScroll:true});saveProgressNow()}
+function chk(){remember();const q=TS(cur)[ti],sql=draft[taskKey()]||'',pending=submissionProblem(sql),ok=!pending&&sql.trim()&&gradeSqlTask(sql,q);if(ok)done.add(taskKey());else done.delete(taskKey());feedbackModels[taskKey()]={kind:'check',ok:Boolean(ok),pending:pending||(!ok?sqlTechniqueProblems(sql,q).join(' '):null)||null,sql};ws();tl();refreshTrackCounts();$('#task-check')?.focus({preventScroll:true});saveProgressNow()}
+function show(){remember();feedbackModels[taskKey()]={kind:'solution'};ws();$('#task-solution')?.focus({preventScroll:true});saveProgressNow()}
 
 /* Derived practice: schema design, isolated from the module's seeded tables. */
 const BUILD_DEFS=[
@@ -1066,7 +1729,7 @@ const buildModes={guided:{session:emptyBuildSession('campus_lab'),drafts:Object.
 let buildMode='guided',buildExpected;
 const buildState=()=>buildModes[buildMode],buildKey=()=>buildMode=='guided'?buildState().task:0;
 function rememberBuild(){if(!$('#builder')||$('#builder').hidden)return;const b=buildState();if($('#build-sql'))b.drafts[buildKey()]=$('#build-sql').value}
-function chooseBuildMode(mode){rememberBuild();buildMode=mode;builder();saveProgressNow()}
+function chooseBuildMode(mode){if(!['guided','sandbox'].includes(mode))return;rememberBuild();buildMode=mode;builder();$('#build-sql')?.focus({preventScroll:true});saveProgressNow()}
 function chooseBuildTask(task){rememberBuild();if(!Number.isInteger(task)||task<0||task>=BUILD_TASKS.length)return;buildState().task=task;builder();$('#build-sql')?.focus({preventScroll:true});saveProgressNow()}
 function buildPreview(name){rememberBuild();buildState().preview=name;builder();$('#build-preview')?.focus({preventScroll:true});saveProgressNow()}
 function expectedBuild(){if(!buildExpected){buildExpected=emptyBuildSession('campus_lab');exec(BUILD_DEFS.map(q=>q[2]).join('\n')+'\n'+BUILD_INSERT,buildExpected)}return buildExpected}
@@ -1097,6 +1760,7 @@ function buildSchemaProblems(session,table){
  for(const columns of rule.unique)if(!unique.some(k=>buildKeySet(k.cols)==buildKeySet(columns)))errors.push(`${table}: ${columns.join(', ')} must not repeat in different records.`);
  for(const k of unique)if(!required.some(cols=>cols.every(c=>k.cols.includes(c))))errors.push(`${table}: the UNIQUE rule on ${k.cols.join(', ')} prevents records allowed by the question.`);
  const expectedFK=rule.foreign.map(([cols,target,refs])=>buildForeign(cols,target,refs,session.current)).sort();
+ if((actual.foreign||[]).some(f=>(f.onDelete||'RESTRICT')!=='RESTRICT'||(f.onUpdate||'RESTRICT')!=='RESTRICT'))errors.push(`${table}: keep referenced parents protected while dependent records remain.`);
  const actualFK=[...new Set((actual.foreign||[]).map(f=>buildForeign(f.cols,f.target.n,f.refCols,f.target.d||session.current)))].sort();
  if(JSON.stringify(actualFK)!=JSON.stringify(expectedFK))errors.push(`${table}: a foreign-key connection is missing or does not match the relationship described in the question.`);
  return errors;
@@ -1119,32 +1783,31 @@ function buildAttemptMatches(sql,reference,before){
 function checkBuildTask(b,task){const q=BUILD_TASKS[task];if(q.kind=='schema')return buildSchemaProblems(b.session,q.table);let errors=BUILD_DEFS.flatMap(x=>buildSchemaProblems(b.session,x[0]));if(errors.length)return errors;if(q.kind=='rows')return buildRowsProblems(b.session);const sampleErrors=buildRowsProblems(b.session);if(sampleErrors.length)return sampleErrors;const r=b.lastRun;if(!r||r.task!=task)return['Run your SQL for this challenge first.'];if(JSON.stringify(canonicalSession(r.after))!=JSON.stringify(canonicalSession(b.session)))return['The database has changed since that attempt. Run this challenge again.'];const reference=clone(r.before);let expectedResults=[],error;try{expectedResults=exec(q.sql,reference)}catch(e){error=e}if(q.kind=='error'){let statements;try{statements=splitStatements(r.sql).filter(p=>tok(p.sql).length).map(p=>parse(tok(p.sql)))}catch(e){return['Use one complete INSERT or DELETE statement for this challenge.']}const target=parse(tok(splitStatements(q.sql)[0].sql));if(statements.length!=1||statements[0].kind!=target.kind||statements[0].table?.n!=target.table.n)return[`Attempt the requested ${target.kind.toUpperCase()} on ${target.table.n}.`];if(!buildAttemptMatches(r.sql,q.sql,r.before))return['Attempt the exact record change requested in the question.'];if(!error||error.code!=q.code||r.error?.code!=q.code||r.error?.sqlState!=error.sqlState)return[`Expected ERROR ${q.code}; inspect the latest attempted operation.`];if(q.code==1452&&!r.error.message.includes('fk_enrollment_student')&&!r.error.message.includes((activeTables(b.session).enrollments.foreign.find(f=>f.target.n=='students')||{}).name))return['Test the missing student reference, not an unrelated foreign key.'];if(JSON.stringify(canonicalSession(reference))!=JSON.stringify(canonicalSession(r.after)))return['The failed operation must leave the same database state as the expected attempt.'];if(JSON.stringify(canonicalSession(r.before))!=JSON.stringify(canonicalSession(r.after)))return['The failed operation changed the database.'];return[]}
  if(r.error)return['Your latest query failed.'];if(!gradeBuilderQuery(r.sql,q.sql,r.before))return['Use all four tables, match both course_code and term, and sort by full_name then title as requested.'];const shape=a=>JSON.stringify(a.map(x=>({cols:x.cols,rows:x.rows})));if(shape(r.results)!=shape(expectedResults))return['Return full_name, title, term and grade using the required joins and sort order.'];if(JSON.stringify(canonicalSession(r.before))!=JSON.stringify(canonicalSession(r.after)))return['This challenge needs a SELECT that leaves the database unchanged.'];let st;try{st=parse(tok(splitStatements(r.sql)[0].sql))}catch(e){}const names=st?.query?[st.query.from?.n,...st.query.joins.map(j=>j.table.n)]:[];if(!['enrollments','students','course_offerings','courses'].every(n=>names.includes(n)))return['Join all four requested tables.'];return[]}
 function builder(){
- const b=buildState(),guided=buildMode=='guided',q=BUILD_TASKS[b.task],tables=activeTables(b.session),names=Object.keys(tables),key=buildKey();
+ const b=buildState(),guided=buildMode=='guided',q=BUILD_TASKS[b.task],tables=activeTables(b.session),names=Object.keys(tables),key=buildKey(),content=builderTaskContent(b.task);
  b.outputs[key]=(b.outputModels[key]&&(b.outputModels[key].sql!==b.drafts[key]||b.outputModels[key].stateSignature&&b.outputModels[key].stateSignature!==JSON.stringify(canonicalSession(b.session)))?'<p class="mu sm">Previous run output. Run again to update it for your current SQL and database.</p>':'')+outputHtml(b.outputModels?.[key]);b.feedback[key]=buildFeedbackHtml(b.feedbackModels[key]?.kind==='check'&&(typeof b.feedbackModels[key].sql!=='string'||b.feedbackModels[key].sql!==b.drafts[key]||b.feedbackModels[key].stateSignature&&b.feedbackModels[key].stateSignature!==JSON.stringify(canonicalSession(b.session)))?null:b.feedbackModels?.[key],q);
  if(!names.includes(b.preview))b.preview=names[0]||'';const t=tables[b.preview];
- const sample=q.kind=='rows'?`<details open><summary>Sample records to insert</summary>${Object.entries(activeTables(expectedBuild())).map(([n,x])=>`<h3>${h(n)}</h3>${grid({cols:x.cols.map(c=>c.n),rows:x.rows.map(r=>x.cols.map(c=>resultValue(r[K(c)])))})}`).join('')}</details>`:'';
  $('#builder').innerHTML=`
  <div class="row"><h2>Build tables &amp; relationships</h2><button class="btn l" onclick="go('lab')">Back to SQL lab</button></div>
- <p class="mu">Create a database for a school, one table at a time. Read each question and choose suitable data types and keys. A table has one primary key, which may contain several columns.</p>
- <p class="module-note sm">Additional practice based on module p.15, p.20, p.59–62, p.97 and p.102. These questions are constructed exercises. The FOREIGN KEY statements go beyond the module’s printed SQL examples.</p>
+ <p class="mu">Create a database for a school, one table at a time. Read each question and choose suitable data types and keys. One record may be identified by a single value or a combination of values.</p>
+ <p class="module-note sm">Additional practice based on module p.15, p.20, p.59–62, p.97 and p.102. These questions are constructed exercises. Some relationship exercises extend the printed module examples.</p>
  <div class="row build-tabs" role="group" aria-label="Table practice mode"><button class="btn ${guided?'':'l'}" aria-pressed="${guided}" onclick="chooseBuildMode('guided')">Guided challenges</button><button class="btn ${guided?'l':''}" aria-pressed="${!guided}" onclick="chooseBuildMode('sandbox')">Free practice</button></div>
  <div class="lab">
- ${guided?`<div class="tl" aria-label="Table practice challenges">${BUILD_TASKS.map((x,i)=>`<button class="tk${i==b.task?' on':''}"${i==b.task?' aria-current="step"':''} onclick="chooseBuildTask(${i})">${b.done.has(i)?'✓':i+1} ${h(x.title)}</button>`).join('')}<p class="mu sm">${b.done.size} of ${BUILD_TASKS.length} completed. Work in order. Your tables remain available in the next question.</p></div>`:`<div class="q"><h3>Your practice database</h3><p>Choose your own tables and columns. Try primary keys, UNIQUE, NULL and foreign keys connecting your tables. A key or connection may use more than one column.</p><p class="mu sm">Use FOREIGN KEY (...) REFERENCES ... to create a connection. Referenced records are protected from deletion by default (RESTRICT); ON DELETE/ON UPDATE CASCADE and SET NULL are also supported when the referenced columns permit them.</p></div>`}
- <div class="pane"><div class="session"><span class="mu sm">MariaDB [${h(b.session.current||'none')}] · root</span></div>
- ${guided?`<h3>${b.task+1}. ${h(q.title)}</h3><p class="build-question">${h(q.prompt)}</p>${q.kind=='schema'?'<p class="mu sm">Use only the named columns. Choose types that meet the stated capacities and match connected columns. Apply the keys and constraints needed for the rules above. Column order and constraint names are your choice.</p>':''}${sample}<details class="build-hint"><summary>Hint</summary><p>${h(q.hint)}</p></details>`:'<h3>Write and run your own SQL</h3>'}
+ ${guided?`<div class="tl" aria-label="Table practice challenges">${BUILD_TASKS.map((x,i)=>`<button class="tk${i==b.task?' on':''}"${i==b.task?' aria-current="step"':''} onclick="chooseBuildTask(${i})">${b.done.has(i)?'✓':i+1} ${h(builderTaskContent(i).title)}</button>`).join('')}<p class="mu sm">${b.done.size} of ${BUILD_TASKS.length} completed. Work in order. Your tables remain available in the next question.</p></div>`:`<div class="q"><h3>Your practice database</h3><p>Design your own tables and records. Choose unique identifiers, allow missing values where useful, and connect records across tables. An identifier or relationship may use several columns.</p><p class="mu sm">By default, referenced records cannot be removed while other records depend on them. You may instead design relationships that remove dependent records or clear optional references automatically.</p></div>`}
+ <div class="pane">
+ ${guided?`<h3 id="build-task-title" tabindex="-1">${b.task+1}. ${h(content.title)}</h3><div class="build-question task-prompt">${labContentHtml(content)}</div>${q.kind=='schema'?'<p class="mu sm">Use only the named columns. Choose types that meet the stated capacities and match connected columns. Apply the keys and constraints needed for the rules above. Column order and constraint names are your choice.</p>':''}<details class="build-hint"><summary>Hint</summary><p>${h(content.hint)}</p></details>`:'<h3>Write and run your own SQL</h3>'}
  <label for="build-sql" class="sql-label sm">SQL statements</label><textarea id="build-sql" spellcheck="false" aria-describedby="build-help" oninput="buildInput()" onkeydown="if((event.ctrlKey||event.metaKey)&&event.key=='Enter'){event.preventDefault();runBuild()}">${h(b.drafts[buildKey()]||'')}</textarea>
- <p id="build-help" class="mu sm">End each statement with a semicolon. Use \\G to display a result vertically. Ctrl+Enter or Command+Enter runs your SQL. If a statement is unfinished, none of the statements run.</p>
+ <p id="build-help" class="mu sm">End each statement with a semicolon. Ctrl+Enter or Command+Enter runs your answer. An unfinished statement leaves the whole batch pending.</p>
  <div class="row"><button class="btn" onclick="runBuild()">Run query</button>${guided?'<button id="build-check" class="btn a" onclick="checkBuild()">Check answer</button><button class="btn l" onclick="showBuild()">Show solution</button>':''}<button class="btn l" onclick="resetBuild()">Reset this database</button></div>
- <div id="build-feedback" role="status" aria-live="polite">${b.feedback[buildKey()]||''}</div><div id="build-output" aria-live="polite">${b.outputs[buildKey()]||''}</div></div></div>
+ <div id="build-feedback" tabindex="-1" role="status" aria-live="polite">${b.feedback[buildKey()]||''}</div><div id="build-output" aria-live="polite">${b.outputs[buildKey()]||''}</div></div></div>
  <div class="pane build-inspector"><h3>Your tables</h3>${names.length?`<label for="build-preview">Table to inspect</label> <select id="build-preview" onchange="buildPreview(this.value)">${names.map(n=>`<option${n==b.preview?' selected':''} value="${h(n)}">${h(n)}</option>`).join('')}</select>${t?`<h3>Structure</h3>${grid({cols:['Column','Type','Null','Key','Extra'],rows:t.cols.map(c=>[c.n,c.t,c.nn?'NO':'YES',c.pk?'PRIMARY':tableKeys(t).some(k=>!k.nonUnique&&k.cols.includes(K(c)))?'UNIQUE':'',c.ai?'AUTO_INCREMENT':''])})}<h3>Data (${Math.min(20,t.rows.length)} of ${t.rows.length} rows)</h3>${grid({cols:t.cols.map(c=>c.n),rows:t.rows.slice(0,20).map(r=>t.cols.map(c=>resultValue(r[K(c)])))})}`:''}`:'<p class="mu">No tables yet. Create your first table above.</p>'}<h3>Relationships</h3>${relationshipDiagram(b.session)}</div>`;
 }
-function relationshipDiagram(session){const tables=activeTables(session),names=Object.keys(tables);if(!names.length)return'<p class="mu">Connections appear when you create foreign keys.</p>';const foreign=names.flatMap(n=>(tables[n].foreign||[]).map(f=>({n,f}))),width=760,gap=140,height=Math.max(160,names.length*gap+40),box=n=>names.indexOf(n)*gap+25;const paths=foreign.map(({n,f},i)=>{if((f.target.d||session.current)!=session.current)return '';const y=box(n)+35,z=box(f.target.n)+35;if(z<25)return'';const right=560+(i%7)*23;return`<path d="M 480 ${y} H ${right} V ${n==f.target.n?y+52:z} H 480" fill="none" stroke="var(--focus)" stroke-width="2" marker-end="url(#build-arrow)"/>`}).join('');return`<div class="sc diagram" tabindex="0" role="region" aria-label="Scrollable relationship diagram"><svg viewBox="0 0 ${width} ${height}" width="${width}" height="${height}" role="img" aria-label="Tables and their actual foreign-key connections"><defs><marker id="build-arrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M 0 0 L 8 4 L 0 8 Z" fill="var(--focus)"/></marker></defs>${paths}${names.map(n=>`<g><rect x="15" y="${box(n)}" width="465" height="105" rx="10" fill="var(--sf)" stroke="var(--control)"/><text x="28" y="${box(n)+25}" fill="var(--fg)" font-size="16">${h(n.length>46?n.slice(0,43)+'…':n)}</text><text x="28" y="${box(n)+52}" fill="var(--mu)" font-size="13">Primary key: ${h((tables[n].primary||[]).join(', ').slice(0,54)||'none')}</text><text x="28" y="${box(n)+80}" fill="var(--mu)" font-size="13">${tables[n].cols.length} columns · ${tables[n].rows.length} rows · ${(tables[n].foreign||[]).length} foreign keys</text></g>`).join('')}</svg></div>${foreign.length?`<ul class="relationship-list">${foreign.map(({n,f})=>{const parent=session.databases[f.target.d||session.current]?.[f.target.n],parentUnique=parent&&tableKeys(parent).some(k=>!k.nonUnique&&k.cols.length==f.refCols.length&&f.refCols.every(c=>k.cols.includes(c))),unique=tableKeys(tables[n]).some(k=>!k.nonUnique&&k.cols.length==f.cols.length&&f.cols.every(c=>k.cols.includes(c))),nullable=f.cols.some(c=>!tables[n].cols.find(x=>K(x)==c)?.nn),same=f.target.n==n&&(f.target.d||session.current)==session.current;return`<li><b>${h(n)}</b> (${h(f.cols.join(', '))}) → <b>${h(f.target.d&&f.target.d!=session.current?f.target.d+'.'+f.target.n:f.target.n)}</b> (${h(f.refCols.join(', '))})<br><span class="mu sm">${same?'Manager reference within the same table':!parentUnique?'Connected to a column whose values may repeat':unique?'One-to-one (at most one related record)':'One-to-many (several records may refer to the same record)'} · ${nullable?'NULL is allowed':'a value is required'} · default RESTRICT</span></li>`}).join('')}</ul><p class="mu sm">A table such as enrollments connects students and course offerings in a many-to-many relationship. The diagram shows this database’s constraints; references to other databases appear in the list. Matching column names alone do not create a connection.</p>`:'<p class="mu">No foreign-key connections yet.</p>'}`}
+function relationshipDiagram(session){const tables=activeTables(session),names=Object.keys(tables);if(!names.length)return'<p class="mu">Connections appear when you create foreign keys.</p>';const foreign=names.flatMap(n=>(tables[n].foreign||[]).map(f=>({n,f}))),width=760,gap=140,height=Math.max(160,names.length*gap+40),box=n=>names.indexOf(n)*gap+25;const paths=foreign.map(({n,f},i)=>{if((f.target.d||session.current)!=session.current)return '';const y=box(n)+35,z=box(f.target.n)+35;if(z<25)return'';const right=560+(i%7)*23;return`<path d="M 480 ${y} H ${right} V ${n==f.target.n?y+52:z} H 480" fill="none" stroke="var(--focus)" stroke-width="2" marker-end="url(#build-arrow)"/>`}).join('');return`<div class="sc diagram" tabindex="0" role="region" aria-label="Scrollable relationship diagram"><svg viewBox="0 0 ${width} ${height}" width="${width}" height="${height}" role="img" aria-label="Tables and their actual foreign-key connections"><defs><marker id="build-arrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M 0 0 L 8 4 L 0 8 Z" fill="var(--focus)"/></marker></defs>${paths}${names.map(n=>`<g><rect x="15" y="${box(n)}" width="465" height="105" rx="10" fill="var(--sf)" stroke="var(--control)"/><text x="28" y="${box(n)+25}" fill="var(--fg)" font-size="16">${h(n.length>46?n.slice(0,43)+'…':n)}</text><text x="28" y="${box(n)+52}" fill="var(--mu)" font-size="13">Primary key: ${h((tables[n].primary||[]).join(', ').slice(0,54)||'none')}</text><text x="28" y="${box(n)+80}" fill="var(--mu)" font-size="13">${tables[n].cols.length} columns · ${tables[n].rows.length} rows · ${(tables[n].foreign||[]).length} foreign keys</text></g>`).join('')}</svg></div>${foreign.length?`<ul class="relationship-list">${foreign.map(({n,f})=>{const parent=session.databases[f.target.d||session.current]?.[f.target.n],parentUnique=parent&&tableKeys(parent).some(k=>!k.nonUnique&&k.cols.length==f.refCols.length&&f.refCols.every(c=>k.cols.includes(c))),unique=tableKeys(tables[n]).some(k=>!k.nonUnique&&k.cols.length==f.cols.length&&f.cols.every(c=>k.cols.includes(c))),nullable=f.cols.some(c=>!tables[n].cols.find(x=>K(x)==c)?.nn),same=f.target.n==n&&(f.target.d||session.current)==session.current;return`<li><b>${h(n)}</b> (${h(f.cols.join(', '))}) → <b>${h(f.target.d&&f.target.d!=session.current?f.target.d+'.'+f.target.n:f.target.n)}</b> (${h(f.refCols.join(', '))})<br><span class="mu sm">${same?'Reference within the same table':!parentUnique?'Connected to a column whose values may repeat':unique?'One-to-one (at most one related record)':'One-to-many (several records may refer to the same record)'} · ${nullable?'NULL is allowed':'a value is required'} · delete: ${h(f.onDelete||'RESTRICT')} · update: ${h(f.onUpdate||'RESTRICT')}</span></li>`}).join('')}</ul><p class="mu sm">A table such as enrollments connects students and course offerings in a many-to-many relationship. The diagram shows this database’s constraints; references to other databases appear in the list. Matching column names alone do not create a connection.</p>`:'<p class="mu">No foreign-key connections yet.</p>'}`}
 function buildFeedbackHtml(model,q){if(!model)return'';if(model.kind=='solution')return`<div class="fb">One possible solution (run it yourself):<pre>${h(q.sql)}</pre></div>`;return model.errors?.length?`<div class="fb no"><b>Not yet.</b><ul>${model.errors.map(e=>`<li>${h(e)}</li>`).join('')}</ul></div>`:`<div class="fb ok">Correct. ${q.kind=='schema'?'Your table follows the rules in the question.':'Your records or latest query match the question.'}</div>`}
-function buildInput(){rememberBuild();const b=buildState(),key=buildKey();if(b.feedbackModels[key]?.kind==='check'){delete b.feedbackModels[key];$('#build-feedback').innerHTML=''}if(b.outputModels[key])$('#build-output').innerHTML='<p class="mu sm">Previous run output. Run again to update it for your current SQL and database.</p>'+outputHtml(b.outputModels[key]);saveProgressSoon()}
-function runBuild(){rememberBuild();const b=buildState(),key=buildKey(),sql=b.drafts[key]||'';delete b.feedbackModels[key];const pending=submissionProblem(sql);if(pending){b.lastRun=null;b.outputModels[key]={kind:'message',message:pending,sql};builder();$('#build-sql').focus({preventScroll:true});saveProgressNow();return}b.session.user='root';const before=clone(b.session);let results=[],error=null;try{results=exec(sql,b.session)}catch(e){error=errorRecord(e);results=e.R||[]}b.lastRun={task:b.task,sql,before,after:clone(b.session),results,error};b.outputModels[key]={kind:'results',results:clone(results),error,sql,stateSignature:JSON.stringify(canonicalSession(b.session))};if(buildMode=='guided')for(const task of [...b.done])if(BUILD_TASKS[task].kind=='schema'&&buildSchemaProblems(b.session,BUILD_TASKS[task].table).length||BUILD_TASKS[task].kind=='rows'&&buildRowsProblems(b.session).length)b.done.delete(task);builder();$('#build-sql').focus({preventScroll:true});saveProgressNow()}
+function buildInput(){rememberBuild();const b=buildState(),key=buildKey();if(buildMode==='guided')b.done.delete(b.task);if(b.feedbackModels[key]?.kind==='check'){delete b.feedbackModels[key];$('#build-feedback').innerHTML=''}if(b.outputModels[key])$('#build-output').innerHTML='<p class="mu sm">Previous run output. Run again to update it for your current SQL and database.</p>'+outputHtml(b.outputModels[key]);saveProgressSoon()}
+function runBuild(){rememberBuild();const b=buildState(),key=buildKey(),sql=b.drafts[key]||'';if(buildMode==='guided')b.done.delete(b.task);delete b.feedbackModels[key];const pending=submissionProblem(sql);if(pending){b.lastRun=null;b.outputModels[key]={kind:'message',message:pending,sql};builder();$('#build-sql').focus({preventScroll:true});saveProgressNow();return}b.session.user='root';const before=clone(b.session);let results=[],error=null;try{results=exec(sql,b.session)}catch(e){error=errorRecord(e);results=e.R||[]}b.lastRun={task:b.task,sql,before,after:clone(b.session),results,error};b.outputModels[key]={kind:'results',results:clone(results),error,sql,stateSignature:JSON.stringify(canonicalSession(b.session))};if(buildMode=='guided')for(const task of [...b.done])if(BUILD_TASKS[task].kind=='schema'&&buildSchemaProblems(b.session,BUILD_TASKS[task].table).length||BUILD_TASKS[task].kind=='rows'&&buildRowsProblems(b.session).length)b.done.delete(task);builder();$('#build-sql').focus({preventScroll:true});saveProgressNow()}
 function checkBuild(){rememberBuild();const b=buildState(),key=buildKey(),pending=submissionProblem(b.drafts[key]||'');const errors=pending?[pending]:(['error','query'].includes(BUILD_TASKS[b.task].kind)&&b.lastRun?.sql!==b.drafts[key]?['SQL has changed since the last run. Run this challenge again before checking.']:checkBuildTask(b,b.task));if(!errors.length)b.done.add(b.task);else b.done.delete(b.task);b.feedbackModels[key]={kind:'check',errors,sql:b.drafts[key],stateSignature:JSON.stringify(canonicalSession(b.session))};builder();$('#build-check')?.focus({preventScroll:true});saveProgressNow()}
 function showBuild(){rememberBuild();const b=buildState();b.feedbackModels[buildKey()]={kind:'solution'};builder();$('#build-feedback').focus?.({preventScroll:true});saveProgressNow()}
-function resetBuild(){rememberBuild();const b=buildState();if(JSON.stringify(canonicalSession(b.session))!==JSON.stringify(canonicalSession(emptyBuildSession(buildMode=='guided'?'campus_lab':'sandbox')))&&!confirm('Reset this database and its challenge completion? Your drafts are kept.'))return;b.session=emptyBuildSession(buildMode=='guided'?'campus_lab':'sandbox');b.outputs=Object.create(null);b.feedback=Object.create(null);b.outputModels=Object.create(null);b.feedbackModels=Object.create(null);b.done.clear();b.lastRun=null;builder();saveProgressNow()}
+function resetBuild(){rememberBuild();const b=buildState();if(JSON.stringify(canonicalSession(b.session))!==JSON.stringify(canonicalSession(emptyBuildSession(buildMode=='guided'?'campus_lab':'sandbox')))&&!confirm('Reset this database and its challenge completion? Your drafts are kept.'))return;b.session=emptyBuildSession(buildMode=='guided'?'campus_lab':'sandbox');b.outputs=Object.create(null);b.feedback=Object.create(null);b.outputModels=Object.create(null);b.feedbackModels=Object.create(null);b.done.clear();b.lastRun=null;builder();$('#build-sql')?.focus({preventScroll:true});saveProgressNow()}
 function downloadModule(){const encoded=$('#module-pdf').textContent.trim(),parts=[];for(let i=0;i<encoded.length;i+=32768){const bytes=atob(encoded.slice(i,i+32768));parts.push(Uint8Array.from(bytes,c=>c.charCodeAt(0)))}const blob=new Blob(parts,{type:'application/pdf'}),url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download='UPDATED-DBMS_MIDTERM_MODULE.pdf';document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),30000)}
 
 
@@ -1169,10 +1832,22 @@ function validCatalog(c){return isRecord(c)&&['id','mc'].every(k=>Array.isArray(
 function catalogMatches(c){return validCatalog(c)&&JSON.stringify(c)===JSON.stringify(examCatalog())}
 function migrateSnapshot(s){
  if(validSnapshot(s)&&catalogMatches(s.catalog))return{saved:s,migrated:false};
- if(!isRecord(s)||s.version!==1||!['149-89-60-modules-v2','216-67-60-183-12','module-coverage-task-sessions-v3',CONTENT_VERSION].includes(s.content))return null;
+ if(!isRecord(s)||s.version!==1||!['149-89-60-modules-v2','216-67-60-183-12','module-coverage-task-sessions-v3','full-terms-three-levels-v4',CONTENT_VERSION].includes(s.content))return null;
  if(s.content===CONTENT_VERSION&&catalogMatches(s.catalog))return null; // malformed, not a content migration
  if(!validSession(s.live)||!isRecord(s.draft)||!isRecord(s.outputs)||!isRecord(s.feedback)||!validBuild(s.buildModes?.guided)||!validBuild(s.buildModes?.sandbox))return null;
  const out=plain(s),shared=['149-89-60-modules-v2','216-67-60-183-12'].includes(s.content);
+ if(s.content==='full-terms-three-levels-v4'){
+  if(![null,'easy','intermediate','advanced'].includes(s.labLevel)||!isRecord(s.courses)||!validCourse('intermediate',s.courses.intermediate)||!validCourse('advanced',s.courses.advanced)||!catalogMatches(s.catalog)||!validExam(s.exam))return null;
+  out.content=CONTENT_VERSION;
+  for(const level of ['intermediate','advanced'])out.courses[level]=migrateCourseContracts(level,s.courses[level]);
+  for(const [key,f] of Object.entries(out.feedback))if(f.kind==='check'){
+   const parts=Array.from({length:CFG.length+2},(_,i)=>i).flatMap(i=>TS(i).map((q,j)=>({key:NM(i)+':'+j,q}))),task=parts.find(x=>x.key===key)?.q;
+   if(!task||!f.ok||!gradeSqlTask(out.draft[key]||'',task)){delete out.feedback[key];out.done=(out.done||[]).filter(x=>x!==key)}
+  }
+  for(const b of Object.values(out.buildModes)){b.feedback=Object.fromEntries(Object.entries(b.feedback).filter(([,f])=>f.kind==='solution'));}
+  return validSnapshot(out)?{saved:out,migrated:true}:null;
+ }
+
  if(s.content!==CONTENT_VERSION){out.labLevel=s.cur==null?null:s.cur<CFG.length?'easy':'intermediate';out.courses={intermediate:courseSnapshot(makeCourseState()),advanced:courseSnapshot(makeCourseState())}}
  out.legacySession=shared?plain(s.live):s.legacySession||null;out.taskSessions=shared?{}:s.taskSessions;out.trackTasks=shared?{}:s.trackTasks;
  out.content=CONTENT_VERSION;out.catalog=examCatalog();out.exam=makeExamState();
@@ -1199,9 +1874,28 @@ function migrateSnapshot(s){
  if(shared){out.outputs={};out.feedback={}}
  if(!validSnapshot(out))return null;return{saved:out,migrated:true};
 }
+function migrateCourseContracts(level,saved){
+ const out=plain(saved),list=courseLessons(level);
+ for(const q of list){const checked=out.checked[q.id],draft=out.drafts[q.id]||'',entry=out.entries[q.id];
+  if(q.kind==='read')continue;
+  let compatible=false;
+  if(checked&&checked.sql===draft&&Number.isInteger(entry))try{compatible=assessCourse(draft,q,out.pool[entry]).ok}catch(e){}
+  if(!compatible){delete out.checked[q.id];delete out.feedback[q.id];out.done=out.done.filter(id=>id!==q.id)}
+ }
+ return out;
+}
 function recoverLegacySession(){if(!legacySession)return;const b=buildModes.sandbox;if(Object.keys(b.session.databases[b.session.current]||{}).length&&!confirm('Replace the Free practice database with your previous shared SQL database? Its current database will be replaced; the archived copy remains available.'))return;b.session=restoreSession(legacySession);b.outputModels={};b.feedbackModels={};b.lastRun=null;buildMode='sandbox';go('builder')}
 function validWarnings(w){return w===undefined||Array.isArray(w)&&w.every(x=>isRecord(x)&&typeof x.message==='string'&&typeof x.level==='string'&&Number.isInteger(x.code))}
-function validDatabaseState(d){return isRecord(d)&&Object.values(d).every(db=>isRecord(db)&&Object.values(db).every(t=>isRecord(t)&&Array.isArray(t.cols)&&t.cols.every(c=>isRecord(c)&&typeof c.n==='string'&&typeof c.t==='string'&&(!c.spec||isRecord(c.spec)&&typeof c.spec.base==='string'&&Array.isArray(c.spec.args)))&&['primary','indexes','foreign'].every(k=>t[k]===undefined||Array.isArray(t[k]))&&(!t.indexes||t.indexes.every(x=>isRecord(x)&&Array.isArray(x.cols)))&&(!t.foreign||t.foreign.every(x=>isRecord(x)&&Array.isArray(x.cols)&&Array.isArray(x.refCols)&&isRecord(x.target)&&typeof x.target.n==='string'))&&Array.isArray(t.rows)&&t.rows.every(isRecord)))}
+function validDatabaseState(d){
+ const columns=list=>Array.isArray(list)&&list.every(c=>typeof c==='string');
+ const action=value=>value===undefined||['RESTRICT','CASCADE','SET NULL'].includes(value);
+ return isRecord(d)&&Object.values(d).every(db=>isRecord(db)&&Object.values(db).every(t=>
+  isRecord(t)&&Array.isArray(t.cols)&&t.cols.every(c=>isRecord(c)&&typeof c.n==='string'&&typeof c.t==='string'&&(!c.spec||isRecord(c.spec)&&typeof c.spec.base==='string'&&Array.isArray(c.spec.args)))&&
+  (t.primary===undefined||columns(t.primary))&&
+  (t.indexes===undefined||Array.isArray(t.indexes)&&t.indexes.every(x=>isRecord(x)&&columns(x.cols)&&typeof x.name==='string'))&&
+  (t.foreign===undefined||Array.isArray(t.foreign)&&t.foreign.every(x=>isRecord(x)&&columns(x.cols)&&columns(x.refCols)&&x.cols.length>0&&x.cols.length===x.refCols.length&&isRecord(x.target)&&typeof x.target.n==='string'&&action(x.onDelete)&&action(x.onUpdate)))&&
+  Array.isArray(t.rows)&&t.rows.every(isRecord)));
+}
 function validSession(s){return isRecord(s)&&validDatabaseState(s.databases)&&(s.current===null||typeof s.current==='string')&&typeof s.user==='string'&&isRecord(s.accounts)&&Object.values(s.accounts).every(a=>isRecord(a)&&Array.isArray(a.global)&&isRecord(a.grants))&&(s.transaction===null||validDatabaseState(s.transaction))&&isRecord(s.savepoints)&&Object.values(s.savepoints).every(validDatabaseState)}
 function validOutput(s){return isRecord(s)&&(s.kind==='message'?typeof s.message==='string':s.kind==='results'&&Array.isArray(s.results)&&s.results.every(r=>isRecord(r)&&validWarnings(r.warnings)&&(typeof r.msg==='string'||Array.isArray(r.cols)&&r.cols.every(x=>typeof x==='string')&&Array.isArray(r.rows)&&r.rows.every(Array.isArray)))&&(!s.error||isRecord(s.error)&&typeof s.error.message==='string'&&validWarnings(s.error.warnings)))}
 function validBuild(s){return isRecord(s)&&validSession(s.session)&&Array.isArray(s.done)&&s.done.every(x=>Number.isInteger(x)&&x>=0&&x<BUILD_TASKS.length)&&Number.isInteger(s.task)&&s.task>=0&&s.task<BUILD_TASKS.length&&isRecord(s.drafts)&&Object.values(s.drafts).every(x=>typeof x==='string')&&isRecord(s.outputs)&&Object.values(s.outputs).every(validOutput)&&isRecord(s.feedback)&&Object.values(s.feedback).every(x=>isRecord(x)&&(x.kind==='solution'||x.kind==='check'&&Array.isArray(x.errors)&&x.errors.every(e=>typeof e==='string')))&&(!s.lastRun||isRecord(s.lastRun)&&typeof s.lastRun.sql==='string'&&validSession(s.lastRun.before)&&validSession(s.lastRun.after)&&Array.isArray(s.lastRun.results))}
@@ -1209,7 +1903,7 @@ function validTaskKey(key){return Array.from({length:CFG.length+2},(_,i)=>i).som
 function validSnapshot(s){return isRecord(s)&&s.version===1&&s.content===CONTENT_VERSION&&validCatalog(s.catalog)&&[null,'easy','intermediate','advanced'].includes(s.labLevel)&&isRecord(s.courses)&&validCourse('intermediate',s.courses.intermediate)&&validCourse('advanced',s.courses.advanced)&&['home','exam','lab','builder'].includes(s.view)&&validExam(s.exam)&&validSession(s.live)&&isRecord(s.draft)&&Object.entries(s.draft).every(([k,v])=>validTaskKey(k)&&typeof v==='string')&&isRecord(s.outputs)&&Object.entries(s.outputs).every(([k,v])=>validTaskKey(k)&&validOutput(v))&&isRecord(s.feedback)&&Object.entries(s.feedback).every(([k,v])=>validTaskKey(k)&&isRecord(v)&&(v.kind==='solution'||v.kind==='check'&&typeof v.ok==='boolean'&&typeof v.sql==='string'&&(v.pending==null||typeof v.pending==='string')))&&isRecord(s.taskSessions)&&Object.entries(s.taskSessions).every(([k,v])=>validTaskKey(k)&&validSession(v))&&isRecord(s.trackTasks)&&Object.entries(s.trackTasks).every(([k,v])=>Number.isInteger(+k)&&+k>=0&&+k<CFG.length+2&&Number.isInteger(v)&&v>=0&&v<TS(+k).length)&&(!s.legacySession||validSession(s.legacySession))&&isRecord(s.buildModes)&&validBuild(s.buildModes.guided)&&validBuild(s.buildModes.sandbox)}
 function restoreSession(saved){const out=plain(saved);for(const db of Object.values(out.databases||{}))for(const t of Object.values(db||{}))hydrate(t);return out}
 function restoreBuild(target,saved){const x=plain(saved);target.session=restoreSession(x.session);target.drafts=x.drafts||Object.create(null);target.outputs=Object.create(null);target.feedback=Object.create(null);target.outputModels=x.outputs||Object.create(null);target.feedbackModels=x.feedback||Object.create(null);target.done=new Set(Array.isArray(x.done)?x.done.filter(Number.isInteger):[]);target.task=Number.isInteger(x.task)?x.task:0;target.preview=typeof x.preview==='string'?x.preview:'';target.lastRun=x.lastRun||null}
-function restoreProgress(){restoring=true;let raw=null,migrated=false;try{raw=localStorage.getItem(PROGRESS_KEY)}catch(e){setSaveStatus('Progress saving is unavailable in this browser.',true)}if(raw){try{const candidate=migrateSnapshot(JSON.parse(raw));if(!candidate)throw Error('incompatible progress');const saved=candidate.saved;migrated=candidate.migrated;examState=plain(saved.exam);labLevel=saved.labLevel;restoreCourse('intermediate',saved.courses.intermediate);restoreCourse('advanced',saved.courses.advanced);live=restoreSession(saved.live);clearObject(taskSessions);for(const [key,value] of Object.entries(saved.taskSessions||{}))taskSessions[key]=restoreSession(value);clearObject(trackTasks);Object.assign(trackTasks,saved.trackTasks||{});legacySession=saved.legacySession?restoreSession(saved.legacySession):null;done=new Set(Array.isArray(saved.done)?saved.done.filter(x=>typeof x==='string'):[]);cur=Number.isInteger(saved.cur)?saved.cur:null;ti=Number.isInteger(saved.ti)?saved.ti:0;pvt=typeof saved.pvt==='string'?saved.pvt:'customers';previewExpanded=Boolean(saved.previewExpanded);currentView=['home','exam','lab','builder'].includes(saved.view)?saved.view:'home';clearObject(draft);Object.assign(draft,saved.draft||{});clearObject(outputModels);Object.assign(outputModels,saved.outputs||{});clearObject(feedbackModels);Object.assign(feedbackModels,saved.feedback||{});buildMode=saved.buildMode==='sandbox'?'sandbox':'guided';restoreBuild(buildModes.guided,saved.buildModes.guided);restoreBuild(buildModes.sandbox,saved.buildModes.sandbox);if(cur!==null&&(cur<0||cur>=CFG.length+2))cur=null;if(cur!==null&&(ti<0||ti>=TS(cur).length))ti=0;if(cur!==null)activateTask();const targetView=currentView;progressReady=true;go(targetView);const y=Number(saved.scrollY)||0,id=saved.focusId;setTimeout(()=>{if(id)document.getElementById(id)?.focus({preventScroll:true});scrollTo(0,y)},0);setSaveStatus(migrated?'Progress updated. Full-term answer rules changed; affected exam parts need submission again. SQL progress was preserved.':'Saved progress restored')}catch(e){setSaveStatus('Saved progress was unavailable and has been reset.',true)}}progressReady=true;restoring=false;if(migrated){saveProgressNow();setSaveStatus('Progress updated. Full-term answer rules changed; affected exam parts need submission again. SQL progress was preserved.')}}
+function restoreProgress(){restoring=true;let raw=null,migrated=false;try{raw=localStorage.getItem(PROGRESS_KEY)}catch(e){setSaveStatus('Progress saving is unavailable in this browser.',true)}if(raw){try{const candidate=migrateSnapshot(JSON.parse(raw));if(!candidate)throw Error('incompatible progress');const saved=candidate.saved;migrated=candidate.migrated;examState=plain(saved.exam);labLevel=saved.labLevel;restoreCourse('intermediate',saved.courses.intermediate);restoreCourse('advanced',saved.courses.advanced);live=restoreSession(saved.live);clearObject(taskSessions);for(const [key,value] of Object.entries(saved.taskSessions||{}))taskSessions[key]=restoreSession(value);clearObject(trackTasks);Object.assign(trackTasks,saved.trackTasks||{});legacySession=saved.legacySession?restoreSession(saved.legacySession):null;done=new Set(Array.isArray(saved.done)?saved.done.filter(x=>typeof x==='string'):[]);cur=Number.isInteger(saved.cur)?saved.cur:null;ti=Number.isInteger(saved.ti)?saved.ti:0;pvt=typeof saved.pvt==='string'?saved.pvt:'customers';previewExpanded=Boolean(saved.previewExpanded);currentView=['home','exam','lab','builder'].includes(saved.view)?saved.view:'home';clearObject(draft);Object.assign(draft,saved.draft||{});clearObject(outputModels);Object.assign(outputModels,saved.outputs||{});clearObject(feedbackModels);Object.assign(feedbackModels,saved.feedback||{});buildMode=saved.buildMode==='sandbox'?'sandbox':'guided';restoreBuild(buildModes.guided,saved.buildModes.guided);restoreBuild(buildModes.sandbox,saved.buildModes.sandbox);if(cur!==null&&(cur<0||cur>=CFG.length+2))cur=null;if(cur!==null&&(ti<0||ti>=TS(cur).length))ti=0;if(cur!==null)activateTask();const targetView=currentView;progressReady=true;go(targetView);const y=Number(saved.scrollY)||0,id=saved.focusId;setTimeout(()=>{if(id)document.getElementById(id)?.focus({preventScroll:true});scrollTo(0,y)},0);setSaveStatus(migrated?'Lab tasks updated. Your drafts and databases were kept; changed answer checks may need to be submitted again.':'Saved progress restored')}catch(e){setSaveStatus('Saved progress was unavailable and has been reset.',true)}}progressReady=true;restoring=false;if(migrated){saveProgressNow();setSaveStatus('Lab tasks updated. Your drafts and databases were kept; changed answer checks may need to be submitted again.')}}
 function clearSavedProgress(){if(!confirm('Clear all saved exam, SQL lab, and table-building progress? Your theme preference will remain.'))return;clearTimeout(saveTimer);saveTimer=null;try{localStorage.removeItem(PROGRESS_KEY)}catch(e){}examState=makeExamState();examContinue=null;live=newSession();clearObject(taskSessions);clearObject(trackTasks);legacySession=null;done=new Set();cur=null;ti=0;pvt='customers';labLevel=null;courseStates.intermediate=makeCourseState();courseStates.advanced=makeCourseState();currentView='home';clearObject(draft);clearObject(outputModels);clearObject(feedbackModels);for(const [name,mode] of Object.entries(buildModes)){mode.session=emptyBuildSession(name==='guided'?'campus_lab':'sandbox');mode.drafts=Object.create(null);mode.outputs=Object.create(null);mode.feedback=Object.create(null);mode.outputModels=Object.create(null);mode.feedbackModels=Object.create(null);mode.done.clear();mode.task=0;mode.preview='';mode.lastRun=null}for(const id of ['exam','lab','builder'])$('#'+id).innerHTML='';restoring=true;go('home');restoring=false;setSaveStatus('Saved progress cleared');saveStorageError=false}
 if(document.addEventListener)document.addEventListener('visibilitychange',()=>{if(document.visibilityState==='hidden')saveProgressNow()});if(typeof window!='undefined'&&window.addEventListener)window.addEventListener('pagehide',saveProgressNow);if(typeof window!='undefined'&&window.addEventListener)window.addEventListener('beforeunload',saveProgressNow);restoreProgress();
 

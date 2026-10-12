@@ -13,7 +13,7 @@ const explicit=[
  ['vertical output',X.ME[1],"SHOW TABLE STATUS LIKE 'employees'"],
  ['USING',X.MQ[16],X.MQ[16][2].replace('USING(name)','ON m.name = c.name')]
 ];
-for(const [name,q,sql] of explicit)test('Enforce explicit '+name,()=>assert(!grade(sql,q)));
+for(const [name,q,sql] of explicit)test((['BETWEEN','NOT'].includes(name)?'Accept equivalent ':'Enforce described ')+name,()=>assert.equal(grade(sql,q),['BETWEEN','NOT'].includes(name)));
 test('Accept reversed comparator and alias',()=>assert(grade('SELECT e.* FROM employees e WHERE 1 < e.officeCode AND e.jobTitle = \'Sales Rep\'',X.TK(X.CFG[0])[4])));
 test('Accept lowercase formatting and comments',()=>assert(grade('select /* study */ * from employees where officeCode between 1 and 2;',X.TK(X.CFG[0])[6])));
 test('Unrelated duplicate error fails',()=>assert(!grade('CREATE TABLE wrong(a INT PRIMARY KEY,b INT PRIMARY KEY)',X.TK(X.CFG[0])[22])));

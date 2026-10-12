@@ -29,7 +29,7 @@ const dir=path.resolve(__dirname,'..','verification-artifacts','reliability-brow
    await page.getByRole('button',{name:'Continue to Part 3',exact:true}).click();check(mode+' inline continue opens next only',await page.locator('#exam-part-2').count()===1&&await page.locator('.exam-part').count()===1);
    await page.getByRole('button',{name:'Change exam type',exact:true}).click();
   }
-  await page.getByRole('button',{name:'SQL lab',exact:true}).click();await page.locator('#lab .pick .card').first().click();
+  await page.getByRole('button',{name:'SQL lab',exact:true}).click();await page.locator('.level-pick .card').filter({hasText:'Easy'}).click();await page.locator('.track-pick .btn').first().click();
   await page.locator('#sql').fill('CREATE TABLE reliability_probe (id INT);');await page.getByRole('button',{name:'Run query',exact:true}).click();
   check('task mutation succeeded',await page.evaluate(()=>!!activeTables(live).reliability_probe));
   await page.locator('#tl .tk').nth(1).click();check('next task database isolated',await page.evaluate(()=>!activeTables(live).reliability_probe));
@@ -39,7 +39,7 @@ const dir=path.resolve(__dirname,'..','verification-artifacts','reliability-brow
   await page.locator('#sql').fill('SELECT 999;');check('editing clears stale success',await page.locator('#fb .ok').count()===0);
   await page.locator('#sql').focus();await page.keyboard.press('Tab');check('keyboard reaches run action',await page.evaluate(()=>document.activeElement.textContent==='Run query'));
   await layout('sql-lab');await page.reload();check('SQL mutation restored after reload',await page.evaluate(()=>!!activeTables(live).reliability_probe));
-  await page.getByRole('button',{name:/Build tables & relationships/}).click();
+  await page.locator('.level-pick .card').filter({hasText:'Advanced'}).click();await page.locator('.legacy-build summary').click();await page.getByRole('button',{name:'Open previous challenges',exact:true}).click();
   const buildReference=await page.evaluate(()=>BUILD_TASKS[0].sql);await page.locator('#build-sql').fill(buildReference);await page.getByRole('button',{name:'Run query',exact:true}).click();await page.getByRole('button',{name:'Check answer',exact:true}).click();check('guided schema checked',await page.locator('#build-feedback .ok').count()===1);
   await page.locator('#build-sql').fill('SELECT 999;');check('builder editing clears stale success',await page.locator('#build-feedback .ok').count()===0);await layout('guided-builder');
   await page.getByRole('button',{name:'Free practice',exact:true}).click();await page.locator('#build-sql').fill("CREATE TABLE safe_values (id INT, value VARCHAR(100)); INSERT INTO safe_values VALUES (1, '<img src=x onerror=alert(1)>'); SELECT * FROM safe_values;");await page.getByRole('button',{name:'Run query',exact:true}).click();check('HTML SQL value escaped',await page.locator('#build-output img').count()===0&&(await page.locator('#build-output').innerText()).includes('<img src=x onerror=alert(1)>'));await layout('free-practice');

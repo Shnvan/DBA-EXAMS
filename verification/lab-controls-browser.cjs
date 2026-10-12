@@ -1,0 +1,74 @@
+const fs=require('fs'),path=require('path'),assert=require('assert/strict');
+const {chromium}=require('C:/Users/Ivan/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules/playwright');
+const root=path.resolve(__dirname,'..'),dir=path.join(root,'.cache','lab-ui-audit'),input=path.join(dir,'practice.html');
+fs.mkdirSync(dir,{recursive:true});
+let html=fs.readFileSync(path.join(root,'DBMS_midterm_practice.html'),'utf8');
+if(!process.argv.includes('--actual')){
+ const match=html.match(/<script>([\s\S]*?)<\/script>/),marker=match[1].indexOf('/* supplemental module content and task grading */');
+ const names=['exam-content.js','curriculum.js','sql-grading.js','lab-content.js','lab-query-contract.js','lab-assessment.js','learning-ui.js','ui.js'];
+ const source=match[1].slice(0,marker)+names.filter(n=>fs.existsSync(path.join(__dirname,n))).map(n=>fs.readFileSync(path.join(__dirname,n),'utf8')).join('\n');
+ html=html.replace(match[0],()=>'<script>'+source+'</script>').replace('</style>',fs.readFileSync(path.join(__dirname,'lab-ui.css'),'utf8')+'\n</style>');
+}
+fs.writeFileSync(input,html);
+const checks=[];
+(async()=>{
+ const browser=await chromium.launch({headless:true,executablePath:'C:/Program Files/Google/Chrome/Application/chrome.exe'});
+ for(const width of [1440,1024,900,768,600,420,360,320])for(const themeName of ['light','dark']){
+  const context=await browser.newContext({viewport:{width,height:900}}),page=await context.newPage(),errors=[];
+  page.on('pageerror',e=>errors.push(e.message));page.on('dialog',d=>d.dismiss());
+  await page.goto('file:///'+input.replace(/\\/g,'/'));await page.evaluate(t=>theme(t),themeName);
+  const check=(name,ok)=>{checks.push({width,theme:themeName,name,passed:!!ok});assert.ok(ok,width+'/'+themeName+': '+name)};
+  await page.getByRole('button',{name:'SQL lab',exact:true}).click();check('exactly three starting choices',await page.locator('.level-pick button').count()===3);
+  await page.locator('.level-pick button').filter({hasText:'Easy'}).click();await page.locator('#sql').fill('SHOW TABLES;');await page.getByRole('button',{name:'Check answer',exact:true}).click();
+  check('solved regular task updates sidebar and track count together',await page.locator('#tl .tk.on i').count()===1&&await page.locator('[data-track="0"] .track-count').innerText()==='1/25');
+  await page.locator('#sql').fill('SELECT 999;');
+  check('editing clears every regular completion indicator',await page.locator('#tl .tk.on i').count()===0&&await page.locator('[data-track="0"] .track-count').innerText()==='0/25'&&await page.locator('#fb').innerText()==='');
+  await page.locator('.level-pick button').filter({hasText:'Intermediate'}).click();await page.getByRole('button',{name:'Database setup walkthrough',exact:true}).click();
+  await page.locator('#course-sql').fill('intermediate draft');
+  await page.locator('.level-pick button').filter({hasText:'Advanced'}).click();
+  check('course editor has no draft from another level',await page.locator('#course-sql').inputValue()==='');
+  check('task hides session metadata and direct syntax',await page.locator('#course-workspace').innerText().then(t=>!/MariaDB \[|\/ root|Worked example|\bSyntax\b/.test(t))&&await page.locator('#course-workspace pre').count()===0);
+  check('continue disabled before answer',await page.locator('.course-navigation .btn.a').isDisabled());
+  const sql=await page.evaluate(()=>SQL_CURRICULA.advanced[0].sql);await page.locator('#course-sql').fill(sql);await page.getByRole('button',{name:'Check answer',exact:true}).click();
+  check('checking reference answer succeeds',await page.locator('#course-feedback .ok').count()===1);
+  check('check moves keyboard focus to feedback',await page.evaluate(()=>document.activeElement.id)==='course-feedback');
+  await page.getByRole('button',{name:'Apply checked result and continue',exact:true}).click();
+  check('continue carries evaluated database',await page.evaluate(()=>courseStates.advanced.session.current)==='campus_project');
+  await page.getByRole('button',{name:'Back',exact:true}).click();
+  check('back retains applied current work',await page.evaluate(()=>courseStates.advanced.session.current)==='campus_project');
+  await page.locator('#course-sql').fill(sql+' ');
+  check('editing removes stale completion',await page.evaluate(()=>!courseStates.advanced.done.includes(SQL_CURRICULA.advanced[0].id))&&await page.locator('.course-navigation .btn.a').isDisabled());
+  await page.getByRole('button',{name:'Show solution',exact:true}).click();
+  check('solution appears only on request and preserves draft',await page.locator('#course-feedback pre').isVisible()&&await page.locator('#course-sql').inputValue()===sql+' ');
+  await page.getByRole('button',{name:'Challenges',exact:true}).click();
+  check('selected learning style has accessible active state',await page.getByRole('button',{name:'Challenges',exact:true}).getAttribute('aria-pressed')==='true');
+  await page.getByRole('button',{name:'Walkthrough',exact:true}).click();
+  check('minimum touch targets',await page.locator('#lab .btn,#lab .tk').evaluateAll(els=>els.filter(e=>e.getBoundingClientRect().width>0).every(e=>e.getBoundingClientRect().height>=43.9)));
+  check('actions remain inside viewport',await page.locator('.lab-actions button,.course-navigation button').evaluateAll(els=>els.every(e=>{const r=e.getBoundingClientRect();return r.left>=0&&r.right<=innerWidth+1})));
+  check('action buttons do not overlap',await page.locator('.lab-actions,.course-navigation,.level-actions').evaluateAll(rows=>rows.every(row=>{const rs=[...row.querySelectorAll('button')].map(e=>e.getBoundingClientRect());return rs.every((a,i)=>rs.every((b,j)=>i===j||a.left>=b.right-.1||b.left>=a.right-.1||a.top>=b.bottom-.1||b.top>=a.bottom-.1))})));
+  check('layout has no horizontal page overflow',await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth+1));
+  check('responsive course sidebar collapses at tablet widths',await page.locator('.course-layout').evaluate((e,w)=>getComputedStyle(e).gridTemplateColumns.split(' ').filter(Boolean).length===(w<=900?1:2),width));
+  await page.locator('#course-sql').fill(await page.evaluate(()=>SQL_CURRICULA.advanced[0].sql));await page.getByRole('button',{name:'Check answer',exact:true}).click();await page.locator('.course-navigation .btn.a').click();
+  for(const index of [1,2]){await page.locator('#course-sql').fill(await page.evaluate(i=>SQL_CURRICULA.advanced[i].sql,index));await page.getByRole('button',{name:'Check answer',exact:true}).click();await page.locator('.course-navigation .btn.a').click()}
+  const studentSql=await page.evaluate(()=>SQL_CURRICULA.advanced[3].sql);await page.locator('#course-sql').fill(studentSql);await page.getByRole('button',{name:'Run query',exact:true}).click();await page.getByRole('button',{name:'Check answer',exact:true}).click();
+  await page.getByRole('button',{name:'Back',exact:true}).click();await page.locator('#course-sql').fill(await page.evaluate(()=>SQL_CURRICULA.advanced[2].sql.replace('VARCHAR(80)','VARCHAR(100)')));await page.getByRole('button',{name:'Check answer',exact:true}).click();
+  const branchBefore=await page.evaluate(()=>JSON.stringify(courseSnapshot(courseStates.advanced)));await page.locator('.course-navigation .btn.a').click();
+  check('checkpoint rebuild cancellation preserves current and downstream state',await page.evaluate(()=>JSON.stringify(courseSnapshot(courseStates.advanced)))===branchBefore);
+  page.removeAllListeners('dialog');page.on('dialog',d=>d.accept());await page.locator('.course-navigation .btn.a').click();
+  check('checkpoint rebuild applies corrected database and retains drafts',await page.evaluate(()=>courseStates.advanced.session.databases.campus_project.departments.cols.find(c=>c.n==='dept_name').t==='varchar(100)'&&!courseStates.advanced.session.databases.campus_project.students)&&await page.locator('#course-sql').inputValue()===studentSql);
+  check('previous branch starts collapsed',await page.locator('.course-archives').evaluate(e=>!e.open)&&await page.evaluate(()=>courseStates.advanced.archives.length)===1);
+  await page.locator('.course-archives>summary').click();await page.getByRole('button',{name:'Restore branch',exact:true}).click();await page.locator('#course-list button').nth(3).click();
+  check('restoring old branch recovers previously created tables',await page.evaluate(()=>!!courseStates.advanced.session.databases.campus_project.students&&courseStates.advanced.session.databases.campus_project.departments.cols.find(c=>c.n==='dept_name').t==='varchar(80)'));
+  check('restore keeps corrected branch recoverable',await page.evaluate(()=>courseStates.advanced.archives.length)===2);
+  await page.locator('.course-archives>summary').click();await page.getByRole('button',{name:'Restore branch',exact:true}).nth(1).click();
+  check('recovering corrected branch returns its distinct database',await page.evaluate(()=>courseStates.advanced.session.databases.campus_project.departments.cols.find(c=>c.n==='dept_name').t==='varchar(100)'&&!courseStates.advanced.session.databases.campus_project.students));
+  await page.locator('#course-sql').fill('saved advanced draft');await page.waitForTimeout(300);await page.reload();
+  check('reload preserves archived branches',await page.evaluate(()=>courseStates.advanced.archives.length)===3);
+  check('reload preserves level and draft',await page.locator('#course-sql').inputValue()==='saved advanced draft'&&await page.locator('.level-pick .on').innerText().then(t=>/Advanced/.test(t)));
+  await page.locator('.level-pick button').filter({hasText:'Intermediate'}).click();await page.getByRole('button',{name:'Database setup walkthrough',exact:true}).click();
+  check('reopening other level retains its own draft',await page.locator('#course-sql').inputValue()==='intermediate draft');
+  check('no browser execution errors',errors.length===0);
+  await page.screenshot({path:path.join(dir,width+'-'+themeName+'.png'),fullPage:true});await context.close();
+ }
+ await browser.close();fs.writeFileSync(path.join(dir,'browser-checks.json'),JSON.stringify({passed:checks.filter(c=>c.passed).length,total:checks.length,checks},null,2));console.log(JSON.stringify({passed:checks.length,total:checks.length}));
+})().catch(e=>{console.error(e);process.exit(1)});

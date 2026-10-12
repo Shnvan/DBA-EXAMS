@@ -1,7 +1,7 @@
 /* Task-aware SQL assessment. The visible database is never touched by grading. */
 function gradingStatements(sql){return splitStatements(sql).filter(p=>tok(p.sql).length).map(p=>({part:p,ast:parse(tok(p.sql))}))}
 function gradingNodes(value){const all=[];const visit=v=>{if(!v||typeof v!=='object')return;if(!Array.isArray(v))all.push(v);for(const child of Object.values(v))if(child&&typeof child==='object')visit(child)};visit(value);return all}
-function sqlTechniqueProblems(sql,q){
+function legacySqlTechniqueProblems(sql,q){
  const prompt=q[1].replace(/<[^>]*>/g,' '),problems=[];
  let actual,expected;try{actual=gradingStatements(sql);expected=gradingStatements(q[2])}catch(e){return ['Use the SQL operation described in the task.']}
  const an=gradingNodes(actual.map(x=>x.ast)),en=gradingNodes(expected.map(x=>x.ast));
@@ -56,10 +56,10 @@ function gradeSqlTask(sql,q){
    }
    return true;
   }
-  if(!same(sql,q[2])||sqlTechniqueProblems(sql,q).length)return false;
+  if(!(typeof regularTaskMatches==='function'?regularTaskMatches(sql,q):same(sql,q[2]))||sqlTechniqueProblems(sql,q).length)return false;
   const statements=gradingStatements(q[2]);if(statements.length===1&&statements[0].ast.kind==='query'){
    const ordered=!!statements[0].ast.query.order.length;
-   for(const session of gradingProbeSessions(q[2],newSession()))if(!gradingSelectMatches(sql,q[2],session,ordered))return false;
+   for(const session of [...gradingProbeSessions(q[2],newSession()),...(typeof relationshipProbeSessions==='function'?relationshipProbeSessions(q[2],newSession()):[]),...(typeof queryCardinalityProbes==='function'?queryCardinalityProbes(newSession(),q[2]):[])])if(!(typeof taskSelectMatches==='function'?taskSelectMatches(sql,q[2],session,ordered):gradingSelectMatches(sql,q[2],session,ordered)))return false;
   }
   return true;
  }catch(e){return false}

@@ -1,17 +1,48 @@
 const fs=require('fs'),path=require('path'),crypto=require('crypto'),{execFileSync}=require('child_process');
-const root=path.resolve(__dirname,'..');const htmlPath=path.join(root,'DBMS_midterm_practice.html');
-const sha=p=>crypto.createHash('sha256').update(fs.readFileSync(p)).digest('hex');
-const pdfPath='C:/Users/Ivan/Downloads/UPDATED-DBMS_MIDTERM_MODULE (1).pdf';
-const tests={engineExtensions:198,fullTermExam:11,smoke:39,clearerLabs:121,followup:43,reliability:456,progressShuffle:27,regularSqlAudit:205,curriculum:10,extraBuilder:5,threeLevelBrowser:84,examBrowser:20};
-const total=Object.values(tests).reduce((a,b)=>a+b,0);
-const pdfHash=sha(pdfPath),htmlHash=sha(htmlPath),htmlBytes=fs.statSync(htmlPath).size;
-const results={contentVersion:'full-terms-three-levels-v4',writtenExam:{identification:237,multipleChoice:271,total:508},curriculum:{intermediate:34,advanced:75,total:109},sqlTasks:{easy:125,moduleQueries:30,moduleEssentials:28,regularTotal:183,guidedChallenges:12},tests,total,html:{bytes:htmlBytes,sha256:htmlHash},pdf:{sha256:pdfHash},browser:{threeLevel:84,exam:20},generated:new Date().toISOString()};
-fs.mkdirSync(path.join(root,'verification-artifacts'),{recursive:true});fs.writeFileSync(path.join(root,'verification-artifacts','release-results.json'),JSON.stringify(results,null,2));
-const report=`# DBMS midterm practice release\n\nThis release contains the complete-term written exam and the three-level SQL practice curriculum. The embedded PDF is unchanged.\n\n## Written exam\n\n- 508 stable questions: 237 Identification and 271 Multiple Choice.\n- Identification prompts request complete conceptual names; acronym-only or incomplete conceptual answers are rejected. SQL command and data-type tokens remain literal where the prompt asks for syntax.\n- Five fixed module parts, within-part shuffling, independent part submission, locked reviews, score/feedback restoration, and saved progress are preserved.\n\n## SQL practice\n\n- **Easy — Prepared database:** 125 existing independent exercises.\n- **Intermediate — Module practice:** 34 guided lessons plus the existing 30 Module-query and 28 Module-essentials exercises.\n- **Advanced — Complete database project:** 75 guided lessons covering Modules 2–3, connected campus tables, data types, DDL/DQL/DML/DCL/TCL, SELECT variations, relationships, expected errors, JSON, spatial WKT, and Free practice.\n- Regular task sessions, Intermediate, Advanced, builder work, and Free practice remain isolated and save independently. Check runs against an isolated lesson/task checkpoint; Run uses the visible session.\n- The offline engine now validates JSON, spatial values, inline and table-level foreign keys, CASCADE/SET NULL/RESTRICT actions, CREATE INDEX, and DROP INDEX while retaining transaction and savepoint behavior.\n\n## Verification\n\nThe current regression and targeted suite recorded **${total} checks**: ${Object.entries(tests).map(([k,v])=>`${k} ${v}`).join(', ')}. Browser checks covered 1440px, 768px, 360px, and 380px widths in both themes, including single-part exam rendering, saved exam restoration, level selection, lesson checks, challenge/walkthrough visibility, draft restoration, overflow, and page-error checks.\n\nThe curriculum coverage inventory is in \`verification/curriculum-coverage.json\` and \`verification/curriculum-coverage.md\`; every PDF page 28–66 has a linked Intermediate or Advanced lesson.\n\nHTML SHA-256: \`${htmlHash}\`
+const root=path.resolve(__dirname,'..'),sha=p=>crypto.createHash('sha256').update(fs.readFileSync(p)).digest('hex');
+const htmlPath=path.join(root,'DBMS_midterm_practice.html'),pdfPath='C:/Users/Ivan/Downloads/UPDATED-DBMS_MIDTERM_MODULE (1).pdf';
+const verified=JSON.parse(fs.readFileSync(path.join(root,'verification-artifacts/current-release/results.json'),'utf8'));
+if(verified.htmlSHA256!==sha(htmlPath))throw Error('HTML changed after verification. Rerun release tests.');
+const tests=Object.fromEntries(verified.suites.map(s=>[s.name,s.passed])),htmlHash=sha(htmlPath),pdfHash=sha(pdfPath),htmlBytes=fs.statSync(htmlPath).size;
+const results={...verified,writtenExam:{identification:237,multipleChoice:271,total:508},curriculum:{intermediate:34,advanced:75,total:109},taskContracts:{regular:183,curriculum:109,builder:12,total:304},tests,html:{bytes:htmlBytes,sha256:htmlHash},pdf:{sha256:pdfHash},generated:new Date().toISOString()};
+fs.writeFileSync(path.join(root,'verification-artifacts/release-results.json'),JSON.stringify(results,null,2));
+const report=`# DBMS practice: descriptive SQL lab tasks
 
-Embedded PDF SHA-256: \`${pdfHash}\`
+## Changes
 
-HTML bytes: ${htmlBytes.toLocaleString()}\n`;
-fs.writeFileSync(path.join(root,'DBMS_verification_report.md'),report);fs.mkdirSync(path.join(root,'outputs'),{recursive:true});fs.copyFileSync(htmlPath,path.join(root,'outputs','DBMS_midterm_practice.html'));fs.copyFileSync(path.join(root,'DBMS_verification_report.md'),path.join(root,'outputs','DBMS_verification_report.md'));
-execFileSync('python',[path.join(root,'verification','package-evidence.py')],{cwd:root,stdio:'inherit'});
-console.log(JSON.stringify(results,null,2));
+- Structured contracts cover all 183 regular exercises, 109 Intermediate/Advanced lessons, and 12 previous builder challenges. Tasks describe required columns, capacities, values, relationships, output and error behavior; reference SQL appears only after Show solution.
+- Removed the MariaDB/user/task session strip, direct syntax panels, and worked-answer blocks. Optional notes/hints remain collapsed; reading-only notes use review controls.
+- Added compact level navigation while solving, aligned actions, visible selected states, disabled prerequisite controls, focus restoration, and 44px navigation targets.
+- Fixed drafts crossing levels, stale completion, and applying a checked result without rerunning SQL. Corrected prerequisite checkpoints can rebuild later tasks with confirmation, preserving earlier branches for recovery.
+- Grading accepts equivalent methods while enforcing clearly described requirements. It validates foreign-key actions, exact error attempts, query relationships, varied records, and reads inside mutation batches. Reference child definitions adapt to accepted parent types and composite-key order.
+- Versioned migration preserves exam progress, drafts, databases, transactions, savepoints and compatible checks; only invalidated checks reopen. Restore uses structured data and escaping.
+
+The written bank remains 508 questions (237 Identification, 271 Multiple Choice), with five independent module parts. SQL practice remains Easy, Intermediate and Advanced, with separate Free practice and legacy builder sessions. The original PDF bytes are unchanged.
+
+## Current verification
+
+**${verified.total} checks passed across ${verified.suites.length} suites.** Counts come from the completed test run.
+
+| Suite | Passed |
+|---|---:|
+${verified.suites.map(s=>`| ${s.name} | ${s.passed} |`).join('\n')}
+
+Browser checks used the actual HTML in Chrome at desktop, tablet and narrow-mobile widths in both themes, from 320 to 1440 CSS pixels. The 720px layout models reflow at 200% zoom on a 1440px display. Checks cover action overlap, page overflow, touch-target size, keyboard focus, disabled/selected states, exam restoration, independent drafts, reset cancellation, checked-result application, branch rebuilding/restoration, and browser reopening. Selected desktop and mobile screenshots were visually inspected. Earlier native-engine comparisons are historical; this release reruns the offline engine and regression suites.
+
+The learner task/requirement inventory is in verification/lab-task-inventory.json. Existing PDF concept and Module 2-3 curriculum inventories remain synchronized. The offline engine retains its documented limits: no live server, subqueries, stored programs, views, full GIS analysis, or arbitrary server configuration.
+
+## Artifacts
+
+Content version: ${verified.contentVersion}
+
+HTML SHA-256: ${htmlHash}
+
+PDF SHA-256: ${pdfHash}
+
+HTML bytes: ${htmlBytes.toLocaleString()}
+
+Root/output HTML and report copies match. The evidence ZIP includes current test results, verification sources, browser screenshots, task inventories, and the unchanged source PDF.
+`;
+fs.writeFileSync(path.join(root,'DBMS_verification_report.md'),report);fs.mkdirSync(path.join(root,'outputs'),{recursive:true});
+fs.copyFileSync(htmlPath,path.join(root,'outputs/DBMS_midterm_practice.html'));fs.copyFileSync(path.join(root,'DBMS_verification_report.md'),path.join(root,'outputs/DBMS_verification_report.md'));
+execFileSync('python',[path.join(__dirname,'package-evidence.py')],{cwd:root,stdio:'inherit'});console.log(JSON.stringify({checks:verified.total,htmlSHA256:htmlHash,pdfSHA256:pdfHash}));
