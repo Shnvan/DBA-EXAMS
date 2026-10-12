@@ -6,7 +6,7 @@ html=(root/'DBMS_midterm_practice.html').read_bytes(); report=(root/'DBMS_verifi
 assert html==(root/'outputs/DBMS_midterm_practice.html').read_bytes()
 assert report==(root/'outputs/DBMS_verification_report.md').read_bytes()
 source=html.decode('utf-8').replace('\r\n','\n')
-fragments=['engine-core.js','engine-parser.js','engine-query.js','engine-write.js','exam-content.js','identification.js','curriculum.js','sql-grading.js','lab-content.js','lab-query-contract.js','lab-assessment.js','lab-ui.css','learning-ui.js','ui.js']
+fragments=['engine-core.js','engine-parser.js','engine-query.js','engine-write.js','exam-content.js','identification.js','curriculum.js','sql-grading.js','lab-content.js','lab-query-contract.js','lab-assessment.js','lab-ui.css','exam-ui.css','learning-ui.js','exam-ui.js','ui.js']
 for name in fragments: assert (root/'verification'/name).read_text(encoding='utf8').strip() in source,name
 m=re.search(r'<script id="module-pdf"[^>]*>(.*?)</script>',source,re.S);assert m
 pdf=base64.b64decode(m.group(1));expected=(Path(r'C:/Users/Ivan/Downloads/UPDATED-DBMS_MIDTERM_MODULE (1).pdf')).read_bytes();assert pdf==expected

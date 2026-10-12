@@ -2,7 +2,7 @@ const fs=require('fs'),path=require('path'),assert=require('assert/strict');
 const {JSDOM}=require('../.cache/test-runtime/node_modules/jsdom');
 const root=path.resolve(__dirname,'..'),html=fs.readFileSync(path.join(root,'DBMS_midterm_practice.html'),'utf8');
 const original=html.match(/<script>([\s\S]*?)<\/script>/)[1],marker=original.indexOf('/* supplemental module content and task grading */');
-const fragmentNames=['exam-content.js','curriculum.js','sql-grading.js','lab-content.js','lab-query-contract.js','lab-assessment.js','learning-ui.js','ui.js'];
+const fragmentNames=['exam-content.js','curriculum.js','sql-grading.js','lab-content.js','lab-query-contract.js','lab-assessment.js','learning-ui.js','exam-ui.js','ui.js'];
 const source=original.slice(0,marker)+fragmentNames.filter(n=>fs.existsSync(path.join(__dirname,n))).map(n=>fs.readFileSync(path.join(__dirname,n),'utf8')).join('\n');
 const checks=[],test=(name,fn)=>{fn();checks.push(name)};
 function dom(raw){

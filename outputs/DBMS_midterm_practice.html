@@ -80,6 +80,13 @@ footer{border-top:1px solid var(--ln);padding:22px 0 40px;color:var(--mu);font-s
 
 
 
+
+
+
+
+
+
+
 /* lab-ui start */
 /* Lab layout and controls. Loaded after the shared styles. */
 .lab.course-layout{grid-template-columns:minmax(190px,250px) minmax(0,1fr)}
@@ -131,6 +138,50 @@ button:disabled{cursor:not-allowed}
 .course-archive p{margin:0 0 10px;overflow-wrap:anywhere}
 .course-archives>summary{min-height:44px;padding:8px 0}
 /* lab-ui end */
+
+/* exam-ui start */
+/* Single-question exam layout. */
+.exam-single{max-width:900px;margin:0 auto}
+.exam-part-heading{margin:20px 0 16px}
+.exam-part-heading p{margin:0 0 4px}
+.exam-part-heading h3{font-size:1.2rem;margin:0;overflow-wrap:anywhere}
+.exam-card{padding:24px;border:1px solid var(--ln);border-radius:18px;background:var(--cd)}
+.exam-card-heading{display:flex;justify-content:space-between;align-items:flex-start;gap:16px}
+.exam-mode-label{text-transform:uppercase;letter-spacing:.04em;font-size:.75rem;color:var(--mu);margin:0 0 4px;font-weight:700}
+.exam-position{font-size:1.2rem;font-weight:700;margin:0}
+.exam-correct-count{display:flex;flex-direction:column;align-items:flex-end;flex-shrink:0;font-size:.86rem;color:var(--mu);text-align:right}
+.exam-correct-count strong{color:var(--fg);font-size:1.25rem}
+.exam-progress{display:block;width:100%;height:8px;border:0;border-radius:999px;overflow:hidden;margin:18px 0 24px;appearance:none;background:var(--sf);accent-color:var(--fg)}
+.exam-progress::-webkit-progress-bar{background:var(--sf);border-radius:999px}
+.exam-progress::-webkit-progress-value{background:var(--fg);border-radius:999px}
+.exam-progress::-moz-progress-bar{background:var(--fg);border-radius:999px}
+.exam-single .q{border:0;background:transparent;padding:0;margin:0}
+.exam-single h4{font-size:1.2rem;line-height:1.5;overflow-wrap:anywhere;margin:0 0 22px}
+.exam-answer-label{display:block;font-weight:600;margin:0 0 8px}
+.exam-options{border:0;margin:0;padding:0;min-width:0}
+.exam-options legend{font-weight:600;padding:0;margin:0 0 8px}
+.exam-options .o{display:flex;align-items:flex-start;gap:10px;min-height:44px;overflow-wrap:anywhere}
+.exam-options .o input{margin:5px 0 0;flex-shrink:0}
+.exam-options .o:has(input:disabled){cursor:default}
+.exam-single input[type=text]{min-height:44px}
+#exam-answer-help{margin:10px 0 14px}
+#exam-check{width:100%;min-height:44px}
+.exam-single .btn:disabled{opacity:.45;cursor:default}
+#exam-feedback:empty{display:none}
+#exam-feedback .ans{margin:16px 0 0;padding:16px;font-size:1rem;overflow-wrap:anywhere}
+#exam-feedback p{margin:8px 0 0}
+#exam-feedback strong{font-size:1.1rem}
+.exam-question-nav{display:flex;justify-content:space-between;gap:12px;margin:18px 0 22px}
+.exam-question-nav .btn{min-height:44px;display:flex;align-items:center;gap:10px}
+.exam-question-nav [aria-hidden]{font-size:1.3rem;line-height:1}
+.exam-counts{display:flex;justify-content:space-between;gap:12px;padding-top:18px;border-top:1px solid var(--ln);font-size:.88rem;color:var(--mu)}
+#exam .exam-actions .btn,#exam .exam-parts-nav .btn{min-height:44px}
+#exam :focus-visible{outline:3px solid var(--ac);outline-offset:4px}
+#exam-question-title:focus,#exam-part-title:focus{outline:0}
+.exam-part-result h3{font-size:1.5rem;margin:0 0 8px}
+.exam-part-result p{margin:0 0 6px}
+@media(max-width:600px){.exam-card{padding:18px 14px}.exam-single h4{font-size:1.08rem}.exam-card-heading{gap:10px}.exam-position{font-size:1.05rem}.exam-correct-count{font-size:.75rem}.exam-correct-count strong{font-size:1.05rem}.exam-counts{font-size:.8rem}.exam-actions{gap:8px}.exam-actions .btn{flex:1 1 130px}.exam-parts-nav{gap:6px}.exam-parts-nav .btn{flex:1 1 80px;padding:8px 10px}.exam-single .continue-panel .btn{flex:1 1 150px}}
+/* exam-ui end */
 </style>
 </head>
 <body>
@@ -142,7 +193,7 @@ button:disabled{cursor:not-allowed}
 <div class="hero"><div><h1>Practice what the module taught you.</h1><p>Take a written exam on database concepts or choose one of three SQL practice levels: prepared tasks, module practice, or a connected campus database project. Study the five midterm modules, with notes on MariaDB differences and clearly marked additional practice.</p></div>
 <svg viewBox="0 0 420 340" role="img" aria-label="Abstract illustration of a database"><circle cx="150" cy="170" r="112" fill="#d97757"/><path d="M210 70c60-30 140 10 130 80s-90 60-120 20-30-70-10-100z" fill="#788c5d"/><circle cx="318" cy="268" r="46" fill="#6a9bcc"/><g fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M70 262c40 56 150 66 210 18"/><path class="bgf" d="M143 150v70c0 11 28 20 62 20s62-9 62-20v-70z"/><path d="M143 185c0 11 28 20 62 20s62-9 62-20M143 220c0 11 28 20 62 20s62-9 62-20"/><ellipse class="bgf" cx="205" cy="150" rx="62" ry="20"/><path d="M352 52v30M336 66l32 6M368 66l-32 6M60 120q30-40 60-10" stroke-dasharray="2 7"/></g><g fill="currentColor"><circle cx="86" cy="92" r="4"/><circle cx="112" cy="68" r="3"/><circle cx="372" cy="196" r="4"/></g></svg></div>
 <div class="cards">
-<button class="card" onclick="go('exam')"><svg viewBox="0 0 44 44" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><rect x="7" y="5" width="30" height="34" rx="6"/><path d="M14 16l3 3 5-6M14 29h16"/></svg><h3>Written exam</h3><p>Choose an identification or multiple-choice exam, organized into five module parts. Submit parts independently to review answers and module references.</p></button>
+<button class="card" onclick="go('exam')"><svg viewBox="0 0 44 44" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><rect x="7" y="5" width="30" height="34" rx="6"/><path d="M14 16l3 3 5-6M14 29h16"/></svg><h3>Written exam</h3><p>Choose Identification or Multiple Choice across five module parts. Check each question for immediate answer feedback, then continue at your own pace.</p></button>
 <button class="card" onclick="go('lab')"><svg viewBox="0 0 44 44" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="8" width="34" height="28" rx="6"/><path d="M12 18l6 5-6 5M22 29h9"/></svg><h3>SQL lab</h3><p>Choose Easy, Intermediate, or Advanced SQL practice. Easy keeps the prepared task tracks; Intermediate teaches module setup and exercises; Advanced builds a connected campus project with guided lessons, challenges, and Free practice. Your SQL is checked against expected results and database state.</p></button>
 </div><p><button class="btn l" onclick="downloadModule()">Download DBMS module PDF</button> <span class="mu sm">Original module · 105 pages</span></p></section>
 <section id="exam" class="sec" hidden></section>
@@ -1620,8 +1671,107 @@ function validCourse(level,s,allowArchives=true){
  return isRecord(s)&&Array.isArray(s.pool)&&s.pool.length>0&&s.pool.every(validSession)&&ref(s.session)&&Number.isInteger(s.lesson)&&s.lesson>=0&&s.lesson<ids.length&&['walkthrough','challenge'].includes(s.style)&&Array.isArray(s.done)&&new Set(s.done).size===s.done.length&&s.done.every(known)&&mapping(s.entries,ref)&&mapping(s.work,ref)&&mapping(s.drafts,v=>typeof v==='string')&&mapping(s.checked,c=>isRecord(c)&&typeof c.sql==='string'&&ref(c.session))&&mapping(s.outputs,validOutput)&&mapping(s.feedback,v=>isRecord(v)&&(v.solution===true||typeof v.ok==='boolean'&&typeof v.message==='string'))&&(s.lesson===0||Object.hasOwn(s.entries,ids[s.lesson]))&&(s.previewExpanded===undefined||typeof s.previewExpanded==='boolean')&&(s.finished===undefined||typeof s.finished==='boolean')&&(allowArchives?(s.archives===undefined||Array.isArray(s.archives)&&s.archives.every(a=>isRecord(a)&&typeof a.id==='string'&&typeof a.label==='string'&&typeof a.createdAt==='string'&&Number.isFinite(Date.parse(a.createdAt))&&validCourse(level,a.snapshot,false))&&new Set(s.archives.map(a=>a.id)).size===s.archives.length):!Object.hasOwn(s,'archives'));
 }
 
+/* Single-question exam: locked first attempts and independently completed parts. */
+function currentExamQuestion(){
+ if(!examState.mode)return null;
+ const mode=examState.mode,module=examState.currentModule,list=examState.orders[mode][module],position=examState.positions[mode][module];
+ const sourceIndex=list[position],question=(mode==='id'?ID:MC)[sourceIndex];
+ return{mode,module,list,position,sourceIndex,question,checked:examState.checked[mode][sourceIndex]===true};
+}
+function examCorrect(mode,index,state=examState){const q=(mode==='id'?ID:MC)[index];return mode==='id'?identificationMatches(state.answers.id[index]||'',q):state.answers.mc[index]===q[2]}
+function examPartStats(mode,module,state=examState){
+ const list=state.orders[mode][module],checked=list.filter(i=>state.checked[mode][i]===true);
+ return{total:list.length,checked:checked.length,correct:checked.filter(i=>examCorrect(mode,i,state)).length,remaining:list.length-checked.length};
+}
+function examHasProgress(){collectExamAnswers();return!!examState.mode&&(Object.keys(examState.answers[examState.mode]).length>0||Object.keys(examState.checked[examState.mode]).length>0)}
+function collectExamAnswers(){
+ const current=currentExamQuestion();if(!current||current.checked)return;
+ const {mode,sourceIndex}=current;
+ if(mode==='id'){const el=$('#i'+sourceIndex);if(!el||el.disabled)return;if(el.value)examState.answers.id[sourceIndex]=el.value;else delete examState.answers.id[sourceIndex]}
+ else{const controls=document.querySelectorAll(`input[name="m${sourceIndex}"]`);if(!controls.length||controls[0].disabled)return;const el=[...controls].find(x=>x.checked);if(el)examState.answers.mc[sourceIndex]=+el.value;else delete examState.answers.mc[sourceIndex]}
+}
+function examAnswerPresent(current=currentExamQuestion()){return!!current&&(current.mode==='id'?!!String(examState.answers.id[current.sourceIndex]||'').trim():Number.isInteger(examState.answers.mc[current.sourceIndex]))}
+function examInput(immediate=false){collectExamAnswers();const current=currentExamQuestion(),button=$('#exam-check');if(button)button.disabled=!current||current.checked||!examAnswerPresent(current);immediate?saveProgressNow():saveProgressSoon()}
+function resetExamAttempt(){
+ examState.answers=emptyExamAnswers();examState.checked=emptyExamAnswers();examState.submitted=emptyExamParts();examState.scores=emptyExamScores();
+ examState.reviews={id:EXAM_MODULES.map(()=>null),mc:EXAM_MODULES.map(()=>null)};
+ examState.positions={id:EXAM_MODULES.map(()=>0),mc:EXAM_MODULES.map(()=>0)};examState.continuationDismissed=emptyExamParts();
+}
+function chooseExamMode(mode){
+ if(![null,'id','mc'].includes(mode)||mode===examState.mode)return;
+ if(examHasProgress()&&!confirm('Change exam type and clear the current exam answers and results?'))return;
+ resetExamAttempt();examState.mode=mode;examState.currentModule=0;exam();$('#exam-part-title')?.focus({preventScroll:true});saveProgressNow();
+}
+function examSummary(){const mode=examState.mode;return mode?`<p class="mu sm">${mode==='id'?'Identification':'Multiple Choice'} · ${mode==='id'?ID.length:MC.length} questions · ${examState.submitted[mode].filter(Boolean).length} of ${EXAM_MODULES.length} parts complete.</p>`:''}
+function examFeedbackHtml(current){
+ if(!current.checked)return'';
+ const {mode,sourceIndex,question:q}=current,correct=examCorrect(mode,sourceIndex),value=examState.answers[mode][sourceIndex];
+ const answer=mode==='id'?(value||'No answer'):Number.isInteger(value)?q[1][value]:'No answer';
+ const expected=mode==='id'?q[1].split('|')[0].toUpperCase():q[1][q[2]],page=q[mode==='id'?2:3],note=q[mode==='id'?3:4];
+ return`<div class="ans fb ${correct?'ok':'no'}"><strong>${correct?'Correct':'Incorrect'}.</strong><p><b>Your answer:</b> <span>${h(answer)}</span></p><p><b>Correct answer:</b> <span>${h(expected)}</span></p><p class="mu sm">Module PDF, page ${page}</p>${note?`<p class="module-note">${h(note)}</p>`:''}</div>`;
+}
+function examContinuationHtml(mode,module){
+ if(!examState.submitted[mode][module]||examState.continuationDismissed[mode][module])return'';
+ const next=Array.from({length:EXAM_MODULES.length},(_,i)=>(module+i+1)%EXAM_MODULES.length).find(i=>!examState.submitted[mode][i]);
+ return`<div class="continue-panel"><strong>Part ${module+1} complete.</strong>${next===undefined?'<p>All five parts are complete. Review your answers or start over.</p>':`<p>Continue to Part ${next+1}?</p><div class="row"><button class="btn a" onclick="openExamPart(${next})">Continue to Part ${next+1}</button><button class="btn l" onclick="dismissExamContinue()">Stay on review</button></div>`}</div>`;
+}
+function exam(){
+ if(!examState.mode){$('#exam').innerHTML='<h2>Written exam</h2><p class="mu">Choose your exam type. Answer one question at a time and check it for immediate feedback. Each type has five module parts.</p><div class="row"><button class="btn a" onclick="chooseExamMode(\'id\')">Identification</button><button class="btn a" onclick="chooseExamMode(\'mc\')">Multiple Choice</button></div>';return}
+ const current=currentExamQuestion(),{mode,module,position,sourceIndex,question:q,list,checked}=current,m=EXAM_MODULES[module],stats=examPartStats(mode,module),value=examState.answers[mode][sourceIndex],n=position+1;
+ const nav=EXAM_MODULES.map((_,i)=>`<button class="btn l${i===module?' on':''}" aria-current="${i===module?'step':'false'}" onclick="openExamPart(${i})">Part ${i+1}${examState.submitted[mode][i]?' - Done':''}</button>`).join('');
+ const control=mode==='id'?`<label for="i${sourceIndex}" class="exam-answer-label">Write your answer</label><input type="text" id="i${sourceIndex}" value="${h(value||'')}" autocomplete="off" spellcheck="false" placeholder="Enter your answer" aria-describedby="exam-answer-help" oninput="examInput()" onkeydown="if(event.key==='Enter'&&!event.isComposing){event.preventDefault();checkExamAnswer()}"${checked?' disabled':''}>`:`<fieldset class="exam-options"><legend>Choose your answer</legend>${q[1].map((option,i)=>`<label class="o"><input type="radio" name="m${sourceIndex}" value="${i}"${value===i?' checked':''} onchange="examInput(true)"${checked?' disabled':''}>${h(option)}</label>`).join('')}</fieldset>`;
+ const complete=examState.submitted[mode][module],allComplete=examState.submitted[mode].every(Boolean),overall=allComplete?examState.orders[mode].flat().filter(i=>examCorrect(mode,i)).length:0;
+ $('#exam').innerHTML=`<h2>Written exam</h2>${examSummary()}<div class="row exam-actions"><button class="btn l" onclick="shuffleExam()">Shuffle questions</button><button class="btn l" onclick="startOverExam()">Start over</button><button class="btn l" onclick="chooseExamMode(null)">Change exam type</button></div><nav class="exam-parts-nav" aria-label="Exam parts">${nav}</nav><section class="exam-part exam-single" id="exam-part-${module}" aria-labelledby="exam-part-title"><div class="exam-part-heading"><p class="mu sm">Part ${module+1} of ${EXAM_MODULES.length}</p><h3 id="exam-part-title" tabindex="-1">${h(m.title)}</h3></div><div class="exam-card"><div class="exam-card-heading"><div><p class="exam-mode-label">${mode==='id'?'Identification':'Multiple Choice'}</p><p class="exam-position" id="exam-position">Question ${n} of ${list.length}</p></div><div class="exam-correct-count"><strong>${stats.correct} / ${stats.total}</strong><span>Correct answers</span></div></div><progress class="exam-progress" max="${stats.total}" value="${stats.checked}" aria-label="Questions checked in this part">${stats.checked} of ${stats.total}</progress><div class="q${checked?(examCorrect(mode,sourceIndex)?' ok':' no'):''}" id="q${n}"><h4 id="exam-question-title" tabindex="-1">${h(q[0])}</h4>${control}<p id="exam-answer-help" class="mu sm">${checked?'Your first answer is saved and locked.':'Check your answer to see the result and correct answer.'}</p><button id="exam-check" class="btn a" onclick="checkExamAnswer()"${checked||!examAnswerPresent(current)?' disabled':''}>${checked?'Answer checked':'Check Answer'}</button><div id="exam-feedback" tabindex="-1" role="status" aria-live="polite">${examFeedbackHtml(current)}</div></div><div class="exam-question-nav"><button id="exam-previous" class="btn l" onclick="previousExamQuestion()"${position===0?' disabled':''}><span aria-hidden="true">‹</span> Previous</button><button id="exam-next" class="btn l" onclick="nextExamQuestion()"${!checked||position===list.length-1?' disabled':''}>Next <span aria-hidden="true">›</span></button></div><div class="exam-counts"><span>${stats.checked} of ${stats.total} checked</span><span>${stats.remaining} remaining</span></div></div>${complete?`<div id="exam-result-${module}" class="score exam-part-result"><p>Part ${module+1} complete</p><h3>${stats.correct} out of ${stats.total}</h3><p class="mu sm">Use Previous and Next to review this part.</p></div>`:''}${examContinuationHtml(mode,module)}${allComplete?`<div id="exam-overall-result" class="score"><h3>${overall} out of ${examState.orders[mode].flat().length}</h3><p>All five parts complete.</p></div>`:''}</section>`;
+}
+function submitExamPart(module){
+ const mode=examState.mode;if(!mode||!Number.isInteger(module)||module<0||module>=EXAM_MODULES.length||examState.submitted[mode][module])return false;
+ const stats=examPartStats(mode,module);if(stats.checked!==stats.total)return false;
+ examState.submitted[mode][module]=true;examState.scores[mode][module]=stats.correct;
+ examState.reviews[mode][module]=examState.orders[mode][module].map(sourceIndex=>({sourceIndex,correct:examCorrect(mode,sourceIndex)}));
+ examState.continuationDismissed[mode][module]=false;return true;
+}
+function checkExamAnswer(){
+ collectExamAnswers();const current=currentExamQuestion();if(!current||current.checked||!examAnswerPresent(current))return;
+ examState.checked[current.mode][current.sourceIndex]=true;submitExamPart(current.module);exam();
+ $('#exam-feedback')?.focus({preventScroll:true});$('#exam-feedback')?.scrollIntoView({block:'nearest'});saveProgressNow();
+}
+function moveExamQuestion(direction){
+ const current=currentExamQuestion();if(!current||![1,-1].includes(direction)||direction===1&&!current.checked)return;
+ const next=current.position+direction;if(next<0||next>=current.list.length)return;
+ collectExamAnswers();examState.positions[current.mode][current.module]=next;exam();$('#exam-question-title')?.focus({preventScroll:true});$('#exam-position')?.scrollIntoView({block:'nearest'});saveProgressNow();
+}
+function previousExamQuestion(){moveExamQuestion(-1)}
+function nextExamQuestion(){moveExamQuestion(1)}
+function openExamPart(module){
+ if(!examState.mode||!Number.isInteger(module)||module<0||module>=EXAM_MODULES.length)return;
+ collectExamAnswers();examState.currentModule=module;exam();$('#exam-part-title')?.focus({preventScroll:true});$('#exam-part-'+module)?.scrollIntoView({block:'start'});saveProgressNow();
+}
+function dismissExamContinue(){if(!examState.mode||!examState.submitted[examState.mode][examState.currentModule])return;examState.continuationDismissed[examState.mode][examState.currentModule]=true;exam();$('#exam-feedback')?.focus({preventScroll:true});saveProgressNow()}
+function startOverExam(){if(!examState.mode)return;resetExamAttempt();examState.currentModule=0;exam();$('#exam-part-title')?.focus({preventScroll:true});saveProgressNow()}
+function shuffleExam(){if(!examState.mode)return;if(examHasProgress()&&!confirm('Shuffle questions and start a new exam attempt? Current answers and results will be cleared.'))return;examState.orders[examState.mode]=examState.orders[examState.mode].map(shuffleList);resetExamAttempt();examState.currentModule=0;exam();$('#exam-part-title')?.focus({preventScroll:true});saveProgressNow()}
+function upgradeLegacyExam(saved){
+ const next=plain(saved);next.checked=emptyExamAnswers();next.positions={id:EXAM_MODULES.map(()=>0),mc:EXAM_MODULES.map(()=>0)};next.continuationDismissed=emptyExamParts();
+ for(const mode of ['id','mc'])for(let m=0;m<EXAM_MODULES.length;m++)if(next.submitted[mode][m])for(const i of next.orders[mode][m])next.checked[mode][i]=true;
+ return next;
+}
+function validExam(s){
+ if(!validLegacyExam(s)||!isRecord(s.checked)||!isRecord(s.positions)||!isRecord(s.continuationDismissed))return false;
+ for(const mode of ['id','mc']){
+  const count=mode==='id'?ID.length:MC.length;
+  if(!isRecord(s.checked[mode])||!Object.entries(s.checked[mode]).every(([key,v])=>String(+key)===key&&Number.isInteger(+key)&&+key>=0&&+key<count&&v===true))return false;
+  if(!Array.isArray(s.positions[mode])||s.positions[mode].length!==EXAM_MODULES.length||!Array.isArray(s.continuationDismissed[mode])||s.continuationDismissed[mode].length!==EXAM_MODULES.length)return false;
+  for(let m=0;m<EXAM_MODULES.length;m++){
+   if(!Number.isInteger(s.positions[mode][m])||s.positions[mode][m]<0||s.positions[mode][m]>=s.orders[mode][m].length||typeof s.continuationDismissed[mode][m]!=='boolean')return false;
+   const stats=examPartStats(mode,m,s);
+   if(s.submitted[mode][m]!== (stats.checked===stats.total)||s.continuationDismissed[mode][m]&&!s.submitted[mode][m])return false;
+   if(!s.submitted[mode][m]&&s.orders[mode][m].some(i=>s.checked[mode][i]===true&&(mode==='id'?!String(s.answers.id[i]||'').trim():!Number.isInteger(s.answers.mc[i]))))return false;
+  }
+ }
+ return true;
+}
+
 const $=s=>document.querySelector(s),h=s=>String(s).replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));
-const CONTENT_VERSION='descriptive-lab-contracts-v5';
+const CONTENT_VERSION='single-question-exam-v6';
 const examCatalog=()=>({id:ID.map((q,i)=>({id:'id-'+i,signature:JSON.stringify(q)})),mc:MC.map((q,i)=>({id:'mc-'+i,signature:JSON.stringify(q)}))});
 const EXAM_MODULES=[
  {id:1,title:'Module 1 — Database Management System',from:10,to:27},
@@ -1637,25 +1787,13 @@ const emptyExamAnswers=()=>({id:Object.create(null),mc:Object.create(null)});
 const emptyExamParts=()=>({id:EXAM_MODULES.map(()=>false),mc:EXAM_MODULES.map(()=>false)});
 const emptyExamScores=()=>({id:EXAM_MODULES.map(()=>null),mc:EXAM_MODULES.map(()=>null)});
 const makeExamOrders=()=>({id:EXAM_MODULES.map((_,m)=>examIndices('id',m)),mc:EXAM_MODULES.map((_,m)=>examIndices('mc',m))});
-const makeExamState=()=>({mode:null,currentModule:0,reviews:{id:EXAM_MODULES.map(()=>null),mc:EXAM_MODULES.map(()=>null)},orders:makeExamOrders(),answers:emptyExamAnswers(),submitted:emptyExamParts(),scores:emptyExamScores()});
-let examState=makeExamState(),examContinue=null;
+const makeExamState=()=>({mode:null,currentModule:0,reviews:{id:EXAM_MODULES.map(()=>null),mc:EXAM_MODULES.map(()=>null)},orders:makeExamOrders(),answers:emptyExamAnswers(),checked:emptyExamAnswers(),positions:{id:EXAM_MODULES.map(()=>0),mc:EXAM_MODULES.map(()=>0)},continuationDismissed:emptyExamParts(),submitted:emptyExamParts(),scores:emptyExamScores()});
+let examState=makeExamState();
 let live=newSession(),done=new Set(),cur=null,ti=0,previewExpanded=false,currentView='home';const draft={},outputs={},feedback={},outputModels={},feedbackModels={},taskSessions={},trackTasks={};let legacySession=null;
 let progressReady=false,restoring=false,saveTimer=null,saveStorageError=false;
 const taskKey=()=>cur==null?null:NM(cur)+':'+ti;
 function shuffleList(a){const out=a.slice();for(let i=out.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[out[i],out[j]]=[out[j],out[i]]}return out}
-function examHasProgress(){collectExamAnswers();if(!examState.mode)return false;const parts=examState.submitted[examState.mode];return parts.some(Boolean)||Object.keys(examState.answers[examState.mode]).length>0}
-function collectExamAnswers(){if(!$('#exam')||!examState.mode)return;const mode=examState.mode;for(const sourceIndex of examState.orders[mode].flat()){if(mode==='id'){const el=$('#i'+sourceIndex);if(!el||el.disabled)continue;if(el.value)examState.answers.id[sourceIndex]=el.value;else delete examState.answers.id[sourceIndex]}else{const controls=document.querySelectorAll(`input[name="m${sourceIndex}"]`);if(!controls.length||controls[0].disabled)continue;const el=[...controls].find(x=>x.checked);if(el)examState.answers.mc[sourceIndex]=+el.value;else delete examState.answers.mc[sourceIndex]}}}
-function examInput(immediate=false){collectExamAnswers();immediate?saveProgressNow():saveProgressSoon()}
 function go(v){remember();rememberBuild();rememberCourse();currentView=v;['home','exam','lab','builder'].forEach(x=>$('#'+x).hidden=x!=v);if(v=='exam'&&!$('#exam').innerHTML)exam();if(v=='lab')lab();if(v=='builder')builder();scrollTo(0,0);saveProgressNow()}
-function examSummary(){const mode=examState.mode,parts=mode?examState.submitted[mode]:[],doneParts=parts.filter(Boolean).length,total=EXAM_MODULES.length;return mode?`<p class="mu">${mode==='id'?'Identification':'Multiple Choice'} · ${mode==='id'?ID.length:MC.length} questions · ${doneParts} of ${total} parts submitted.</p>`:''}
-function chooseExamMode(mode){if(mode===examState.mode)return;if(examHasProgress()&&!confirm('Change exam type and clear the current exam answers and submitted parts?'))return;examState.mode=mode;examState.currentModule=0;examContinue=null;{examState.answers=emptyExamAnswers();examState.submitted=emptyExamParts();examState.scores=emptyExamScores();examState.reviews={id:EXAM_MODULES.map(()=>null),mc:EXAM_MODULES.map(()=>null)}}exam();saveProgressNow()}
-function exam(){if(!examState.mode){$('#exam').innerHTML=`<h2>Written exam</h2><p class="mu">Choose one exam type. Each type has five module parts, and you can submit any part separately.</p><div class="row"><button class="btn a" onclick="chooseExamMode('id')">Identification</button><button class="btn a" onclick="chooseExamMode('mc')">Multiple Choice</button></div>`;return}const mode=examState.mode,moduleNumber=Math.max(0,Math.min(4,examState.currentModule||0)),m=EXAM_MODULES[moduleNumber],list=examState.orders[mode][moduleNumber],offset=EXAM_MODULES.slice(0,moduleNumber).reduce((n,_,i)=>n+examState.orders[mode][i].length,0),submitted=examState.submitted[mode][moduleNumber],score=examState.scores[mode][moduleNumber];const question=(sourceIndex,index)=>{const q=mode==='id'?ID[sourceIndex]:MC[sourceIndex],n=offset+index+1,disabled=submitted?' disabled':'';if(mode==='id')return`<div class="q" id="q${n}"><p><b>${n}.</b> ${h(q[0])}</p><input type="text" id="i${sourceIndex}" value="${h(examState.answers.id[sourceIndex]||'')}" autocomplete="off" aria-label="Answer ${n}" oninput="examInput()"${disabled}><div class="ans" hidden></div></div>`;const value=examState.answers.mc[sourceIndex];return`<div class="q" id="q${n}" role="group" aria-label="Question ${n}"><p><b>${n}.</b> ${q[4]?'<span class="pill">'+(q[4].startsWith('Beyond module')?'Beyond module':'Module note')+'</span> ':''}${h(q[0])}</p>${q[1].map((o,j)=>`<label class="o"><input type="radio" name="m${sourceIndex}" value="${j}" ${value===j?'checked':''} onchange="examInput(true)"${disabled}>${h(o)}</label>`).join('')}<div class="ans" hidden></div></div>`};const items=list.map(question).join('');const nav=EXAM_MODULES.map((x,i)=>`<button class="btn l${i===moduleNumber?' on':''}" aria-current="${i===moduleNumber?'step':'false'}" onclick="openExamPart(${i})">Part ${i+1}${examState.submitted[mode][i]?' - Done':''}</button>`).join('');const nextPart=Array.from({length:5},(_,i)=>(moduleNumber+i+1)%5).find(i=>!examState.submitted[mode][i])??-1;if(submitted&&!examContinue)examContinue={from:moduleNumber,next:nextPart};const continuePanel=examContinue&&examContinue.from===moduleNumber&&!examContinue.dismissed?`<div class="continue-panel" role="status"><strong>Part ${moduleNumber+1} submitted.</strong> ${examContinue.next>=0?`Continue to Part ${examContinue.next+1}?<div class="row"><button class="btn a" onclick="openExamPart(${examContinue.next})">Continue to Part ${examContinue.next+1}</button><button class="btn l" onclick="dismissExamContinue()">Stay on review</button></div>`:'All parts are submitted. You can review this part or start over.'}</div>`:'';$('#exam').innerHTML=`<h2>Written exam</h2>${examSummary()}<div class="row exam-actions"><button class="btn l" onclick="shuffleExam()">Shuffle questions</button><button class="btn l" onclick="startOverExam()">Start over</button><button class="btn l" onclick="chooseExamMode(null)">Change exam type</button></div><div class="exam-parts-nav" aria-label="Exam parts">${nav}</div><section class="exam-part" id="exam-part-${moduleNumber}"><div class="part"><h3 id="exam-part-title" tabindex="-1">Part ${moduleNumber+1}: ${h(m.title)}</h3><p class="mu sm">Questions ${offset+1}-${offset+list.length} / ${list.length} questions / pages ${m.from}-${m.to}</p></div>${items}<div class="row"><button class="btn a" onclick="submitExamPart(${moduleNumber})"${submitted?' disabled':''}>${submitted?'Part submitted':'Submit part'}</button>${submitted?`<span class="score-inline">${score} out of ${list.length}</span>`:''}</div>${submitted?`<div id="exam-result-${moduleNumber}" class="score" tabindex="-1"><h3>${score} out of ${list.length}</h3><p class="mu sm">Review the answers and module references above.</p></div>`:''}${continuePanel}</section>`;if(submitted)renderExamPartFeedback(moduleNumber)}
-function renderExamPartFeedback(moduleNumber){const mode=examState.mode,list=examState.orders[mode][moduleNumber],note=s=>s?`<br><span class="module-note">${h(s)}</span>`:'',answerText=(q,ok)=>mode==='id'?`Answer: ${h(q[1].split('|')[0].toUpperCase())}`:`Answer: ${h(q[1][q[2]])}`;list.forEach((sourceIndex,index)=>{const q=mode==='id'?ID[sourceIndex]:MC[sourceIndex],ok=mode==='id'?identificationMatches(examState.answers.id[sourceIndex]||'',q):examState.answers.mc[sourceIndex]===q[2],el=$(`#q${EXAM_MODULES.slice(0,moduleNumber).reduce((n,_,i)=>n+examState.orders[mode][i].length,0)+index+1}`);if(!el)return;el.className='q '+(ok?'ok':'no');const a=el.querySelector('.ans');a.hidden=false;a.innerHTML=`<b>${ok?'Correct':'Incorrect'}.</b> ${answerText(q,ok)} (module page ${mode==='id'?q[2]:q[3]})${note(mode==='id'?q[3]:q[4])}`})}
-function dismissExamContinue(){examContinue={from:examState.currentModule,dismissed:true};exam();document.querySelector('.exam-part h3')?.scrollIntoView();saveProgressNow()}
-function openExamPart(moduleNumber){if(!Number.isInteger(moduleNumber)||moduleNumber<0||moduleNumber>=EXAM_MODULES.length)return;collectExamAnswers();examState.currentModule=moduleNumber;examContinue=null;exam();$('#exam-part-title')?.focus({preventScroll:true});document.getElementById('exam-part-'+moduleNumber)?.scrollIntoView({behavior:'smooth'});saveProgressNow()}
-function submitExamPart(moduleNumber){const mode=examState.mode;if(!mode||!Number.isInteger(moduleNumber)||moduleNumber<0||moduleNumber>=5||examState.submitted[mode][moduleNumber])return;collectExamAnswers();examState.currentModule=moduleNumber;const list=examState.orders[mode][moduleNumber];let score=0;list.forEach(sourceIndex=>{const q=mode==='id'?ID[sourceIndex]:MC[sourceIndex];score+=Number(mode==='id'?identificationMatches(examState.answers.id[sourceIndex]||'',q):examState.answers.mc[sourceIndex]===q[2])});examState.submitted[mode][moduleNumber]=true;examState.scores[mode][moduleNumber]=score;examState.reviews[mode][moduleNumber]=list.map(sourceIndex=>({sourceIndex,correct:mode==='id'?identificationMatches(examState.answers.id[sourceIndex]||'',ID[sourceIndex]):examState.answers.mc[sourceIndex]===MC[sourceIndex][2]}));const next=Array.from({length:5},(_,i)=>(moduleNumber+i+1)%5).find(i=>!examState.submitted[mode][i])??-1;examContinue={from:moduleNumber,next};exam();document.getElementById('exam-result-'+moduleNumber)?.focus({preventScroll:true});saveProgressNow();document.getElementById('exam-result-'+moduleNumber)?.scrollIntoView({behavior:'smooth'})}
-function startOverExam(){if(!examState.mode)return;examContinue=null;examState.answers=emptyExamAnswers();examState.submitted=emptyExamParts();examState.scores=emptyExamScores();examState.reviews={id:EXAM_MODULES.map(()=>null),mc:EXAM_MODULES.map(()=>null)};exam();saveProgressNow()}
-function shuffleExam(){if(!examState.mode)return;if(examHasProgress()&&!confirm('Shuffle questions and start a new exam attempt? Current answers and submitted parts will be cleared.'))return;examState.orders[examState.mode]=examState.orders[examState.mode].map(list=>shuffleList(list));examState.currentModule=0;examContinue=null;examState.answers=emptyExamAnswers();examState.submitted=emptyExamParts();examState.scores=emptyExamScores();examState.reviews={id:EXAM_MODULES.map(()=>null),mc:EXAM_MODULES.map(()=>null)};exam();saveProgressNow()}
 function warningBox(warnings){return warnings?.length?`<div class="warnings"><b>${warnings.length} warning${warnings.length==1?'':'s'}</b>${warnings.map(w=>`<p>${h(w.level)} ${w.code}: ${h(w.message)}</p>`).join('')}</div>`:''}
 const grid=r=> (r.notice?'<details class="module-note"><summary>About this result</summary><p>'+h(r.notice)+'</p></details>':'')+(r.vertical&&r.rows?'<pre>'+h(r.rows.map((row,i)=>'*************************** '+(i+1)+'. row ***************************\n'+r.cols.map((c,k)=>c+': '+sqlString(row[k])).join('\n')).join('\n'))+'</pre>':(r.msg?`<p class="msg">${h(r.msg)}${r.warnings?.length?' / '+r.warnings.length+' warning(s)':''}</p>${r.info?`<p class="mu sm">${h(r.info)}</p>`:''}`:`<div class="sc" tabindex="0" role="region" aria-label="Query result table"><table><thead><tr>${r.cols.map(c=>`<th scope="col">${h(c)}</th>`).join('')}</tr></thead><tbody>${r.rows.map(x=>`<tr>${x.map(v=>`<td>${v==null?'<i>NULL</i>':h(v)}</td>`).join('')}</tr>`).join('')}</tbody></table></div><p class="mu sm" style="margin:0">${r.rows.length?r.rows.length+' row'+(r.rows.length==1?'':'s')+' in set':'Empty set'}</p>`)+warningBox(r.warnings));
 function errorRecord(e){return e?{code:e.code,sqlState:e.sqlState,message:e.message,statement:e.statement,line:e.line,column:e.column,warnings:e.warnings||[]}:null}
@@ -1825,26 +1963,28 @@ function validOrder(order,length){return Array.isArray(order)&&order.length===le
 function validAnswerMap(map,kind,length){if(!isRecord(map))return false;return Object.entries(map).every(([key,value])=>{const i=Number(key);if(!Number.isInteger(i)||i<0||i>=length)return false;if(kind==='id')return typeof value==='string';return Number.isInteger(value)&&value>=0&&value<4})}
 function validPartState(parts,scores,kind){return Array.isArray(parts)&&parts.length===EXAM_MODULES.length&&parts.every(x=>typeof x==='boolean')&&Array.isArray(scores)&&scores.length===EXAM_MODULES.length&&scores.every((x,m)=>parts[m]?(Number.isInteger(x)&&x>=0&&x<=examIndices(kind,m).length):x===null)}
 function validPartOrder(order,expected){return Array.isArray(order)&&order.length===expected.length&&new Set(order).size===expected.length&&order.every(x=>expected.includes(x))}
-function validExamStructure(s){return isRecord(s)&&[null,'id','mc'].includes(s.mode)&&Number.isInteger(s.currentModule)&&s.currentModule>=0&&s.currentModule<5&&isRecord(s.reviews)&&['id','mc'].every(kind=>Array.isArray(s.reviews[kind])&&s.reviews[kind].length===5&&s.reviews[kind].every((list,m)=>list===null||(Array.isArray(list)&&list.length===examIndices(kind,m).length&&list.every(x=>isRecord(x)&&examIndices(kind,m).includes(x.sourceIndex)&&typeof x.correct==='boolean'))))&&isRecord(s.orders)&&s.orders.id?.length===EXAM_MODULES.length&&s.orders.mc?.length===EXAM_MODULES.length&&s.orders.id.every((x,m)=>validPartOrder(x,examIndices('id',m)))&&s.orders.mc.every((x,m)=>validPartOrder(x,examIndices('mc',m)))&&isRecord(s.answers)&&validAnswerMap(s.answers.id,'id',ID.length)&&validAnswerMap(s.answers.mc,'mc',MC.length)&&isRecord(s.submitted)&&isRecord(s.scores)&&validPartState(s.submitted.id,s.scores.id,'id')&&validPartState(s.submitted.mc,s.scores.mc,'mc')}
-function validExam(s){if(!validExamStructure(s))return false;for(const mode of ['id','mc'])for(let m=0;m<5;m++){const submitted=s.submitted[mode][m],review=s.reviews[mode][m];if(!submitted){if(review!==null)return false;continue}if(!review||!validPartOrder(review.map(x=>x.sourceIndex),examIndices(mode,m)))return false;let score=0;for(const item of review){const correct=mode==='id'?identificationMatches(s.answers.id[item.sourceIndex]||'',ID[item.sourceIndex]):s.answers.mc[item.sourceIndex]===MC[item.sourceIndex][2];if(correct!==item.correct)return false;score+=Number(correct)}if(score!==s.scores[mode][m])return false}return true}
+function validLegacyExamStructure(s){return isRecord(s)&&[null,'id','mc'].includes(s.mode)&&Number.isInteger(s.currentModule)&&s.currentModule>=0&&s.currentModule<5&&isRecord(s.reviews)&&['id','mc'].every(kind=>Array.isArray(s.reviews[kind])&&s.reviews[kind].length===5&&s.reviews[kind].every((list,m)=>list===null||(Array.isArray(list)&&list.length===examIndices(kind,m).length&&list.every(x=>isRecord(x)&&examIndices(kind,m).includes(x.sourceIndex)&&typeof x.correct==='boolean'))))&&isRecord(s.orders)&&s.orders.id?.length===EXAM_MODULES.length&&s.orders.mc?.length===EXAM_MODULES.length&&s.orders.id.every((x,m)=>validPartOrder(x,examIndices('id',m)))&&s.orders.mc.every((x,m)=>validPartOrder(x,examIndices('mc',m)))&&isRecord(s.answers)&&validAnswerMap(s.answers.id,'id',ID.length)&&validAnswerMap(s.answers.mc,'mc',MC.length)&&isRecord(s.submitted)&&isRecord(s.scores)&&validPartState(s.submitted.id,s.scores.id,'id')&&validPartState(s.submitted.mc,s.scores.mc,'mc')}
+function validLegacyExam(s){if(!validLegacyExamStructure(s))return false;for(const mode of ['id','mc'])for(let m=0;m<5;m++){const submitted=s.submitted[mode][m],review=s.reviews[mode][m];if(!submitted){if(review!==null)return false;continue}if(!review||!validPartOrder(review.map(x=>x.sourceIndex),examIndices(mode,m)))return false;let score=0;for(const item of review){const correct=mode==='id'?identificationMatches(s.answers.id[item.sourceIndex]||'',ID[item.sourceIndex]):s.answers.mc[item.sourceIndex]===MC[item.sourceIndex][2];if(correct!==item.correct)return false;score+=Number(correct)}if(score!==s.scores[mode][m])return false}return true}
 
 function validCatalog(c){return isRecord(c)&&['id','mc'].every(k=>Array.isArray(c[k])&&c[k].every((x,i)=>isRecord(x)&&x.id===k+'-'+i&&typeof x.signature==='string'))}
 function catalogMatches(c){return validCatalog(c)&&JSON.stringify(c)===JSON.stringify(examCatalog())}
 function migrateSnapshot(s){
  if(validSnapshot(s)&&catalogMatches(s.catalog))return{saved:s,migrated:false};
- if(!isRecord(s)||s.version!==1||!['149-89-60-modules-v2','216-67-60-183-12','module-coverage-task-sessions-v3','full-terms-three-levels-v4',CONTENT_VERSION].includes(s.content))return null;
+ if(!isRecord(s)||s.version!==1||!['149-89-60-modules-v2','216-67-60-183-12','module-coverage-task-sessions-v3','full-terms-three-levels-v4','descriptive-lab-contracts-v5',CONTENT_VERSION].includes(s.content))return null;
  if(s.content===CONTENT_VERSION&&catalogMatches(s.catalog))return null; // malformed, not a content migration
  if(!validSession(s.live)||!isRecord(s.draft)||!isRecord(s.outputs)||!isRecord(s.feedback)||!validBuild(s.buildModes?.guided)||!validBuild(s.buildModes?.sandbox))return null;
  const out=plain(s),shared=['149-89-60-modules-v2','216-67-60-183-12'].includes(s.content);
- if(s.content==='full-terms-three-levels-v4'){
-  if(![null,'easy','intermediate','advanced'].includes(s.labLevel)||!isRecord(s.courses)||!validCourse('intermediate',s.courses.intermediate)||!validCourse('advanced',s.courses.advanced)||!catalogMatches(s.catalog)||!validExam(s.exam))return null;
-  out.content=CONTENT_VERSION;
+ if(['full-terms-three-levels-v4','descriptive-lab-contracts-v5'].includes(s.content)){
+  if(![null,'easy','intermediate','advanced'].includes(s.labLevel)||!isRecord(s.courses)||!validCourse('intermediate',s.courses.intermediate)||!validCourse('advanced',s.courses.advanced)||!catalogMatches(s.catalog)||!validLegacyExam(s.exam))return null;
+  out.content=CONTENT_VERSION;out.exam=upgradeLegacyExam(s.exam);if(out.view==='exam'){out.scrollY=0;out.focusId='exam-part-title'}
+  if(s.content==='full-terms-three-levels-v4'){
   for(const level of ['intermediate','advanced'])out.courses[level]=migrateCourseContracts(level,s.courses[level]);
   for(const [key,f] of Object.entries(out.feedback))if(f.kind==='check'){
    const parts=Array.from({length:CFG.length+2},(_,i)=>i).flatMap(i=>TS(i).map((q,j)=>({key:NM(i)+':'+j,q}))),task=parts.find(x=>x.key===key)?.q;
    if(!task||!f.ok||!gradeSqlTask(out.draft[key]||'',task)){delete out.feedback[key];out.done=(out.done||[]).filter(x=>x!==key)}
   }
   for(const b of Object.values(out.buildModes)){b.feedback=Object.fromEntries(Object.entries(b.feedback).filter(([,f])=>f.kind==='solution'));}
+  }
   return validSnapshot(out)?{saved:out,migrated:true}:null;
  }
 
@@ -1872,6 +2012,16 @@ function migrateSnapshot(s){
   }
  }
  if(shared){out.outputs={};out.feedback={}}
+ if(!isRecord(s.exam?.checked))out.exam=upgradeLegacyExam(out.exam);else{
+  for(const mode of ['id','mc'])for(let m=0;m<EXAM_MODULES.length;m++){
+   const old=s.exam.orders[mode][m],list=out.exam.orders[mode][m],bank=mode==='id'?ID:MC;
+   const compatible=i=>{try{return JSON.stringify(JSON.parse(oldCatalog[mode][i].signature).slice(1,mode==='id'?3:4))===JSON.stringify(bank[i].slice(1,mode==='id'?3:4))}catch(e){return false}};
+   const samePart=validPartOrder(old,list)&&old.every(compatible);
+   for(const i of list)if(s.exam.checked[mode]?.[i]===true&&compatible(i))out.exam.checked[mode][i]=true;
+   if(samePart){out.exam.positions[mode][m]=s.exam.positions?.[mode]?.[m]||0;out.exam.continuationDismissed[mode][m]=!!s.exam.continuationDismissed?.[mode]?.[m]}
+  }
+ }
+ if(out.view==='exam'){out.scrollY=0;out.focusId='exam-part-title'}
  if(!validSnapshot(out))return null;return{saved:out,migrated:true};
 }
 function migrateCourseContracts(level,saved){
@@ -1903,8 +2053,8 @@ function validTaskKey(key){return Array.from({length:CFG.length+2},(_,i)=>i).som
 function validSnapshot(s){return isRecord(s)&&s.version===1&&s.content===CONTENT_VERSION&&validCatalog(s.catalog)&&[null,'easy','intermediate','advanced'].includes(s.labLevel)&&isRecord(s.courses)&&validCourse('intermediate',s.courses.intermediate)&&validCourse('advanced',s.courses.advanced)&&['home','exam','lab','builder'].includes(s.view)&&validExam(s.exam)&&validSession(s.live)&&isRecord(s.draft)&&Object.entries(s.draft).every(([k,v])=>validTaskKey(k)&&typeof v==='string')&&isRecord(s.outputs)&&Object.entries(s.outputs).every(([k,v])=>validTaskKey(k)&&validOutput(v))&&isRecord(s.feedback)&&Object.entries(s.feedback).every(([k,v])=>validTaskKey(k)&&isRecord(v)&&(v.kind==='solution'||v.kind==='check'&&typeof v.ok==='boolean'&&typeof v.sql==='string'&&(v.pending==null||typeof v.pending==='string')))&&isRecord(s.taskSessions)&&Object.entries(s.taskSessions).every(([k,v])=>validTaskKey(k)&&validSession(v))&&isRecord(s.trackTasks)&&Object.entries(s.trackTasks).every(([k,v])=>Number.isInteger(+k)&&+k>=0&&+k<CFG.length+2&&Number.isInteger(v)&&v>=0&&v<TS(+k).length)&&(!s.legacySession||validSession(s.legacySession))&&isRecord(s.buildModes)&&validBuild(s.buildModes.guided)&&validBuild(s.buildModes.sandbox)}
 function restoreSession(saved){const out=plain(saved);for(const db of Object.values(out.databases||{}))for(const t of Object.values(db||{}))hydrate(t);return out}
 function restoreBuild(target,saved){const x=plain(saved);target.session=restoreSession(x.session);target.drafts=x.drafts||Object.create(null);target.outputs=Object.create(null);target.feedback=Object.create(null);target.outputModels=x.outputs||Object.create(null);target.feedbackModels=x.feedback||Object.create(null);target.done=new Set(Array.isArray(x.done)?x.done.filter(Number.isInteger):[]);target.task=Number.isInteger(x.task)?x.task:0;target.preview=typeof x.preview==='string'?x.preview:'';target.lastRun=x.lastRun||null}
-function restoreProgress(){restoring=true;let raw=null,migrated=false;try{raw=localStorage.getItem(PROGRESS_KEY)}catch(e){setSaveStatus('Progress saving is unavailable in this browser.',true)}if(raw){try{const candidate=migrateSnapshot(JSON.parse(raw));if(!candidate)throw Error('incompatible progress');const saved=candidate.saved;migrated=candidate.migrated;examState=plain(saved.exam);labLevel=saved.labLevel;restoreCourse('intermediate',saved.courses.intermediate);restoreCourse('advanced',saved.courses.advanced);live=restoreSession(saved.live);clearObject(taskSessions);for(const [key,value] of Object.entries(saved.taskSessions||{}))taskSessions[key]=restoreSession(value);clearObject(trackTasks);Object.assign(trackTasks,saved.trackTasks||{});legacySession=saved.legacySession?restoreSession(saved.legacySession):null;done=new Set(Array.isArray(saved.done)?saved.done.filter(x=>typeof x==='string'):[]);cur=Number.isInteger(saved.cur)?saved.cur:null;ti=Number.isInteger(saved.ti)?saved.ti:0;pvt=typeof saved.pvt==='string'?saved.pvt:'customers';previewExpanded=Boolean(saved.previewExpanded);currentView=['home','exam','lab','builder'].includes(saved.view)?saved.view:'home';clearObject(draft);Object.assign(draft,saved.draft||{});clearObject(outputModels);Object.assign(outputModels,saved.outputs||{});clearObject(feedbackModels);Object.assign(feedbackModels,saved.feedback||{});buildMode=saved.buildMode==='sandbox'?'sandbox':'guided';restoreBuild(buildModes.guided,saved.buildModes.guided);restoreBuild(buildModes.sandbox,saved.buildModes.sandbox);if(cur!==null&&(cur<0||cur>=CFG.length+2))cur=null;if(cur!==null&&(ti<0||ti>=TS(cur).length))ti=0;if(cur!==null)activateTask();const targetView=currentView;progressReady=true;go(targetView);const y=Number(saved.scrollY)||0,id=saved.focusId;setTimeout(()=>{if(id)document.getElementById(id)?.focus({preventScroll:true});scrollTo(0,y)},0);setSaveStatus(migrated?'Lab tasks updated. Your drafts and databases were kept; changed answer checks may need to be submitted again.':'Saved progress restored')}catch(e){setSaveStatus('Saved progress was unavailable and has been reset.',true)}}progressReady=true;restoring=false;if(migrated){saveProgressNow();setSaveStatus('Lab tasks updated. Your drafts and databases were kept; changed answer checks may need to be submitted again.')}}
-function clearSavedProgress(){if(!confirm('Clear all saved exam, SQL lab, and table-building progress? Your theme preference will remain.'))return;clearTimeout(saveTimer);saveTimer=null;try{localStorage.removeItem(PROGRESS_KEY)}catch(e){}examState=makeExamState();examContinue=null;live=newSession();clearObject(taskSessions);clearObject(trackTasks);legacySession=null;done=new Set();cur=null;ti=0;pvt='customers';labLevel=null;courseStates.intermediate=makeCourseState();courseStates.advanced=makeCourseState();currentView='home';clearObject(draft);clearObject(outputModels);clearObject(feedbackModels);for(const [name,mode] of Object.entries(buildModes)){mode.session=emptyBuildSession(name==='guided'?'campus_lab':'sandbox');mode.drafts=Object.create(null);mode.outputs=Object.create(null);mode.feedback=Object.create(null);mode.outputModels=Object.create(null);mode.feedbackModels=Object.create(null);mode.done.clear();mode.task=0;mode.preview='';mode.lastRun=null}for(const id of ['exam','lab','builder'])$('#'+id).innerHTML='';restoring=true;go('home');restoring=false;setSaveStatus('Saved progress cleared');saveStorageError=false}
+function restoreProgress(){restoring=true;let raw=null,migrated=false;try{raw=localStorage.getItem(PROGRESS_KEY)}catch(e){setSaveStatus('Progress saving is unavailable in this browser.',true)}if(raw){try{const candidate=migrateSnapshot(JSON.parse(raw));if(!candidate)throw Error('incompatible progress');const saved=candidate.saved;migrated=candidate.migrated;examState=plain(saved.exam);labLevel=saved.labLevel;restoreCourse('intermediate',saved.courses.intermediate);restoreCourse('advanced',saved.courses.advanced);live=restoreSession(saved.live);clearObject(taskSessions);for(const [key,value] of Object.entries(saved.taskSessions||{}))taskSessions[key]=restoreSession(value);clearObject(trackTasks);Object.assign(trackTasks,saved.trackTasks||{});legacySession=saved.legacySession?restoreSession(saved.legacySession):null;done=new Set(Array.isArray(saved.done)?saved.done.filter(x=>typeof x==='string'):[]);cur=Number.isInteger(saved.cur)?saved.cur:null;ti=Number.isInteger(saved.ti)?saved.ti:0;pvt=typeof saved.pvt==='string'?saved.pvt:'customers';previewExpanded=Boolean(saved.previewExpanded);currentView=['home','exam','lab','builder'].includes(saved.view)?saved.view:'home';clearObject(draft);Object.assign(draft,saved.draft||{});clearObject(outputModels);Object.assign(outputModels,saved.outputs||{});clearObject(feedbackModels);Object.assign(feedbackModels,saved.feedback||{});buildMode=saved.buildMode==='sandbox'?'sandbox':'guided';restoreBuild(buildModes.guided,saved.buildModes.guided);restoreBuild(buildModes.sandbox,saved.buildModes.sandbox);if(cur!==null&&(cur<0||cur>=CFG.length+2))cur=null;if(cur!==null&&(ti<0||ti>=TS(cur).length))ti=0;if(cur!==null)activateTask();const targetView=currentView;progressReady=true;go(targetView);const y=Number(saved.scrollY)||0,id=saved.focusId;setTimeout(()=>{if(id)document.getElementById(id)?.focus({preventScroll:true});scrollTo(0,y)},0);setSaveStatus(migrated?'Study progress updated for the one-question exam. Your answers, completed parts, and SQL work were kept where compatible.':'Saved progress restored')}catch(e){setSaveStatus('Saved progress was unavailable and has been reset.',true)}}progressReady=true;restoring=false;if(migrated){saveProgressNow();if(!saveStorageError)setSaveStatus('Study progress updated for the one-question exam. Your answers, completed parts, and SQL work were kept where compatible.')}}
+function clearSavedProgress(){if(!confirm('Clear all saved exam, SQL lab, and table-building progress? Your theme preference will remain.'))return;clearTimeout(saveTimer);saveTimer=null;try{localStorage.removeItem(PROGRESS_KEY)}catch(e){}examState=makeExamState();live=newSession();clearObject(taskSessions);clearObject(trackTasks);legacySession=null;done=new Set();cur=null;ti=0;pvt='customers';labLevel=null;courseStates.intermediate=makeCourseState();courseStates.advanced=makeCourseState();currentView='home';clearObject(draft);clearObject(outputModels);clearObject(feedbackModels);for(const [name,mode] of Object.entries(buildModes)){mode.session=emptyBuildSession(name==='guided'?'campus_lab':'sandbox');mode.drafts=Object.create(null);mode.outputs=Object.create(null);mode.feedback=Object.create(null);mode.outputModels=Object.create(null);mode.feedbackModels=Object.create(null);mode.done.clear();mode.task=0;mode.preview='';mode.lastRun=null}for(const id of ['exam','lab','builder'])$('#'+id).innerHTML='';restoring=true;go('home');restoring=false;setSaveStatus('Saved progress cleared');saveStorageError=false}
 if(document.addEventListener)document.addEventListener('visibilitychange',()=>{if(document.visibilityState==='hidden')saveProgressNow()});if(typeof window!='undefined'&&window.addEventListener)window.addEventListener('pagehide',saveProgressNow);if(typeof window!='undefined'&&window.addEventListener)window.addEventListener('beforeunload',saveProgressNow);restoreProgress();
 
 </script>

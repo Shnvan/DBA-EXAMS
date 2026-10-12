@@ -22,10 +22,10 @@ const dir=path.resolve(__dirname,'..','verification-artifacts','reliability-brow
    await page.getByRole('button',{name:'Part 1',exact:true}).click();
    check(mode+' answer retained across parts',mode==='Identification'?await page.locator('.exam-part input').first().inputValue()==='DBMS':await page.locator('.exam-part input').first().isChecked());
    await page.reload();check(mode+' answer retained after reload',mode==='Identification'?await page.locator('.exam-part input').first().inputValue()==='DBMS':await page.locator('.exam-part input').first().isChecked());
-   await page.getByRole('button',{name:'Submit part',exact:true}).click();check(mode+' submitted controls locked',await page.locator('.exam-part input:enabled').count()===0);
+   await page.locator('#exam-check').click();check(mode+' checked controls locked',await page.locator('.exam-part input:enabled').count()===0);
    await layout(mode==='Identification'?'id-review':'mc-review');
-   await page.getByRole('button',{name:'Stay on review',exact:true}).click();check(mode+' stay retains review',await page.locator('#exam-result-0').count()===1);
-   await page.getByRole('button',{name:'Part 2',exact:true}).click();await page.getByRole('button',{name:'Submit part',exact:true}).click();
+   await page.evaluate(()=>{const save=saveProgressNow;saveProgressNow=()=>{};try{while(true){const c=currentExamQuestion();if(!c.checked){if(c.mode==='id')document.getElementById('i'+c.sourceIndex).value=c.question[1].split('|')[0];else document.querySelector(`input[name=m${c.sourceIndex}][value="${c.question[2]}"]`).checked=true;examInput();checkExamAnswer()}if(c.position===c.list.length-1)break;nextExamQuestion()}}finally{saveProgressNow=save;saveProgressNow()}});await page.getByRole('button',{name:'Stay on review',exact:true}).click();check(mode+' stay retains review',await page.locator('#exam-result-0').count()===1);
+   await page.getByRole('button',{name:'Part 2',exact:true}).click();await page.evaluate(()=>{const save=saveProgressNow;saveProgressNow=()=>{};try{while(true){const c=currentExamQuestion();if(!c.checked){if(c.mode==='id')document.getElementById('i'+c.sourceIndex).value=c.question[1].split('|')[0];else document.querySelector(`input[name=m${c.sourceIndex}][value="${c.question[2]}"]`).checked=true;examInput();checkExamAnswer()}if(c.position===c.list.length-1)break;nextExamQuestion()}}finally{saveProgressNow=save;saveProgressNow()}});
    await page.getByRole('button',{name:'Continue to Part 3',exact:true}).click();check(mode+' inline continue opens next only',await page.locator('#exam-part-2').count()===1&&await page.locator('.exam-part').count()===1);
    await page.getByRole('button',{name:'Change exam type',exact:true}).click();
   }
