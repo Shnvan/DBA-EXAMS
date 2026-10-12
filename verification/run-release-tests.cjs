@@ -5,7 +5,7 @@ const suites=[
  ['progressShuffle','progress-shuffle-tests.cjs'],['regularSqlAudit','sql-audit-tests.cjs'],['curriculum','curriculum-tests.cjs'],
  ['engineExtensions','engine-extension-tests.cjs'],['fullTermExam','full-term-tests.cjs'],['extraBuilder','extra-builder-tests.cjs'],
  ['labContent','lab-content-tests.cjs'],['labControls','lab-controls-tests.cjs'],['labAssessment','lab-assessment-tests.cjs'],['queryContracts','lab-query-contract-tests.cjs'],
- ['pdfWording','pdf-wording-tests.cjs'],['homeStartup','home-startup-tests.cjs'],['migrationEdges','exam-migration-edge-tests.cjs'],['singleQuestion','single-question-tests.cjs'],['singleQuestionBrowser','single-question-browser.cjs'],['homeStartupBrowser','home-startup-browser.cjs'],['pdfWordingBrowser','pdf-wording-browser.cjs'],['examBrowser','browser-behavior.cjs'],['threeLevelBrowser','three-level-browser.cjs'],['reliabilityBrowser','reliability-browser.cjs'],['labBrowser','lab-controls-browser.cjs','--actual']
+ ['pdfWording','pdf-wording-tests.cjs'],['homeStartup','home-startup-tests.cjs'],['migrationEdges','exam-migration-edge-tests.cjs'],['singleQuestion','single-question-tests.cjs'],['reviewer','reviewer-tests.cjs'],['reviewerExamples','reviewer-example-tests.cjs'],['reviewerBrowser','reviewer-browser.cjs'],['singleQuestionBrowser','single-question-browser.cjs'],['homeStartupBrowser','home-startup-browser.cjs'],['pdfWordingBrowser','pdf-wording-browser.cjs'],['examBrowser','browser-behavior.cjs'],['threeLevelBrowser','three-level-browser.cjs'],['reliabilityBrowser','reliability-browser.cjs'],['labBrowser','lab-controls-browser.cjs','--actual']
 ];
 const results=[];
 for(const [name,file,...args]of suites){
@@ -18,7 +18,7 @@ for(const [name,file,...args]of suites){
  if(summary.checks?.some(c=>typeof c==='object'&&(c.passed===false||c.errors?.length||c.overflow||c.chooserOnly===false||c.restored===false)))throw Error('Failed browser check: '+name);
  fs.writeFileSync(path.join(dir,name+'.json'),JSON.stringify(summary,null,2));results.push({name,file,passed});console.log(name+': '+passed+' passed');
 }
-const release={contentVersion:'pdf-wording-home-v7',suites:results,total:results.reduce((n,s)=>n+s.passed,0),htmlSHA256:crypto.createHash('sha256').update(fs.readFileSync(path.join(root,'DBMS_midterm_practice.html'))).digest('hex'),executedAt:new Date().toISOString()};
+const release={contentVersion:'reviewer-v8',suites:results,total:results.reduce((n,s)=>n+s.passed,0),htmlSHA256:crypto.createHash('sha256').update(fs.readFileSync(path.join(root,'DBMS_midterm_practice.html'))).digest('hex'),executedAt:new Date().toISOString()};
 fs.writeFileSync(path.join(dir,'results.json'),JSON.stringify(release,null,2));
 const {context}=require('./load.cjs')();require('vm').runInContext('globalThis.Inventory={CFG,TS,NM,SQL_CURRICULA,BUILD_TASKS,labTaskContent,courseTaskContent,builderTaskContent}',context);const A=context.Inventory;
 const inventory={version:release.contentVersion,regular:[],courses:[],builder:[]};

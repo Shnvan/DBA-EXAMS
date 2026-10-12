@@ -1,0 +1,1593 @@
+{
+  "modules": [
+    {
+      "id": "module-4",
+      "number": 4,
+      "title": "A Revisit in MySQL Query",
+      "lessons": [
+        {
+          "id": "m4-l1",
+          "title": "MySQL Select Statement",
+          "pages": [
+            67,
+            68,
+            69,
+            70
+          ],
+          "topics": [
+            {
+              "id": "m4-l1-expression",
+              "title": "SQL Expression",
+              "aliases": [],
+              "definition": "A formula that combines columns, literal values, operators, or functions.",
+              "bullets": [
+                "Produces a value that a query can use.",
+                "In a WHERE clause, a Boolean expression decides which rows qualify.",
+                "Expressions can be used when retrieving, updating, or deleting data."
+              ],
+              "pages": [
+                67
+              ],
+              "sourceEvidence": [
+                {
+                  "page": 67,
+                  "excerpt": "An expression, as you’ll recall, is a formula made up of"
+                }
+              ],
+              "coverageIds": [
+                "id-49",
+                "mc-98"
+              ],
+              "example": {
+                "kind": "sql",
+                "text": "SELECT creditLimit + 1000 AS adjustedLimit\nFROM customers;"
+              }
+            },
+            {
+              "id": "m4-l1-select",
+              "title": "SELECT — Retrieve Data",
+              "aliases": [
+                "Structured Query Language SELECT",
+                "Retrieve data"
+              ],
+              "definition": "SELECT reads data from one or more tables.",
+              "bullets": [
+                "The select list chooses the columns or expressions to show.",
+                "FROM names the source table.",
+                "Without WHERE, all source rows qualify."
+              ],
+              "pages": [
+                67,
+                68
+              ],
+              "sourceEvidence": [
+                {
+                  "page": 67,
+                  "excerpt": "The SELECT statement allows you to read data from one or more tables."
+                }
+              ],
+              "coverageIds": [],
+              "example": {
+                "kind": "sql",
+                "text": "SELECT lastName\nFROM employees;"
+              }
+            },
+            {
+              "id": "m4-l1-select-list",
+              "title": "Select List",
+              "aliases": [],
+              "definition": "The columns or expressions written after SELECT determine the output fields.",
+              "bullets": [
+                "One name selects one column; commas separate multiple columns.",
+                "The output follows the order of the select list.",
+                "Selecting three columns does not change the other columns in the table."
+              ],
+              "pages": [
+                68,
+                69,
+                70
+              ],
+              "sourceEvidence": [
+                {
+                  "page": 68,
+                  "excerpt": "a list of \ncolumns or expressions that you want to show in the result."
+                }
+              ],
+              "coverageIds": [
+                "id-190",
+                "mc-223"
+              ],
+              "example": {
+                "kind": "sql",
+                "text": "SELECT lastName, firstName, jobTitle\nFROM employees;"
+              }
+            },
+            {
+              "id": "m4-l1-formatting",
+              "title": "SQL Keyword Formatting",
+              "aliases": [],
+              "definition": "SQL keywords can be written in uppercase or lowercase.",
+              "bullets": [
+                "SELECT and select have the same keyword meaning.",
+                "Line breaks and indentation improve readability; they are not required between clauses.",
+                "Database and table name case sensitivity can depend on settings and the operating system; MySQL/MariaDB column names are not case-sensitive."
+              ],
+              "pages": [
+                68
+              ],
+              "sourceEvidence": [
+                {
+                  "page": 68,
+                  "excerpt": "you can write the keywords in lowercase"
+                }
+              ],
+              "coverageIds": [
+                "id-219",
+                "mc-252"
+              ],
+              "corrections": [
+                {
+                  "text": "The PDF says SQL is not case-sensitive. This is safe for keywords, but not a universal rule for identifiers or string comparisons.",
+                  "url": "https://mariadb.com/docs/server/reference/sql-structure/sql-language-structure/identifier-case-sensitivity",
+                  "label": "MariaDB identifier case sensitivity"
+                }
+              ]
+            },
+            {
+              "id": "m4-l1-semicolon",
+              "title": "Semicolon — Statement Delimiter",
+              "aliases": [],
+              "definition": "A semicolon marks the end of a statement in SQL clients and scripts.",
+              "bullets": [
+                "Use it to separate multiple statements.",
+                "Place it after the final clause.",
+                "A single statement sent through an application API does not universally require it."
+              ],
+              "pages": [
+                68
+              ],
+              "sourceEvidence": [
+                {
+                  "page": 68,
+                  "excerpt": "The semicolon ; is the statement delimiter."
+                }
+              ],
+              "coverageIds": [
+                "id-50",
+                "mc-30"
+              ],
+              "example": {
+                "kind": "sql",
+                "text": "SELECT lastName FROM employees;\nSELECT jobTitle FROM employees;"
+              }
+            },
+            {
+              "id": "m4-l1-evaluation",
+              "title": "Logical SELECT Evaluation",
+              "aliases": [],
+              "definition": "The source rows are established before the select list produces the displayed values.",
+              "bullets": [
+                "For a basic query, think FROM → WHERE → SELECT → ORDER BY.",
+                "This is a logical model; the database optimizer can choose a different physical execution plan."
+              ],
+              "pages": [
+                68
+              ],
+              "sourceEvidence": [
+                {
+                  "page": 68,
+                  "excerpt": "MySQL evaluates the FROM clause first and then the \nSELECT clause:"
+                }
+              ],
+              "coverageIds": [
+                "id-220",
+                "mc-253"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "m4-l2",
+          "title": "MySQL ORDER BY",
+          "pages": [
+            71,
+            72,
+            73,
+            74
+          ],
+          "topics": [
+            {
+              "id": "m4-l2-unsorted",
+              "title": "Result Order Without ORDER BY",
+              "aliases": [],
+              "definition": "A query without ORDER BY has no guaranteed row order.",
+              "bullets": [
+                "Rows can appear in any order.",
+                "Insertion order or a previous result is not a reliable sorting rule."
+              ],
+              "pages": [
+                71
+              ],
+              "sourceEvidence": [
+                {
+                  "page": 71,
+                  "excerpt": "the rows in the result set can be in any order."
+                }
+              ],
+              "coverageIds": [
+                "id-222",
+                "mc-255"
+              ]
+            },
+            {
+              "id": "m4-l2-order",
+              "title": "ORDER BY — Sort Results",
+              "aliases": [],
+              "definition": "ORDER BY sorts the rows returned by a query.",
+              "bullets": [
+                "Write the sort columns or expressions after ORDER BY.",
+                "ASC means ascending; DESC means descending.",
+                "Each sort expression defaults to ASC when no direction is written."
+              ],
+              "pages": [
+                71
+              ],
+              "sourceEvidence": [
+                {
+                  "page": 71,
+                  "excerpt": "To sort the result set, you \nadd the ORDER BY clause"
+                }
+              ],
+              "coverageIds": [
+                "id-2",
+                "mc-29"
+              ],
+              "example": {
+                "kind": "sql",
+                "text": "SELECT contactLastName, contactFirstName\nFROM customers\nORDER BY contactLastName ASC;"
+              }
+            },
+            {
+              "id": "m4-l2-directions",
+              "title": "ASC and DESC",
+              "aliases": [
+                "Ascending",
+                "Descending"
+              ],
+              "definition": "ASC sorts from lower to higher values; DESC sorts from higher to lower values.",
+              "bullets": [
+                "Write the direction after the column it applies to.",
+                "Text ordering follows the column’s collation.",
+                "A direction on one column does not automatically apply to the next column."
+              ],
+              "pages": [
+                71
+              ],
+              "sourceEvidence": [
+                {
+                  "page": 71,
+                  "excerpt": "The ASC stands for ascending and the DESC stands for descending."
+                }
+              ],
+              "coverageIds": [
+                "id-51",
+                "mc-99",
+                "id-52",
+                "mc-100"
+              ],
+              "comparison": {
+                "columns": [
+                  "Keyword",
+                  "Direction",
+                  "Example"
+                ],
+                "rows": [
+                  [
+                    "ASC",
+                    "Ascending",
+                    "ORDER BY creditLimit ASC"
+                  ],
+                  [
+                    "DESC",
+                    "Descending",
+                    "ORDER BY creditLimit DESC"
+                  ]
+                ]
+              }
+            },
+            {
+              "id": "m4-l2-multiple-sort",
+              "title": "Sorting by Multiple Columns",
+              "aliases": [],
+              "definition": "Later sort columns break ties in earlier sort columns.",
+              "bullets": [
+                "Separate sort expressions with commas.",
+                "ORDER BY lastName DESC, firstName ASC sorts last names descending, then first names ascending within equal last names.",
+                "The second sort does not reorder groups established by the first."
+              ],
+              "pages": [
+                72,
+                73,
+                74
+              ],
+              "sourceEvidence": [
+                {
+                  "page": 72,
+                  "excerpt": "only the order of values in the column2 \nchanges."
+                }
+              ],
+              "coverageIds": [
+                "id-223",
+                "mc-256"
+              ],
+              "example": {
+                "kind": "sql",
+                "text": "SELECT contactLastName, contactFirstName\nFROM customers\nORDER BY contactLastName DESC, contactFirstName ASC;"
+              },
+              "corrections": [
+                {
+                  "text": "Page 72 says ORDER BY column1, column2 makes column2 descending. Both default to ascending; write DESC explicitly.",
+                  "url": "https://mariadb.com/docs/server/reference/sql-statements/data-manipulation/selecting-data/order-by",
+                  "label": "MariaDB ORDER BY"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "m4-l3",
+          "title": "MySQL WHERE",
+          "pages": [
+            74,
+            75,
+            76,
+            77,
+            78,
+            79,
+            80
+          ],
+          "topics": [
+            {
+              "id": "m4-l3-where",
+              "title": "WHERE — Filter Rows",
+              "aliases": [
+                "Row filtering"
+              ],
+              "definition": "WHERE keeps rows whose search condition evaluates to TRUE.",
+              "bullets": [
+                "FALSE and UNKNOWN do not qualify.",
+                "Use WHERE in SELECT, UPDATE, or DELETE to choose affected rows.",
+                "In the logical SELECT sequence, WHERE follows FROM and precedes SELECT."
+              ],
+              "pages": [
+                74,
+                75
+              ],
+              "sourceEvidence": [
+                {
+                  "page": 74,
+                  "excerpt": "The WHERE clause allows you to specify a search condition"
+                }
+              ],
+              "coverageIds": [
+                "id-6",
+                "mc-64",
+                "id-221",
+                "mc-254"
+              ],
+              "example": {
+                "kind": "sql",
+                "text": "SELECT lastName, firstName\nFROM employees\nWHERE jobTitle = 'Sales Rep';"
+              }
+            },
+            {
+              "id": "m4-l3-predicate",
+              "title": "Predicate and Search Condition",
+              "aliases": [],
+              "definition": "A predicate is a Boolean expression; a search condition combines predicates to filter rows.",
+              "bullets": [
+                "Its result can be TRUE, FALSE, or UNKNOWN.",
+                "AND, OR, and NOT combine or reverse conditions.",
+                "UNKNOWN commonly appears when a comparison involves NULL."
+              ],
+              "pages": [
+                75
+              ],
+              "sourceEvidence": [
+                {
+                  "page": 75,
+                  "excerpt": "a predicate is a Boolean expression that evaluates \nto TRUE, FALSE, or UNKNOWN"
+                }
+              ],
+              "coverageIds": [
+                "id-83",
+                "mc-116",
+                "id-192",
+                "mc-225",
+                "mc-55"
+              ]
+            },
+            {
+              "id": "m4-l3-equal",
+              "title": "Equality Operator (=)",
+              "aliases": [],
+              "definition": "The equality operator tests whether two values are equal.",
+              "bullets": [
+                "Use column = value to match a specific value.",
+                "Quote text literals, such as Sales Rep.",
+                "Use IS NULL rather than = NULL to test for missing values."
+              ],
+              "pages": [
+                76
+              ],
+              "sourceEvidence": [
+                {
+                  "page": 76,
+                  "excerpt": "whose value in the jobTitle column is Sales Rep."
+                }
+              ],
+              "coverageIds": [
+                "id-193",
+                "mc-226"
+              ],
+              "example": {
+                "kind": "sql",
+                "text": "SELECT lastName, jobTitle\nFROM employees\nWHERE jobTitle = 'Sales Rep';"
+              }
+            },
+            {
+              "id": "m4-l3-combined",
+              "title": "Combining Row Filters",
+              "aliases": [],
+              "definition": "AND and OR combine several row conditions into one search condition.",
+              "bullets": [
+                "AND requires every condition to be true.",
+                "OR accepts either or both conditions being true.",
+                "Use parentheses when mixing them to make the intended grouping clear."
+              ],
+              "pages": [
+                77,
+                78
+              ],
+              "sourceEvidence": [
+                {
+                  "page": 77,
+                  "excerpt": "AND operator evaluates to TRUE only if both expressions evaluate to TRUE."
+                }
+              ],
+              "coverageIds": [],
+              "example": {
+                "kind": "sql",
+                "text": "SELECT lastName, officeCode\nFROM employees\nWHERE jobTitle = 'Sales Rep' AND officeCode = 1;"
+              }
+            },
+            {
+              "id": "m4-l3-not",
+              "title": "NOT — Reverse a Condition",
+              "aliases": [],
+              "definition": "NOT reverses a Boolean condition.",
+              "bullets": [
+                "NOT TRUE is FALSE; NOT FALSE is TRUE.",
+                "NOT UNKNOWN remains UNKNOWN.",
+                "Parentheses make the condition being reversed clear."
+              ],
+              "pages": [
+                75
+              ],
+              "sourceEvidence": [
+                {
+                  "page": 75,
+                  "excerpt": "logical \noperator AND, OR and NOT."
+                }
+              ],
+              "coverageIds": [
+                "id-84",
+                "mc-117"
+              ],
+              "example": {
+                "kind": "sql",
+                "text": "SELECT lastName\nFROM employees\nWHERE NOT (jobTitle = 'Sales Rep');"
+              }
+            },
+            {
+              "id": "m4-l3-between",
+              "title": "BETWEEN — Inclusive Range",
+              "aliases": [],
+              "definition": "BETWEEN checks whether a value lies between two endpoints, including both endpoints.",
+              "bullets": [
+                "value BETWEEN low AND high includes low and high.",
+                "The module’s officeCode BETWEEN 1 AND 3 includes 1, 2, and 3.",
+                "A NULL comparison does not become TRUE merely because it uses BETWEEN."
+              ],
+              "pages": [
+                78,
+                79
+              ],
+              "sourceEvidence": [
+                {
+                  "page": 78,
+                  "excerpt": "The BETWEEN operator returns TRUE if a value is in a range of values"
+                }
+              ],
+              "coverageIds": [
+                "id-195",
+                "mc-228",
+                "id-224",
+                "mc-257"
+              ],
+              "example": {
+                "kind": "sql",
+                "text": "SELECT firstName, lastName, officeCode\nFROM employees\nWHERE officeCode BETWEEN 1 AND 3\nORDER BY officeCode;"
+              }
+            },
+            {
+              "id": "m4-l3-like",
+              "title": "LIKE — Match a Text Pattern",
+              "aliases": [],
+              "definition": "LIKE tests text against a pattern.",
+              "bullets": [
+                "Use % for zero or more characters.",
+                "Use _ for exactly one character.",
+                "A pattern such as %son matches text ending in son.",
+                "Case matching depends on the string’s collation."
+              ],
+              "pages": [
+                79,
+                80
+              ],
+              "sourceEvidence": [
+                {
+                  "page": 79,
+                  "excerpt": "The LIKE operator evaluates to TRUE if a value matches a specified pattern."
+                }
+              ],
+              "coverageIds": [
+                "id-196",
+                "mc-229",
+                "id-225",
+                "mc-258",
+                "mc-4"
+              ],
+              "example": {
+                "kind": "sql",
+                "text": "SELECT firstName, lastName\nFROM employees\nWHERE lastName LIKE '%son'\nORDER BY firstName;"
+              }
+            },
+            {
+              "id": "m4-l3-wildcards",
+              "title": "Percent and Underscore Wildcards",
+              "aliases": [],
+              "definition": "LIKE patterns use % and _ to describe variable parts of text.",
+              "bullets": [
+                "% can match an empty string or several characters.",
+                "_ matches exactly one character.",
+                "These symbols are pattern wildcards inside LIKE, not universal replacements in every SQL expression."
+              ],
+              "pages": [
+                79
+              ],
+              "sourceEvidence": [
+                {
+                  "page": 79,
+                  "excerpt": "The % wildcard matches any string of zero or more \ncharacters while the _ wildcard matches any single character"
+                }
+              ],
+              "coverageIds": [
+                "id-197",
+                "mc-230",
+                "id-198",
+                "mc-231"
+              ],
+              "comparison": {
+                "columns": [
+                  "Pattern",
+                  "Meaning"
+                ],
+                "rows": [
+                  [
+                    "son%",
+                    "Starts with son"
+                  ],
+                  [
+                    "%son",
+                    "Ends with son"
+                  ],
+                  [
+                    "%son%",
+                    "Contains son"
+                  ],
+                  [
+                    "A_",
+                    "A followed by exactly one character"
+                  ]
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "id": "m4-l4",
+          "title": "MySQL AND operator",
+          "pages": [
+            80,
+            81,
+            82,
+            83
+          ],
+          "topics": [
+            {
+              "id": "m4-l4-and",
+              "title": "AND — All Conditions Must Be True",
+              "aliases": [],
+              "definition": "AND returns TRUE only when every operand is TRUE.",
+              "bullets": [
+                "Any FALSE operand makes the result FALSE.",
+                "If no operand is FALSE but one is UNKNOWN, the result is UNKNOWN.",
+                "It is used in WHERE and join conditions."
+              ],
+              "pages": [
+                80,
+                81
+              ],
+              "sourceEvidence": [
+                {
+                  "page": 80,
+                  "excerpt": "The AND operator is a logical operator that combines two or more Boolean"
+                }
+              ],
+              "coverageIds": [
+                "id-199",
+                "mc-232"
+              ],
+              "example": {
+                "kind": "sql",
+                "text": "SELECT customerName, country, state\nFROM customers\nWHERE country = 'USA' AND state = 'CA';"
+              }
+            },
+            {
+              "id": "m4-l4-and-null",
+              "title": "AND with NULL — Truth Table",
+              "aliases": [
+                "Three-valued logic",
+                "Unknown"
+              ],
+              "definition": "AND follows three-valued logic when NULL represents an unknown condition.",
+              "bullets": [
+                "FALSE AND NULL is FALSE.",
+                "TRUE AND NULL is NULL; NULL AND NULL is NULL.",
+                "In MySQL/MariaDB Boolean expressions, 1 represents TRUE and 0 represents FALSE."
+              ],
+              "pages": [
+                80
+              ],
+              "sourceEvidence": [
+                {
+                  "page": 80,
+                  "excerpt": "The following table illustrates the results of the AND operator",
+                  "visual": "AND truth table below Lesson 4"
+                }
+              ],
+              "coverageIds": [
+                "id-226",
+                "mc-259",
+                "id-227",
+                "mc-260",
+                "id-228",
+                "mc-261",
+                "mc-56"
+              ],
+              "comparison": {
+                "columns": [
+                  "AND",
+                  "TRUE",
+                  "FALSE",
+                  "NULL"
+                ],
+                "rows": [
+                  [
+                    "TRUE",
+                    "TRUE",
+                    "FALSE",
+                    "NULL"
+                  ],
+                  [
+                    "FALSE",
+                    "FALSE",
+                    "FALSE",
+                    "FALSE"
+                  ],
+                  [
+                    "NULL",
+                    "NULL",
+                    "FALSE",
+                    "NULL"
+                  ]
+                ]
+              }
+            },
+            {
+              "id": "m4-l4-and-short-circuit",
+              "title": "AND Short-Circuit Evaluation",
+              "aliases": [],
+              "definition": "AND can stop evaluating once a FALSE operand determines the result.",
+              "bullets": [
+                "The module’s 1 = 0 AND 1 / 0 returns 0.",
+                "The second expression need not be evaluated after the first is false.",
+                "Short-circuiting is an evaluation behavior, not a reason to write unsafe calculations."
+              ],
+              "pages": [
+                81
+              ],
+              "sourceEvidence": [
+                {
+                  "page": 81,
+                  "excerpt": "This function is called short-circuit evaluation"
+                }
+              ],
+              "coverageIds": [
+                "id-53",
+                "mc-101"
+              ],
+              "example": {
+                "kind": "sql",
+                "text": "SELECT 1 = 0 AND 1 / 0;"
+              }
+            },
+            {
+              "id": "m4-l4-many-conditions",
+              "title": "More Than Two AND Conditions",
+              "aliases": [],
+              "definition": "AND can require several filters at the same time.",
+              "bullets": [
+                "Every condition must be true for a row to qualify.",
+                "The module combines USA, California, and a credit limit greater than 100000.",
+                "The > operator excludes the boundary itself; > 100000 does not include 100000."
+              ],
+              "pages": [
+                82,
+                83
+              ],
+              "sourceEvidence": [
+                {
+                  "page": 82,
+                  "excerpt": "combine more than two Boolean expressions."
+                }
+              ],
+              "coverageIds": [
+                "id-194",
+                "mc-227"
+              ],
+              "example": {
+                "kind": "sql",
+                "text": "SELECT customerName, country, state, creditLimit\nFROM customers\nWHERE country = 'USA'\n  AND state = 'CA'\n  AND creditLimit > 100000;"
+              }
+            }
+          ]
+        },
+        {
+          "id": "m4-l5",
+          "title": "MySQL OR Operator",
+          "pages": [
+            83,
+            84,
+            85,
+            86
+          ],
+          "topics": [
+            {
+              "id": "m4-l5-or",
+              "title": "OR — At Least One Condition Must Be True",
+              "aliases": [],
+              "definition": "OR returns TRUE when either or both operands are TRUE.",
+              "bullets": [
+                "FALSE OR FALSE is FALSE.",
+                "TRUE OR TRUE is also TRUE; OR is inclusive.",
+                "Use it when a row may satisfy alternative conditions."
+              ],
+              "pages": [
+                83
+              ],
+              "sourceEvidence": [
+                {
+                  "page": 83,
+                  "excerpt": "returns true when \neither condition is true"
+                }
+              ],
+              "coverageIds": [
+                "id-200",
+                "mc-233"
+              ],
+              "example": {
+                "kind": "sql",
+                "text": "SELECT customerName, country\nFROM customers\nWHERE country = 'USA' OR country = 'France';"
+              },
+              "corrections": [
+                {
+                  "text": "Page 78 says only one expression is true. SQL OR also returns TRUE when both conditions are true.",
+                  "url": "https://mariadb.com/docs/server/reference/sql-structure/operators/logical-operators/or",
+                  "label": "MariaDB logical OR"
+                }
+              ]
+            },
+            {
+              "id": "m4-l5-or-null",
+              "title": "OR with NULL — Truth Table",
+              "aliases": [
+                "Three-valued logic",
+                "Unknown"
+              ],
+              "definition": "OR with an unknown operand is TRUE if the other operand is TRUE; otherwise it remains unknown.",
+              "bullets": [
+                "TRUE OR NULL is TRUE.",
+                "FALSE OR NULL is NULL; NULL OR NULL is NULL.",
+                "WHERE keeps only TRUE, so an unknown result does not select a row."
+              ],
+              "pages": [
+                83
+              ],
+              "sourceEvidence": [
+                {
+                  "page": 83,
+                  "excerpt": "The following table shows the result of the OR operator.",
+                  "visual": "OR truth table below Lesson 5"
+                }
+              ],
+              "coverageIds": [
+                "id-229",
+                "mc-262",
+                "id-230",
+                "mc-263",
+                "id-231",
+                "mc-264",
+                "mc-57"
+              ],
+              "comparison": {
+                "columns": [
+                  "OR",
+                  "TRUE",
+                  "FALSE",
+                  "NULL"
+                ],
+                "rows": [
+                  [
+                    "TRUE",
+                    "TRUE",
+                    "TRUE",
+                    "TRUE"
+                  ],
+                  [
+                    "FALSE",
+                    "TRUE",
+                    "FALSE",
+                    "NULL"
+                  ],
+                  [
+                    "NULL",
+                    "TRUE",
+                    "NULL",
+                    "NULL"
+                  ]
+                ]
+              }
+            },
+            {
+              "id": "m4-l5-or-short-circuit",
+              "title": "OR Short-Circuit Evaluation",
+              "aliases": [],
+              "definition": "OR can stop evaluating once a TRUE operand determines the result.",
+              "bullets": [
+                "The module’s 1 = 1 OR 1 / 0 returns 1.",
+                "The division expression need not be evaluated after the first operand is true."
+              ],
+              "pages": [
+                84
+              ],
+              "sourceEvidence": [
+                {
+                  "page": 84,
+                  "excerpt": "MySQL uses short-circuit evaluation for the OR operator."
+                }
+              ],
+              "coverageIds": [],
+              "example": {
+                "kind": "sql",
+                "text": "SELECT 1 = 1 OR 1 / 0;"
+              },
+              "corrections": [
+                {
+                  "text": "Page 84 implies a SELECT division by zero necessarily throws an error. MariaDB SELECT division by zero returns NULL, with a warning depending on SQL mode. Strict INSERT/UPDATE can fail.",
+                  "url": "https://mariadb.com/docs/server/reference/sql-structure/operators/arithmetic-operators/division-operator",
+                  "label": "MariaDB division operator"
+                }
+              ]
+            },
+            {
+              "id": "m4-l5-precedence",
+              "title": "Operator Precedence — AND Before OR",
+              "aliases": [],
+              "definition": "AND has higher precedence than OR in MySQL/MariaDB.",
+              "bullets": [
+                "TRUE OR FALSE AND FALSE means TRUE OR (FALSE AND FALSE).",
+                "The module’s example returns TRUE, displayed as 1.",
+                "Write parentheses when the default grouping is not your intention."
+              ],
+              "pages": [
+                84,
+                85
+              ],
+              "sourceEvidence": [
+                {
+                  "page": 84,
+                  "excerpt": "MySQL always \nevaluates the OR operators after the AND operators."
+                }
+              ],
+              "coverageIds": [
+                "id-54",
+                "mc-102",
+                "id-201",
+                "mc-234",
+                "id-232",
+                "mc-265",
+                "mc-31"
+              ],
+              "example": {
+                "kind": "sql",
+                "text": "SELECT TRUE OR FALSE AND FALSE;"
+              }
+            },
+            {
+              "id": "m4-l5-parentheses",
+              "title": "Parentheses — Control Logical Grouping",
+              "aliases": [],
+              "definition": "Parentheses group conditions so the query applies them together.",
+              "bullets": [
+                "(USA OR France) AND creditLimit > 100000 applies the limit to both countries.",
+                "Without those parentheses, AND applies first and the USA branch can bypass the limit.",
+                "Parentheses clarify meaning even when the default precedence would produce the same result."
+              ],
+              "pages": [
+                86
+              ],
+              "sourceEvidence": [
+                {
+                  "page": 86,
+                  "excerpt": "WHERE (country = 'USA'"
+                }
+              ],
+              "coverageIds": [
+                "id-202",
+                "mc-235"
+              ],
+              "example": {
+                "kind": "sql",
+                "text": "SELECT customerName, country, creditLimit\nFROM customers\nWHERE (country = 'USA' OR country = 'France')\n  AND creditLimit > 100000;"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "module-5",
+      "number": 5,
+      "title": "Understanding to Joins with MySQL",
+      "lessons": [
+        {
+          "id": "m5-l1",
+          "title": "Inner Join Clause",
+          "pages": [
+            88,
+            89,
+            90,
+            91,
+            92,
+            93
+          ],
+          "topics": [
+            {
+              "id": "m5-l1-join",
+              "title": "SQL Join",
+              "aliases": [],
+              "definition": "A join combines rows from different tables using a matching rule.",
+              "bullets": [
+                "It lets a result include columns stored in separate tables.",
+                "A join condition determines how rows relate.",
+                "Tables need not have a declared foreign key to be joined, although foreign keys often describe the relationship."
+              ],
+              "pages": [
+                88
+              ],
+              "sourceEvidence": [
+                {
+                  "page": 88,
+                  "excerpt": "A SQL Join is used to combine rows from two or more tables based on a"
+                }
+              ],
+              "coverageIds": [
+                "id-55",
+                "mc-103"
+              ],
+              "comparison": {
+                "columns": [
+                  "Join",
+                  "Rows retained",
+                  "Missing-side columns"
+                ],
+                "rows": [
+                  [
+                    "INNER JOIN",
+                    "Only matching combinations",
+                    "No unmatched row retained"
+                  ],
+                  [
+                    "LEFT JOIN",
+                    "All left rows plus their matches",
+                    "Right side becomes NULL"
+                  ],
+                  [
+                    "RIGHT JOIN",
+                    "All right rows plus their matches",
+                    "Left side becomes NULL"
+                  ],
+                  [
+                    "FULL OUTER JOIN concept",
+                    "Both sides, matched or unmatched",
+                    "Missing opposite side becomes NULL"
+                  ]
+                ]
+              }
+            },
+            {
+              "id": "m5-l1-inner",
+              "title": "INNER JOIN — Matching Rows",
+              "aliases": [],
+              "definition": "INNER JOIN returns combinations whose join condition evaluates to TRUE.",
+              "bullets": [
+                "Unmatched rows are excluded.",
+                "If nothing matches, the result is empty.",
+                "A source row with several matches appears in several result rows."
+              ],
+              "pages": [
+                89,
+                90
+              ],
+              "sourceEvidence": [
+                {
+                  "page": 89,
+                  "excerpt": "The INNER JOIN matches each row in one table with every row in other tables"
+                }
+              ],
+              "coverageIds": [
+                "id-203",
+                "mc-236",
+                "id-233",
+                "mc-266",
+                "mc-32"
+              ],
+              "example": {
+                "kind": "sql",
+                "text": "SELECT m.member_id, m.name AS member, c.committee_id\nFROM members AS m\nINNER JOIN committees AS c ON c.name = m.name;"
+              }
+            },
+            {
+              "id": "m5-l1-on",
+              "title": "ON and Join Condition",
+              "aliases": [
+                "Join predicate",
+                "Join condition"
+              ],
+              "definition": "ON introduces the condition that decides which row pairs match.",
+              "bullets": [
+                "A typical condition compares related key values using =.",
+                "Qualify repeated column names with their table names or aliases.",
+                "Only a TRUE condition creates an INNER JOIN match."
+              ],
+              "pages": [
+                89
+              ],
+              "sourceEvidence": [
+                {
+                  "page": 89,
+                  "excerpt": "The join condition specifies the rule for matching rows"
+                }
+              ],
+              "coverageIds": [
+                "id-205",
+                "mc-238",
+                "id-206",
+                "mc-239"
+              ],
+              "example": {
+                "kind": "sql",
+                "text": "SELECT p.productCode, pl.textDescription\nFROM products AS p\nINNER JOIN productlines AS pl\n  ON p.productLine = pl.productLine;"
+              }
+            },
+            {
+              "id": "m5-l1-aliases",
+              "title": "AS — Column and Table Aliases",
+              "aliases": [],
+              "definition": "AS assigns a temporary name for a column or table inside a query.",
+              "bullets": [
+                "m is the short name for members in FROM members AS m.",
+                "m.name identifies the name column from that table.",
+                "name AS member changes the output label, not the stored column name.",
+                "Table aliases can also be written without AS."
+              ],
+              "pages": [
+                90
+              ],
+              "sourceEvidence": [
+                {
+                  "page": 90,
+                  "excerpt": "FROM \nmembers as m"
+                }
+              ],
+              "coverageIds": [
+                "id-86",
+                "mc-119",
+                "id-207",
+                "mc-240"
+              ],
+              "example": {
+                "kind": "sql",
+                "text": "SELECT m.name AS member\nFROM members AS m;"
+              }
+            },
+            {
+              "id": "m5-l1-using",
+              "title": "USING — Equal Same-Named Join Columns",
+              "aliases": [],
+              "definition": "USING matches equal values in a named column present in both joined tables.",
+              "bullets": [
+                "USING (productLine) is a shorter equality join on the shared column name.",
+                "Use ON when names differ or a more complex condition is needed.",
+                "A NULL value does not equal another NULL in a normal equality join."
+              ],
+              "pages": [
+                91,
+                92,
+                93
+              ],
+              "sourceEvidence": [
+                {
+                  "page": 91,
+                  "excerpt": "you can use the USING clause"
+                }
+              ],
+              "coverageIds": [
+                "id-57",
+                "mc-33"
+              ],
+              "example": {
+                "kind": "sql",
+                "text": "SELECT productCode, productName, textDescription\nFROM products\nINNER JOIN productlines USING (productLine);"
+              }
+            },
+            {
+              "id": "m5-l1-multiple-tables",
+              "title": "Joining More Than Two Tables",
+              "aliases": [],
+              "definition": "A query can chain several joins, each with its own matching rule.",
+              "bullets": [
+                "Start with a table in FROM, then add the related tables.",
+                "Each join uses the result built so far.",
+                "An INNER JOIN at any stage can remove combinations that have no match."
+              ],
+              "pages": [
+                89,
+                90
+              ],
+              "sourceEvidence": [
+                {
+                  "page": 89,
+                  "excerpt": "INNER JOIN t2 ON join_condition1"
+                }
+              ],
+              "coverageIds": [],
+              "example": {
+                "kind": "sql",
+                "text": "SELECT o.orderNumber, od.productCode, p.productName\nFROM orders AS o\nINNER JOIN orderdetails AS od ON od.orderNumber = o.orderNumber\nINNER JOIN products AS p ON p.productCode = od.productCode;"
+              }
+            },
+            {
+              "id": "m5-l1-product-line",
+              "title": "Products and Product Lines — Foreign Key Link",
+              "aliases": [],
+              "definition": "products.productLine refers to the product line recorded in productlines.",
+              "bullets": [
+                "The productLine values connect product rows to their line description.",
+                "Join them to retrieve productCode, productName, and textDescription together.",
+                "The foreign key is the referring column in products."
+              ],
+              "pages": [
+                91,
+                92
+              ],
+              "sourceEvidence": [
+                {
+                  "page": 91,
+                  "excerpt": "column productLine in the table \nproducts is called the foreign key column"
+                }
+              ],
+              "coverageIds": [
+                "id-211",
+                "mc-244"
+              ]
+            },
+            {
+              "id": "m5-l1-order-key",
+              "title": "Order Details — Composite Primary Key",
+              "aliases": [],
+              "definition": "The orderdetails diagram identifies one composite primary key containing orderNumber and productCode.",
+              "bullets": [
+                "The pair identifies an order line in the module’s model.",
+                "orderNumber also connects each line to its order.",
+                "A composite primary key is one key with multiple columns, not two separate primary keys."
+              ],
+              "pages": [
+                93
+              ],
+              "sourceEvidence": [
+                {
+                  "page": 93,
+                  "excerpt": "See the following orders and \norderdetails tables:",
+                  "visual": "orders/orderdetails diagram: asterisks mark orderNumber and productCode in orderdetails"
+                }
+              ],
+              "coverageIds": [
+                "id-213",
+                "mc-246"
+              ]
+            },
+            {
+              "id": "m5-l1-grouping",
+              "title": "GROUP BY — Summarize Joined Rows",
+              "aliases": [],
+              "definition": "GROUP BY gathers rows with the same grouping values for aggregate calculations.",
+              "bullets": [
+                "Join orders to orderdetails to access each order’s lines.",
+                "SUM(quantityOrdered * priceEach) calculates a constructed line-total sum per order.",
+                "Group the selected order number and status when producing one result per order."
+              ],
+              "pages": [
+                93
+              ],
+              "sourceEvidence": [
+                {
+                  "page": 93,
+                  "excerpt": "using the INNER JOIN clause with the GROUP BY clause:"
+                }
+              ],
+              "coverageIds": [],
+              "example": {
+                "kind": "sql",
+                "text": "SELECT o.orderNumber, o.status,\n       SUM(od.quantityOrdered * od.priceEach) AS totalSales\nFROM orders AS o\nINNER JOIN orderdetails AS od ON od.orderNumber = o.orderNumber\nGROUP BY o.orderNumber, o.status;"
+              },
+              "corrections": [
+                {
+                  "text": "Page 93 describes total sales and shows a result but omits the query. This example is constructed from the diagram, not quoted from the PDF.",
+                  "url": "https://mariadb.com/docs/server/reference/sql-statements/data-manipulation/selecting-data/group-by",
+                  "label": "MariaDB GROUP BY"
+                }
+              ]
+            },
+            {
+              "id": "m5-l1-full-dialect",
+              "title": "FULL OUTER JOIN — Dialect Note",
+              "aliases": [],
+              "definition": "The FULL OUTER JOIN concept preserves unmatched rows from both sides as well as matches.",
+              "bullets": [
+                "The module mentions this concept in its objectives and summary.",
+                "MySQL/MariaDB do not provide native FULL OUTER JOIN syntax.",
+                "Do not treat a FULL JOIN statement from another dialect as directly executable MySQL syntax."
+              ],
+              "pages": [
+                88,
+                105
+              ],
+              "sourceEvidence": [
+                {
+                  "page": 88,
+                  "excerpt": "full outer joins."
+                }
+              ],
+              "coverageIds": [],
+              "corrections": [
+                {
+                  "text": "The module describes FULL OUTER JOIN under MySQL. It is a valid SQL concept, but native MySQL/MariaDB JOIN syntax does not include it.",
+                  "url": "https://mariadb.com/docs/server/reference/sql-statements/data-manipulation/selecting-data/joins/join-syntax",
+                  "label": "MariaDB JOIN syntax"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "m5-l2",
+          "title": "MySQL Left Join Clause",
+          "pages": [
+            94,
+            95,
+            96,
+            97,
+            98,
+            99
+          ],
+          "topics": [
+            {
+              "id": "m5-l2-left",
+              "title": "LEFT JOIN — Keep Every Left Row",
+              "aliases": [
+                "LEFT OUTER JOIN"
+              ],
+              "definition": "LEFT JOIN retains every row from the table on its left, with matching right rows when available.",
+              "bullets": [
+                "The table before LEFT JOIN is the left table.",
+                "Unmatched left rows receive NULL in right-table columns.",
+                "Several right-side matches can produce several result rows for one left row."
+              ],
+              "pages": [
+                94,
+                95
+              ],
+              "sourceEvidence": [
+                {
+                  "page": 94,
+                  "excerpt": "the left join selects all data from the left table"
+                }
+              ],
+              "coverageIds": [
+                "id-56",
+                "mc-104",
+                "id-234",
+                "mc-267"
+              ],
+              "example": {
+                "kind": "sql",
+                "text": "SELECT m.member_id, m.name, c.committee_id\nFROM members AS m\nLEFT JOIN committees AS c USING (name);"
+              }
+            },
+            {
+              "id": "m5-l2-left-missing",
+              "title": "LEFT JOIN — Find Unmatched Rows",
+              "aliases": [],
+              "definition": "A LEFT JOIN followed by an IS NULL test can find left rows with no right-side match.",
+              "bullets": [
+                "Test a right-side key that cannot be NULL in a real matched row.",
+                "The module uses c.committee_id IS NULL to find members without a matching committee row.",
+                "IS NULL tests missing values; = NULL does not perform this test."
+              ],
+              "pages": [
+                96,
+                97
+              ],
+              "sourceEvidence": [
+                {
+                  "page": 96,
+                  "excerpt": "find rows in the left table that does not have \ncorresponding rows in the right table."
+                }
+              ],
+              "coverageIds": [
+                "id-208",
+                "mc-241"
+              ],
+              "example": {
+                "kind": "sql",
+                "text": "SELECT m.member_id, m.name\nFROM members AS m\nLEFT JOIN committees AS c USING (name)\nWHERE c.committee_id IS NULL;"
+              }
+            },
+            {
+              "id": "m5-l2-one-many",
+              "title": "Customers and Orders — One-to-Many Relationship",
+              "aliases": [],
+              "definition": "One customer can have zero or more orders; each order belongs to one customer in the module’s model.",
+              "bullets": [
+                "customers.customerNumber identifies the customer.",
+                "orders.customerNumber links an order to that customer.",
+                "An all-customers LEFT JOIN keeps customers even when they have no orders."
+              ],
+              "pages": [
+                97,
+                98
+              ],
+              "sourceEvidence": [
+                {
+                  "page": 97,
+                  "excerpt": "Each customer can have zero or more orders while each order must belong to one",
+                  "visual": "customers/orders relationship diagram"
+                }
+              ],
+              "coverageIds": [
+                "id-210",
+                "mc-243"
+              ],
+              "example": {
+                "kind": "sql",
+                "text": "SELECT c.customerNumber, c.customerName, o.orderNumber, o.status\nFROM customers AS c\nLEFT JOIN orders AS o ON o.customerNumber = c.customerNumber;"
+              }
+            },
+            {
+              "id": "m5-l2-customers-no-orders",
+              "title": "Customers Without Orders",
+              "aliases": [],
+              "definition": "Filter the joined order key for NULL to find customers who have no matching order.",
+              "bullets": [
+                "LEFT JOIN retains all customers before the filter.",
+                "A missing order produces NULL in orderNumber and status.",
+                "USING (customerNumber) is available when both join columns share that name."
+              ],
+              "pages": [
+                99
+              ],
+              "sourceEvidence": [
+                {
+                  "page": 99,
+                  "excerpt": "find customers who have no order:"
+                }
+              ],
+              "coverageIds": [
+                "mc-2"
+              ],
+              "example": {
+                "kind": "sql",
+                "text": "SELECT c.customerNumber, c.customerName\nFROM customers AS c\nLEFT JOIN orders AS o ON o.customerNumber = c.customerNumber\nWHERE o.orderNumber IS NULL;"
+              }
+            }
+          ]
+        },
+        {
+          "id": "m5-l3",
+          "title": "MySQL Right Join Clause",
+          "pages": [
+            100,
+            101,
+            102,
+            103,
+            104
+          ],
+          "topics": [
+            {
+              "id": "m5-l3-right",
+              "title": "RIGHT JOIN — Keep Every Right Row",
+              "aliases": [
+                "RIGHT OUTER JOIN"
+              ],
+              "definition": "RIGHT JOIN retains every row from the table on its right, with matching left rows when available.",
+              "bullets": [
+                "The table after RIGHT JOIN is the right table.",
+                "Unmatched right rows receive NULL in left-table columns.",
+                "RIGHT OUTER JOIN is another spelling of RIGHT JOIN.",
+                "USING is available for equality joins on same-named columns."
+              ],
+              "pages": [
+                100,
+                101
+              ],
+              "sourceEvidence": [
+                {
+                  "page": 100,
+                  "excerpt": "the column of the left table will have NULL in the final result set"
+                }
+              ],
+              "coverageIds": [
+                "id-204",
+                "mc-237",
+                "id-235",
+                "mc-268",
+                "mc-34"
+              ],
+              "example": {
+                "kind": "sql",
+                "text": "SELECT m.member_id, m.name AS member, c.committee_id\nFROM members AS m\nRIGHT JOIN committees AS c ON c.name = m.name;"
+              },
+              "corrections": [
+                {
+                  "text": "Page 101 reverses the missing side. An unmatched RIGHT JOIN row keeps the right-table values; the left-table columns become NULL. Page 100 explains this correctly.",
+                  "url": "https://mariadb.com/docs/server/reference/sql-statements/data-manipulation/selecting-data/joins/join-syntax",
+                  "label": "MariaDB JOIN syntax"
+                }
+              ]
+            },
+            {
+              "id": "m5-l3-sales-rep",
+              "title": "Customers and Sales Representatives — Optional Reference",
+              "aliases": [],
+              "definition": "customers.salesRepEmployeeNumber links a customer to employees.employeeNumber.",
+              "bullets": [
+                "One employee can be responsible for zero or more customers.",
+                "A customer has zero or one assigned sales representative in the module’s model.",
+                "NULL salesRepEmployeeNumber means that customer has no assigned representative."
+              ],
+              "pages": [
+                102
+              ],
+              "sourceEvidence": [
+                {
+                  "page": 102,
+                  "excerpt": "salesRepEmployeeNumber in the table customers links to the column",
+                  "visual": "employees/customers relationship diagram"
+                }
+              ],
+              "coverageIds": [
+                "id-212",
+                "mc-245",
+                "id-236",
+                "mc-269"
+              ]
+            },
+            {
+              "id": "m5-l3-employees-all",
+              "title": "All Employees and Their Customers",
+              "aliases": [],
+              "definition": "Put employees on the right of a RIGHT JOIN to keep employees with no customer match.",
+              "bullets": [
+                "Matching customers are displayed alongside their employee.",
+                "An employee without customers has NULL in the customer-side columns.",
+                "ORDER BY employeeNumber controls the result order."
+              ],
+              "pages": [
+                103
+              ],
+              "sourceEvidence": [
+                {
+                  "page": 103,
+                  "excerpt": "RIGHT JOIN returns all rows from the table employees"
+                }
+              ],
+              "coverageIds": [],
+              "example": {
+                "kind": "sql",
+                "text": "SELECT e.employeeNumber, c.customerNumber\nFROM customers AS c\nRIGHT JOIN employees AS e\n  ON c.salesRepEmployeeNumber = e.employeeNumber\nORDER BY e.employeeNumber;"
+              }
+            },
+            {
+              "id": "m5-l3-right-missing",
+              "title": "RIGHT JOIN — Find Unmatched Rows",
+              "aliases": [],
+              "definition": "A RIGHT JOIN followed by an IS NULL test can find right rows with no left-side match.",
+              "bullets": [
+                "The module uses customerNumber IS NULL to find employees responsible for no customers.",
+                "Test a left-side non-nullable key so a genuine matched row cannot be mistaken for a missing match.",
+                "Reversing the table order allows the same preservation pattern to be expressed with LEFT JOIN."
+              ],
+              "pages": [
+                104
+              ],
+              "sourceEvidence": [
+                {
+                  "page": 104,
+                  "excerpt": "WHERE customerNumber is NULL"
+                }
+              ],
+              "coverageIds": [
+                "id-209",
+                "mc-242",
+                "mc-59"
+              ],
+              "example": {
+                "kind": "sql",
+                "text": "SELECT e.employeeNumber\nFROM customers AS c\nRIGHT JOIN employees AS e\n  ON c.salesRepEmployeeNumber = e.employeeNumber\nWHERE c.customerNumber IS NULL\nORDER BY e.employeeNumber;"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "exclusions": [
+    {
+      "pages": [
+        67,
+        88
+      ],
+      "reason": "Learning outcomes repeat the lesson topics and are represented by the topic entries rather than separate study cards."
+    },
+    {
+      "pages": [
+        87,
+        105
+      ],
+      "reason": "Summaries repeat taught material. Reference bibliographies and examination scheduling are not instructional concepts; FULL OUTER JOIN summary mention is included as a dialect note."
+    }
+  ]
+}

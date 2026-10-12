@@ -1,0 +1,26 @@
+#home .cards{grid-template-columns:repeat(3,minmax(0,1fr))}
+#reviewer{padding-top:24px}
+.reviewer-search{margin:22px 0 18px}.reviewer-search>label{display:block;font-weight:600;margin-bottom:8px}
+.reviewer-search-controls{display:flex;gap:10px;align-items:stretch}.reviewer-search-controls input{min-width:0;flex:1;border:1px solid var(--control);background:var(--bg);border-radius:10px;padding:10px 12px;min-height:44px}
+.reviewer-search-controls .btn{min-height:44px;white-space:normal}
+.reviewer-module-nav{display:flex;flex-wrap:wrap;gap:8px}.reviewer-module-nav .btn{min-height:44px}
+#reviewer .on{border-color:var(--ac);background:var(--sf);box-shadow:0 0 0 1px var(--ac)}
+.reviewer-module-name{margin:12px 0 22px;font-weight:500}
+.reviewer-layout{display:grid;grid-template-columns:230px minmax(0,1fr);gap:22px;align-items:start}
+#reviewer-lesson-list{min-width:0;position:sticky;top:18px;display:flex;flex-direction:column;gap:9px}
+#reviewer-lesson-list>p{margin:0 0 3px}
+#reviewer-lesson-list button{text-align:left;display:flex;flex-direction:column;gap:3px;min-height:44px;font-weight:400;line-height:1.45}
+#reviewer-content{min-width:0}.reviewer-lesson-heading{margin-bottom:22px}.reviewer-lesson-heading>p{margin:0 0 6px}.reviewer-lesson-heading h3{font-size:1.7rem;line-height:1.25}
+.reviewer-topic-contents{display:flex;flex-wrap:wrap;gap:6px;margin-top:16px}
+.reviewer-topic-contents button{color:var(--fg);background:var(--sf);border:1px solid var(--ln);border-radius:8px;padding:8px 10px;min-height:44px;text-align:left;font-size:.88rem;line-height:1.4;max-width:100%;overflow-wrap:anywhere}
+.reviewer-topic{background:var(--cd);border:1px solid var(--ln);border-radius:14px;padding:22px;margin-bottom:18px;scroll-margin-top:16px;overflow-wrap:anywhere}
+.reviewer-topic h4{font-size:1.1rem;line-height:1.35;margin:0 0 10px;font-weight:650}.reviewer-definition{margin:0 0 12px;max-width:68ch}
+.reviewer-topic ul{margin:0;padding-left:23px}.reviewer-topic li{margin:5px 0;max-width:68ch}
+.reviewer-example{margin-top:15px}.reviewer-example>p{margin:0 0 7px}.reviewer-example pre{margin:0;padding:12px;border-radius:8px;background:var(--sf);overflow-x:auto;white-space:pre-wrap;overflow-wrap:anywhere;font-size:.88rem;line-height:1.55}
+.reviewer-comparison{margin:16px 0 0;border:1px solid var(--ln);border-radius:8px}.reviewer-comparison table{margin:0;min-width:100%;width:100%;font-size:.88rem}.reviewer-comparison th,.reviewer-comparison td{white-space:normal;vertical-align:top;min-width:95px;padding:10px 12px;line-height:1.5}
+.reviewer-correction{padding:12px 14px;margin-top:16px;border-left:3px solid var(--warning);background:var(--sf);border-radius:6px;font-size:.9rem;line-height:1.6}.reviewer-correction p{margin:0 0 6px}.reviewer-correction a{color:var(--focus);text-underline-offset:3px}
+.reviewer-reference{margin:16px 0 0;font-size:.8rem}
+.reviewer-lesson-navigation{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;margin-top:26px;border-top:1px solid var(--ln);padding-top:18px}.reviewer-lesson-navigation .btn{min-height:44px}.reviewer-lesson-navigation p{margin:0}
+.reviewer-search-summary{margin:8px 0 16px}.reviewer-search-result{width:100%;display:flex;flex-direction:column;gap:5px;padding:16px 18px;margin:0 0 12px;border:1px solid var(--ln);border-radius:12px;background:var(--cd);text-align:left;min-height:44px;overflow-wrap:anywhere}.reviewer-search-result:hover{border-color:var(--ac)}
+@media(max-width:800px){#home .cards{grid-template-columns:1fr}.reviewer-layout{grid-template-columns:1fr;gap:20px}#reviewer-lesson-list{position:static;display:grid;grid-template-columns:repeat(2,minmax(0,1fr))}#reviewer-lesson-list>p{grid-column:1/-1}.reviewer-topic{padding:18px}}
+@media(max-width:420px){.reviewer-search-controls{flex-wrap:wrap}.reviewer-search-controls input{flex-basis:100%}.reviewer-module-nav .btn{flex:1 1 88px;padding:10px 12px}#reviewer-lesson-list{grid-template-columns:1fr}.reviewer-topic{padding:16px}.reviewer-lesson-navigation{display:grid;grid-template-columns:1fr 1fr}.reviewer-lesson-navigation p{grid-column:1/-1;grid-row:1;text-align:center}.reviewer-lesson-navigation .btn{padding:10px;overflow-wrap:anywhere}.reviewer-lesson-heading h3{font-size:1.45rem}}

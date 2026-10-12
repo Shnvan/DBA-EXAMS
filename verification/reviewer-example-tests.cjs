@@ -1,0 +1,24 @@
+const fs=require('fs'),path=require('path'),assert=require('assert/strict'),{X}=require('./load.cjs')();
+const checks=[],details=[],plain=x=>JSON.parse(JSON.stringify(x));
+const test=(name,fn)=>{fn();checks.push(name)},last=(sql,db)=>X.exec(sql,db).at(-1);
+for(const module of X.REVIEWER_MODULES)for(const lesson of module.lessons)for(const topic of lesson.topics){
+ const example=topic.example;if(!example||!['sql','column'].includes(example.kind))continue;
+ test(topic.id+' example executes in an isolated session',()=>{
+  const db=X.newSession();for(const setup of example.setup||[])X.exec(setup,db);
+  const sql=example.kind==='column'?'CREATE TABLE reviewer_column_example ('+example.text+');':example.text;
+  const results=X.exec(sql,db);assert(results.length>0);details.push({topicId:topic.id,pages:plain(topic.pages),kind:example.kind,statements:results.length});
+ });
+}
+const students=()=>{const db=X.newSession();X.exec("CREATE TABLE reviewer_students (id INT PRIMARY KEY, name VARCHAR(20), department INT, phone VARCHAR(20)); INSERT INTO reviewer_students VALUES (1,'Ana',1,NULL),(2,'Ben',1,'123'),(3,'Cara',2,NULL);",db);return db};
+test('NULL tests distinguish missing values from equality',()=>{const db=students();assert.deepEqual(plain(last('SELECT id FROM reviewer_students WHERE phone IS NULL ORDER BY id',db).rows),[[1],[3]]);assert.equal(last('SELECT id FROM reviewer_students WHERE phone = NULL',db).rows.length,0);assert.deepEqual(plain(last("SELECT COALESCE(phone,'Missing') FROM reviewer_students ORDER BY id",db).rows),[['Missing'],['123'],['Missing']])});
+test('Grouping and HAVING filter groups rather than rows',()=>{const db=students();assert.deepEqual(plain(last('SELECT department,COUNT(*) FROM reviewer_students GROUP BY department HAVING COUNT(*)>1',db).rows),[[1,2]])});
+test('DISTINCT operates on all selected columns',()=>{const db=students();assert.equal(last('SELECT DISTINCT department FROM reviewer_students',db).rows.length,2);assert.equal(last('SELECT DISTINCT department,name FROM reviewer_students',db).rows.length,3)});
+test('Each sort expression has its own direction',()=>{const db=students();assert.deepEqual(plain(last('SELECT id FROM reviewer_students ORDER BY department,id DESC',db).rows),[[2],[1],[3]])});
+test('Inclusive OR includes rows satisfying both conditions',()=>{const db=students();assert.deepEqual(plain(last('SELECT id FROM reviewer_students WHERE department=1 OR id=2 ORDER BY id',db).rows),[[1],[2]])});
+test('LEFT and RIGHT joins preserve the stated side',()=>{const db=students();X.exec("CREATE TABLE reviewer_departments (id INT PRIMARY KEY); INSERT INTO reviewer_departments VALUES (1),(4);",db);assert.deepEqual(plain(last('SELECT s.id,d.id FROM reviewer_students s LEFT JOIN reviewer_departments d ON s.department=d.id ORDER BY s.id',db).rows),[[1,1],[2,1],[3,null]]);assert.deepEqual(plain(last('SELECT s.id,d.id FROM reviewer_students s RIGHT JOIN reviewer_departments d ON s.department=d.id ORDER BY d.id,s.id',db).rows),[[1,1],[2,1],[null,4]])});
+test('Precision and scale allow the PDF boundary amount',()=>{const db=X.newSession();X.exec('CREATE TABLE reviewer_prices (amount NUMERIC(8,2)); INSERT INTO reviewer_prices VALUES (999999.99);',db);assert.equal(last('SELECT amount FROM reviewer_prices',db).rows[0][0],'999999.99')});
+test('Required fields and unique keys enforce separate rules',()=>{const db=X.newSession();X.exec("CREATE TABLE reviewer_keys (id INT PRIMARY KEY, name VARCHAR(20) NOT NULL UNIQUE); INSERT INTO reviewer_keys VALUES (1,'Ana');",db);assert.throws(()=>X.exec("INSERT INTO reviewer_keys VALUES (1,'Ben');",db));assert.throws(()=>X.exec("INSERT INTO reviewer_keys VALUES (2,'Ana');",db));assert.throws(()=>X.exec('INSERT INTO reviewer_keys VALUES (2,NULL);',db))});
+test('DELETE, TRUNCATE, and DROP affect rows and objects differently',()=>{const db=students();X.exec('DELETE FROM reviewer_students WHERE id=1;',db);assert.equal(last('SELECT * FROM reviewer_students',db).rows.length,2);X.exec('TRUNCATE TABLE reviewer_students;',db);assert.equal(last('SELECT * FROM reviewer_students',db).rows.length,0);X.exec('DROP TABLE reviewer_students;',db);assert.throws(()=>last('SELECT * FROM reviewer_students',db))});
+test('Savepoint rollback preserves earlier transaction changes',()=>{const db=students();X.exec("START TRANSACTION; UPDATE reviewer_students SET name='Anna' WHERE id=1; SAVEPOINT before_delete; DELETE FROM reviewer_students WHERE id=2; ROLLBACK TO SAVEPOINT before_delete; COMMIT;",db);assert.deepEqual(plain(last('SELECT id,name FROM reviewer_students ORDER BY id',db).rows),[[1,'Anna'],[2,'Ben'],[3,'Cara']])});
+const dir=path.resolve(__dirname,'../verification-artifacts/reviewer');fs.mkdirSync(dir,{recursive:true});fs.writeFileSync(path.join(dir,'sql-examples.json'),JSON.stringify({examples:details.length,details,checks},null,2)+'\n');
+console.log(JSON.stringify({passed:checks.length,examples:details.length,checks}));

@@ -5,7 +5,7 @@ fs.mkdirSync(dir,{recursive:true});
 let html=fs.readFileSync(path.join(root,'DBMS_midterm_practice.html'),'utf8');
 if(!process.argv.includes('--actual')){
  const match=html.match(/<script>([\s\S]*?)<\/script>/),marker=match[1].indexOf('/* supplemental module content and task grading */');
- const names=['exam-content.js','curriculum.js','sql-grading.js','lab-content.js','lab-query-contract.js','lab-assessment.js','learning-ui.js','exam-policy.js','exam-ui.js','ui.js'];
+ const names=['exam-content.js','reviewer-content.js','reviewer-ui.js','curriculum.js','sql-grading.js','lab-content.js','lab-query-contract.js','lab-assessment.js','learning-ui.js','exam-policy.js','exam-ui.js','ui.js'];
  const source=match[1].slice(0,marker)+names.filter(n=>fs.existsSync(path.join(__dirname,n))).map(n=>fs.readFileSync(path.join(__dirname,n),'utf8')).join('\n');
  html=html.replace(match[0],()=>'<script>'+source+'</script>').replace('</style>',fs.readFileSync(path.join(__dirname,'lab-ui.css'),'utf8')+'\n</style>');
 }

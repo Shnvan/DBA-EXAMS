@@ -1,0 +1,4215 @@
+{
+  "version": "reviewer-v8",
+  "pdfSHA256": "bd934884252012c84dd9536e847f5006fa79ef8422578ef9bf65fe1e837f892c",
+  "modules": 5,
+  "lessons": 18,
+  "topics": 221,
+  "conceptLinks": [
+    {
+      "id": "source-concept-0",
+      "concept": "database management system",
+      "page": 17,
+      "questionIds": [
+        "id-0",
+        "mc-60"
+      ],
+      "topicIds": [
+        "m1-dbms"
+      ]
+    },
+    {
+      "id": "source-concept-1",
+      "concept": "tuple",
+      "page": 14,
+      "questionIds": [
+        "id-1",
+        "mc-61"
+      ],
+      "topicIds": [
+        "m1-record"
+      ]
+    },
+    {
+      "id": "source-concept-2",
+      "concept": "order by",
+      "page": 71,
+      "questionIds": [
+        "id-2",
+        "mc-29"
+      ],
+      "topicIds": [
+        "m4-l2-order"
+      ]
+    },
+    {
+      "id": "source-concept-3",
+      "concept": "data control language",
+      "page": 65,
+      "questionIds": [
+        "id-3",
+        "mc-62"
+      ],
+      "topicIds": [
+        "m3-dcl"
+      ]
+    },
+    {
+      "id": "source-concept-4",
+      "concept": "null",
+      "page": 42,
+      "questionIds": [
+        "id-4",
+        "mc-63"
+      ],
+      "topicIds": [
+        "m2-null"
+      ]
+    },
+    {
+      "id": "source-concept-5",
+      "concept": "drop",
+      "page": 54,
+      "questionIds": [
+        "id-5",
+        "mc-26"
+      ],
+      "topicIds": [
+        "m3-drop"
+      ]
+    },
+    {
+      "id": "source-concept-6",
+      "concept": "where",
+      "page": 74,
+      "questionIds": [
+        "id-6",
+        "mc-64"
+      ],
+      "topicIds": [
+        "m4-l3-where"
+      ]
+    },
+    {
+      "id": "source-concept-7",
+      "concept": "metadata",
+      "page": 11,
+      "questionIds": [
+        "id-7",
+        "mc-65"
+      ],
+      "topicIds": [
+        "m1-metadata"
+      ]
+    },
+    {
+      "id": "source-concept-8",
+      "concept": "data dictionary",
+      "page": 11,
+      "questionIds": [
+        "id-8",
+        "mc-66"
+      ],
+      "topicIds": [
+        "m1-data-dictionary"
+      ]
+    },
+    {
+      "id": "source-concept-9",
+      "concept": "foreign key",
+      "page": 15,
+      "questionIds": [
+        "id-10",
+        "mc-68"
+      ],
+      "topicIds": [
+        "m1-foreign-key"
+      ]
+    },
+    {
+      "id": "source-concept-10",
+      "concept": "attribute",
+      "page": 13,
+      "questionIds": [
+        "id-11",
+        "mc-69"
+      ],
+      "topicIds": [
+        "m1-column"
+      ]
+    },
+    {
+      "id": "source-concept-11",
+      "concept": "data item",
+      "page": 14,
+      "questionIds": [
+        "id-12",
+        "mc-70"
+      ],
+      "topicIds": [
+        "m1-data-item"
+      ]
+    },
+    {
+      "id": "source-concept-12",
+      "concept": "primary key",
+      "page": 15,
+      "questionIds": [
+        "id-13",
+        "mc-71"
+      ],
+      "topicIds": [
+        "m1-primary-key"
+      ]
+    },
+    {
+      "id": "source-concept-13",
+      "concept": "isolation",
+      "page": 18,
+      "questionIds": [
+        "id-14",
+        "mc-72"
+      ],
+      "topicIds": [
+        "m1-acid"
+      ]
+    },
+    {
+      "id": "source-concept-14",
+      "concept": "normalization",
+      "page": 17,
+      "questionIds": [
+        "id-15",
+        "mc-73"
+      ],
+      "topicIds": [
+        "m1-normalization"
+      ]
+    },
+    {
+      "id": "source-concept-15",
+      "concept": "codd",
+      "page": 19,
+      "questionIds": [
+        "id-16",
+        "mc-74"
+      ],
+      "topicIds": [
+        "m1-codd"
+      ]
+    },
+    {
+      "id": "source-concept-16",
+      "concept": "enterprise database",
+      "page": 12,
+      "questionIds": [
+        "id-17",
+        "mc-75"
+      ],
+      "topicIds": [
+        "m1-database-scale"
+      ]
+    },
+    {
+      "id": "source-concept-17",
+      "concept": "relation",
+      "page": 19,
+      "questionIds": [
+        "id-18",
+        "mc-76"
+      ],
+      "topicIds": [
+        "m1-table"
+      ]
+    },
+    {
+      "id": "source-concept-18",
+      "concept": "not only structured query language",
+      "page": 21,
+      "questionIds": [
+        "id-19",
+        "mc-77"
+      ],
+      "topicIds": [
+        "m1-nosql"
+      ]
+    },
+    {
+      "id": "source-concept-19",
+      "concept": "graph database",
+      "page": 21,
+      "questionIds": [
+        "id-20",
+        "mc-78"
+      ],
+      "topicIds": [
+        "m1-graph-database"
+      ]
+    },
+    {
+      "id": "source-concept-20",
+      "concept": "object oriented database management system",
+      "page": 22,
+      "questionIds": [
+        "id-21",
+        "mc-54"
+      ],
+      "topicIds": [
+        "m1-object-dbms"
+      ]
+    },
+    {
+      "id": "source-concept-21",
+      "concept": "hierarchical database management system",
+      "page": 23,
+      "questionIds": [
+        "id-22",
+        "mc-5"
+      ],
+      "topicIds": [
+        "m1-hierarchical-dbms"
+      ]
+    },
+    {
+      "id": "source-concept-22",
+      "concept": "network database management system",
+      "page": 23,
+      "questionIds": [
+        "id-23",
+        "mc-15"
+      ],
+      "topicIds": [
+        "m1-network-dbms"
+      ]
+    },
+    {
+      "id": "source-concept-23",
+      "concept": "concurrency control",
+      "page": 25,
+      "questionIds": [
+        "id-24",
+        "mc-79"
+      ],
+      "topicIds": [
+        "m1-concurrency"
+      ]
+    },
+    {
+      "id": "source-concept-24",
+      "concept": "chamberlin",
+      "page": 28,
+      "questionIds": [
+        "id-25",
+        "mc-80"
+      ],
+      "topicIds": [
+        "m2-sql-history"
+      ]
+    },
+    {
+      "id": "source-concept-25",
+      "concept": "nonprocedural language",
+      "page": 29,
+      "questionIds": [
+        "id-26",
+        "mc-81"
+      ],
+      "topicIds": [
+        "m2-declarative"
+      ]
+    },
+    {
+      "id": "source-concept-26",
+      "concept": "decimal",
+      "page": 32,
+      "questionIds": [
+        "id-27",
+        "mc-82"
+      ],
+      "topicIds": [
+        "m2-decimal"
+      ]
+    },
+    {
+      "id": "source-concept-27",
+      "concept": "char",
+      "page": 35,
+      "questionIds": [
+        "id-28",
+        "mc-83"
+      ],
+      "topicIds": [
+        "m2-char"
+      ]
+    },
+    {
+      "id": "source-concept-28",
+      "concept": "blob",
+      "page": 37,
+      "questionIds": [
+        "id-29",
+        "mc-20"
+      ],
+      "topicIds": [
+        "m2-blob"
+      ]
+    },
+    {
+      "id": "source-concept-29",
+      "concept": "boolean",
+      "page": 40,
+      "questionIds": [
+        "id-30",
+        "mc-84"
+      ],
+      "topicIds": [
+        "m2-boolean"
+      ]
+    },
+    {
+      "id": "source-concept-30",
+      "concept": "enum",
+      "page": 41,
+      "questionIds": [
+        "id-31",
+        "mc-1"
+      ],
+      "topicIds": [
+        "m2-enum"
+      ]
+    },
+    {
+      "id": "source-concept-31",
+      "concept": "set",
+      "page": 41,
+      "questionIds": [
+        "id-32",
+        "mc-19"
+      ],
+      "topicIds": [
+        "m2-set-type"
+      ]
+    },
+    {
+      "id": "source-concept-32",
+      "concept": "coalesce",
+      "page": 42,
+      "questionIds": [
+        "id-33",
+        "mc-85"
+      ],
+      "topicIds": [
+        "m2-null-defaults"
+      ]
+    },
+    {
+      "id": "source-concept-33",
+      "concept": "show databases",
+      "page": 45,
+      "questionIds": [
+        "id-34",
+        "mc-86"
+      ],
+      "topicIds": [
+        "m2-show-databases"
+      ]
+    },
+    {
+      "id": "source-concept-34",
+      "concept": "show tables",
+      "page": 45,
+      "questionIds": [
+        "id-35",
+        "mc-24"
+      ],
+      "topicIds": [
+        "m2-show-tables"
+      ]
+    },
+    {
+      "id": "source-concept-35",
+      "concept": "describe",
+      "page": 61,
+      "questionIds": [
+        "id-36",
+        "mc-87"
+      ],
+      "topicIds": [
+        "m3-describe"
+      ]
+    },
+    {
+      "id": "source-concept-36",
+      "concept": "update",
+      "page": 66,
+      "questionIds": [
+        "id-37",
+        "mc-25"
+      ],
+      "topicIds": [
+        "m3-update"
+      ]
+    },
+    {
+      "id": "source-concept-37",
+      "concept": "set",
+      "page": 50,
+      "questionIds": [
+        "id-38",
+        "mc-88"
+      ],
+      "topicIds": [
+        "m3-set-clause"
+      ]
+    },
+    {
+      "id": "source-concept-38",
+      "concept": "insert",
+      "page": 49,
+      "questionIds": [
+        "id-39",
+        "mc-28"
+      ],
+      "topicIds": [
+        "m3-insert"
+      ]
+    },
+    {
+      "id": "source-concept-39",
+      "concept": "cross join",
+      "page": 56,
+      "questionIds": [
+        "id-40",
+        "mc-89"
+      ],
+      "topicIds": [
+        "m3-cross-join"
+      ]
+    },
+    {
+      "id": "source-concept-40",
+      "concept": "data definition language",
+      "page": 62,
+      "questionIds": [
+        "id-41",
+        "mc-90"
+      ],
+      "topicIds": [
+        "m3-ddl"
+      ]
+    },
+    {
+      "id": "source-concept-41",
+      "concept": "data query language",
+      "page": 63,
+      "questionIds": [
+        "id-42",
+        "mc-91"
+      ],
+      "topicIds": [
+        "m3-dql"
+      ]
+    },
+    {
+      "id": "source-concept-42",
+      "concept": "data manipulation language",
+      "page": 64,
+      "questionIds": [
+        "id-43",
+        "mc-92"
+      ],
+      "topicIds": [
+        "m3-dml"
+      ]
+    },
+    {
+      "id": "source-concept-43",
+      "concept": "select",
+      "page": 63,
+      "questionIds": [
+        "id-44",
+        "mc-93"
+      ],
+      "topicIds": [
+        "m3-select"
+      ]
+    },
+    {
+      "id": "source-concept-44",
+      "concept": "grant",
+      "page": 65,
+      "questionIds": [
+        "id-45",
+        "mc-94"
+      ],
+      "topicIds": [
+        "m3-grant"
+      ]
+    },
+    {
+      "id": "source-concept-45",
+      "concept": "truncate",
+      "page": 62,
+      "questionIds": [
+        "id-46",
+        "mc-95"
+      ],
+      "topicIds": [
+        "m3-truncate"
+      ]
+    },
+    {
+      "id": "source-concept-46",
+      "concept": "query",
+      "page": 61,
+      "questionIds": [
+        "id-47",
+        "mc-96"
+      ],
+      "topicIds": [
+        "m3-query"
+      ]
+    },
+    {
+      "id": "source-concept-47",
+      "concept": "constraint",
+      "page": 61,
+      "questionIds": [
+        "id-48",
+        "mc-97"
+      ],
+      "topicIds": [
+        "m3-constraint-category"
+      ]
+    },
+    {
+      "id": "source-concept-48",
+      "concept": "expression",
+      "page": 67,
+      "questionIds": [
+        "id-49",
+        "mc-98"
+      ],
+      "topicIds": [
+        "m4-l1-expression"
+      ]
+    },
+    {
+      "id": "source-concept-49",
+      "concept": "semicolon",
+      "page": 68,
+      "questionIds": [
+        "id-50",
+        "mc-30"
+      ],
+      "topicIds": [
+        "m4-l1-semicolon"
+      ]
+    },
+    {
+      "id": "source-concept-50",
+      "concept": "desc",
+      "page": 71,
+      "questionIds": [
+        "id-51",
+        "mc-99"
+      ],
+      "topicIds": [
+        "m4-l2-directions"
+      ]
+    },
+    {
+      "id": "source-concept-51",
+      "concept": "asc",
+      "page": 71,
+      "questionIds": [
+        "id-52",
+        "mc-100"
+      ],
+      "topicIds": [
+        "m4-l2-directions"
+      ]
+    },
+    {
+      "id": "source-concept-52",
+      "concept": "short circuit evaluation",
+      "page": 81,
+      "questionIds": [
+        "id-53",
+        "mc-101"
+      ],
+      "topicIds": [
+        "m4-l4-and-short-circuit"
+      ]
+    },
+    {
+      "id": "source-concept-53",
+      "concept": "and",
+      "page": 84,
+      "questionIds": [
+        "id-54",
+        "mc-102"
+      ],
+      "topicIds": [
+        "m4-l5-precedence"
+      ]
+    },
+    {
+      "id": "source-concept-54",
+      "concept": "join",
+      "page": 88,
+      "questionIds": [
+        "id-55",
+        "mc-103"
+      ],
+      "topicIds": [
+        "m5-l1-join"
+      ]
+    },
+    {
+      "id": "source-concept-55",
+      "concept": "left join",
+      "page": 94,
+      "questionIds": [
+        "id-56",
+        "mc-104"
+      ],
+      "topicIds": [
+        "m5-l2-left"
+      ]
+    },
+    {
+      "id": "source-concept-56",
+      "concept": "using",
+      "page": 100,
+      "questionIds": [
+        "id-57",
+        "mc-33"
+      ],
+      "topicIds": [
+        "m5-l1-using"
+      ]
+    },
+    {
+      "id": "source-concept-57",
+      "concept": "transaction control language",
+      "page": 61,
+      "questionIds": [
+        "id-58",
+        "mc-36"
+      ],
+      "topicIds": [
+        "m3-tcl"
+      ]
+    },
+    {
+      "id": "source-concept-58",
+      "concept": "having",
+      "page": 63,
+      "questionIds": [
+        "id-59",
+        "mc-105"
+      ],
+      "topicIds": [
+        "m3-having"
+      ]
+    },
+    {
+      "id": "source-concept-59",
+      "concept": "distinct",
+      "page": 63,
+      "questionIds": [
+        "id-60",
+        "mc-106"
+      ],
+      "topicIds": [
+        "m3-distinct"
+      ]
+    },
+    {
+      "id": "source-concept-60",
+      "concept": "limit",
+      "page": 63,
+      "questionIds": [
+        "id-61",
+        "mc-107"
+      ],
+      "topicIds": [
+        "m3-limit"
+      ]
+    },
+    {
+      "id": "source-concept-61",
+      "concept": "full join",
+      "page": 56,
+      "questionIds": [
+        "id-62",
+        "mc-108"
+      ],
+      "topicIds": [
+        "m3-full-join"
+      ]
+    },
+    {
+      "id": "source-concept-62",
+      "concept": "smallint",
+      "page": 32,
+      "questionIds": [
+        "id-63",
+        "mc-38"
+      ],
+      "topicIds": [
+        "m2-smallint"
+      ]
+    },
+    {
+      "id": "source-concept-63",
+      "concept": "bigint",
+      "page": 32,
+      "questionIds": [
+        "id-64",
+        "mc-37"
+      ],
+      "topicIds": [
+        "m2-bigint"
+      ]
+    },
+    {
+      "id": "source-concept-64",
+      "concept": "float",
+      "page": 33,
+      "questionIds": [
+        "id-65",
+        "mc-109"
+      ],
+      "topicIds": [
+        "m2-float"
+      ]
+    },
+    {
+      "id": "source-concept-65",
+      "concept": "double",
+      "page": 34,
+      "questionIds": [
+        "id-66",
+        "mc-110"
+      ],
+      "topicIds": [
+        "m2-double"
+      ]
+    },
+    {
+      "id": "source-concept-66",
+      "concept": "real",
+      "page": 33,
+      "questionIds": [
+        "id-67",
+        "mc-111"
+      ],
+      "topicIds": [
+        "m2-real"
+      ]
+    },
+    {
+      "id": "source-concept-67",
+      "concept": "varbinary",
+      "page": 36,
+      "questionIds": [
+        "id-68",
+        "mc-40"
+      ],
+      "topicIds": [
+        "m2-varbinary"
+      ]
+    },
+    {
+      "id": "source-concept-68",
+      "concept": "time",
+      "page": 38,
+      "questionIds": [
+        "id-69",
+        "mc-41"
+      ],
+      "topicIds": [
+        "m2-time"
+      ]
+    },
+    {
+      "id": "source-concept-69",
+      "concept": "datetime",
+      "page": 39,
+      "questionIds": [
+        "id-70",
+        "mc-42"
+      ],
+      "topicIds": [
+        "m2-datetime"
+      ]
+    },
+    {
+      "id": "source-concept-70",
+      "concept": "timestamp",
+      "page": 39,
+      "questionIds": [
+        "id-71",
+        "mc-43"
+      ],
+      "topicIds": [
+        "m2-timestamp"
+      ]
+    },
+    {
+      "id": "source-concept-71",
+      "concept": "mediumtext",
+      "page": 62,
+      "questionIds": [
+        "id-72",
+        "mc-44"
+      ],
+      "topicIds": [
+        "m3-mediumtext"
+      ]
+    },
+    {
+      "id": "source-concept-72",
+      "concept": "mediumblob",
+      "page": 62,
+      "questionIds": [
+        "id-73",
+        "mc-45"
+      ],
+      "topicIds": [
+        "m3-mediumblob"
+      ]
+    },
+    {
+      "id": "source-concept-73",
+      "concept": "auto_increment",
+      "page": 60,
+      "questionIds": [
+        "id-74",
+        "mc-112"
+      ],
+      "topicIds": [
+        "m3-auto-increment"
+      ]
+    },
+    {
+      "id": "source-concept-74",
+      "concept": "create database",
+      "page": 52,
+      "questionIds": [
+        "id-75",
+        "mc-113"
+      ],
+      "topicIds": [
+        "m3-create-database"
+      ]
+    },
+    {
+      "id": "source-concept-75",
+      "concept": "drop database",
+      "page": 54,
+      "questionIds": [
+        "id-76",
+        "mc-114"
+      ],
+      "topicIds": [
+        "m3-drop"
+      ]
+    },
+    {
+      "id": "source-concept-76",
+      "concept": "audit trail",
+      "page": 24,
+      "questionIds": [
+        "id-77",
+        "mc-49"
+      ],
+      "topicIds": [
+        "m1-audit-trail"
+      ]
+    },
+    {
+      "id": "source-concept-77",
+      "concept": "encryption",
+      "page": 24,
+      "questionIds": [
+        "id-78",
+        "mc-50"
+      ],
+      "topicIds": [
+        "m1-encryption"
+      ]
+    },
+    {
+      "id": "source-concept-78",
+      "concept": "dynamodb",
+      "page": 21,
+      "questionIds": [
+        "id-79",
+        "mc-115"
+      ],
+      "topicIds": [
+        "m1-key-value"
+      ]
+    },
+    {
+      "id": "source-concept-79",
+      "concept": "document oriented database",
+      "page": 21,
+      "questionIds": [
+        "id-80",
+        "mc-52"
+      ],
+      "topicIds": [
+        "m1-document-database"
+      ]
+    },
+    {
+      "id": "source-concept-80",
+      "concept": "column family store",
+      "page": 21,
+      "questionIds": [
+        "id-81",
+        "mc-53"
+      ],
+      "topicIds": [
+        "m1-column-family"
+      ]
+    },
+    {
+      "id": "source-concept-81",
+      "concept": "object oriented database management system",
+      "page": 22,
+      "questionIds": [
+        "id-82",
+        "mc-54"
+      ],
+      "topicIds": [
+        "m1-object-dbms"
+      ]
+    },
+    {
+      "id": "source-concept-82",
+      "concept": "predicate",
+      "page": 75,
+      "questionIds": [
+        "id-83",
+        "mc-116"
+      ],
+      "topicIds": [
+        "m4-l3-predicate"
+      ]
+    },
+    {
+      "id": "source-concept-83",
+      "concept": "not",
+      "page": 75,
+      "questionIds": [
+        "id-84",
+        "mc-117"
+      ],
+      "topicIds": [
+        "m4-l3-not"
+      ]
+    },
+    {
+      "id": "source-concept-84",
+      "concept": "mysql",
+      "page": 44,
+      "questionIds": [
+        "id-85",
+        "mc-118"
+      ],
+      "topicIds": [
+        "m2-mysql-monitor"
+      ]
+    },
+    {
+      "id": "source-concept-85",
+      "concept": "m",
+      "page": 90,
+      "questionIds": [
+        "id-86",
+        "mc-119"
+      ],
+      "topicIds": [
+        "m5-l1-aliases"
+      ]
+    },
+    {
+      "id": "source-concept-86",
+      "concept": "rename",
+      "page": 62,
+      "questionIds": [
+        "id-87",
+        "mc-120"
+      ],
+      "topicIds": [
+        "m3-rename"
+      ]
+    },
+    {
+      "id": "source-concept-87",
+      "concept": "comment",
+      "page": 62,
+      "questionIds": [
+        "id-88",
+        "mc-121"
+      ],
+      "topicIds": [
+        "m3-comment"
+      ]
+    },
+    {
+      "id": "source-concept-88",
+      "concept": "Database",
+      "page": 12,
+      "questionIds": [
+        "id-89",
+        "mc-122"
+      ],
+      "topicIds": [
+        "m1-database"
+      ]
+    },
+    {
+      "id": "source-concept-89",
+      "concept": "Table",
+      "page": 13,
+      "questionIds": [
+        "id-90",
+        "mc-123"
+      ],
+      "topicIds": [
+        "m1-table"
+      ]
+    },
+    {
+      "id": "source-concept-90",
+      "concept": "Column",
+      "page": 13,
+      "questionIds": [
+        "id-91",
+        "mc-124"
+      ],
+      "topicIds": [
+        "m1-column"
+      ]
+    },
+    {
+      "id": "source-concept-91",
+      "concept": "Row",
+      "page": 14,
+      "questionIds": [
+        "id-92",
+        "mc-125"
+      ],
+      "topicIds": [
+        "m1-record"
+      ]
+    },
+    {
+      "id": "source-concept-92",
+      "concept": "Column name",
+      "page": 14,
+      "questionIds": [
+        "id-93",
+        "mc-126"
+      ],
+      "topicIds": [
+        "m1-column-name"
+      ]
+    },
+    {
+      "id": "source-concept-93",
+      "concept": "Personal database",
+      "page": 11,
+      "questionIds": [
+        "id-94",
+        "mc-127"
+      ],
+      "topicIds": [
+        "m1-database-scale"
+      ]
+    },
+    {
+      "id": "source-concept-94",
+      "concept": "Group database",
+      "page": 12,
+      "questionIds": [
+        "id-95",
+        "mc-128"
+      ],
+      "topicIds": [
+        "m1-database-scale"
+      ]
+    },
+    {
+      "id": "source-concept-95",
+      "concept": "Enterprise database",
+      "page": 12,
+      "questionIds": [
+        "id-96",
+        "mc-129"
+      ],
+      "topicIds": [
+        "m1-database-scale"
+      ]
+    },
+    {
+      "id": "source-concept-96",
+      "concept": "Cloud",
+      "page": 16,
+      "questionIds": [
+        "id-97",
+        "mc-130"
+      ],
+      "topicIds": [
+        "m1-cloud"
+      ]
+    },
+    {
+      "id": "source-concept-97",
+      "concept": "Database engine",
+      "page": 17,
+      "questionIds": [
+        "id-98",
+        "mc-131"
+      ],
+      "topicIds": [
+        "m1-database-engine"
+      ]
+    },
+    {
+      "id": "source-concept-98",
+      "concept": "Schema",
+      "page": 20,
+      "questionIds": [
+        "id-99",
+        "mc-132"
+      ],
+      "topicIds": [
+        "m1-schema"
+      ]
+    },
+    {
+      "id": "source-concept-99",
+      "concept": "Domain",
+      "page": 20,
+      "questionIds": [
+        "id-100",
+        "mc-133"
+      ],
+      "topicIds": [
+        "m1-domain"
+      ]
+    },
+    {
+      "id": "source-concept-100",
+      "concept": "Data Definition",
+      "page": 18,
+      "questionIds": [
+        "id-101",
+        "mc-134"
+      ],
+      "topicIds": [
+        "m1-data-definition"
+      ]
+    },
+    {
+      "id": "source-concept-101",
+      "concept": "Schema Definition",
+      "page": 18,
+      "questionIds": [
+        "id-102",
+        "mc-135"
+      ],
+      "topicIds": [
+        "m1-schema-definition"
+      ]
+    },
+    {
+      "id": "source-concept-102",
+      "concept": "Data Types",
+      "page": 18,
+      "questionIds": [
+        "id-103",
+        "mc-136"
+      ],
+      "topicIds": [
+        "m1-data-types"
+      ]
+    },
+    {
+      "id": "source-concept-103",
+      "concept": "Data Manipulation",
+      "page": 18,
+      "questionIds": [
+        "id-104",
+        "mc-137"
+      ],
+      "topicIds": [
+        "m1-data-manipulation"
+      ]
+    },
+    {
+      "id": "source-concept-104",
+      "concept": "Query Processing",
+      "page": 18,
+      "questionIds": [
+        "id-105",
+        "mc-138"
+      ],
+      "topicIds": [
+        "m1-query-processing"
+      ]
+    },
+    {
+      "id": "source-concept-105",
+      "concept": "Data Update",
+      "page": 18,
+      "questionIds": [
+        "id-106",
+        "mc-139"
+      ],
+      "topicIds": [
+        "m1-data-update"
+      ]
+    },
+    {
+      "id": "source-concept-106",
+      "concept": "Transaction Management",
+      "page": 18,
+      "questionIds": [
+        "id-107",
+        "mc-140"
+      ],
+      "topicIds": [
+        "m1-transaction-management"
+      ]
+    },
+    {
+      "id": "source-concept-107",
+      "concept": "Data Security and Integrity",
+      "page": 18,
+      "questionIds": [
+        "id-108",
+        "mc-141"
+      ],
+      "topicIds": [
+        "m1-security-integrity"
+      ]
+    },
+    {
+      "id": "source-concept-108",
+      "concept": "Access Control",
+      "page": 18,
+      "questionIds": [
+        "id-109",
+        "mc-142"
+      ],
+      "topicIds": [
+        "m1-access-control"
+      ]
+    },
+    {
+      "id": "source-concept-109",
+      "concept": "Integrity Constraints",
+      "page": 18,
+      "questionIds": [
+        "id-110",
+        "mc-143"
+      ],
+      "topicIds": [
+        "m1-integrity-constraints"
+      ]
+    },
+    {
+      "id": "source-concept-110",
+      "concept": "Data Storage and Retrieval",
+      "page": 18,
+      "questionIds": [
+        "id-111",
+        "mc-144"
+      ],
+      "topicIds": [
+        "m1-storage-retrieval"
+      ]
+    },
+    {
+      "id": "source-concept-111",
+      "concept": "Storage Management",
+      "page": 18,
+      "questionIds": [
+        "id-112",
+        "mc-145"
+      ],
+      "topicIds": [
+        "m1-storage-management"
+      ]
+    },
+    {
+      "id": "source-concept-112",
+      "concept": "Indexing",
+      "page": 18,
+      "questionIds": [
+        "id-113",
+        "mc-146"
+      ],
+      "topicIds": [
+        "m1-indexing"
+      ]
+    },
+    {
+      "id": "source-concept-113",
+      "concept": "Backup and Recovery",
+      "page": 18,
+      "questionIds": [
+        "id-114",
+        "mc-147"
+      ],
+      "topicIds": [
+        "m1-backup-recovery"
+      ]
+    },
+    {
+      "id": "source-concept-114",
+      "concept": "Data Administration",
+      "page": 18,
+      "questionIds": [
+        "id-115",
+        "mc-148"
+      ],
+      "topicIds": [
+        "m1-administration"
+      ]
+    },
+    {
+      "id": "source-concept-115",
+      "concept": "Database Tuning",
+      "page": 18,
+      "questionIds": [
+        "id-116",
+        "mc-149"
+      ],
+      "topicIds": [
+        "m1-tuning"
+      ]
+    },
+    {
+      "id": "source-concept-116",
+      "concept": "Monitoring and Maintenance",
+      "page": 18,
+      "questionIds": [
+        "id-117",
+        "mc-150"
+      ],
+      "topicIds": [
+        "m1-monitoring-maintenance"
+      ]
+    },
+    {
+      "id": "source-concept-117",
+      "concept": "Relational Database Management System",
+      "page": 21,
+      "questionIds": [
+        "id-118",
+        "mc-151"
+      ],
+      "topicIds": [
+        "m1-relational-dbms"
+      ]
+    },
+    {
+      "id": "source-concept-118",
+      "concept": "not only structured query language database management system",
+      "page": 21,
+      "questionIds": [
+        "id-119",
+        "mc-152"
+      ],
+      "topicIds": [
+        "m1-nosql"
+      ]
+    },
+    {
+      "id": "source-concept-119",
+      "concept": "Key-value store",
+      "page": 21,
+      "questionIds": [
+        "id-120",
+        "mc-153"
+      ],
+      "topicIds": [
+        "m1-key-value"
+      ]
+    },
+    {
+      "id": "source-concept-120",
+      "concept": "Centralized Data Management",
+      "page": 23,
+      "questionIds": [
+        "id-121",
+        "mc-154"
+      ],
+      "topicIds": [
+        "m1-centralized"
+      ]
+    },
+    {
+      "id": "source-concept-121",
+      "concept": "Improved Data Security",
+      "page": 24,
+      "questionIds": [
+        "id-122",
+        "mc-155"
+      ],
+      "topicIds": [
+        "m1-security"
+      ]
+    },
+    {
+      "id": "source-concept-122",
+      "concept": "Efficient Data Retrieval and Manipulation",
+      "page": 24,
+      "questionIds": [
+        "id-123",
+        "mc-156"
+      ],
+      "topicIds": [
+        "m1-efficient-retrieval"
+      ]
+    },
+    {
+      "id": "source-concept-123",
+      "concept": "Data Consistency and Integrity",
+      "page": 24,
+      "questionIds": [
+        "id-124",
+        "mc-157"
+      ],
+      "topicIds": [
+        "m1-consistency-integrity"
+      ]
+    },
+    {
+      "id": "source-concept-124",
+      "concept": "Scalability and Flexibility",
+      "page": 24,
+      "questionIds": [
+        "id-125",
+        "mc-158"
+      ],
+      "topicIds": [
+        "m1-scalability"
+      ]
+    },
+    {
+      "id": "source-concept-125",
+      "concept": "Vertical scaling",
+      "page": 25,
+      "questionIds": [
+        "id-126",
+        "mc-159"
+      ],
+      "topicIds": [
+        "m1-vertical-scaling"
+      ]
+    },
+    {
+      "id": "source-concept-126",
+      "concept": "Horizontal scaling",
+      "page": 25,
+      "questionIds": [
+        "id-127",
+        "mc-160"
+      ],
+      "topicIds": [
+        "m1-horizontal-scaling"
+      ]
+    },
+    {
+      "id": "source-concept-127",
+      "concept": "locking mechanism",
+      "page": 25,
+      "questionIds": [
+        "id-128",
+        "mc-161"
+      ],
+      "topicIds": [
+        "m1-locking"
+      ]
+    },
+    {
+      "id": "source-concept-128",
+      "concept": "Cost Efficiency",
+      "page": 25,
+      "questionIds": [
+        "id-129",
+        "mc-162"
+      ],
+      "topicIds": [
+        "m1-cost-efficiency"
+      ]
+    },
+    {
+      "id": "source-concept-129",
+      "concept": "IBM IMS",
+      "page": 23,
+      "questionIds": [
+        "id-130",
+        "mc-163"
+      ],
+      "topicIds": [
+        "m1-hierarchical-dbms"
+      ]
+    },
+    {
+      "id": "source-concept-130",
+      "concept": "IDMS",
+      "page": 23,
+      "questionIds": [
+        "id-131",
+        "mc-164"
+      ],
+      "topicIds": [
+        "m1-network-dbms"
+      ]
+    },
+    {
+      "id": "source-concept-131",
+      "concept": "MongoDB",
+      "page": 21,
+      "questionIds": [
+        "id-132",
+        "mc-165"
+      ],
+      "topicIds": [
+        "m1-document-database"
+      ]
+    },
+    {
+      "id": "source-concept-132",
+      "concept": "Redis",
+      "page": 21,
+      "questionIds": [
+        "id-133",
+        "mc-166"
+      ],
+      "topicIds": [
+        "m1-key-value"
+      ]
+    },
+    {
+      "id": "source-concept-133",
+      "concept": "Cassandra",
+      "page": 21,
+      "questionIds": [
+        "id-134",
+        "mc-167"
+      ],
+      "topicIds": [
+        "m1-column-family"
+      ]
+    },
+    {
+      "id": "source-concept-134",
+      "concept": "Neo4j",
+      "page": 21,
+      "questionIds": [
+        "id-135",
+        "mc-168"
+      ],
+      "topicIds": [
+        "m1-graph-database"
+      ]
+    },
+    {
+      "id": "source-concept-135",
+      "concept": "ObjectDB",
+      "page": 22,
+      "questionIds": [
+        "id-136",
+        "mc-169"
+      ],
+      "topicIds": [
+        "m1-object-dbms"
+      ]
+    },
+    {
+      "id": "source-concept-136",
+      "concept": "Structured Query Language",
+      "page": 28,
+      "questionIds": [
+        "id-137",
+        "mc-170"
+      ],
+      "topicIds": [
+        "m2-sql"
+      ]
+    },
+    {
+      "id": "source-concept-137",
+      "concept": "Procedural language",
+      "page": 29,
+      "questionIds": [
+        "id-138",
+        "mc-171"
+      ],
+      "topicIds": [
+        "m2-procedural"
+      ]
+    },
+    {
+      "id": "source-concept-138",
+      "concept": "Numeric data types",
+      "page": 31,
+      "questionIds": [
+        "id-139",
+        "mc-172"
+      ],
+      "topicIds": [
+        "m2-numeric"
+      ]
+    },
+    {
+      "id": "source-concept-139",
+      "concept": "INT",
+      "page": 31,
+      "questionIds": [
+        "id-140",
+        "mc-173"
+      ],
+      "topicIds": [
+        "m2-int"
+      ]
+    },
+    {
+      "id": "source-concept-140",
+      "concept": "TINYINT",
+      "page": 32,
+      "questionIds": [
+        "id-141",
+        "mc-174"
+      ],
+      "topicIds": [
+        "m2-tinyint"
+      ]
+    },
+    {
+      "id": "source-concept-141",
+      "concept": "Precision",
+      "page": 32,
+      "questionIds": [
+        "id-142",
+        "mc-175"
+      ],
+      "topicIds": [
+        "m2-precision"
+      ]
+    },
+    {
+      "id": "source-concept-142",
+      "concept": "Scale",
+      "page": 32,
+      "questionIds": [
+        "id-143",
+        "mc-176"
+      ],
+      "topicIds": [
+        "m2-scale"
+      ]
+    },
+    {
+      "id": "source-concept-143",
+      "concept": "Character string data types",
+      "page": 34,
+      "questionIds": [
+        "id-144",
+        "mc-177"
+      ],
+      "topicIds": [
+        "m2-character-types"
+      ]
+    },
+    {
+      "id": "source-concept-144",
+      "concept": "VARCHAR",
+      "page": 35,
+      "questionIds": [
+        "id-145",
+        "mc-178"
+      ],
+      "topicIds": [
+        "m2-varchar"
+      ]
+    },
+    {
+      "id": "source-concept-145",
+      "concept": "TEXT",
+      "page": 35,
+      "questionIds": [
+        "id-146",
+        "mc-179"
+      ],
+      "topicIds": [
+        "m2-text"
+      ]
+    },
+    {
+      "id": "source-concept-146",
+      "concept": "Binary data types",
+      "page": 36,
+      "questionIds": [
+        "id-147",
+        "mc-180"
+      ],
+      "topicIds": [
+        "m2-binary-types"
+      ]
+    },
+    {
+      "id": "source-concept-147",
+      "concept": "BINARY",
+      "page": 36,
+      "questionIds": [
+        "id-148",
+        "mc-181"
+      ],
+      "topicIds": [
+        "m2-binary"
+      ]
+    },
+    {
+      "id": "source-concept-148",
+      "concept": "Date and time data types",
+      "page": 37,
+      "questionIds": [
+        "id-149",
+        "mc-182"
+      ],
+      "topicIds": [
+        "m2-temporal"
+      ]
+    },
+    {
+      "id": "source-concept-149",
+      "concept": "DATE",
+      "page": 37,
+      "questionIds": [
+        "id-150",
+        "mc-183"
+      ],
+      "topicIds": [
+        "m2-date"
+      ]
+    },
+    {
+      "id": "source-concept-150",
+      "concept": "YEAR",
+      "page": 39,
+      "questionIds": [
+        "id-151",
+        "mc-184"
+      ],
+      "topicIds": [
+        "m2-year"
+      ]
+    },
+    {
+      "id": "source-concept-151",
+      "concept": "Miscellaneous data types",
+      "page": 40,
+      "questionIds": [
+        "id-152",
+        "mc-185"
+      ],
+      "topicIds": [
+        "m2-miscellaneous"
+      ]
+    },
+    {
+      "id": "source-concept-152",
+      "concept": "Spatial data types",
+      "page": 40,
+      "questionIds": [
+        "id-153",
+        "mc-186"
+      ],
+      "topicIds": [
+        "m2-spatial"
+      ]
+    },
+    {
+      "id": "source-concept-153",
+      "concept": "JSON",
+      "page": 40,
+      "questionIds": [
+        "id-154",
+        "mc-187"
+      ],
+      "topicIds": [
+        "m2-json"
+      ]
+    },
+    {
+      "id": "source-concept-154",
+      "concept": "IS NULL",
+      "page": 42,
+      "questionIds": [
+        "id-155",
+        "mc-188"
+      ],
+      "topicIds": [
+        "m2-null-tests"
+      ]
+    },
+    {
+      "id": "source-concept-155",
+      "concept": "IS NOT NULL",
+      "page": 42,
+      "questionIds": [
+        "id-156",
+        "mc-189"
+      ],
+      "topicIds": [
+        "m2-null-tests"
+      ]
+    },
+    {
+      "id": "source-concept-156",
+      "concept": "USE",
+      "page": 45,
+      "questionIds": [
+        "id-159",
+        "mc-192"
+      ],
+      "topicIds": [
+        "m2-use"
+      ]
+    },
+    {
+      "id": "source-concept-157",
+      "concept": "SHOW COLUMNS",
+      "page": 45,
+      "questionIds": [
+        "id-160",
+        "mc-193"
+      ],
+      "topicIds": [
+        "m2-show-columns"
+      ]
+    },
+    {
+      "id": "source-concept-158",
+      "concept": "SHOW INDEX",
+      "page": 45,
+      "questionIds": [
+        "id-161",
+        "mc-194"
+      ],
+      "topicIds": [
+        "m2-show-index"
+      ]
+    },
+    {
+      "id": "source-concept-159",
+      "concept": "SHOW TABLE STATUS",
+      "page": 45,
+      "questionIds": [
+        "id-162",
+        "mc-195"
+      ],
+      "topicIds": [
+        "m2-show-table-status"
+      ]
+    },
+    {
+      "id": "source-concept-160",
+      "concept": "\\G",
+      "page": 45,
+      "questionIds": [
+        "id-163",
+        "mc-196"
+      ],
+      "topicIds": [
+        "m2-vertical-output"
+      ]
+    },
+    {
+      "id": "source-concept-161",
+      "concept": "root",
+      "page": 44,
+      "questionIds": [
+        "id-164",
+        "mc-197"
+      ],
+      "topicIds": [
+        "m2-root-user"
+      ]
+    },
+    {
+      "id": "source-concept-162",
+      "concept": "Password option",
+      "page": 59,
+      "questionIds": [
+        "id-165",
+        "mc-198"
+      ],
+      "topicIds": [
+        "m3-client-login"
+      ]
+    },
+    {
+      "id": "source-concept-163",
+      "concept": "Username option",
+      "page": 59,
+      "questionIds": [
+        "id-166",
+        "mc-199"
+      ],
+      "topicIds": [
+        "m3-client-login"
+      ]
+    },
+    {
+      "id": "source-concept-164",
+      "concept": "Create, Read, Update and Delete",
+      "page": 66,
+      "questionIds": [
+        "id-167",
+        "mc-200"
+      ],
+      "topicIds": [
+        "m3-crud"
+      ]
+    },
+    {
+      "id": "source-concept-165",
+      "concept": "UPDATE",
+      "page": 50,
+      "questionIds": [
+        "id-168",
+        "mc-201"
+      ],
+      "topicIds": [
+        "m3-update"
+      ]
+    },
+    {
+      "id": "source-concept-166",
+      "concept": "DELETE",
+      "page": 51,
+      "questionIds": [
+        "id-169",
+        "mc-202"
+      ],
+      "topicIds": [
+        "m3-delete"
+      ]
+    },
+    {
+      "id": "source-concept-167",
+      "concept": "CREATE",
+      "page": 52,
+      "questionIds": [
+        "id-170",
+        "mc-203"
+      ],
+      "topicIds": [
+        "m3-create"
+      ]
+    },
+    {
+      "id": "source-concept-168",
+      "concept": "CREATE TABLE",
+      "page": 52,
+      "questionIds": [
+        "id-171",
+        "mc-204"
+      ],
+      "topicIds": [
+        "m3-create-table"
+      ]
+    },
+    {
+      "id": "source-concept-169",
+      "concept": "ALTER TABLE",
+      "page": 53,
+      "questionIds": [
+        "id-172",
+        "mc-205"
+      ],
+      "topicIds": [
+        "m3-alter-table"
+      ]
+    },
+    {
+      "id": "source-concept-170",
+      "concept": "ADD",
+      "page": 53,
+      "questionIds": [
+        "id-173",
+        "mc-206"
+      ],
+      "topicIds": [
+        "m3-add-column"
+      ]
+    },
+    {
+      "id": "source-concept-171",
+      "concept": "DROP COLUMN",
+      "page": 54,
+      "questionIds": [
+        "id-174",
+        "mc-207"
+      ],
+      "topicIds": [
+        "m3-drop-column"
+      ]
+    },
+    {
+      "id": "source-concept-172",
+      "concept": "MODIFY COLUMN",
+      "page": 54,
+      "questionIds": [
+        "id-175",
+        "mc-208"
+      ],
+      "topicIds": [
+        "m3-modify-column"
+      ]
+    },
+    {
+      "id": "source-concept-173",
+      "concept": "VALUES",
+      "page": 49,
+      "questionIds": [
+        "id-176",
+        "mc-209"
+      ],
+      "topicIds": [
+        "m3-values"
+      ]
+    },
+    {
+      "id": "source-concept-174",
+      "concept": "NOT NULL",
+      "page": 60,
+      "questionIds": [
+        "id-177",
+        "mc-210"
+      ],
+      "topicIds": [
+        "m3-not-null"
+      ]
+    },
+    {
+      "id": "source-concept-175",
+      "concept": "UNIQUE",
+      "page": 60,
+      "questionIds": [
+        "id-178",
+        "mc-211"
+      ],
+      "topicIds": [
+        "m3-unique"
+      ]
+    },
+    {
+      "id": "source-concept-176",
+      "concept": "DEFAULT",
+      "page": 62,
+      "questionIds": [
+        "id-179",
+        "mc-212"
+      ],
+      "topicIds": [
+        "m3-default"
+      ]
+    },
+    {
+      "id": "source-concept-177",
+      "concept": "Result set",
+      "page": 63,
+      "questionIds": [
+        "id-180",
+        "mc-213"
+      ],
+      "topicIds": [
+        "m3-result-set"
+      ]
+    },
+    {
+      "id": "source-concept-178",
+      "concept": "FROM",
+      "page": 63,
+      "questionIds": [
+        "id-181",
+        "mc-214"
+      ],
+      "topicIds": [
+        "m3-from"
+      ]
+    },
+    {
+      "id": "source-concept-179",
+      "concept": "GROUP BY",
+      "page": 63,
+      "questionIds": [
+        "id-182",
+        "mc-215"
+      ],
+      "topicIds": [
+        "m3-group-by"
+      ]
+    },
+    {
+      "id": "source-concept-180",
+      "concept": "GRANT",
+      "page": 65,
+      "questionIds": [
+        "id-183",
+        "mc-216"
+      ],
+      "topicIds": [
+        "m3-grant"
+      ]
+    },
+    {
+      "id": "source-concept-181",
+      "concept": "REVOKE",
+      "page": 65,
+      "questionIds": [
+        "id-184",
+        "mc-217"
+      ],
+      "topicIds": [
+        "m3-revoke"
+      ]
+    },
+    {
+      "id": "source-concept-182",
+      "concept": "SQL View",
+      "page": 58,
+      "questionIds": [
+        "id-188",
+        "mc-221"
+      ],
+      "topicIds": [
+        "m3-sql-view"
+      ]
+    },
+    {
+      "id": "source-concept-183",
+      "concept": "Query by example",
+      "page": 57,
+      "questionIds": [
+        "id-189",
+        "mc-222"
+      ],
+      "topicIds": [
+        "m3-qbe"
+      ]
+    },
+    {
+      "id": "source-concept-184",
+      "concept": "Select list",
+      "page": 68,
+      "questionIds": [
+        "id-190",
+        "mc-223"
+      ],
+      "topicIds": [
+        "m4-l1-select-list"
+      ]
+    },
+    {
+      "id": "source-concept-185",
+      "concept": "Asterisk",
+      "page": 49,
+      "questionIds": [
+        "id-191",
+        "mc-224"
+      ],
+      "topicIds": [
+        "m3-asterisk"
+      ]
+    },
+    {
+      "id": "source-concept-186",
+      "concept": "Search condition",
+      "page": 75,
+      "questionIds": [
+        "id-192",
+        "mc-225"
+      ],
+      "topicIds": [
+        "m4-l3-predicate"
+      ]
+    },
+    {
+      "id": "source-concept-187",
+      "concept": "Equality operator",
+      "page": 76,
+      "questionIds": [
+        "id-193",
+        "mc-226"
+      ],
+      "topicIds": [
+        "m4-l3-equal"
+      ]
+    },
+    {
+      "id": "source-concept-188",
+      "concept": "Greater-than operator",
+      "page": 83,
+      "questionIds": [
+        "id-194",
+        "mc-227"
+      ],
+      "topicIds": [
+        "m4-l4-many-conditions"
+      ]
+    },
+    {
+      "id": "source-concept-189",
+      "concept": "BETWEEN",
+      "page": 78,
+      "questionIds": [
+        "id-195",
+        "mc-228"
+      ],
+      "topicIds": [
+        "m4-l3-between"
+      ]
+    },
+    {
+      "id": "source-concept-190",
+      "concept": "LIKE",
+      "page": 79,
+      "questionIds": [
+        "id-196",
+        "mc-229"
+      ],
+      "topicIds": [
+        "m4-l3-like"
+      ]
+    },
+    {
+      "id": "source-concept-191",
+      "concept": "Percent wildcard",
+      "page": 79,
+      "questionIds": [
+        "id-197",
+        "mc-230"
+      ],
+      "topicIds": [
+        "m4-l3-wildcards"
+      ]
+    },
+    {
+      "id": "source-concept-192",
+      "concept": "Underscore wildcard",
+      "page": 79,
+      "questionIds": [
+        "id-198",
+        "mc-231"
+      ],
+      "topicIds": [
+        "m4-l3-wildcards"
+      ]
+    },
+    {
+      "id": "source-concept-193",
+      "concept": "AND",
+      "page": 80,
+      "questionIds": [
+        "id-199",
+        "mc-232"
+      ],
+      "topicIds": [
+        "m4-l4-and"
+      ]
+    },
+    {
+      "id": "source-concept-194",
+      "concept": "OR",
+      "page": 83,
+      "questionIds": [
+        "id-200",
+        "mc-233"
+      ],
+      "topicIds": [
+        "m4-l5-or"
+      ]
+    },
+    {
+      "id": "source-concept-195",
+      "concept": "Operator precedence",
+      "page": 84,
+      "questionIds": [
+        "id-201",
+        "mc-234"
+      ],
+      "topicIds": [
+        "m4-l5-precedence"
+      ]
+    },
+    {
+      "id": "source-concept-196",
+      "concept": "Parentheses",
+      "page": 86,
+      "questionIds": [
+        "id-202",
+        "mc-235"
+      ],
+      "topicIds": [
+        "m4-l5-parentheses"
+      ]
+    },
+    {
+      "id": "source-concept-197",
+      "concept": "INNER JOIN",
+      "page": 89,
+      "questionIds": [
+        "id-203",
+        "mc-236"
+      ],
+      "topicIds": [
+        "m5-l1-inner"
+      ]
+    },
+    {
+      "id": "source-concept-198",
+      "concept": "RIGHT JOIN",
+      "page": 100,
+      "questionIds": [
+        "id-204",
+        "mc-237"
+      ],
+      "topicIds": [
+        "m5-l3-right"
+      ]
+    },
+    {
+      "id": "source-concept-199",
+      "concept": "ON",
+      "page": 89,
+      "questionIds": [
+        "id-205",
+        "mc-238"
+      ],
+      "topicIds": [
+        "m5-l1-on"
+      ]
+    },
+    {
+      "id": "source-concept-200",
+      "concept": "Join condition",
+      "page": 89,
+      "questionIds": [
+        "id-206",
+        "mc-239"
+      ],
+      "topicIds": [
+        "m5-l1-on"
+      ]
+    },
+    {
+      "id": "source-concept-201",
+      "concept": "AS",
+      "page": 90,
+      "questionIds": [
+        "id-207",
+        "mc-240"
+      ],
+      "topicIds": [
+        "m5-l1-aliases"
+      ]
+    },
+    {
+      "id": "source-concept-202",
+      "concept": "Left anti-join filter",
+      "page": 96,
+      "questionIds": [
+        "id-208",
+        "mc-241"
+      ],
+      "topicIds": [
+        "m5-l2-left-missing"
+      ]
+    },
+    {
+      "id": "source-concept-203",
+      "concept": "Right anti-join filter",
+      "page": 104,
+      "questionIds": [
+        "id-209",
+        "mc-242"
+      ],
+      "topicIds": [
+        "m5-l3-right-missing"
+      ]
+    },
+    {
+      "id": "source-concept-204",
+      "concept": "One-to-many relationship",
+      "page": 97,
+      "questionIds": [
+        "id-210",
+        "mc-243"
+      ],
+      "topicIds": [
+        "m5-l2-one-many"
+      ]
+    },
+    {
+      "id": "source-concept-205",
+      "concept": "Product line link",
+      "page": 91,
+      "questionIds": [
+        "id-211",
+        "mc-244"
+      ],
+      "topicIds": [
+        "m5-l1-product-line"
+      ]
+    },
+    {
+      "id": "source-concept-206",
+      "concept": "Sales representative link",
+      "page": 102,
+      "questionIds": [
+        "id-212",
+        "mc-245"
+      ],
+      "topicIds": [
+        "m5-l3-sales-rep"
+      ]
+    },
+    {
+      "id": "source-concept-207",
+      "concept": "ordernumber and productcode",
+      "page": 93,
+      "questionIds": [
+        "id-213",
+        "mc-246"
+      ],
+      "topicIds": [
+        "m5-l1-order-key"
+      ]
+    },
+    {
+      "id": "source-concept-208",
+      "concept": "ACID Atomicity expansion",
+      "page": 18,
+      "questionIds": [
+        "id-214",
+        "mc-247"
+      ],
+      "topicIds": [
+        "m1-acid"
+      ]
+    },
+    {
+      "id": "source-concept-209",
+      "concept": "ACID Consistency expansion",
+      "page": 18,
+      "questionIds": [
+        "id-215",
+        "mc-248"
+      ],
+      "topicIds": [
+        "m1-acid"
+      ]
+    },
+    {
+      "id": "source-concept-210",
+      "concept": "ACID Durability expansion",
+      "page": 18,
+      "questionIds": [
+        "id-216",
+        "mc-249"
+      ],
+      "topicIds": [
+        "m1-acid"
+      ]
+    },
+    {
+      "id": "source-concept-211",
+      "concept": "UPDATE without WHERE",
+      "page": 50,
+      "questionIds": [
+        "id-217",
+        "mc-250"
+      ],
+      "topicIds": [
+        "m3-update"
+      ]
+    },
+    {
+      "id": "source-concept-212",
+      "concept": "DELETE without WHERE",
+      "page": 51,
+      "questionIds": [
+        "id-218",
+        "mc-251"
+      ],
+      "topicIds": [
+        "m3-delete"
+      ]
+    },
+    {
+      "id": "source-concept-213",
+      "concept": "Keyword case",
+      "page": 68,
+      "questionIds": [
+        "id-219",
+        "mc-252"
+      ],
+      "topicIds": [
+        "m4-l1-formatting"
+      ]
+    },
+    {
+      "id": "source-concept-214",
+      "concept": "FROM before SELECT",
+      "page": 68,
+      "questionIds": [
+        "id-220",
+        "mc-253"
+      ],
+      "topicIds": [
+        "m4-l1-evaluation"
+      ]
+    },
+    {
+      "id": "source-concept-215",
+      "concept": "WHERE evaluation order",
+      "page": 75,
+      "questionIds": [
+        "id-221",
+        "mc-254"
+      ],
+      "topicIds": [
+        "m4-l3-where"
+      ]
+    },
+    {
+      "id": "source-concept-216",
+      "concept": "Unsorted result",
+      "page": 71,
+      "questionIds": [
+        "id-222",
+        "mc-255"
+      ],
+      "topicIds": [
+        "m4-l2-unsorted"
+      ]
+    },
+    {
+      "id": "source-concept-217",
+      "concept": "Secondary sort",
+      "page": 74,
+      "questionIds": [
+        "id-223",
+        "mc-256"
+      ],
+      "topicIds": [
+        "m4-l2-multiple-sort"
+      ]
+    },
+    {
+      "id": "source-concept-218",
+      "concept": "Inclusive BETWEEN",
+      "page": 79,
+      "questionIds": [
+        "id-224",
+        "mc-257"
+      ],
+      "topicIds": [
+        "m4-l3-between"
+      ]
+    },
+    {
+      "id": "source-concept-219",
+      "concept": "Suffix pattern",
+      "page": 80,
+      "questionIds": [
+        "id-225",
+        "mc-258"
+      ],
+      "topicIds": [
+        "m4-l3-like"
+      ]
+    },
+    {
+      "id": "source-concept-220",
+      "concept": "AND false with NULL",
+      "page": 80,
+      "questionIds": [
+        "id-226",
+        "mc-259"
+      ],
+      "topicIds": [
+        "m4-l4-and-null"
+      ]
+    },
+    {
+      "id": "source-concept-221",
+      "concept": "AND true with NULL",
+      "page": 80,
+      "questionIds": [
+        "id-227",
+        "mc-260"
+      ],
+      "topicIds": [
+        "m4-l4-and-null"
+      ]
+    },
+    {
+      "id": "source-concept-222",
+      "concept": "AND NULL with NULL",
+      "page": 80,
+      "questionIds": [
+        "id-228",
+        "mc-261"
+      ],
+      "topicIds": [
+        "m4-l4-and-null"
+      ]
+    },
+    {
+      "id": "source-concept-223",
+      "concept": "OR true with NULL",
+      "page": 83,
+      "questionIds": [
+        "id-229",
+        "mc-262"
+      ],
+      "topicIds": [
+        "m4-l5-or-null"
+      ]
+    },
+    {
+      "id": "source-concept-224",
+      "concept": "OR false with NULL",
+      "page": 83,
+      "questionIds": [
+        "id-230",
+        "mc-263"
+      ],
+      "topicIds": [
+        "m4-l5-or-null"
+      ]
+    },
+    {
+      "id": "source-concept-225",
+      "concept": "OR NULL with NULL",
+      "page": 83,
+      "questionIds": [
+        "id-231",
+        "mc-264"
+      ],
+      "topicIds": [
+        "m4-l5-or-null"
+      ]
+    },
+    {
+      "id": "source-concept-226",
+      "concept": "AND before OR outcome",
+      "page": 85,
+      "questionIds": [
+        "id-232",
+        "mc-265"
+      ],
+      "topicIds": [
+        "m4-l5-precedence"
+      ]
+    },
+    {
+      "id": "source-concept-227",
+      "concept": "Unmatched INNER JOIN",
+      "page": 90,
+      "questionIds": [
+        "id-233",
+        "mc-266"
+      ],
+      "topicIds": [
+        "m5-l1-inner"
+      ]
+    },
+    {
+      "id": "source-concept-228",
+      "concept": "Unmatched LEFT JOIN columns",
+      "page": 95,
+      "questionIds": [
+        "id-234",
+        "mc-267"
+      ],
+      "topicIds": [
+        "m5-l2-left"
+      ]
+    },
+    {
+      "id": "source-concept-229",
+      "concept": "Unmatched RIGHT JOIN columns",
+      "page": 100,
+      "questionIds": [
+        "id-235",
+        "mc-268"
+      ],
+      "topicIds": [
+        "m5-l3-right"
+      ]
+    },
+    {
+      "id": "source-concept-230",
+      "concept": "Unassigned sales representative",
+      "page": 102,
+      "questionIds": [
+        "id-236",
+        "mc-269"
+      ],
+      "topicIds": [
+        "m5-l3-sales-rep"
+      ]
+    },
+    {
+      "id": "source-concept-231",
+      "concept": "DBMS classification criteria",
+      "page": 17,
+      "questionIds": [
+        "mc-270"
+      ],
+      "topicIds": [
+        "m1-classification"
+      ]
+    },
+    {
+      "id": "source-concept-232",
+      "concept": "Which of these is NOT a NoSQL database type?",
+      "page": 21,
+      "questionIds": [
+        "mc-0"
+      ],
+      "topicIds": [
+        "m1-nosql"
+      ]
+    },
+    {
+      "id": "source-concept-233",
+      "concept": "After a LEFT JOIN, which condition finds customers with no orders?",
+      "page": 99,
+      "questionIds": [
+        "mc-2"
+      ],
+      "topicIds": [
+        "m5-l2-customers-no-orders"
+      ]
+    },
+    {
+      "id": "source-concept-234",
+      "concept": "Which statement changes the structure of an existing table?",
+      "page": 53,
+      "questionIds": [
+        "mc-3"
+      ],
+      "topicIds": [
+        "m3-alter-table"
+      ]
+    },
+    {
+      "id": "source-concept-235",
+      "concept": "Which pattern matches last names that end in \"son\"?",
+      "page": 79,
+      "questionIds": [
+        "mc-4"
+      ],
+      "topicIds": [
+        "m4-l3-like"
+      ]
+    },
+    {
+      "id": "source-concept-236",
+      "concept": "Which of these is a document-oriented NoSQL database?",
+      "page": 21,
+      "questionIds": [
+        "mc-6"
+      ],
+      "topicIds": [
+        "m1-document-database"
+      ]
+    },
+    {
+      "id": "source-concept-237",
+      "concept": "What is the collection of valid values for a column called?",
+      "page": 20,
+      "questionIds": [
+        "mc-7"
+      ],
+      "topicIds": [
+        "m1-domain"
+      ]
+    },
+    {
+      "id": "source-concept-238",
+      "concept": "Which database category is meant for a department or team?",
+      "page": 12,
+      "questionIds": [
+        "mc-8"
+      ],
+      "topicIds": [
+        "m1-database-scale"
+      ]
+    },
+    {
+      "id": "source-concept-239",
+      "concept": "Indexing, storage management and backup and recovery belong to which DBMS function?",
+      "page": 18,
+      "questionIds": [
+        "mc-9"
+      ],
+      "topicIds": [
+        "m1-storage-retrieval"
+      ]
+    },
+    {
+      "id": "source-concept-240",
+      "concept": "Query processing and transaction management belong to which DBMS function?",
+      "page": 18,
+      "questionIds": [
+        "mc-10"
+      ],
+      "topicIds": [
+        "m1-data-manipulation"
+      ]
+    },
+    {
+      "id": "source-concept-241",
+      "concept": "Access control and integrity constraints belong to which DBMS function?",
+      "page": 18,
+      "questionIds": [
+        "mc-11"
+      ],
+      "topicIds": [
+        "m1-security-integrity"
+      ]
+    },
+    {
+      "id": "source-concept-242",
+      "concept": "Database tuning and monitoring belong to which DBMS function?",
+      "page": 18,
+      "questionIds": [
+        "mc-12"
+      ],
+      "topicIds": [
+        "m1-administration"
+      ]
+    },
+    {
+      "id": "source-concept-243",
+      "concept": "Which advantage means a DBMS can scale up or scale out as demand grows?",
+      "page": 24,
+      "questionIds": [
+        "mc-13"
+      ],
+      "topicIds": [
+        "m1-scalability"
+      ]
+    },
+    {
+      "id": "source-concept-244",
+      "concept": "Which of these is an OODBMS?",
+      "page": 22,
+      "questionIds": [
+        "mc-14"
+      ],
+      "topicIds": [
+        "m1-object-dbms"
+      ]
+    },
+    {
+      "id": "source-concept-245",
+      "concept": "Which statement about a network DBMS is true?",
+      "page": 22,
+      "questionIds": [
+        "mc-16"
+      ],
+      "topicIds": [
+        "m1-network-dbms"
+      ]
+    },
+    {
+      "id": "source-concept-246",
+      "concept": "Who developed SQL at IBM in the early 1970s?",
+      "page": 28,
+      "questionIds": [
+        "mc-17"
+      ],
+      "topicIds": [
+        "m2-sql-history"
+      ]
+    },
+    {
+      "id": "source-concept-247",
+      "concept": "Which statement best describes SQL?",
+      "page": 29,
+      "questionIds": [
+        "mc-18"
+      ],
+      "topicIds": [
+        "m2-sql"
+      ]
+    },
+    {
+      "id": "source-concept-248",
+      "concept": "Which value can DECIMAL(10,2) store?",
+      "page": 32,
+      "questionIds": [
+        "mc-21"
+      ],
+      "topicIds": [
+        "m2-decimal"
+      ]
+    },
+    {
+      "id": "source-concept-249",
+      "concept": "Apart from the special 0000 value, what four-digit range does MySQL YEAR support?",
+      "page": 39,
+      "questionIds": [
+        "mc-22"
+      ],
+      "topicIds": [
+        "m2-year"
+      ]
+    },
+    {
+      "id": "source-concept-250",
+      "concept": "Which statement about NULL is true?",
+      "page": 42,
+      "questionIds": [
+        "mc-23"
+      ],
+      "topicIds": [
+        "m2-null"
+      ]
+    },
+    {
+      "id": "source-concept-251",
+      "concept": "Which pair are DCL commands?",
+      "page": 65,
+      "questionIds": [
+        "mc-27"
+      ],
+      "topicIds": [
+        "m3-dcl"
+      ]
+    },
+    {
+      "id": "source-concept-252",
+      "concept": "What does SELECT true OR false AND false return in MySQL?",
+      "page": 85,
+      "questionIds": [
+        "mc-31"
+      ],
+      "topicIds": [
+        "m4-l5-precedence"
+      ]
+    },
+    {
+      "id": "source-concept-253",
+      "concept": "Which JOIN returns only rows that match in both tables?",
+      "page": 89,
+      "questionIds": [
+        "mc-32"
+      ],
+      "topicIds": [
+        "m5-l1-inner"
+      ]
+    },
+    {
+      "id": "source-concept-254",
+      "concept": "Which JOIN returns all rows from the right table?",
+      "page": 100,
+      "questionIds": [
+        "mc-34"
+      ],
+      "topicIds": [
+        "m5-l3-right"
+      ]
+    },
+    {
+      "id": "source-concept-255",
+      "concept": "According to the module's FULL JOIN description, a row has no match in the left or right table. What is used for the columns on the unmatched side?",
+      "page": 56,
+      "questionIds": [
+        "mc-35"
+      ],
+      "topicIds": [
+        "m3-full-join"
+      ]
+    },
+    {
+      "id": "source-concept-256",
+      "concept": "Which pair represents floating-point types in the module?",
+      "page": 34,
+      "questionIds": [
+        "mc-39"
+      ],
+      "topicIds": [
+        "m2-double"
+      ]
+    },
+    {
+      "id": "source-concept-257",
+      "concept": "What is AUTO_INCREMENT used for in the page 60 example?",
+      "page": 60,
+      "questionIds": [
+        "mc-46"
+      ],
+      "topicIds": [
+        "m3-auto-increment"
+      ]
+    },
+    {
+      "id": "source-concept-258",
+      "concept": "Which statement creates a database named practice2?",
+      "page": 52,
+      "questionIds": [
+        "mc-47"
+      ],
+      "topicIds": [
+        "m3-create-database"
+      ]
+    },
+    {
+      "id": "source-concept-259",
+      "concept": "Which statement removes a database named practice2?",
+      "page": 54,
+      "questionIds": [
+        "mc-48"
+      ],
+      "topicIds": [
+        "m3-drop"
+      ]
+    },
+    {
+      "id": "source-concept-260",
+      "concept": "DynamoDB is listed under which NoSQL type?",
+      "page": 21,
+      "questionIds": [
+        "mc-51"
+      ],
+      "topicIds": [
+        "m1-key-value"
+      ]
+    },
+    {
+      "id": "source-concept-261",
+      "concept": "What is a predicate in a WHERE condition?",
+      "page": 75,
+      "questionIds": [
+        "mc-55"
+      ],
+      "topicIds": [
+        "m4-l3-predicate"
+      ]
+    },
+    {
+      "id": "source-concept-262",
+      "concept": "What does TRUE AND NULL evaluate to?",
+      "page": 80,
+      "questionIds": [
+        "mc-56"
+      ],
+      "topicIds": [
+        "m4-l4-and-null"
+      ]
+    },
+    {
+      "id": "source-concept-263",
+      "concept": "What does FALSE OR NULL evaluate to?",
+      "page": 83,
+      "questionIds": [
+        "mc-57"
+      ],
+      "topicIds": [
+        "m4-l5-or-null"
+      ]
+    },
+    {
+      "id": "source-concept-264",
+      "concept": "Which condition selects employees without customers after the RIGHT JOIN shown on page 104?",
+      "page": 104,
+      "questionIds": [
+        "mc-59"
+      ],
+      "topicIds": [
+        "m5-l3-right-missing"
+      ]
+    }
+  ],
+  "pageReview": [
+    {
+      "page": 1,
+      "status": "excluded",
+      "topicIds": [],
+      "reason": "Cover, institutional outcomes, unrelated programming-template syllabus, administration, or inconsistent table of contents; not DBMS teaching content."
+    },
+    {
+      "page": 2,
+      "status": "excluded",
+      "topicIds": [],
+      "reason": "Cover, institutional outcomes, unrelated programming-template syllabus, administration, or inconsistent table of contents; not DBMS teaching content."
+    },
+    {
+      "page": 3,
+      "status": "excluded",
+      "topicIds": [],
+      "reason": "Cover, institutional outcomes, unrelated programming-template syllabus, administration, or inconsistent table of contents; not DBMS teaching content."
+    },
+    {
+      "page": 4,
+      "status": "excluded",
+      "topicIds": [],
+      "reason": "Cover, institutional outcomes, unrelated programming-template syllabus, administration, or inconsistent table of contents; not DBMS teaching content."
+    },
+    {
+      "page": 5,
+      "status": "excluded",
+      "topicIds": [],
+      "reason": "Cover, institutional outcomes, unrelated programming-template syllabus, administration, or inconsistent table of contents; not DBMS teaching content."
+    },
+    {
+      "page": 6,
+      "status": "excluded",
+      "topicIds": [],
+      "reason": "Cover, institutional outcomes, unrelated programming-template syllabus, administration, or inconsistent table of contents; not DBMS teaching content."
+    },
+    {
+      "page": 7,
+      "status": "excluded",
+      "topicIds": [],
+      "reason": "Cover, institutional outcomes, unrelated programming-template syllabus, administration, or inconsistent table of contents; not DBMS teaching content."
+    },
+    {
+      "page": 8,
+      "status": "excluded",
+      "topicIds": [],
+      "reason": "Cover, institutional outcomes, unrelated programming-template syllabus, administration, or inconsistent table of contents; not DBMS teaching content."
+    },
+    {
+      "page": 9,
+      "status": "excluded",
+      "topicIds": [],
+      "reason": "Cover, institutional outcomes, unrelated programming-template syllabus, administration, or inconsistent table of contents; not DBMS teaching content."
+    },
+    {
+      "page": 10,
+      "status": "excluded",
+      "topicIds": [],
+      "reason": "Module introduction; the four actual lessons cover its outcomes."
+    },
+    {
+      "page": 11,
+      "status": "covered",
+      "topicIds": [
+        "m1-metadata",
+        "m1-data-dictionary",
+        "m1-database-scale"
+      ],
+      "reason": "Authored concise notes link the definition, subtopic, table, diagram, or demonstrated behavior on this page."
+    },
+    {
+      "page": 12,
+      "status": "covered",
+      "topicIds": [
+        "m1-database",
+        "m1-database-scale"
+      ],
+      "reason": "Authored concise notes link the definition, subtopic, table, diagram, or demonstrated behavior on this page."
+    },
+    {
+      "page": 13,
+      "status": "covered",
+      "topicIds": [
+        "m1-table",
+        "m1-column"
+      ],
+      "reason": "Authored concise notes link the definition, subtopic, table, diagram, or demonstrated behavior on this page."
+    },
+    {
+      "page": 14,
+      "status": "covered",
+      "topicIds": [
+        "m1-record",
+        "m1-column-name",
+        "m1-data-item",
+        "m1-column-type"
+      ],
+      "reason": "Authored concise notes link the definition, subtopic, table, diagram, or demonstrated behavior on this page."
+    },
+    {
+      "page": 15,
+      "status": "covered",
+      "topicIds": [
+        "m1-primary-key",
+        "m1-foreign-key"
+      ],
+      "reason": "Authored concise notes link the definition, subtopic, table, diagram, or demonstrated behavior on this page."
+    },
+    {
+      "page": 16,
+      "status": "covered",
+      "topicIds": [
+        "m1-cloud"
+      ],
+      "reason": "Authored concise notes link the definition, subtopic, table, diagram, or demonstrated behavior on this page."
+    },
+    {
+      "page": 17,
+      "status": "covered",
+      "topicIds": [
+        "m1-dbms",
+        "m1-database-engine",
+        "m1-cloud",
+        "m1-normalization",
+        "m1-classification",
+        "m1-distributed-dbms"
+      ],
+      "reason": "Authored concise notes link the definition, subtopic, table, diagram, or demonstrated behavior on this page."
+    },
+    {
+      "page": 18,
+      "status": "covered",
+      "topicIds": [
+        "m1-data-definition",
+        "m1-schema-definition",
+        "m1-data-types",
+        "m1-data-manipulation",
+        "m1-query-processing",
+        "m1-data-update",
+        "m1-transaction-management",
+        "m1-security-integrity",
+        "m1-access-control",
+        "m1-integrity-constraints",
+        "m1-storage-retrieval",
+        "m1-storage-management",
+        "m1-indexing",
+        "m1-backup-recovery",
+        "m1-administration",
+        "m1-tuning",
+        "m1-monitoring-maintenance",
+        "m1-acid"
+      ],
+      "reason": "Authored concise notes link the definition, subtopic, table, diagram, or demonstrated behavior on this page."
+    },
+    {
+      "page": 19,
+      "status": "covered",
+      "topicIds": [
+        "m1-relational-dbms",
+        "m1-relational-properties",
+        "m1-data-independence",
+        "m1-codd"
+      ],
+      "reason": "Authored concise notes link the definition, subtopic, table, diagram, or demonstrated behavior on this page."
+    },
+    {
+      "page": 20,
+      "status": "covered",
+      "topicIds": [
+        "m1-relational-dbms",
+        "m1-schema",
+        "m1-domain",
+        "m1-constraints"
+      ],
+      "reason": "Authored concise notes link the definition, subtopic, table, diagram, or demonstrated behavior on this page."
+    },
+    {
+      "page": 21,
+      "status": "covered",
+      "topicIds": [
+        "m1-relational-dbms",
+        "m1-nosql",
+        "m1-document-database",
+        "m1-key-value",
+        "m1-column-family",
+        "m1-graph-database",
+        "m1-object-dbms"
+      ],
+      "reason": "Authored concise notes link the definition, subtopic, table, diagram, or demonstrated behavior on this page."
+    },
+    {
+      "page": 22,
+      "status": "covered",
+      "topicIds": [
+        "m1-object-dbms",
+        "m1-hierarchical-dbms",
+        "m1-network-dbms"
+      ],
+      "reason": "Authored concise notes link the definition, subtopic, table, diagram, or demonstrated behavior on this page."
+    },
+    {
+      "page": 23,
+      "status": "covered",
+      "topicIds": [
+        "m1-hierarchical-dbms",
+        "m1-network-dbms",
+        "m1-centralized"
+      ],
+      "reason": "Authored concise notes link the definition, subtopic, table, diagram, or demonstrated behavior on this page."
+    },
+    {
+      "page": 24,
+      "status": "covered",
+      "topicIds": [
+        "m1-security",
+        "m1-efficient-retrieval",
+        "m1-consistency-integrity",
+        "m1-scalability",
+        "m1-encryption",
+        "m1-audit-trail"
+      ],
+      "reason": "Authored concise notes link the definition, subtopic, table, diagram, or demonstrated behavior on this page."
+    },
+    {
+      "page": 25,
+      "status": "covered",
+      "topicIds": [
+        "m1-scalability",
+        "m1-concurrency",
+        "m1-backup-benefit",
+        "m1-cost-efficiency",
+        "m1-vertical-scaling",
+        "m1-horizontal-scaling",
+        "m1-locking"
+      ],
+      "reason": "Authored concise notes link the definition, subtopic, table, diagram, or demonstrated behavior on this page."
+    },
+    {
+      "page": 26,
+      "status": "excluded",
+      "topicIds": [],
+      "reason": "Module summary repeats the four lessons; references are attribution rather than new concepts."
+    },
+    {
+      "page": 27,
+      "status": "excluded",
+      "topicIds": [],
+      "reason": "Summary/reference material; no additional instructional concept."
+    },
+    {
+      "page": 28,
+      "status": "covered",
+      "topicIds": [
+        "m2-sql",
+        "m2-sql-history"
+      ],
+      "reason": "Authored concise notes link the definition, subtopic, table, diagram, or demonstrated behavior on this page."
+    },
+    {
+      "page": 29,
+      "status": "covered",
+      "topicIds": [
+        "m2-sql",
+        "m2-declarative",
+        "m2-procedural"
+      ],
+      "reason": "Authored concise notes link the definition, subtopic, table, diagram, or demonstrated behavior on this page."
+    },
+    {
+      "page": 30,
+      "status": "covered",
+      "topicIds": [
+        "m2-declarative",
+        "m2-retrieval-methods"
+      ],
+      "reason": "Authored concise notes link the definition, subtopic, table, diagram, or demonstrated behavior on this page."
+    },
+    {
+      "page": 31,
+      "status": "covered",
+      "topicIds": [
+        "m2-types-overview",
+        "m2-constructed-types",
+        "m2-user-defined-types",
+        "m2-numeric",
+        "m2-int",
+        "m2-smallint"
+      ],
+      "reason": "Authored concise notes link the definition, subtopic, table, diagram, or demonstrated behavior on this page."
+    },
+    {
+      "page": 32,
+      "status": "covered",
+      "topicIds": [
+        "m2-smallint",
+        "m2-tinyint",
+        "m2-bigint",
+        "m2-decimal",
+        "m2-precision",
+        "m2-scale"
+      ],
+      "reason": "Authored concise notes link the definition, subtopic, table, diagram, or demonstrated behavior on this page."
+    },
+    {
+      "page": 33,
+      "status": "covered",
+      "topicIds": [
+        "m2-float",
+        "m2-real"
+      ],
+      "reason": "Authored concise notes link the definition, subtopic, table, diagram, or demonstrated behavior on this page."
+    },
+    {
+      "page": 34,
+      "status": "covered",
+      "topicIds": [
+        "m2-real",
+        "m2-double",
+        "m2-character-types",
+        "m2-char"
+      ],
+      "reason": "Authored concise notes link the definition, subtopic, table, diagram, or demonstrated behavior on this page."
+    },
+    {
+      "page": 35,
+      "status": "covered",
+      "topicIds": [
+        "m2-char",
+        "m2-varchar",
+        "m2-text"
+      ],
+      "reason": "Authored concise notes link the definition, subtopic, table, diagram, or demonstrated behavior on this page."
+    },
+    {
+      "page": 36,
+      "status": "covered",
+      "topicIds": [
+        "m2-text",
+        "m2-binary-types",
+        "m2-binary",
+        "m2-varbinary",
+        "m2-blob"
+      ],
+      "reason": "Authored concise notes link the definition, subtopic, table, diagram, or demonstrated behavior on this page."
+    },
+    {
+      "page": 37,
+      "status": "covered",
+      "topicIds": [
+        "m2-blob",
+        "m2-temporal",
+        "m2-date"
+      ],
+      "reason": "Authored concise notes link the definition, subtopic, table, diagram, or demonstrated behavior on this page."
+    },
+    {
+      "page": 38,
+      "status": "covered",
+      "topicIds": [
+        "m2-date",
+        "m2-time",
+        "m2-datetime"
+      ],
+      "reason": "Authored concise notes link the definition, subtopic, table, diagram, or demonstrated behavior on this page."
+    },
+    {
+      "page": 39,
+      "status": "covered",
+      "topicIds": [
+        "m2-datetime",
+        "m2-timestamp",
+        "m2-year"
+      ],
+      "reason": "Authored concise notes link the definition, subtopic, table, diagram, or demonstrated behavior on this page."
+    },
+    {
+      "page": 40,
+      "status": "covered",
+      "topicIds": [
+        "m2-year",
+        "m2-boolean",
+        "m2-miscellaneous",
+        "m2-json",
+        "m2-spatial"
+      ],
+      "reason": "Authored concise notes link the definition, subtopic, table, diagram, or demonstrated behavior on this page."
+    },
+    {
+      "page": 41,
+      "status": "covered",
+      "topicIds": [
+        "m2-enum",
+        "m2-set-type"
+      ],
+      "reason": "Authored concise notes link the definition, subtopic, table, diagram, or demonstrated behavior on this page."
+    },
+    {
+      "page": 42,
+      "status": "covered",
+      "topicIds": [
+        "m2-set-type",
+        "m2-null",
+        "m2-null-tests",
+        "m2-null-defaults"
+      ],
+      "reason": "Authored concise notes link the definition, subtopic, table, diagram, or demonstrated behavior on this page."
+    },
+    {
+      "page": 43,
+      "status": "covered",
+      "topicIds": [
+        "m2-decimal",
+        "m2-null",
+        "m2-out-of-range"
+      ],
+      "reason": "Authored concise notes link the definition, subtopic, table, diagram, or demonstrated behavior on this page."
+    },
+    {
+      "page": 44,
+      "status": "covered",
+      "topicIds": [
+        "m2-mysql-monitor",
+        "m2-root-user"
+      ],
+      "reason": "Authored concise notes link the definition, subtopic, table, diagram, or demonstrated behavior on this page."
+    },
+    {
+      "page": 45,
+      "status": "covered",
+      "topicIds": [
+        "m2-use",
+        "m2-show-databases",
+        "m2-show-tables",
+        "m2-show-columns",
+        "m2-show-index",
+        "m2-show-table-status",
+        "m2-vertical-output"
+      ],
+      "reason": "Authored concise notes link the definition, subtopic, table, diagram, or demonstrated behavior on this page."
+    },
+    {
+      "page": 46,
+      "status": "excluded",
+      "topicIds": [],
+      "reason": "Summary and references repeat SQL types and monitor commands."
+    },
+    {
+      "page": 47,
+      "status": "excluded",
+      "topicIds": [],
+      "reason": "Module introduction; its database and SQL outcomes are covered in the three lessons."
+    },
+    {
+      "page": 48,
+      "status": "covered",
+      "topicIds": [
+        "m3-crud",
+        "m3-select"
+      ],
+      "reason": "Authored concise notes link the definition, subtopic, table, diagram, or demonstrated behavior on this page."
+    },
+    {
+      "page": 49,
+      "status": "covered",
+      "topicIds": [
+        "m3-select",
+        "m3-asterisk",
+        "m3-insert"
+      ],
+      "reason": "Authored concise notes link the definition, subtopic, table, diagram, or demonstrated behavior on this page."
+    },
+    {
+      "page": 50,
+      "status": "covered",
+      "topicIds": [
+        "m3-insert",
+        "m3-values",
+        "m3-update",
+        "m3-set-clause"
+      ],
+      "reason": "Authored concise notes link the definition, subtopic, table, diagram, or demonstrated behavior on this page."
+    },
+    {
+      "page": 51,
+      "status": "covered",
+      "topicIds": [
+        "m3-update",
+        "m3-delete",
+        "m3-create"
+      ],
+      "reason": "Authored concise notes link the definition, subtopic, table, diagram, or demonstrated behavior on this page."
+    },
+    {
+      "page": 52,
+      "status": "covered",
+      "topicIds": [
+        "m3-create",
+        "m3-create-database",
+        "m3-create-table"
+      ],
+      "reason": "Authored concise notes link the definition, subtopic, table, diagram, or demonstrated behavior on this page."
+    },
+    {
+      "page": 53,
+      "status": "covered",
+      "topicIds": [
+        "m3-create-table",
+        "m3-alter-table",
+        "m3-add-column",
+        "m3-drop-column",
+        "m3-modify-column"
+      ],
+      "reason": "Authored concise notes link the definition, subtopic, table, diagram, or demonstrated behavior on this page."
+    },
+    {
+      "page": 54,
+      "status": "covered",
+      "topicIds": [
+        "m3-drop-column",
+        "m3-modify-column",
+        "m3-drop"
+      ],
+      "reason": "Authored concise notes link the definition, subtopic, table, diagram, or demonstrated behavior on this page."
+    },
+    {
+      "page": 55,
+      "status": "covered",
+      "topicIds": [
+        "m3-drop",
+        "m3-join",
+        "m3-inner-join",
+        "m3-left-join"
+      ],
+      "reason": "Authored concise notes link the definition, subtopic, table, diagram, or demonstrated behavior on this page."
+    },
+    {
+      "page": 56,
+      "status": "covered",
+      "topicIds": [
+        "m3-right-join",
+        "m3-full-join",
+        "m3-cross-join"
+      ],
+      "reason": "Authored concise notes link the definition, subtopic, table, diagram, or demonstrated behavior on this page."
+    },
+    {
+      "page": 57,
+      "status": "covered",
+      "topicIds": [
+        "m3-access-workflow",
+        "m3-qbe"
+      ],
+      "reason": "Authored concise notes link the definition, subtopic, table, diagram, or demonstrated behavior on this page."
+    },
+    {
+      "page": 58,
+      "status": "covered",
+      "topicIds": [
+        "m3-access-workflow",
+        "m3-sql-view",
+        "m3-statement-terminator",
+        "m3-create-table-workflow"
+      ],
+      "reason": "Authored concise notes link the definition, subtopic, table, diagram, or demonstrated behavior on this page."
+    },
+    {
+      "page": 59,
+      "status": "covered",
+      "topicIds": [
+        "m3-create-table-workflow",
+        "m3-client-login",
+        "m3-setup-checklist"
+      ],
+      "reason": "Authored concise notes link the definition, subtopic, table, diagram, or demonstrated behavior on this page."
+    },
+    {
+      "page": 60,
+      "status": "covered",
+      "topicIds": [
+        "m3-setup-checklist",
+        "m3-auto-increment",
+        "m3-not-null",
+        "m3-unique"
+      ],
+      "reason": "Authored concise notes link the definition, subtopic, table, diagram, or demonstrated behavior on this page."
+    },
+    {
+      "page": 61,
+      "status": "covered",
+      "topicIds": [
+        "m3-setup-checklist",
+        "m3-describe",
+        "m3-query",
+        "m3-constraint-category",
+        "m3-sql-command-categories",
+        "m3-dml",
+        "m3-tcl",
+        "m3-commit",
+        "m3-rollback",
+        "m3-savepoint"
+      ],
+      "reason": "Authored concise notes link the definition, subtopic, table, diagram, or demonstrated behavior on this page."
+    },
+    {
+      "page": 62,
+      "status": "covered",
+      "topicIds": [
+        "m3-ddl",
+        "m3-truncate",
+        "m3-comment",
+        "m3-rename",
+        "m3-mediumtext",
+        "m3-mediumblob",
+        "m3-default"
+      ],
+      "reason": "Authored concise notes link the definition, subtopic, table, diagram, or demonstrated behavior on this page."
+    },
+    {
+      "page": 63,
+      "status": "covered",
+      "topicIds": [
+        "m3-dql",
+        "m3-result-set",
+        "m3-from",
+        "m3-where",
+        "m3-group-by",
+        "m3-having",
+        "m3-distinct",
+        "m3-order-by",
+        "m3-limit"
+      ],
+      "reason": "Authored concise notes link the definition, subtopic, table, diagram, or demonstrated behavior on this page."
+    },
+    {
+      "page": 64,
+      "status": "covered",
+      "topicIds": [
+        "m3-dml"
+      ],
+      "reason": "Authored concise notes link the definition, subtopic, table, diagram, or demonstrated behavior on this page."
+    },
+    {
+      "page": 65,
+      "status": "covered",
+      "topicIds": [
+        "m3-dcl",
+        "m3-grant",
+        "m3-revoke"
+      ],
+      "reason": "Authored concise notes link the definition, subtopic, table, diagram, or demonstrated behavior on this page."
+    },
+    {
+      "page": 66,
+      "status": "covered",
+      "topicIds": [
+        "m3-crud"
+      ],
+      "reason": "Authored concise notes link the definition, subtopic, table, diagram, or demonstrated behavior on this page."
+    },
+    {
+      "page": 67,
+      "status": "covered",
+      "topicIds": [
+        "m4-l1-expression",
+        "m4-l1-select"
+      ],
+      "reason": "Authored concise notes link the definition, subtopic, table, diagram, or demonstrated behavior on this page."
+    },
+    {
+      "page": 68,
+      "status": "covered",
+      "topicIds": [
+        "m4-l1-select",
+        "m4-l1-select-list",
+        "m4-l1-formatting",
+        "m4-l1-semicolon",
+        "m4-l1-evaluation"
+      ],
+      "reason": "Authored concise notes link the definition, subtopic, table, diagram, or demonstrated behavior on this page."
+    },
+    {
+      "page": 69,
+      "status": "covered",
+      "topicIds": [
+        "m4-l1-select-list"
+      ],
+      "reason": "Authored concise notes link the definition, subtopic, table, diagram, or demonstrated behavior on this page."
+    },
+    {
+      "page": 70,
+      "status": "covered",
+      "topicIds": [
+        "m4-l1-select-list"
+      ],
+      "reason": "Authored concise notes link the definition, subtopic, table, diagram, or demonstrated behavior on this page."
+    },
+    {
+      "page": 71,
+      "status": "covered",
+      "topicIds": [
+        "m4-l2-unsorted",
+        "m4-l2-order",
+        "m4-l2-directions"
+      ],
+      "reason": "Authored concise notes link the definition, subtopic, table, diagram, or demonstrated behavior on this page."
+    },
+    {
+      "page": 72,
+      "status": "covered",
+      "topicIds": [
+        "m4-l2-multiple-sort"
+      ],
+      "reason": "Authored concise notes link the definition, subtopic, table, diagram, or demonstrated behavior on this page."
+    },
+    {
+      "page": 73,
+      "status": "covered",
+      "topicIds": [
+        "m4-l2-multiple-sort"
+      ],
+      "reason": "Authored concise notes link the definition, subtopic, table, diagram, or demonstrated behavior on this page."
+    },
+    {
+      "page": 74,
+      "status": "covered",
+      "topicIds": [
+        "m4-l2-multiple-sort",
+        "m4-l3-where"
+      ],
+      "reason": "Authored concise notes link the definition, subtopic, table, diagram, or demonstrated behavior on this page."
+    },
+    {
+      "page": 75,
+      "status": "covered",
+      "topicIds": [
+        "m4-l3-where",
+        "m4-l3-predicate",
+        "m4-l3-not"
+      ],
+      "reason": "Authored concise notes link the definition, subtopic, table, diagram, or demonstrated behavior on this page."
+    },
+    {
+      "page": 76,
+      "status": "covered",
+      "topicIds": [
+        "m4-l3-equal"
+      ],
+      "reason": "Authored concise notes link the definition, subtopic, table, diagram, or demonstrated behavior on this page."
+    },
+    {
+      "page": 77,
+      "status": "covered",
+      "topicIds": [
+        "m4-l3-combined"
+      ],
+      "reason": "Authored concise notes link the definition, subtopic, table, diagram, or demonstrated behavior on this page."
+    },
+    {
+      "page": 78,
+      "status": "covered",
+      "topicIds": [
+        "m4-l3-combined",
+        "m4-l3-between"
+      ],
+      "reason": "Authored concise notes link the definition, subtopic, table, diagram, or demonstrated behavior on this page."
+    },
+    {
+      "page": 79,
+      "status": "covered",
+      "topicIds": [
+        "m4-l3-between",
+        "m4-l3-like",
+        "m4-l3-wildcards"
+      ],
+      "reason": "Authored concise notes link the definition, subtopic, table, diagram, or demonstrated behavior on this page."
+    },
+    {
+      "page": 80,
+      "status": "covered",
+      "topicIds": [
+        "m4-l3-like",
+        "m4-l4-and",
+        "m4-l4-and-null"
+      ],
+      "reason": "Authored concise notes link the definition, subtopic, table, diagram, or demonstrated behavior on this page."
+    },
+    {
+      "page": 81,
+      "status": "covered",
+      "topicIds": [
+        "m4-l4-and",
+        "m4-l4-and-short-circuit"
+      ],
+      "reason": "Authored concise notes link the definition, subtopic, table, diagram, or demonstrated behavior on this page."
+    },
+    {
+      "page": 82,
+      "status": "covered",
+      "topicIds": [
+        "m4-l4-many-conditions"
+      ],
+      "reason": "Authored concise notes link the definition, subtopic, table, diagram, or demonstrated behavior on this page."
+    },
+    {
+      "page": 83,
+      "status": "covered",
+      "topicIds": [
+        "m4-l4-many-conditions",
+        "m4-l5-or",
+        "m4-l5-or-null"
+      ],
+      "reason": "Authored concise notes link the definition, subtopic, table, diagram, or demonstrated behavior on this page."
+    },
+    {
+      "page": 84,
+      "status": "covered",
+      "topicIds": [
+        "m4-l5-or-short-circuit",
+        "m4-l5-precedence"
+      ],
+      "reason": "Authored concise notes link the definition, subtopic, table, diagram, or demonstrated behavior on this page."
+    },
+    {
+      "page": 85,
+      "status": "covered",
+      "topicIds": [
+        "m4-l5-precedence"
+      ],
+      "reason": "Authored concise notes link the definition, subtopic, table, diagram, or demonstrated behavior on this page."
+    },
+    {
+      "page": 86,
+      "status": "covered",
+      "topicIds": [
+        "m4-l5-parentheses"
+      ],
+      "reason": "Authored concise notes link the definition, subtopic, table, diagram, or demonstrated behavior on this page."
+    },
+    {
+      "page": 87,
+      "status": "excluded",
+      "topicIds": [],
+      "reason": "Module summary/reference material repeats filtering and logical operators."
+    },
+    {
+      "page": 88,
+      "status": "covered",
+      "topicIds": [
+        "m5-l1-join",
+        "m5-l1-full-dialect"
+      ],
+      "reason": "Authored concise notes link the definition, subtopic, table, diagram, or demonstrated behavior on this page."
+    },
+    {
+      "page": 89,
+      "status": "covered",
+      "topicIds": [
+        "m5-l1-inner",
+        "m5-l1-on",
+        "m5-l1-multiple-tables"
+      ],
+      "reason": "Authored concise notes link the definition, subtopic, table, diagram, or demonstrated behavior on this page."
+    },
+    {
+      "page": 90,
+      "status": "covered",
+      "topicIds": [
+        "m5-l1-inner",
+        "m5-l1-aliases",
+        "m5-l1-multiple-tables"
+      ],
+      "reason": "Authored concise notes link the definition, subtopic, table, diagram, or demonstrated behavior on this page."
+    },
+    {
+      "page": 91,
+      "status": "covered",
+      "topicIds": [
+        "m5-l1-using",
+        "m5-l1-product-line"
+      ],
+      "reason": "Authored concise notes link the definition, subtopic, table, diagram, or demonstrated behavior on this page."
+    },
+    {
+      "page": 92,
+      "status": "covered",
+      "topicIds": [
+        "m5-l1-using",
+        "m5-l1-product-line"
+      ],
+      "reason": "Authored concise notes link the definition, subtopic, table, diagram, or demonstrated behavior on this page."
+    },
+    {
+      "page": 93,
+      "status": "covered",
+      "topicIds": [
+        "m5-l1-using",
+        "m5-l1-order-key",
+        "m5-l1-grouping"
+      ],
+      "reason": "Authored concise notes link the definition, subtopic, table, diagram, or demonstrated behavior on this page."
+    },
+    {
+      "page": 94,
+      "status": "covered",
+      "topicIds": [
+        "m5-l2-left"
+      ],
+      "reason": "Authored concise notes link the definition, subtopic, table, diagram, or demonstrated behavior on this page."
+    },
+    {
+      "page": 95,
+      "status": "covered",
+      "topicIds": [
+        "m5-l2-left"
+      ],
+      "reason": "Authored concise notes link the definition, subtopic, table, diagram, or demonstrated behavior on this page."
+    },
+    {
+      "page": 96,
+      "status": "covered",
+      "topicIds": [
+        "m5-l2-left-missing"
+      ],
+      "reason": "Authored concise notes link the definition, subtopic, table, diagram, or demonstrated behavior on this page."
+    },
+    {
+      "page": 97,
+      "status": "covered",
+      "topicIds": [
+        "m5-l2-left-missing",
+        "m5-l2-one-many"
+      ],
+      "reason": "Authored concise notes link the definition, subtopic, table, diagram, or demonstrated behavior on this page."
+    },
+    {
+      "page": 98,
+      "status": "covered",
+      "topicIds": [
+        "m5-l2-one-many"
+      ],
+      "reason": "Authored concise notes link the definition, subtopic, table, diagram, or demonstrated behavior on this page."
+    },
+    {
+      "page": 99,
+      "status": "covered",
+      "topicIds": [
+        "m5-l2-customers-no-orders"
+      ],
+      "reason": "Authored concise notes link the definition, subtopic, table, diagram, or demonstrated behavior on this page."
+    },
+    {
+      "page": 100,
+      "status": "covered",
+      "topicIds": [
+        "m5-l3-right"
+      ],
+      "reason": "Authored concise notes link the definition, subtopic, table, diagram, or demonstrated behavior on this page."
+    },
+    {
+      "page": 101,
+      "status": "covered",
+      "topicIds": [
+        "m5-l3-right"
+      ],
+      "reason": "Authored concise notes link the definition, subtopic, table, diagram, or demonstrated behavior on this page."
+    },
+    {
+      "page": 102,
+      "status": "covered",
+      "topicIds": [
+        "m5-l3-sales-rep"
+      ],
+      "reason": "Authored concise notes link the definition, subtopic, table, diagram, or demonstrated behavior on this page."
+    },
+    {
+      "page": 103,
+      "status": "covered",
+      "topicIds": [
+        "m5-l3-employees-all"
+      ],
+      "reason": "Authored concise notes link the definition, subtopic, table, diagram, or demonstrated behavior on this page."
+    },
+    {
+      "page": 104,
+      "status": "covered",
+      "topicIds": [
+        "m5-l3-right-missing"
+      ],
+      "reason": "Authored concise notes link the definition, subtopic, table, diagram, or demonstrated behavior on this page."
+    },
+    {
+      "page": 105,
+      "status": "covered",
+      "topicIds": [
+        "m5-l1-full-dialect"
+      ],
+      "reason": "Authored concise notes link the definition, subtopic, table, diagram, or demonstrated behavior on this page."
+    }
+  ],
+  "exclusions": [
+    {
+      "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "reason": "Front matter, institutional/course administration, and unrelated programming-template material; no DBMS reviewer lesson."
+    },
+    {
+      "pages": [
+        10,
+        27,
+        28,
+        46,
+        47,
+        66
+      ],
+      "reason": "Module introductions and summaries are represented in their related lesson topics; bibliographies and repeated summary wording are not separate topics."
+    },
+    {
+      "pages": [
+        11
+      ],
+      "reason": "The unnamed “level document” aside neither names nor adequately defines an examinable flat-file category; no unsupported Flat File label is introduced."
+    },
+    {
+      "pages": [
+        26
+      ],
+      "reason": "Closing benefit summary repeats the preceding advantages; no new topic."
+    },
+    {
+      "pages": [
+        34,
+        43
+      ],
+      "reason": "Speculative sensory-database aside and fictional story details are omitted; data-type and NULL behaviors are retained."
+    },
+    {
+      "pages": [
+        67,
+        88
+      ],
+      "reason": "Learning outcomes repeat the lesson topics and are represented by the topic entries rather than separate study cards."
+    },
+    {
+      "pages": [
+        87,
+        105
+      ],
+      "reason": "Summaries repeat taught material. Reference bibliographies and examination scheduling are not instructional concepts; FULL OUTER JOIN summary mention is included as a dialect note."
+    }
+  ]
+}
