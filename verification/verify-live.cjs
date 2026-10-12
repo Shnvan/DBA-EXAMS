@@ -6,11 +6,11 @@ const root=path.resolve(__dirname,'..'),url='https://dbmsmidtermexam-3-4.vercel.
  const suites=[];
  for(const [name,file]of [['exam','single-question-browser.cjs'],['home','home-startup-browser.cjs'],['wording','pdf-wording-browser.cjs'],['lab','live-lab-browser.cjs']]){
   const run=spawnSync(process.execPath,[path.join(__dirname,file),url,'live-wording-home/'+name],{cwd:root,encoding:'utf8',maxBuffer:16*1024*1024,timeout:180000});fs.writeFileSync(path.join(dir,name+'.log'),run.stdout+'\n'+run.stderr);
-  if(run.status!==0)throw Error(name+' live check failed: '+run.stderr);
+  if(run.status!==0){const partial={url,commit:execFileSync('git',['rev-parse','HEAD'],{cwd:root,encoding:'utf8'}).trim(),htmlSHA256:hash,suites,passed:suites.reduce((n,s)=>n+s.passed,0),automatedComplete:false,failures:[{suite:name,error:run.stderr.trim()}],executedAt:new Date().toISOString()};fs.writeFileSync(path.join(dir,'results.json'),JSON.stringify(partial,null,2));throw Error(name+' live check failed: '+run.stderr)}
   let result;for(let i=run.stdout.indexOf('{');i>=0;i=run.stdout.indexOf('{',i+1)){try{result=JSON.parse(run.stdout.slice(i));break}catch{}}
   if(!result?.passed||result.checks?.some(c=>!c.passed))throw Error(name+' missing successful results');
   suites.push({name,passed:result.passed});console.log(name+': '+result.passed+' live checks passed');
  }
- const result={url,commit:execFileSync('git',['rev-parse','HEAD'],{cwd:root,encoding:'utf8'}).trim(),htmlSHA256:hash,suites,passed:suites.reduce((n,s)=>n+s.passed,0),executedAt:new Date().toISOString()};
+ const result={url,commit:execFileSync('git',['rev-parse','HEAD'],{cwd:root,encoding:'utf8'}).trim(),htmlSHA256:hash,suites,passed:suites.reduce((n,s)=>n+s.passed,0),automatedComplete:true,executedAt:new Date().toISOString()};
  fs.writeFileSync(path.join(dir,'results.json'),JSON.stringify(result,null,2));console.log(JSON.stringify(result));
 })().catch(e=>{console.error(e);process.exit(1)});

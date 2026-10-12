@@ -61,3 +61,12 @@ HTML bytes: 2,993,798
 
 Root/output HTML and report copies match. The evidence ZIP includes current test results, reusable sources, browser screenshots, inventories, and the unchanged source PDF.
 
+## Production verification
+
+586 live automated Chrome exam checks passed at https://dbmsmidtermexam-3-4.vercel.app/ on 2026-10-12T04:25:38.385798+00:00. Production returned HTTP 200 and the same HTML SHA-256 as the local verified release. Deployed source commit: be3441dcbe2fad94625d34223427fe097aafdd20.
+
+Normal-browser verification also confirmed Home-first refresh and tab reopening; retained exam drafts and locked feedback; all three SQL level controls; restored SQL results, transactions and savepoints; explicit Intermediate checkpoint application; and independent Free practice with escaped HTML-looking values. These checks used the Codex in-app Chromium browser, with DOM observations and a screenshot retained as evidence.
+
+The remaining headless live suites were interrupted by Vercel Security Checkpoint (HTTP 403). They are not counted as passing live checks. All 4,409 local checks passed; normal-browser production workflows passed. Security settings were not changed.
+
+Live logs, results and screenshots are included in the evidence ZIP.
