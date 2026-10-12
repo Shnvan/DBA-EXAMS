@@ -63,3 +63,11 @@ PDF SHA-256: bd934884252012c84dd9536e847f5006fa79ef8422578ef9bf65fe1e837f892c
 HTML bytes: 3,178,580
 
 Root/output HTML and report copies match. The evidence ZIP includes current test results, reusable sources, browser screenshots, inventories, and the unchanged source PDF.
+
+## Production verification
+
+1603 live automated Chrome checks passed at https://dbmsmidtermexam-3-4.vercel.app/ on 2026-10-12T19:19:36.574Z. Production returned HTTP 200 and the same HTML SHA-256 as the local verified release. Deployed source commit: f20e538a23177043da527975856aa8d16fee6ada.
+
+Normal-browser verification additionally confirmed the deployed Reviewer, module/lesson navigation, search, visible examples and corrections, Home-first refresh and saved reading resumption. Observations and a screenshot are retained as evidence.
+
+Live logs, results and screenshots are included in the evidence ZIP.
