@@ -1,0 +1,21 @@
+const fs=require('fs'),path=require('path'),assert=require('assert/strict'),{chromium}=require('C:/Users/Ivan/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules/playwright');
+const root=path.resolve(__dirname,'..'),input=process.argv[2]||path.join(root,'DBMS_midterm_practice.html'),url=/^https?:/.test(input)?input:'file:///'+input.replace(/\\/g,'/'),dir=path.join(root,'verification-artifacts',process.argv[3]||'pdf-wording-browser');fs.mkdirSync(dir,{recursive:true});
+(async()=>{const checks=[],browser=await chromium.launch({headless:true,executablePath:'C:/Program Files/Google/Chrome/Application/chrome.exe'});try{
+ for(const width of [1440,768,360,320,720])for(const themeName of ['light','dark'])for(const mode of ['id','mc']){
+  const context=await browser.newContext({viewport:{width,height:1000}}),page=await context.newPage(),errors=[];page.on('pageerror',e=>errors.push(e.message));
+  const check=(name,ok)=>{checks.push({width,theme:themeName,mode,name,passed:!!ok});assert.ok(ok,`${width}/${themeName}/${mode}: ${name}`)};
+  await page.route('https://fonts.googleapis.com/**',r=>r.abort());await page.route('https://fonts.gstatic.com/**',r=>r.abort());await page.goto(url);
+  await page.evaluate(({mode,themeName})=>{theme(themeName);go('exam');chooseExamMode(mode);const index=mode==='id'?99:132;examState.currentModule=0;examState.positions[mode][0]=examState.orders[mode][0].indexOf(index);exam()}, {mode,themeName});
+  check('long Schema description uses the recognizable PDF sentence',/actual design.*theoretical view or legitimate view.*metadata/.test(await page.locator('#exam-question-title').innerText()));
+  check('only one question appears without topic clues or notes before checking',await page.locator('.q').count()===1&&await page.locator('#exam-feedback').innerText()==='');
+  if(mode==='id'){await page.locator('.q input').fill('Schema');await page.locator('.q input').press('Enter')}else{const key=await page.evaluate(()=>currentExamQuestion().question[2]);await page.locator(`.q input[value="${key}"]`).check();await page.locator('#exam-check').click()}
+  check('Schema check reveals a complete correct answer and post-check distinction',await page.locator('#exam-feedback .ok').count()===1&&/Schema Definition is the separate/.test(await page.locator('#exam-feedback').innerText()));
+  check('question locks and keyboard focus moves to feedback',await page.locator('.q input:enabled').count()===0&&await page.evaluate(()=>document.activeElement.id==='exam-feedback'));
+  const layout=await page.evaluate(()=>{const visible=Array.from(document.querySelectorAll('button')).filter(e=>e.getClientRects().length),rects=visible.map(e=>({name:e.textContent.trim(),r:e.getBoundingClientRect()}));return{overflow:document.documentElement.scrollWidth>innerWidth+1,overlaps:rects.flatMap((a,i)=>rects.slice(i+1).filter(b=>Math.min(a.r.right,b.r.right)-Math.max(a.r.left,b.r.left)>2&&Math.min(a.r.bottom,b.r.bottom)-Math.max(a.r.top,b.r.top)>2).map(b=>[a.name,b.name])),small:visible.filter(e=>e.getBoundingClientRect().height<43).map(e=>e.textContent)}});
+  check('long prompt, answer and note have no document overflow',!layout.overflow);check('visible buttons do not overlap',layout.overlaps.length===0);check('buttons retain usable touch targets',layout.small.length===0);
+  await page.locator('.exam-single').screenshot({path:path.join(dir,`schema-${width}-${themeName}-${mode}.png`)});
+  await page.reload();check('refresh opens Home at top with the Schema review saved',await page.evaluate(({mode})=>currentView==='home'&&scrollY===0&&examState.checked[mode][mode==='id'?99:132],{mode}));
+  await page.getByRole('button',{name:'Exam',exact:true}).click();check('normal navigation restores the same long checked question',await page.locator('#exam-feedback .ok').count()===1&&await page.evaluate(()=>[99,132].includes(currentExamQuestion().sourceIndex)));
+  check('no JavaScript errors',errors.length===0);await context.close();
+ }
+}finally{await browser.close()}fs.writeFileSync(path.join(dir,'checks.json'),JSON.stringify({passed:checks.length,checks},null,2));console.log(JSON.stringify({passed:checks.length,checks}));})().catch(e=>{console.error(e);process.exit(1)});

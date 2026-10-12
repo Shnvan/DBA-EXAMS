@@ -1,0 +1,307 @@
+{
+  "retired": {
+    "id": [
+      9,
+      157,
+      158,
+      185,
+      186,
+      187
+    ],
+    "mc": [
+      58,
+      67,
+      190,
+      191,
+      218,
+      219,
+      220
+    ]
+  },
+  "changes": {
+    "id-12": {
+      "answers": "data item|data items|column value|column values",
+      "page": 14
+    },
+    "id-62": {
+      "prompt": "According to the module, this JOIN returns matched rows as well as rows without a match in either table, using NULL for the missing side. Identify the JOIN type.",
+      "page": 56,
+      "note": "The module shows FULL JOIN syntax. MariaDB/MySQL do not provide a native FULL JOIN keyword; the question asks for the module’s join type, not executable MariaDB/MySQL syntax."
+    },
+    "id-65": {
+      "prompt": "According to the module, this floating-point type lets you specify a precision value, unlike REAL and DOUBLE. Identify the SQL data type.",
+      "page": 33,
+      "note": "The module uses precision-setting to distinguish these types. Actual floating-point precision and type aliases depend on the database dialect and configuration."
+    },
+    "id-85": {
+      "answers": "mysql|mysql monitor",
+      "page": 44
+    },
+    "id-99": {
+      "prompt": "According to the module, this is basically the actual design, otherwise called the theoretical view or legitimate view. It is also the part of the data set that represents the metadata. Identify the database concept.",
+      "page": 20,
+      "note": "The module uses “theoretical view” and “legitimate view” for the database schema. A schema describes the database’s structure; Schema Definition is the separate DBMS subfunction that defines that structure."
+    },
+    "id-119": {
+      "answers": "not only structured query language database management system",
+      "page": 21
+    },
+    "id-128": {
+      "answers": "locking mechanism|locking mechanisms",
+      "page": 25
+    },
+    "id-154": {
+      "prompt": "The module names this specialized SQL data type for storing structured data, alongside spatial data types for geographic information. Identify the type.",
+      "page": 40
+    },
+    "id-163": {
+      "prompt": "Which special MySQL monitor terminator is shown at the end of the table-information command on page 45? Give the symbol and letter exactly.",
+      "answers": "\\G",
+      "page": 45,
+      "note": "The module’s displayed command ends with the monitor escape \\G. The letter is uppercase: \\G requests vertical output; lowercase \\g executes a query with ordinary output."
+    },
+    "mc-8": {
+      "options": [
+        "Personal Database",
+        "Enterprise Database",
+        "Group Database",
+        "Cloud"
+      ],
+      "page": 12
+    },
+    "mc-22": {
+      "prompt": "According to the module, what four-digit year range is typically supported by the YEAR data type?",
+      "page": 39
+    },
+    "mc-108": {
+      "prompt": "According to the module, this JOIN returns matched rows as well as rows without a match in either table, using NULL for the missing side. Identify the JOIN type.",
+      "page": 56,
+      "note": "The module shows FULL JOIN syntax. MariaDB/MySQL do not provide a native FULL JOIN keyword; the question asks for the module’s join type, not executable MariaDB/MySQL syntax."
+    },
+    "mc-109": {
+      "prompt": "According to the module, this floating-point type lets you specify a precision value, unlike REAL and DOUBLE. Identify the SQL data type.",
+      "page": 33,
+      "note": "The module uses precision-setting to distinguish these types. Actual floating-point precision and type aliases depend on the database dialect and configuration."
+    },
+    "mc-121": {
+      "prompt": "According to Table 3.1 in the module, which DDL command adds comments to the data dictionary? Give the command name.",
+      "page": 62
+    },
+    "mc-129": {
+      "options": [
+        "Personal DATABASE",
+        "Enterprise DATABASE",
+        "GROUP DATABASE",
+        "Relational Database Management System"
+      ],
+      "page": 12
+    },
+    "mc-132": {
+      "prompt": "According to the module, this is basically the actual design, otherwise called the theoretical view or legitimate view. It is also the part of the data set that represents the metadata. Identify the database concept.",
+      "page": 20,
+      "note": "The module uses “theoretical view” and “legitimate view” for the database schema. A schema describes the database’s structure; Schema Definition is the separate DBMS subfunction that defines that structure."
+    },
+    "mc-161": {
+      "options": [
+        "Encryption",
+        "Locking Mechanism",
+        "Backup",
+        "Normalization"
+      ],
+      "page": 25
+    },
+    "mc-187": {
+      "prompt": "The module names this specialized SQL data type for storing structured data, alongside spatial data types for geographic information. Identify the type.",
+      "page": 40
+    },
+    "mc-196": {
+      "prompt": "Which special MySQL monitor terminator is shown at the end of the table-information command on page 45? Give the symbol and letter exactly.",
+      "options": [
+        "\\G",
+        "Semicolon",
+        "Comma",
+        "Parentheses"
+      ],
+      "page": 45,
+      "note": "The module’s displayed command ends with the monitor escape \\G. The letter is uppercase: \\G requests vertical output; lowercase \\g executes a query with ordinary output."
+    },
+    "id-51": {
+      "answers": "desc",
+      "page": 71
+    },
+    "id-54": {
+      "prompt": "When AND and OR appear together without parentheses, which operator does MySQL evaluate first?",
+      "page": 84
+    },
+    "id-57": {
+      "prompt": "The joined columns have the same name, and the join condition compares them with the equal operator (=). Which keyword can be used instead of ON?",
+      "page": 100
+    },
+    "id-84": {
+      "prompt": "The module says a search condition combines predicates using AND, OR, and one other logical operator. Name the other operator.",
+      "page": 75
+    },
+    "id-86": {
+      "prompt": "In the module example FROM members AS m, what shorthand is used to refer to the members table?",
+      "answers": "m",
+      "page": 90
+    },
+    "id-191": {
+      "page": 49
+    },
+    "id-207": {
+      "prompt": "In the module example m.name AS member, which keyword gives the selected name column the output name member?",
+      "page": 90
+    },
+    "id-213": {
+      "prompt": "In the module diagram of orders and orderdetails, which two columns are marked with an asterisk as key columns in orderdetails? Give both column names.",
+      "answers": "ordernumber and productcode|productcode and ordernumber|ordernumber, productcode|productcode, ordernumber|ordernumber productcode|productcode ordernumber",
+      "page": 93
+    },
+    "id-223": {
+      "page": 74
+    },
+    "id-224": {
+      "page": 79
+    },
+    "id-225": {
+      "page": 80
+    },
+    "mc-33": {
+      "prompt": "The joined columns have the same name, and the join condition compares them with the equal operator (=). Which keyword can be used instead of ON?",
+      "page": 100
+    },
+    "mc-34": {
+      "prompt": "This join selects all rows from the right table, including rows without a left-table match. It uses NULL for the unmatched left-side columns. Identify the join.",
+      "page": 100
+    },
+    "mc-35": {
+      "prompt": "According to the module's FULL JOIN description, a row has no match in the left or right table. What is used for the columns on the unmatched side?",
+      "options": [
+        "The unmatched row is discarded",
+        "Zero in every missing-side column",
+        "NULL in columns from the table with no matching row",
+        "An empty string in every missing-side column"
+      ],
+      "correctIndex": 2,
+      "page": 56,
+      "note": "The module describes the FULL OUTER JOIN concept and prints FULL JOIN syntax. MariaDB/MySQL does not support that native join syntax; this question asks the module's conceptual missing-side behavior, not an executable MySQL statement."
+    },
+    "mc-98": {
+      "options": [
+        "Column Name",
+        "Data Type",
+        "Expression",
+        "Schema"
+      ],
+      "page": 67
+    },
+    "mc-101": {
+      "options": [
+        "Operator Precedence",
+        "Short Circuit Evaluation",
+        "Grouping",
+        "Indexing"
+      ],
+      "page": 81
+    },
+    "mc-102": {
+      "prompt": "When AND and OR appear together without parentheses, which operator does MySQL evaluate first?",
+      "page": 84
+    },
+    "mc-116": {
+      "options": [
+        "Predicate",
+        "Constraint",
+        "Data Type",
+        "Schema"
+      ],
+      "page": 75
+    },
+    "mc-117": {
+      "prompt": "The module says a search condition combines predicates using AND, OR, and one other logical operator. Name the other operator.",
+      "page": 75
+    },
+    "mc-119": {
+      "prompt": "In the module example FROM members AS m, what shorthand is used to refer to the members table?",
+      "options": [
+        "members",
+        "member",
+        "c",
+        "m"
+      ],
+      "correctIndex": 3,
+      "page": 90
+    },
+    "mc-224": {
+      "page": 49
+    },
+    "mc-225": {
+      "options": [
+        "SELECT List",
+        "Search Condition",
+        "Sort Direction",
+        "Column Name"
+      ],
+      "page": 75
+    },
+    "mc-234": {
+      "options": [
+        "Short-circuit Evaluation",
+        "Grouping",
+        "Operator Precedence",
+        "Indexing"
+      ],
+      "page": 84
+    },
+    "mc-240": {
+      "prompt": "In the module example m.name AS member, which keyword gives the selected name column the output name member?",
+      "page": 90
+    },
+    "mc-246": {
+      "prompt": "In the module diagram of orders and orderdetails, which pair is marked with an asterisk as the key columns in orderdetails?",
+      "options": [
+        "orderNumber and quantityOrdered",
+        "productCode and priceEach",
+        "orderNumber and productCode",
+        "orderLineNumber and productCode"
+      ],
+      "correctIndex": 2,
+      "page": 93
+    },
+    "mc-256": {
+      "page": 74
+    },
+    "mc-257": {
+      "page": 79
+    },
+    "mc-258": {
+      "page": 80
+    }
+  },
+  "equivalentOptions": {
+    "mc-8": {
+      "0": [
+        "Personal",
+        "Personal Database"
+      ],
+      "1": [
+        "Enterprise",
+        "Enterprise Database"
+      ],
+      "2": [
+        "Group",
+        "Group Database"
+      ]
+    },
+    "mc-161": {
+      "1": [
+        "Locking",
+        "Locking Mechanism"
+      ]
+    }
+  },
+  "equivalentAnswers": [
+    "id-128"
+  ]
+}

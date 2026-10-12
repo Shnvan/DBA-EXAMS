@@ -20,7 +20,7 @@ function collectExamAnswers(){
 function examAnswerPresent(current=currentExamQuestion()){return!!current&&(current.mode==='id'?!!String(examState.answers.id[current.sourceIndex]||'').trim():Number.isInteger(examState.answers.mc[current.sourceIndex]))}
 function examInput(immediate=false){collectExamAnswers();const current=currentExamQuestion(),button=$('#exam-check');if(button)button.disabled=!current||current.checked||!examAnswerPresent(current);immediate?saveProgressNow():saveProgressSoon()}
 function resetExamAttempt(){
- examState.answers=emptyExamAnswers();examState.checked=emptyExamAnswers();examState.submitted=emptyExamParts();examState.scores=emptyExamScores();
+ examState.answers=emptyExamAnswers();examState.checked=emptyExamAnswers();examState.legacyBlank=emptyExamAnswers();examState.submitted=emptyExamParts();examState.scores=emptyExamScores();
  examState.reviews={id:EXAM_MODULES.map(()=>null),mc:EXAM_MODULES.map(()=>null)};
  examState.positions={id:EXAM_MODULES.map(()=>0),mc:EXAM_MODULES.map(()=>0)};examState.continuationDismissed=emptyExamParts();
 }
@@ -29,7 +29,7 @@ function chooseExamMode(mode){
  if(examHasProgress()&&!confirm('Change exam type and clear the current exam answers and results?'))return;
  resetExamAttempt();examState.mode=mode;examState.currentModule=0;exam();$('#exam-part-title')?.focus({preventScroll:true});saveProgressNow();
 }
-function examSummary(){const mode=examState.mode;return mode?`<p class="mu sm">${mode==='id'?'Identification':'Multiple Choice'} · ${mode==='id'?ID.length:MC.length} questions · ${examState.submitted[mode].filter(Boolean).length} of ${EXAM_MODULES.length} parts complete.</p>`:''}
+function examSummary(){const mode=examState.mode;return mode?`<p class="mu sm">${mode==='id'?'Identification':'Multiple Choice'} · ${examTotal(mode)} questions · ${examState.submitted[mode].filter(Boolean).length} of ${EXAM_MODULES.length} parts complete.</p>`:''}
 function examFeedbackHtml(current){
  if(!current.checked)return'';
  const {mode,sourceIndex,question:q}=current,correct=examCorrect(mode,sourceIndex),value=examState.answers[mode][sourceIndex];
@@ -83,15 +83,17 @@ function upgradeLegacyExam(saved){
 }
 function validExam(s){
  if(!validLegacyExam(s)||!isRecord(s.checked)||!isRecord(s.positions)||!isRecord(s.continuationDismissed))return false;
+ if(!validLegacyBlankReviews(s,{id:ID,mc:MC}))return false;
  for(const mode of ['id','mc']){
-  const count=mode==='id'?ID.length:MC.length;
-  if(!isRecord(s.checked[mode])||!Object.entries(s.checked[mode]).every(([key,v])=>String(+key)===key&&Number.isInteger(+key)&&+key>=0&&+key<count&&v===true))return false;
+  const count=mode==='id'?ID.length:MC.length;if(Object.keys(s.answers[mode]).some(k=>!examActive(mode,+k)))return false;
+  if(!isRecord(s.checked[mode])||!Object.entries(s.checked[mode]).every(([key,v])=>String(+key)===key&&Number.isInteger(+key)&&+key>=0&&+key<count&&examActive(mode,+key)&&v===true))return false;
+  if(Object.keys(s.legacyBlank?.[mode]||{}).some(k=>!examActive(mode,+k)))return false;
   if(!Array.isArray(s.positions[mode])||s.positions[mode].length!==EXAM_MODULES.length||!Array.isArray(s.continuationDismissed[mode])||s.continuationDismissed[mode].length!==EXAM_MODULES.length)return false;
   for(let m=0;m<EXAM_MODULES.length;m++){
    if(!Number.isInteger(s.positions[mode][m])||s.positions[mode][m]<0||s.positions[mode][m]>=s.orders[mode][m].length||typeof s.continuationDismissed[mode][m]!=='boolean')return false;
    const stats=examPartStats(mode,m,s);
    if(s.submitted[mode][m]!== (stats.checked===stats.total)||s.continuationDismissed[mode][m]&&!s.submitted[mode][m])return false;
-   if(!s.submitted[mode][m]&&s.orders[mode][m].some(i=>s.checked[mode][i]===true&&(mode==='id'?!String(s.answers.id[i]||'').trim():!Number.isInteger(s.answers.mc[i]))))return false;
+   if(!s.submitted[mode][m]&&s.orders[mode][m].some(i=>s.checked[mode][i]===true&&!s.legacyBlank?.[mode]?.[i]&&(mode==='id'?!String(s.answers.id[i]||'').trim():!Number.isInteger(s.answers.mc[i]))))return false;
   }
  }
  return true;

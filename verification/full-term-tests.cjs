@@ -5,7 +5,7 @@ vm.runInContext(fs.readFileSync(__dirname+'/exam-content.js','utf8')+'\n'+fs.rea
 let checks=0;const test=(name,fn)=>{fn();checks++;console.log('PASS '+name)};
 const identities=JSON.parse(fs.readFileSync(__dirname+'/exam-identities.json','utf8'));
 const added=key=>ctx.ID[base.ID.length+identities.id.indexOf(key)];
-test('All 508 stable questions retained',()=>{assert.equal(ctx.ID.length,237);assert.equal(ctx.MC.length,271);assert.ok(ctx.ID.every(Boolean));assert.ok(ctx.MC.every(Boolean));});
+test('Stable question slots retained while only active questions enter exams',()=>{const {X}=require('./load.cjs')();assert.equal(X.ID.length,237);assert.equal(X.MC.length,271);assert.ok(X.ID.every(Boolean));assert.ok(X.MC.every(Boolean));for(const mode of ['id','mc']){const active=[0,1,2,3,4].flatMap(m=>X.examIndices(mode,m));assert.equal(active.length,X.examTotal(mode));assert.equal(new Set(active).size,active.length);for(const i of X.EXAM_RETIRED[mode])assert(!active.includes(i))}});
 test('Every declared answer variant grades correctly',()=>{for(const q of ctx.ID)for(const a of q[1].split('|'))assert.ok(ctx.matches(a,q),q[0]+' / '+a)});
 test('Conceptual acronyms are rejected',()=>{for(const [i,a] of [[0,'DBMS'],[3,'DCL'],[21,'OODBMS'],[41,'DDL'],[42,'DQL'],[43,'DML'],[58,'TCL']])assert.equal(ctx.matches(a,ctx.ID[i]),false);assert.equal(ctx.matches('SQL',added('concept-2:SQL')),false);assert.equal(ctx.matches('CRUD',added('concept-3:CRUD')),false);assert.equal(ctx.matches('QBE',added('concept-3:Query by example')),false)});
 test('Incomplete conceptual labels are rejected',()=>{for(const [i,a] of [[17,'enterprise'],[20,'graph'],[21,'object oriented'],[22,'hierarchical'],[23,'network'],[82,'object oriented'],[24,'concurrency'],[26,'nonprocedural'],[53,'short circuit'],[80,'document oriented'],[81,'column family'],[86,'alias']])assert.equal(ctx.matches(a,ctx.ID[i]),false,i+': '+a)});
@@ -16,4 +16,4 @@ test('SQL datatypes, statements, products and symbols stay literal',()=>{assert.
 test('MC options all distinct and correct indices valid',()=>{for(const q of ctx.MC){assert.equal(q[1].length,4);assert.equal(new Set(q[1].map(x=>x.toLowerCase().trim())).size,4,q[0]);assert.ok(q[2]>=0&&q[2]<4);assert.ok(q[3]>=10&&q[3]<=105)}});
 test('Expanded option labels do not use conceptual acronyms',()=>{for(const q of ctx.MC)for(const option of q[1])assert.ok(!/^(DBMS|RDBMS|OODBMS|DDL|DML|DQL|DCL|TCL|Hierarchical|Network|Graph|Object-oriented)$/i.test(option),q[0]+' / '+option)});
 test('Generated full-term prompts no longer request category abbreviations',()=>{for(const q of ctx.ID)assert.ok(!/give the acronym|category \(abbreviation\)|acronym or full name|which acronym represents/i.test(q[0]),q[0])});
-console.log(JSON.stringify({passed:checks,questions:ctx.ID.length+ctx.MC.length}));
+console.log(JSON.stringify({passed:checks,questions:require('./load.cjs')().X.examTotal('id')+require('./load.cjs')().X.examTotal('mc')}));

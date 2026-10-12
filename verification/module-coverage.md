@@ -1,6 +1,6 @@
 # PDF coverage inventory
 
-237 identification and 271 multiple-choice questions. Original stable IDs are retained; added identities are appended. Coverage is based on definitions, subtopics and application behavior, not an item quota.
+231 identification and 264 multiple-choice questions. Original stable IDs are retained; added identities are appended. Coverage is based on definitions, subtopics and application behavior, not an item quota.
 
 | Concept | PDF page | Module | Identification | Multiple choice |
 |---|---:|---:|---|---|
@@ -13,7 +13,6 @@
 | where | 74 | 4 | id-6 | mc-64 |
 | metadata | 11 | 1 | id-7 | mc-65 |
 | data dictionary | 11 | 1 | id-8 | mc-66 |
-| flat file | 11 | 1 | id-9 | mc-67 |
 | foreign key | 15 | 1 | id-10 | mc-68 |
 | attribute | 13 | 1 | id-11 | mc-69 |
 | data item | 14 | 1 | id-12 | mc-70 |
@@ -61,7 +60,7 @@
 | and | 84 | 4 | id-54 | mc-102 |
 | join | 88 | 5 | id-55 | mc-103 |
 | left join | 94 | 5 | id-56 | mc-104 |
-| using | 91 | 5 | id-57 | mc-33 |
+| using | 100 | 5 | id-57 | mc-33 |
 | transaction control language | 61 | 3 | id-58 | mc-36 |
 | having | 63 | 3 | id-59 | mc-105 |
 | distinct | 63 | 3 | id-60 | mc-106 |
@@ -90,7 +89,7 @@
 | predicate | 75 | 4 | id-83 | mc-116 |
 | not | 75 | 4 | id-84 | mc-117 |
 | mysql | 44 | 2 | id-85 | mc-118 |
-| table alias | 90 | 5 | id-86 | mc-119 |
+| m | 90 | 5 | id-86 | mc-119 |
 | rename | 62 | 3 | id-87 | mc-120 |
 | comment | 62 | 3 | id-88 | mc-121 |
 | Database | 12 | 1 | id-89 | mc-122 |
@@ -123,7 +122,7 @@
 | Database Tuning | 18 | 1 | id-116 | mc-149 |
 | Monitoring and Maintenance | 18 | 1 | id-117 | mc-150 |
 | Relational Database Management System | 21 | 1 | id-118 | mc-151 |
-| Not Only SQL Database Management System | 21 | 1 | id-119 | mc-152 |
+| not only structured query language database management system | 21 | 1 | id-119 | mc-152 |
 | Key-value store | 21 | 1 | id-120 | mc-153 |
 | Centralized Data Management | 23 | 1 | id-121 | mc-154 |
 | Improved Data Security | 24 | 1 | id-122 | mc-155 |
@@ -132,7 +131,7 @@
 | Scalability and Flexibility | 24 | 1 | id-125 | mc-158 |
 | Vertical scaling | 25 | 1 | id-126 | mc-159 |
 | Horizontal scaling | 25 | 1 | id-127 | mc-160 |
-| Locking | 25 | 1 | id-128 | mc-161 |
+| locking mechanism | 25 | 1 | id-128 | mc-161 |
 | Cost Efficiency | 25 | 1 | id-129 | mc-162 |
 | IBM IMS | 23 | 1 | id-130 | mc-163 |
 | IDMS | 23 | 1 | id-131 | mc-164 |
@@ -161,13 +160,11 @@
 | JSON | 40 | 2 | id-154 | mc-187 |
 | IS NULL | 42 | 2 | id-155 | mc-188 |
 | IS NOT NULL | 42 | 2 | id-156 | mc-189 |
-| COALESCE | 42 | 2 | id-157 | mc-190 |
-| IFNULL | 42 | 2 | id-158 | mc-191 |
 | USE | 45 | 2 | id-159 | mc-192 |
 | SHOW COLUMNS | 45 | 2 | id-160 | mc-193 |
 | SHOW INDEX | 45 | 2 | id-161 | mc-194 |
 | SHOW TABLE STATUS | 45 | 2 | id-162 | mc-195 |
-| Vertical display delimiter | 45 | 2 | id-163 | mc-196 |
+| \G | 45 | 2 | id-163 | mc-196 |
 | root | 44 | 2 | id-164 | mc-197 |
 | Password option | 59 | 3 | id-165 | mc-198 |
 | Username option | 59 | 3 | id-166 | mc-199 |
@@ -189,13 +186,10 @@
 | GROUP BY | 63 | 3 | id-182 | mc-215 |
 | GRANT | 65 | 3 | id-183 | mc-216 |
 | REVOKE | 65 | 3 | id-184 | mc-217 |
-| COMMIT | 61 | 3 | id-185 | mc-218 |
-| ROLLBACK | 61 | 3 | id-186 | mc-219 |
-| SAVEPOINT | 61 | 3 | id-187 | mc-220 |
 | SQL View | 58 | 3 | id-188 | mc-221 |
 | Query by example | 57 | 3 | id-189 | mc-222 |
 | Select list | 68 | 4 | id-190 | mc-223 |
-| Asterisk | 68 | 4 | id-191 | mc-224 |
+| Asterisk | 49 | 3 | id-191 | mc-224 |
 | Search condition | 75 | 4 | id-192 | mc-225 |
 | Equality operator | 76 | 4 | id-193 | mc-226 |
 | Greater-than operator | 83 | 4 | id-194 | mc-227 |
@@ -217,7 +211,7 @@
 | One-to-many relationship | 97 | 5 | id-210 | mc-243 |
 | Product line link | 91 | 5 | id-211 | mc-244 |
 | Sales representative link | 102 | 5 | id-212 | mc-245 |
-| SUM | 93 | 5 | id-213 | mc-246 |
+| ordernumber and productcode | 93 | 5 | id-213 | mc-246 |
 | ACID Atomicity expansion | 18 | 1 | id-214 | mc-247 |
 | ACID Consistency expansion | 18 | 1 | id-215 | mc-248 |
 | ACID Durability expansion | 18 | 1 | id-216 | mc-249 |
@@ -227,9 +221,9 @@
 | FROM before SELECT | 68 | 4 | id-220 | mc-253 |
 | WHERE evaluation order | 75 | 4 | id-221 | mc-254 |
 | Unsorted result | 71 | 4 | id-222 | mc-255 |
-| Secondary sort | 72 | 4 | id-223 | mc-256 |
-| Inclusive BETWEEN | 78 | 4 | id-224 | mc-257 |
-| Suffix pattern | 79 | 4 | id-225 | mc-258 |
+| Secondary sort | 74 | 4 | id-223 | mc-256 |
+| Inclusive BETWEEN | 79 | 4 | id-224 | mc-257 |
+| Suffix pattern | 80 | 4 | id-225 | mc-258 |
 | AND false with NULL | 80 | 4 | id-226 | mc-259 |
 | AND true with NULL | 80 | 4 | id-227 | mc-260 |
 | AND NULL with NULL | 80 | 4 | id-228 | mc-261 |
@@ -265,7 +259,7 @@
 | What does SELECT true OR false AND false return in MySQL? | 85 | 4 | Identification counterpart is covered by the named concept questions; this item assesses a choice/result rather than a unique concept name. | mc-31 |
 | Which JOIN returns only rows that match in both tables? | 89 | 5 | Identification counterpart is covered by the named concept questions; this item assesses a choice/result rather than a unique concept name. | mc-32 |
 | Which JOIN returns all rows from the right table? | 100 | 5 | Identification counterpart is covered by the named concept questions; this item assesses a choice/result rather than a unique concept name. | mc-34 |
-| How can you emulate a FULL OUTER JOIN in MySQL? | 88 | 5 | Identification counterpart is covered by the named concept questions; this item assesses a choice/result rather than a unique concept name. | mc-35 |
+| According to the module's FULL JOIN description, a row has no match in the left or right table. What is used for the columns on the unmatched side? | 56 | 3 | Identification counterpart is covered by the named concept questions; this item assesses a choice/result rather than a unique concept name. | mc-35 |
 | Which pair represents floating-point types in the module? | 34 | 2 | Identification counterpart is covered by the named concept questions; this item assesses a choice/result rather than a unique concept name. | mc-39 |
 | What is AUTO_INCREMENT used for in the page 60 example? | 60 | 3 | Identification counterpart is covered by the named concept questions; this item assesses a choice/result rather than a unique concept name. | mc-46 |
 | Which statement creates a database named practice2? | 52 | 3 | Identification counterpart is covered by the named concept questions; this item assesses a choice/result rather than a unique concept name. | mc-47 |
@@ -274,7 +268,6 @@
 | What is a predicate in a WHERE condition? | 75 | 4 | Identification counterpart is covered by the named concept questions; this item assesses a choice/result rather than a unique concept name. | mc-55 |
 | What does TRUE AND NULL evaluate to? | 80 | 4 | Identification counterpart is covered by the named concept questions; this item assesses a choice/result rather than a unique concept name. | mc-56 |
 | What does FALSE OR NULL evaluate to? | 83 | 4 | Identification counterpart is covered by the named concept questions; this item assesses a choice/result rather than a unique concept name. | mc-57 |
-| In FROM members AS m, what does m represent? | 90 | 5 | Identification counterpart is covered by the named concept questions; this item assesses a choice/result rather than a unique concept name. | mc-58 |
 | Which condition selects employees without customers after the RIGHT JOIN shown on page 104? | 104 | 5 | Identification counterpart is covered by the named concept questions; this item assesses a choice/result rather than a unique concept name. | mc-59 |
 
 ## Exclusions
@@ -290,7 +283,7 @@
 
 ## Module errata and dialect notes
 
-- p11: Flat files can contain metadata; the module contrasts them with an integrated database data dictionary.
+- p11: The phrase "level document frameworks" does not name or adequately define a flat-file model. The inferred label and its questions have been retired.
 - p15: A primary key need not be the first column; the sentence "Now two rows" is a typo. Foreign keys may be composite and NULL allowance depends on constraints.
 - p22: A hierarchical non-root node normally has one parent; the root has none.
 - p31: MySQL SMALLINT and INT have different storage/ranges. SQL precision and support depend on the implementation.

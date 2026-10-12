@@ -5,7 +5,7 @@ fs.mkdirSync(dir,{recursive:true});
 let html=fs.readFileSync(path.join(root,'DBMS_midterm_practice.html'),'utf8');
 if(!process.argv.includes('--actual')){
  const match=html.match(/<script>([\s\S]*?)<\/script>/),marker=match[1].indexOf('/* supplemental module content and task grading */');
- const names=['exam-content.js','curriculum.js','sql-grading.js','lab-content.js','lab-query-contract.js','lab-assessment.js','learning-ui.js','exam-ui.js','ui.js'];
+ const names=['exam-content.js','curriculum.js','sql-grading.js','lab-content.js','lab-query-contract.js','lab-assessment.js','learning-ui.js','exam-policy.js','exam-ui.js','ui.js'];
  const source=match[1].slice(0,marker)+names.filter(n=>fs.existsSync(path.join(__dirname,n))).map(n=>fs.readFileSync(path.join(__dirname,n),'utf8')).join('\n');
  html=html.replace(match[0],()=>'<script>'+source+'</script>').replace('</style>',fs.readFileSync(path.join(__dirname,'lab-ui.css'),'utf8')+'\n</style>');
 }
@@ -62,7 +62,7 @@ const checks=[];
   check('restore keeps corrected branch recoverable',await page.evaluate(()=>courseStates.advanced.archives.length)===2);
   await page.locator('.course-archives>summary').click();await page.getByRole('button',{name:'Restore branch',exact:true}).nth(1).click();
   check('recovering corrected branch returns its distinct database',await page.evaluate(()=>courseStates.advanced.session.databases.campus_project.departments.cols.find(c=>c.n==='dept_name').t==='varchar(100)'&&!courseStates.advanced.session.databases.campus_project.students));
-  await page.locator('#course-sql').fill('saved advanced draft');await page.waitForTimeout(300);await page.reload();
+  await page.locator('#course-sql').fill('saved advanced draft');await page.waitForTimeout(300);await page.reload();check('reload starts Home with preserved course state',await page.evaluate(()=>currentView==='home'&&scrollY===0));await page.getByRole('button',{name:'SQL lab',exact:true}).click();
   check('reload preserves archived branches',await page.evaluate(()=>courseStates.advanced.archives.length)===3);
   check('reload preserves level and draft',await page.locator('#course-sql').inputValue()==='saved advanced draft'&&await page.locator('.level-pick .on').innerText().then(t=>/Advanced/.test(t)));
   await page.locator('.level-pick button').filter({hasText:'Intermediate'}).click();await page.getByRole('button',{name:'Database setup walkthrough',exact:true}).click();

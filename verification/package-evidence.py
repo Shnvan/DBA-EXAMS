@@ -6,7 +6,7 @@ html=(root/'DBMS_midterm_practice.html').read_bytes(); report=(root/'DBMS_verifi
 out_html=(root/'outputs/DBMS_midterm_practice.html').read_bytes(); out_report=(root/'outputs/DBMS_verification_report.md').read_bytes()
 assert html==out_html and report==out_report
 source=html.decode('utf-8').replace('\r\n','\n')
-for name in ['engine-core.js','engine-parser.js','engine-query.js','engine-write.js','exam-content.js','identification.js','curriculum.js','sql-grading.js','lab-content.js','lab-query-contract.js','lab-assessment.js','lab-ui.css','exam-ui.css','learning-ui.js','exam-ui.js','ui.js']:
+for name in ['engine-core.js','engine-parser.js','engine-query.js','engine-write.js','exam-content.js','identification.js','curriculum.js','sql-grading.js','lab-content.js','lab-query-contract.js','lab-assessment.js','lab-ui.css','exam-ui.css','learning-ui.js','exam-policy.js','exam-ui.js','ui.js']:
     frag=(root/'verification'/name).read_text(encoding='utf-8').strip()
     assert frag in source, name
 match=re.search(r'<script id="module-pdf"[^>]*>(.*?)</script>',source,re.S)
@@ -19,7 +19,9 @@ with ZipFile(zip_path,'w',ZIP_DEFLATED) as z:
     z.write(root/'verification-artifacts/release-results.json','verification-artifacts/release-results.json')
     for p in sorted((root/'verification').iterdir()):
         if p.is_file(): z.write(p,'verification-scripts/'+p.name)
-    for rel in ['verification-artifacts/three-level-browser','verification-artifacts/final','verification-artifacts/pdf-review','verification-artifacts/current-release','verification-artifacts/reliability-browser','verification-artifacts/lab-ui-browser','verification-artifacts/single-question','verification-artifacts/single-question-browser','verification-artifacts/live-single-question']:
+    for p in sorted((root/'verification/fixtures').rglob('*')):
+        if p.is_file(): z.write(p,'verification-scripts/'+str(p.relative_to(root/'verification')).replace('\\','/'))
+    for rel in ['verification-artifacts/three-level-browser','verification-artifacts/final','verification-artifacts/pdf-review','verification-artifacts/current-release','verification-artifacts/reliability-browser','verification-artifacts/lab-ui-browser','verification-artifacts/single-question','verification-artifacts/single-question-browser','verification-artifacts/home-startup','verification-artifacts/home-startup-browser','verification-artifacts/pdf-wording','verification-artifacts/pdf-wording-browser','verification-artifacts/pdf-wording-source','verification-artifacts/live-wording-home','verification-artifacts/live-lab']:
         d=root/rel
         if d.exists():
             for p in sorted(d.rglob('*')):

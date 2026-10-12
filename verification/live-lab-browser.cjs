@@ -24,7 +24,7 @@ fs.mkdirSync(dir,{recursive:true});
    check('check leaves visible database unchanged',await page.evaluate(()=>courseStates.intermediate.session.current===null));
    await page.getByRole('button',{name:'Apply checked result and continue',exact:true}).click();
    check('checked checkpoint continues without rerunning',await page.evaluate(()=>courseStates.intermediate.session.current==='module_practice'&&courseStates.intermediate.lesson===1));
-   await page.reload();
+   await page.reload();check('refresh starts Home',await page.evaluate(()=>currentView==='home'&&scrollY===0));await page.getByRole('button',{name:'SQL lab',exact:true}).click();
    check('progress restores after refresh',await page.evaluate(()=>courseStates.intermediate.session.current==='module_practice'&&courseStates.intermediate.lesson===1));
    await page.locator('.level-pick button').filter({hasText:'Easy'}).click();
    check('prepared tasks use descriptive requirements',await page.locator('#ws .session').count()===0&&/List the tables in the active database/.test(await page.locator('#ws').innerText()));

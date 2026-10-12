@@ -4,20 +4,23 @@ const htmlPath=path.join(root,'DBMS_midterm_practice.html'),pdfPath='C:/Users/Iv
 const verified=JSON.parse(fs.readFileSync(path.join(root,'verification-artifacts/current-release/results.json'),'utf8'));
 if(verified.htmlSHA256!==sha(htmlPath))throw Error('HTML changed after verification. Rerun release tests.');
 const tests=Object.fromEntries(verified.suites.map(s=>[s.name,s.passed])),htmlHash=sha(htmlPath),pdfHash=sha(pdfPath),htmlBytes=fs.statSync(htmlPath).size;
-const results={...verified,writtenExam:{identification:237,multipleChoice:271,total:508},curriculum:{intermediate:34,advanced:75,total:109},taskContracts:{regular:183,curriculum:109,builder:12,total:304},tests,html:{bytes:htmlBytes,sha256:htmlHash},pdf:{sha256:pdfHash},generated:new Date().toISOString()};
+const {X}=require('./load.cjs')(),audit=require('./exam-wording-audit.json');
+const results={...verified,writtenExam:{identification:X.examTotal('id'),multipleChoice:X.examTotal('mc'),total:X.examTotal('id')+X.examTotal('mc')},wordingAudit:audit.statusCounts,curriculum:{intermediate:34,advanced:75,total:109},taskContracts:{regular:183,curriculum:109,builder:12,total:304},tests,html:{bytes:htmlBytes,sha256:htmlHash},pdf:{sha256:pdfHash},generated:new Date().toISOString()};
+const livePath=path.join(root,'verification-artifacts/live-wording-home/results.json');
+if(fs.existsSync(livePath)){const live=JSON.parse(fs.readFileSync(livePath,'utf8'));if(live.htmlSHA256===htmlHash)results.live=live;}
 fs.writeFileSync(path.join(root,'verification-artifacts/release-results.json'),JSON.stringify(results,null,2));
-const report=`# DBMS practice: one-question written exam
+const report=`# DBMS practice: targeted PDF corrections and home-first startup
 
 ## Changes
 
-- Identification and Multiple Choice show one question at a time within the existing five module parts. The 508-question bank and full-term grading rules are unchanged.
-- Check Answer immediately reveals Correct/Incorrect, the learner's answer, the complete expected term, PDF page, and applicable module notes. Answers lock after the first check. Enter checks Identification answers; checking never advances automatically.
-- Previous and Next preserve review and drafts. Part selectors restore each part's question position. Live correct/checked/remaining counters and the completion bar derive from checked identities.
-- Parts finish automatically when every question is checked. The last feedback stays visible, with the part score and explicit Continue/Stay choices. Completing five parts shows the overall score.
-- No Hint button, pre-check answer preview, or Submit part control. Layout follows the reference card while retaining the app's two themes, 44px controls, responsive navigation, and accessible feedback/focus.
-- Versioned migration preserves prior answers, orders, completed scores, and SQL work. Submitted parts become checked locked reviews; unsubmitted drafts remain editable. Positions, checks, and continuation dismissal save automatically.
+- Reviewed all 508 previous stable question identities against the PDF's 105 pages: 448 unchanged, 42 revised, 5 replaced, and 13 retired. The active bank has ${results.writtenExam.identification} Identification and ${results.writtenExam.multipleChoice} Multiple Choice questions. Unchanged questions are byte-identical to the previous bank.
+- Schema uses the recognizable page 20 actual-design/theoretical-view/legitimate-view/metadata description. It remains distinct from Schema Definition. Complete conceptual terms and literal SQL/product names remain required.
+- Unsupported flat-file questions id-9/mc-67 are retired, and the mc-129 distractor is replaced. Unsupported NULL-function semantics, transaction-command definitions, alias labels, and an unprinted sales formula are retired or replaced with supported examples. The FULL JOIN workaround question now tests the module's missing-side NULL behavior. Module dialect discrepancies appear after checking.
+- Every initial load, refresh, and browser reopening shows Home at the top. Saved screen, scroll and focus are ignored; restored answers, exam mode/part/question, locked reviews, SQL tasks, sessions, transactions, drafts, results, builder work and completion are retained. Normal navigation resumes each area's logical position.
+- Content-aware migration filters retired identities, preserves compatible answers and shuffled order, recalculates completed scores, and reopens only affected answers. Explicit equivalence preserves complete answers and expanded MC labels when their meaning is unchanged. Storage-failure notices take priority over migration notices.
+- Single-question feedback, five module parts, independent completion, within-part shuffling, autosave, themes and Clear saved progress retain their existing behavior.
 
-Easy, Intermediate, Advanced, Free practice, and previous builder sessions retain their existing behavior. Original PDF bytes are unchanged.
+The source audit records every question's disposition, reason, exact before/after content and PDF evidence in verification/exam-wording-audit.json. The readable inventory is verification/exam-wording-audit.md. Source excerpts and image-only figure/table evidence are included; no inferred labels are required. Original PDF bytes remain unchanged.
 
 ## Current verification
 
@@ -27,9 +30,9 @@ Easy, Intermediate, Advanced, Free practice, and previous builder sessions retai
 |---|---:|
 ${verified.suites.map(s=>`| ${s.name} | ${s.passed} |`).join('\n')}
 
-Targeted tests exercise all 508 questions with perfect, incorrect, and mixed answers after shuffling. They cover blank prevention, full terms versus abbreviations, immutable first attempts, arbitrary part order, counters, saved drafts, review/navigation, automatic completion, prompt dismissal, migration of completed and partial old exams, escaped HTML-looking answers, malformed saves, and blocked/full storage. Existing SQL regression suites also pass.
+Targeted tests exercise all ${results.writtenExam.total} active questions with perfect, incorrect, and mixed answers after shuffling. They cover blank prevention, full terms versus abbreviations, immutable first attempts, arbitrary part order, counters, saved drafts, review/navigation, automatic completion, prompt dismissal, migration of completed and partial old exams, retirement score recalculation, selective answer reopening, preservation of legacy blank locked reviews within reopened parts, Home-first startup, normal navigation resumption, escaped HTML-looking answers, malformed saves, and blocked/full storage. Existing SQL regression suites also pass.
 
-Chrome checks cover both exam types and themes at 1440, 768, 360, 320, and 720 CSS pixels. The 720px layout models reflow at 200% zoom on a 1440px display. Checks include actual Enter and button interactions, disabled/selected states, focus, answer locks, continuation, restoration, overlap, touch targets, and horizontal overflow. Desktop and narrow-mobile screenshots were visually inspected. Native browser zoom itself is not claimed by the reflow model.
+Chrome checks cover long PDF descriptions, Home-first refresh/reopening, and both exam types and themes at 1440, 768, 360, 320, and 720 CSS pixels. The 720px layout models reflow at 200% zoom on a 1440px display. Checks include actual Enter and button interactions, disabled/selected states, focus, answer locks, continuation, restoration, overlap, touch targets, and horizontal overflow. Desktop and narrow-mobile screenshots were visually inspected. Native browser zoom itself is not claimed by the reflow model.
 
 The offline SQL engine retains its documented limits: no live server, subqueries, stored programs, views, full GIS analysis, or arbitrary server configuration. PDF coverage and SQL task inventories remain included as release references.
 
@@ -44,6 +47,7 @@ PDF SHA-256: ${pdfHash}
 HTML bytes: ${htmlBytes.toLocaleString()}
 
 Root/output HTML and report copies match. The evidence ZIP includes current test results, reusable sources, browser screenshots, inventories, and the unchanged source PDF.
+${results.live?`\n## Production verification\n\n${results.live.passed} live Chrome checks passed at ${results.live.url} on ${results.live.executedAt}, covering exam feedback/navigation, PDF wording, Home-first refresh/reopening, and SQL lab workflows. Production returned HTTP 200 and the same HTML SHA-256 as the local verified release. Deployed source commit: ${results.live.commit}. Live results and screenshots are included in the evidence ZIP.\n`:''}
 `;
 fs.writeFileSync(path.join(root,'DBMS_verification_report.md'),report);fs.mkdirSync(path.join(root,'outputs'),{recursive:true});
 fs.copyFileSync(htmlPath,path.join(root,'outputs/DBMS_midterm_practice.html'));fs.copyFileSync(path.join(root,'DBMS_verification_report.md'),path.join(root,'outputs/DBMS_verification_report.md'));

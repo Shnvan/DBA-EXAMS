@@ -1,6 +1,7 @@
 const $=s=>document.querySelector(s),h=s=>String(s).replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));
-const CONTENT_VERSION='single-question-exam-v6';
-const examCatalog=()=>({id:ID.map((q,i)=>({id:'id-'+i,signature:JSON.stringify(q)})),mc:MC.map((q,i)=>({id:'mc-'+i,signature:JSON.stringify(q)}))});
+const CONTENT_VERSION='pdf-wording-home-v7';
+if(typeof history!=='undefined'&&'scrollRestoration' in history)history.scrollRestoration='manual';
+const examCatalog=()=>({id:ID.map((q,i)=>({id:'id-'+i,signature:JSON.stringify(q),active:examActive('id',i)})),mc:MC.map((q,i)=>({id:'mc-'+i,signature:JSON.stringify(q),active:examActive('mc',i)}))});
 const EXAM_MODULES=[
  {id:1,title:'Module 1 — Database Management System',from:10,to:27},
  {id:2,title:'Module 2 — SQL Basics',from:28,to:46},
@@ -10,12 +11,12 @@ const EXAM_MODULES=[
 ];
 const ordered=n=>Array.from({length:n},(_,i)=>i);
 const examModuleFor=(kind,index)=>{const q=kind==='id'?ID[index]:MC[index],page=q[kind==='id'?2:3];return EXAM_MODULES.findIndex(m=>page>=m.from&&page<=m.to)};
-const examIndices=(kind,module)=>ordered(kind==='id'?ID.length:MC.length).filter(i=>examModuleFor(kind,i)===module);
+const examIndices=(kind,module)=>ordered(kind==='id'?ID.length:MC.length).filter(i=>examActive(kind,i)&&examModuleFor(kind,i)===module);
 const emptyExamAnswers=()=>({id:Object.create(null),mc:Object.create(null)});
 const emptyExamParts=()=>({id:EXAM_MODULES.map(()=>false),mc:EXAM_MODULES.map(()=>false)});
 const emptyExamScores=()=>({id:EXAM_MODULES.map(()=>null),mc:EXAM_MODULES.map(()=>null)});
 const makeExamOrders=()=>({id:EXAM_MODULES.map((_,m)=>examIndices('id',m)),mc:EXAM_MODULES.map((_,m)=>examIndices('mc',m))});
-const makeExamState=()=>({mode:null,currentModule:0,reviews:{id:EXAM_MODULES.map(()=>null),mc:EXAM_MODULES.map(()=>null)},orders:makeExamOrders(),answers:emptyExamAnswers(),checked:emptyExamAnswers(),positions:{id:EXAM_MODULES.map(()=>0),mc:EXAM_MODULES.map(()=>0)},continuationDismissed:emptyExamParts(),submitted:emptyExamParts(),scores:emptyExamScores()});
+const makeExamState=()=>({mode:null,currentModule:0,reviews:{id:EXAM_MODULES.map(()=>null),mc:EXAM_MODULES.map(()=>null)},orders:makeExamOrders(),answers:emptyExamAnswers(),checked:emptyExamAnswers(),legacyBlank:emptyExamAnswers(),positions:{id:EXAM_MODULES.map(()=>0),mc:EXAM_MODULES.map(()=>0)},continuationDismissed:emptyExamParts(),submitted:emptyExamParts(),scores:emptyExamScores()});
 let examState=makeExamState();
 let live=newSession(),done=new Set(),cur=null,ti=0,previewExpanded=false,currentView='home';const draft={},outputs={},feedback={},outputModels={},feedbackModels={},taskSessions={},trackTasks={};let legacySession=null;
 let progressReady=false,restoring=false,saveTimer=null,saveStorageError=false;
@@ -194,63 +195,31 @@ function validPartOrder(order,expected){return Array.isArray(order)&&order.lengt
 function validLegacyExamStructure(s){return isRecord(s)&&[null,'id','mc'].includes(s.mode)&&Number.isInteger(s.currentModule)&&s.currentModule>=0&&s.currentModule<5&&isRecord(s.reviews)&&['id','mc'].every(kind=>Array.isArray(s.reviews[kind])&&s.reviews[kind].length===5&&s.reviews[kind].every((list,m)=>list===null||(Array.isArray(list)&&list.length===examIndices(kind,m).length&&list.every(x=>isRecord(x)&&examIndices(kind,m).includes(x.sourceIndex)&&typeof x.correct==='boolean'))))&&isRecord(s.orders)&&s.orders.id?.length===EXAM_MODULES.length&&s.orders.mc?.length===EXAM_MODULES.length&&s.orders.id.every((x,m)=>validPartOrder(x,examIndices('id',m)))&&s.orders.mc.every((x,m)=>validPartOrder(x,examIndices('mc',m)))&&isRecord(s.answers)&&validAnswerMap(s.answers.id,'id',ID.length)&&validAnswerMap(s.answers.mc,'mc',MC.length)&&isRecord(s.submitted)&&isRecord(s.scores)&&validPartState(s.submitted.id,s.scores.id,'id')&&validPartState(s.submitted.mc,s.scores.mc,'mc')}
 function validLegacyExam(s){if(!validLegacyExamStructure(s))return false;for(const mode of ['id','mc'])for(let m=0;m<5;m++){const submitted=s.submitted[mode][m],review=s.reviews[mode][m];if(!submitted){if(review!==null)return false;continue}if(!review||!validPartOrder(review.map(x=>x.sourceIndex),examIndices(mode,m)))return false;let score=0;for(const item of review){const correct=mode==='id'?identificationMatches(s.answers.id[item.sourceIndex]||'',ID[item.sourceIndex]):s.answers.mc[item.sourceIndex]===MC[item.sourceIndex][2];if(correct!==item.correct)return false;score+=Number(correct)}if(score!==s.scores[mode][m])return false}return true}
 
-function validCatalog(c){return isRecord(c)&&['id','mc'].every(k=>Array.isArray(c[k])&&c[k].every((x,i)=>isRecord(x)&&x.id===k+'-'+i&&typeof x.signature==='string'))}
+function validCatalog(c){return isRecord(c)&&['id','mc'].every(k=>Array.isArray(c[k])&&c[k].every((x,i)=>isRecord(x)&&x.id===k+'-'+i&&typeof x.signature==='string'&&(x.active===undefined||typeof x.active==='boolean')))}
 function catalogMatches(c){return validCatalog(c)&&JSON.stringify(c)===JSON.stringify(examCatalog())}
 function migrateSnapshot(s){
  if(validSnapshot(s)&&catalogMatches(s.catalog))return{saved:s,migrated:false};
- if(!isRecord(s)||s.version!==1||!['149-89-60-modules-v2','216-67-60-183-12','module-coverage-task-sessions-v3','full-terms-three-levels-v4','descriptive-lab-contracts-v5',CONTENT_VERSION].includes(s.content))return null;
- if(s.content===CONTENT_VERSION&&catalogMatches(s.catalog))return null; // malformed, not a content migration
+ if(!isRecord(s)||s.version!==1||!['149-89-60-modules-v2','216-67-60-183-12','module-coverage-task-sessions-v3','full-terms-three-levels-v4','descriptive-lab-contracts-v5','single-question-exam-v6',CONTENT_VERSION].includes(s.content))return null;
+ if(s.content===CONTENT_VERSION&&catalogMatches(s.catalog))return null;
  if(!validSession(s.live)||!isRecord(s.draft)||!isRecord(s.outputs)||!isRecord(s.feedback)||!validBuild(s.buildModes?.guided)||!validBuild(s.buildModes?.sandbox))return null;
- const out=plain(s),shared=['149-89-60-modules-v2','216-67-60-183-12'].includes(s.content);
- if(['full-terms-three-levels-v4','descriptive-lab-contracts-v5'].includes(s.content)){
-  if(![null,'easy','intermediate','advanced'].includes(s.labLevel)||!isRecord(s.courses)||!validCourse('intermediate',s.courses.intermediate)||!validCourse('advanced',s.courses.advanced)||!catalogMatches(s.catalog)||!validLegacyExam(s.exam))return null;
-  out.content=CONTENT_VERSION;out.exam=upgradeLegacyExam(s.exam);if(out.view==='exam'){out.scrollY=0;out.focusId='exam-part-title'}
-  if(s.content==='full-terms-three-levels-v4'){
+ const out=plain(s),shared=['149-89-60-modules-v2','216-67-60-183-12'].includes(s.content),modern=['full-terms-three-levels-v4','descriptive-lab-contracts-v5','single-question-exam-v6',CONTENT_VERSION].includes(s.content);
+ if(modern){if(![null,'easy','intermediate','advanced'].includes(s.labLevel)||!isRecord(s.courses)||!validCourse('intermediate',s.courses.intermediate)||!validCourse('advanced',s.courses.advanced))return null}
+ else{out.labLevel=s.cur==null?null:s.cur<CFG.length?'easy':'intermediate';out.courses={intermediate:courseSnapshot(makeCourseState()),advanced:courseSnapshot(makeCourseState())}}
+ if(s.content==='full-terms-three-levels-v4'){
   for(const level of ['intermediate','advanced'])out.courses[level]=migrateCourseContracts(level,s.courses[level]);
   for(const [key,f] of Object.entries(out.feedback))if(f.kind==='check'){
    const parts=Array.from({length:CFG.length+2},(_,i)=>i).flatMap(i=>TS(i).map((q,j)=>({key:NM(i)+':'+j,q}))),task=parts.find(x=>x.key===key)?.q;
    if(!task||!f.ok||!gradeSqlTask(out.draft[key]||'',task)){delete out.feedback[key];out.done=(out.done||[]).filter(x=>x!==key)}
   }
-  for(const b of Object.values(out.buildModes)){b.feedback=Object.fromEntries(Object.entries(b.feedback).filter(([,f])=>f.kind==='solution'));}
-  }
-  return validSnapshot(out)?{saved:out,migrated:true}:null;
+  for(const b of Object.values(out.buildModes))b.feedback=Object.fromEntries(Object.entries(b.feedback).filter(([,f])=>f.kind==='solution'));
  }
-
- if(s.content!==CONTENT_VERSION){out.labLevel=s.cur==null?null:s.cur<CFG.length?'easy':'intermediate';out.courses={intermediate:courseSnapshot(makeCourseState()),advanced:courseSnapshot(makeCourseState())}}
  out.legacySession=shared?plain(s.live):s.legacySession||null;out.taskSessions=shared?{}:s.taskSessions;out.trackTasks=shared?{}:s.trackTasks;
- out.content=CONTENT_VERSION;out.catalog=examCatalog();out.exam=makeExamState();
- const oldCatalog=s.content==='149-89-60-modules-v2'?EXAM_BASE_CATALOG:s.catalog;
- if(s.content!=='216-67-60-183-12'){
-  if(!validCatalog(oldCatalog)||!isRecord(s.exam)||![null,'id','mc'].includes(s.exam.mode)||!isRecord(s.exam.orders)||!isRecord(s.exam.answers))return null;
-  out.exam.mode=s.exam.mode;out.exam.currentModule=Number.isInteger(s.exam.currentModule)&&s.exam.currentModule>=0&&s.exam.currentModule<5?s.exam.currentModule:0;
-  for(const mode of ['id','mc']){
-   const catalog=oldCatalog[mode],bank=mode==='id'?ID:MC,pageAt=mode==='id'?2:3;
-   let oldQuestions;try{oldQuestions=catalog.map(x=>JSON.parse(x.signature))}catch(e){return null}
-   if(!validAnswerMap(s.exam.answers[mode],mode,catalog.length))return null;
-   for(let m=0;m<5;m++){
-    const expected=examIndices(mode,m),oldExpected=oldQuestions.map((q,i)=>i).filter(i=>oldQuestions[i][pageAt]>=EXAM_MODULES[m].from&&oldQuestions[i][pageAt]<=EXAM_MODULES[m].to),old=s.exam.orders[mode]?.[m];
-    if(!validPartOrder(old,oldExpected))return null;
-    const compatible=i=>i<bank.length&&JSON.stringify(oldQuestions[i].slice(1,mode==='id'?3:4))===JSON.stringify(bank[i].slice(1,mode==='id'?3:4));
-    out.exam.orders[mode][m]=[...old.filter(i=>expected.includes(i)),...expected.filter(i=>!old.includes(i))];
-    for(const i of old)if(expected.includes(i)&&compatible(i)&&Object.hasOwn(s.exam.answers[mode],i))out.exam.answers[mode][i]=s.exam.answers[mode][i];
-    if(validPartOrder(old,expected)&&old.every(compatible)&&s.exam.submitted?.[mode]?.[m]){
-     out.exam.submitted[mode][m]=true;out.exam.scores[mode][m]=s.exam.scores[mode][m];out.exam.reviews[mode][m]=s.exam.reviews[mode][m];
-    }
-   }
-  }
- }
+ const migrated=s.content==='216-67-60-183-12'?{exam:makeExamState(),reopened:0,removed:0}:migrateExamCatalog(s.exam,s.content==='149-89-60-modules-v2'?EXAM_BASE_CATALOG:s.catalog);
+ if(!migrated)return null;
+ out.content=CONTENT_VERSION;out.catalog=examCatalog();out.exam=migrated.exam;out.view='home';out.scrollY=0;out.focusId='';
  if(shared){out.outputs={};out.feedback={}}
- if(!isRecord(s.exam?.checked))out.exam=upgradeLegacyExam(out.exam);else{
-  for(const mode of ['id','mc'])for(let m=0;m<EXAM_MODULES.length;m++){
-   const old=s.exam.orders[mode][m],list=out.exam.orders[mode][m],bank=mode==='id'?ID:MC;
-   const compatible=i=>{try{return JSON.stringify(JSON.parse(oldCatalog[mode][i].signature).slice(1,mode==='id'?3:4))===JSON.stringify(bank[i].slice(1,mode==='id'?3:4))}catch(e){return false}};
-   const samePart=validPartOrder(old,list)&&old.every(compatible);
-   for(const i of list)if(s.exam.checked[mode]?.[i]===true&&compatible(i))out.exam.checked[mode][i]=true;
-   if(samePart){out.exam.positions[mode][m]=s.exam.positions?.[mode]?.[m]||0;out.exam.continuationDismissed[mode][m]=!!s.exam.continuationDismissed?.[mode]?.[m]}
-  }
- }
- if(out.view==='exam'){out.scrollY=0;out.focusId='exam-part-title'}
- if(!validSnapshot(out))return null;return{saved:out,migrated:true};
+ const notice=migrated.reopened?'PDF questions updated. '+migrated.reopened+' affected answer'+(migrated.reopened===1?' needs':'s need')+' checking again; other study progress was kept.':migrated.removed?'PDF questions updated. Unsupported questions were removed and scores recalculated; your other study progress was kept.':'Study progress updated. Your saved answers and SQL work were kept where compatible.';
+ return validSnapshot(out)?{saved:out,migrated:true,notice}:null;
 }
 function migrateCourseContracts(level,saved){
  const out=plain(saved),list=courseLessons(level);
@@ -281,6 +250,6 @@ function validTaskKey(key){return Array.from({length:CFG.length+2},(_,i)=>i).som
 function validSnapshot(s){return isRecord(s)&&s.version===1&&s.content===CONTENT_VERSION&&validCatalog(s.catalog)&&[null,'easy','intermediate','advanced'].includes(s.labLevel)&&isRecord(s.courses)&&validCourse('intermediate',s.courses.intermediate)&&validCourse('advanced',s.courses.advanced)&&['home','exam','lab','builder'].includes(s.view)&&validExam(s.exam)&&validSession(s.live)&&isRecord(s.draft)&&Object.entries(s.draft).every(([k,v])=>validTaskKey(k)&&typeof v==='string')&&isRecord(s.outputs)&&Object.entries(s.outputs).every(([k,v])=>validTaskKey(k)&&validOutput(v))&&isRecord(s.feedback)&&Object.entries(s.feedback).every(([k,v])=>validTaskKey(k)&&isRecord(v)&&(v.kind==='solution'||v.kind==='check'&&typeof v.ok==='boolean'&&typeof v.sql==='string'&&(v.pending==null||typeof v.pending==='string')))&&isRecord(s.taskSessions)&&Object.entries(s.taskSessions).every(([k,v])=>validTaskKey(k)&&validSession(v))&&isRecord(s.trackTasks)&&Object.entries(s.trackTasks).every(([k,v])=>Number.isInteger(+k)&&+k>=0&&+k<CFG.length+2&&Number.isInteger(v)&&v>=0&&v<TS(+k).length)&&(!s.legacySession||validSession(s.legacySession))&&isRecord(s.buildModes)&&validBuild(s.buildModes.guided)&&validBuild(s.buildModes.sandbox)}
 function restoreSession(saved){const out=plain(saved);for(const db of Object.values(out.databases||{}))for(const t of Object.values(db||{}))hydrate(t);return out}
 function restoreBuild(target,saved){const x=plain(saved);target.session=restoreSession(x.session);target.drafts=x.drafts||Object.create(null);target.outputs=Object.create(null);target.feedback=Object.create(null);target.outputModels=x.outputs||Object.create(null);target.feedbackModels=x.feedback||Object.create(null);target.done=new Set(Array.isArray(x.done)?x.done.filter(Number.isInteger):[]);target.task=Number.isInteger(x.task)?x.task:0;target.preview=typeof x.preview==='string'?x.preview:'';target.lastRun=x.lastRun||null}
-function restoreProgress(){restoring=true;let raw=null,migrated=false;try{raw=localStorage.getItem(PROGRESS_KEY)}catch(e){setSaveStatus('Progress saving is unavailable in this browser.',true)}if(raw){try{const candidate=migrateSnapshot(JSON.parse(raw));if(!candidate)throw Error('incompatible progress');const saved=candidate.saved;migrated=candidate.migrated;examState=plain(saved.exam);labLevel=saved.labLevel;restoreCourse('intermediate',saved.courses.intermediate);restoreCourse('advanced',saved.courses.advanced);live=restoreSession(saved.live);clearObject(taskSessions);for(const [key,value] of Object.entries(saved.taskSessions||{}))taskSessions[key]=restoreSession(value);clearObject(trackTasks);Object.assign(trackTasks,saved.trackTasks||{});legacySession=saved.legacySession?restoreSession(saved.legacySession):null;done=new Set(Array.isArray(saved.done)?saved.done.filter(x=>typeof x==='string'):[]);cur=Number.isInteger(saved.cur)?saved.cur:null;ti=Number.isInteger(saved.ti)?saved.ti:0;pvt=typeof saved.pvt==='string'?saved.pvt:'customers';previewExpanded=Boolean(saved.previewExpanded);currentView=['home','exam','lab','builder'].includes(saved.view)?saved.view:'home';clearObject(draft);Object.assign(draft,saved.draft||{});clearObject(outputModels);Object.assign(outputModels,saved.outputs||{});clearObject(feedbackModels);Object.assign(feedbackModels,saved.feedback||{});buildMode=saved.buildMode==='sandbox'?'sandbox':'guided';restoreBuild(buildModes.guided,saved.buildModes.guided);restoreBuild(buildModes.sandbox,saved.buildModes.sandbox);if(cur!==null&&(cur<0||cur>=CFG.length+2))cur=null;if(cur!==null&&(ti<0||ti>=TS(cur).length))ti=0;if(cur!==null)activateTask();const targetView=currentView;progressReady=true;go(targetView);const y=Number(saved.scrollY)||0,id=saved.focusId;setTimeout(()=>{if(id)document.getElementById(id)?.focus({preventScroll:true});scrollTo(0,y)},0);setSaveStatus(migrated?'Study progress updated for the one-question exam. Your answers, completed parts, and SQL work were kept where compatible.':'Saved progress restored')}catch(e){setSaveStatus('Saved progress was unavailable and has been reset.',true)}}progressReady=true;restoring=false;if(migrated){saveProgressNow();if(!saveStorageError)setSaveStatus('Study progress updated for the one-question exam. Your answers, completed parts, and SQL work were kept where compatible.')}}
+function restoreProgress(){restoring=true;let raw=null,migrated=false,migrationNotice='Study progress updated. Your saved answers and SQL work were kept where compatible.';try{raw=localStorage.getItem(PROGRESS_KEY)}catch(e){setSaveStatus('Progress saving is unavailable in this browser.',true)}if(raw){try{const candidate=migrateSnapshot(JSON.parse(raw));if(!candidate)throw Error('incompatible progress');const saved=candidate.saved;migrated=candidate.migrated;migrationNotice=candidate.notice||migrationNotice;examState=plain(saved.exam);labLevel=saved.labLevel;restoreCourse('intermediate',saved.courses.intermediate);restoreCourse('advanced',saved.courses.advanced);live=restoreSession(saved.live);clearObject(taskSessions);for(const [key,value] of Object.entries(saved.taskSessions||{}))taskSessions[key]=restoreSession(value);clearObject(trackTasks);Object.assign(trackTasks,saved.trackTasks||{});legacySession=saved.legacySession?restoreSession(saved.legacySession):null;done=new Set(Array.isArray(saved.done)?saved.done.filter(x=>typeof x==='string'):[]);cur=Number.isInteger(saved.cur)?saved.cur:null;ti=Number.isInteger(saved.ti)?saved.ti:0;pvt=typeof saved.pvt==='string'?saved.pvt:'customers';previewExpanded=Boolean(saved.previewExpanded);currentView='home';clearObject(draft);Object.assign(draft,saved.draft||{});clearObject(outputModels);Object.assign(outputModels,saved.outputs||{});clearObject(feedbackModels);Object.assign(feedbackModels,saved.feedback||{});buildMode=saved.buildMode==='sandbox'?'sandbox':'guided';restoreBuild(buildModes.guided,saved.buildModes.guided);restoreBuild(buildModes.sandbox,saved.buildModes.sandbox);if(cur!==null&&(cur<0||cur>=CFG.length+2))cur=null;if(cur!==null&&(ti<0||ti>=TS(cur).length))ti=0;if(cur!==null)activateTask();progressReady=true;go('home');scrollTo(0,0);setSaveStatus(migrated?migrationNotice:'Saved progress restored')}catch(e){setSaveStatus('Saved progress was unavailable and has been reset.',true)}}progressReady=true;restoring=false;if(migrated){saveProgressNow();if(!saveStorageError)setSaveStatus(migrationNotice)}}
 function clearSavedProgress(){if(!confirm('Clear all saved exam, SQL lab, and table-building progress? Your theme preference will remain.'))return;clearTimeout(saveTimer);saveTimer=null;try{localStorage.removeItem(PROGRESS_KEY)}catch(e){}examState=makeExamState();live=newSession();clearObject(taskSessions);clearObject(trackTasks);legacySession=null;done=new Set();cur=null;ti=0;pvt='customers';labLevel=null;courseStates.intermediate=makeCourseState();courseStates.advanced=makeCourseState();currentView='home';clearObject(draft);clearObject(outputModels);clearObject(feedbackModels);for(const [name,mode] of Object.entries(buildModes)){mode.session=emptyBuildSession(name==='guided'?'campus_lab':'sandbox');mode.drafts=Object.create(null);mode.outputs=Object.create(null);mode.feedback=Object.create(null);mode.outputModels=Object.create(null);mode.feedbackModels=Object.create(null);mode.done.clear();mode.task=0;mode.preview='';mode.lastRun=null}for(const id of ['exam','lab','builder'])$('#'+id).innerHTML='';restoring=true;go('home');restoring=false;setSaveStatus('Saved progress cleared');saveStorageError=false}
-if(document.addEventListener)document.addEventListener('visibilitychange',()=>{if(document.visibilityState==='hidden')saveProgressNow()});if(typeof window!='undefined'&&window.addEventListener)window.addEventListener('pagehide',saveProgressNow);if(typeof window!='undefined'&&window.addEventListener)window.addEventListener('beforeunload',saveProgressNow);restoreProgress();
+if(document.addEventListener)document.addEventListener('visibilitychange',()=>{if(document.visibilityState==='hidden')saveProgressNow()});if(typeof window!='undefined'&&window.addEventListener)window.addEventListener('pagehide',saveProgressNow);if(typeof window!='undefined'&&window.addEventListener)window.addEventListener('beforeunload',saveProgressNow);restoreProgress();if(typeof scrollTo==='function')scrollTo(0,0);

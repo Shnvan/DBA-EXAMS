@@ -2,7 +2,7 @@ const fs=require('fs'),path=require('path'),assert=require('assert/strict');
 const {JSDOM}=require('../.cache/test-runtime/node_modules/jsdom');
 const root=path.resolve(__dirname,'..'),html=fs.readFileSync(path.join(root,'DBMS_midterm_practice.html'),'utf8');
 const original=html.match(/<script>([\s\S]*?)<\/script>/)[1],marker=original.indexOf('/* supplemental module content and task grading */');
-const fragmentNames=['exam-content.js','curriculum.js','sql-grading.js','lab-content.js','lab-query-contract.js','lab-assessment.js','learning-ui.js','exam-ui.js','ui.js'];
+const fragmentNames=['exam-content.js','curriculum.js','sql-grading.js','lab-content.js','lab-query-contract.js','lab-assessment.js','learning-ui.js','exam-policy.js','exam-ui.js','ui.js'];
 const source=original.slice(0,marker)+fragmentNames.filter(n=>fs.existsSync(path.join(__dirname,n))).map(n=>fs.readFileSync(path.join(__dirname,n),'utf8')).join('\n');
 const checks=[],test=(name,fn)=>{fn();checks.push(name)};
 function dom(raw){
@@ -47,7 +47,7 @@ test('opening previous challenges selects the intended guided mode after free pr
 test('editing a solved regular answer clears both its sidebar marker and track count',()=>{choose(w,'easy');w.sel(0);const sql=w.document.querySelector('#sql');sql.value='SHOW TABLES;';w.labInput();w.chk();assert(w.document.querySelector('#tl .tk.on i'));assert.equal(w.document.querySelector('[data-track="0"] .track-count').textContent,'1/25');w.document.querySelector('#sql').value='SELECT 999;';w.labInput();assert.equal(w.document.querySelector('#tl .tk.on i'),null);assert.equal(w.document.querySelector('[data-track="0"] .track-count').textContent,'0/25');assert.equal(w.document.querySelector('#fb').textContent,'')});
 d.window.close();
 d=dom();w=d.window;choose(w,'intermediate');input(w,'saved intermediate draft');w.chooseLabLevel('advanced');checkedFirst(w);w.continueCourse();input(w,'saved advanced draft');w.saveProgressNow();const raw=w.localStorage.getItem('dbms-progress-v1');d.window.close();
-const reopened=dom(raw),rw=reopened.window;
+const reopened=dom(raw),rw=reopened.window;assert.equal(rw.document.querySelector('#home').hidden,false);rw.go('lab');
 test('refresh restores the selected level, lesson, draft and applied database',()=>{assert.equal(rw.__C.get().labLevel,'advanced');assert.equal(editor(rw).value,'saved advanced draft');assert.equal(state(rw).session.current,'campus_project');rw.chooseLabLevel('intermediate');assert.equal(editor(rw).value,'saved intermediate draft')});
 reopened.window.close();
 const branchDom=dom(),bw=branchDom.window;choose(bw,'advanced');
@@ -61,7 +61,7 @@ test('accepting corrected checkpoint rebuild keeps drafts and archives old datab
 test('archive restore cancellation preserves the active corrected branch',()=>{const before=JSON.stringify(bw.__C.courseSnapshot(branchState));bw.confirm=()=>false;bw.restoreCourseArchive(0);assert.equal(JSON.stringify(bw.__C.courseSnapshot(branchState)),before)});
 test('restoring old course branch preserves the corrected branch for recovery',()=>{bw.confirm=()=>true;bw.restoreCourseArchive(0);assert.equal(branchState.archives.length,2);bw.openCourseLesson(3);assert.equal(canon(bw,branchState.session),oldStudentWork);assert.equal(editor(bw).value,studentDraft);assert(branchState.done.includes(studentId));assert(branchState.outputs[studentId]);assert.equal(branchState.archives[1].snapshot.pool[branchState.archives[1].snapshot.session].databases.campus_project.departments.cols.find(c=>c.n==='dept_name').t,'varchar(100)')});
 test('saved branches validate without allowing recursive or malformed archives',()=>{const saved=bw.__C.courseSnapshot(branchState);assert(bw.__C.validCourse('advanced',saved));const nested=JSON.parse(JSON.stringify(saved));nested.archives[0].snapshot.archives=[];assert(!bw.__C.validCourse('advanced',nested));const malformed=JSON.parse(JSON.stringify(saved));malformed.archives=[null];assert.equal(bw.__C.validCourse('advanced',malformed),false)});
-bw.saveProgressNow();const branchRaw=bw.localStorage.getItem('dbms-progress-v1');branchDom.window.close();const restoredBranchDom=dom(branchRaw),rbw=restoredBranchDom.window;
+bw.saveProgressNow();const branchRaw=bw.localStorage.getItem('dbms-progress-v1');branchDom.window.close();const restoredBranchDom=dom(branchRaw),rbw=restoredBranchDom.window;rbw.go('lab');
 test('browser reopening retains both course branches and can restore the corrected database',()=>{const b=state(rbw);assert.equal(b.archives.length,2);rbw.confirm=()=>true;rbw.restoreCourseArchive(1);assert.equal(b.session.databases.campus_project.departments.cols.find(c=>c.n==='dept_name').t,'varchar(100)');assert(!b.session.databases.campus_project.students);assert.equal(b.archives.length,3);assert(rbw.__C.validCourse('advanced',rbw.__C.courseSnapshot(b)))});
 restoredBranchDom.window.close();
 const dir=path.join(root,'.cache','lab-ui-audit');fs.mkdirSync(dir,{recursive:true});fs.writeFileSync(path.join(dir,'lab-controls-tests.json'),JSON.stringify({passed:checks.length,checks},null,2));console.log(JSON.stringify({passed:checks.length,checks},null,2));
