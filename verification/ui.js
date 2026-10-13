@@ -1,5 +1,5 @@
 const $=s=>document.querySelector(s),h=s=>String(s).replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));
-const CONTENT_VERSION='reviewer-v8';
+const CONTENT_VERSION='reviewer-v9';
 if(typeof history!=='undefined'&&'scrollRestoration' in history)history.scrollRestoration='manual';
 const examCatalog=()=>({id:ID.map((q,i)=>({id:'id-'+i,signature:JSON.stringify(q),active:examActive('id',i)})),mc:MC.map((q,i)=>({id:'mc-'+i,signature:JSON.stringify(q),active:examActive('mc',i)}))});
 const EXAM_MODULES=[
@@ -199,11 +199,11 @@ function validCatalog(c){return isRecord(c)&&['id','mc'].every(k=>Array.isArray(
 function catalogMatches(c){return validCatalog(c)&&JSON.stringify(c)===JSON.stringify(examCatalog())}
 function migrateSnapshot(s){
  if(isRecord(s)&&s.content===CONTENT_VERSION&&catalogMatches(s.catalog)){const out={...s,reviewer:normalizeReviewerState(s.reviewer)};return validSnapshot(out)?{saved:out,migrated:!validReviewerState(s.reviewer),notice:'Reviewer reading position reset. Your other study progress was kept.'}:null}
- if(isRecord(s)&&s.version===1&&s.content==='pdf-wording-home-v7'&&catalogMatches(s.catalog)){const out={...s,content:CONTENT_VERSION,reviewer:makeReviewerState()};return validSnapshot(out)?{saved:out,migrated:true,notice:'Reviewer added. Your exam answers and SQL progress were kept.'}:null}
- if(!isRecord(s)||s.version!==1||!['149-89-60-modules-v2','216-67-60-183-12','module-coverage-task-sessions-v3','full-terms-three-levels-v4','descriptive-lab-contracts-v5','single-question-exam-v6','pdf-wording-home-v7',CONTENT_VERSION].includes(s.content))return null;
+ if(isRecord(s)&&s.version===1&&(s.content==='pdf-wording-home-v7'||s.content==='reviewer-v8')&&catalogMatches(s.catalog)){const out={...s,content:CONTENT_VERSION,reviewer:s.content==='reviewer-v8'?normalizeReviewerState(s.reviewer):makeReviewerState()};return validSnapshot(out)?{saved:out,migrated:true,notice:'Syntax reference added. Your exam, SQL, and lesson notes were kept.'}:null}
+ if(!isRecord(s)||s.version!==1||!['149-89-60-modules-v2','216-67-60-183-12','module-coverage-task-sessions-v3','full-terms-three-levels-v4','descriptive-lab-contracts-v5','single-question-exam-v6','pdf-wording-home-v7','reviewer-v8',CONTENT_VERSION].includes(s.content))return null;
  if(s.content===CONTENT_VERSION&&catalogMatches(s.catalog))return null;
  if(!validSession(s.live)||!isRecord(s.draft)||!isRecord(s.outputs)||!isRecord(s.feedback)||!validBuild(s.buildModes?.guided)||!validBuild(s.buildModes?.sandbox))return null;
- const out=plain(s),shared=['149-89-60-modules-v2','216-67-60-183-12'].includes(s.content),modern=['full-terms-three-levels-v4','descriptive-lab-contracts-v5','single-question-exam-v6','pdf-wording-home-v7',CONTENT_VERSION].includes(s.content);
+ const out=plain(s),shared=['149-89-60-modules-v2','216-67-60-183-12'].includes(s.content),modern=['full-terms-three-levels-v4','descriptive-lab-contracts-v5','single-question-exam-v6','pdf-wording-home-v7','reviewer-v8',CONTENT_VERSION].includes(s.content);
  if(modern){if(![null,'easy','intermediate','advanced'].includes(s.labLevel)||!isRecord(s.courses)||!validCourse('intermediate',s.courses.intermediate)||!validCourse('advanced',s.courses.advanced))return null}
  else{out.labLevel=s.cur==null?null:s.cur<CFG.length?'easy':'intermediate';out.courses={intermediate:courseSnapshot(makeCourseState()),advanced:courseSnapshot(makeCourseState())}}
  if(s.content==='full-terms-three-levels-v4'){

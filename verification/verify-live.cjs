@@ -1,11 +1,11 @@
 const fs=require('fs'),path=require('path'),crypto=require('crypto'),{spawnSync,execFileSync}=require('child_process');
-const root=path.resolve(__dirname,'..'),url='https://dbmsmidtermexam-3-4.vercel.app/',dir=path.join(root,'verification-artifacts','live-reviewer');fs.mkdirSync(dir,{recursive:true});
+const root=path.resolve(__dirname,'..'),url='https://dbmsmidtermexam-3-4.vercel.app/',dir=path.join(root,'verification-artifacts','live-syntax');fs.mkdirSync(dir,{recursive:true});
 (async()=>{
  const response=await fetch(url),html=Buffer.from(await response.arrayBuffer()),hash=crypto.createHash('sha256').update(html).digest('hex'),expected=crypto.createHash('sha256').update(fs.readFileSync(path.join(root,'DBMS_midterm_practice.html'))).digest('hex');
  if(response.status!==200||hash!==expected)throw Error('Production does not serve the verified HTML');
  const suites=[];
- for(const [name,file]of [['reviewer','reviewer-browser.cjs'],['exam','single-question-browser.cjs'],['lab','live-lab-browser.cjs']]){
-  const run=spawnSync(process.execPath,[path.join(__dirname,file),url,'live-reviewer/'+name],{cwd:root,encoding:'utf8',maxBuffer:16*1024*1024,timeout:180000});fs.writeFileSync(path.join(dir,name+'.log'),run.stdout+'\n'+run.stderr);
+ for(const [name,file]of [['syntax','syntax-browser.cjs'],['reviewer','reviewer-browser.cjs'],['exam','single-question-browser.cjs'],['lab','live-lab-browser.cjs']]){
+  const run=spawnSync(process.execPath,[path.join(__dirname,file),url,'live-syntax/'+name],{cwd:root,encoding:'utf8',maxBuffer:16*1024*1024,timeout:180000});fs.writeFileSync(path.join(dir,name+'.log'),run.stdout+'\n'+run.stderr);
   if(run.status!==0){const partial={url,commit:execFileSync('git',['rev-parse','HEAD'],{cwd:root,encoding:'utf8'}).trim(),htmlSHA256:hash,suites,passed:suites.reduce((n,s)=>n+s.passed,0),automatedComplete:false,failures:[{suite:name,error:run.stderr.trim()}],executedAt:new Date().toISOString()};fs.writeFileSync(path.join(dir,'results.json'),JSON.stringify(partial,null,2));throw Error(name+' live check failed: '+run.stderr)}
   let result;for(let i=run.stdout.indexOf('{');i>=0;i=run.stdout.indexOf('{',i+1)){try{result=JSON.parse(run.stdout.slice(i));break}catch{}}
   if(!result?.passed||result.checks?.some(c=>!c.passed))throw Error(name+' missing successful results');

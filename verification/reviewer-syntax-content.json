@@ -1,0 +1,2445 @@
+{
+  "version": "syntax-v1",
+  "categories": [
+    {
+      "id": "types",
+      "title": "Data types",
+      "description": "Column type forms shown or described in the module.",
+      "entries": [
+        {
+          "id": "int",
+          "title": "INT / INTEGER",
+          "syntax": "column_name INT\ncolumn_name INTEGER",
+          "pages": [
+            31
+          ],
+          "notes": [
+            "Stores whole numbers. INTEGER is an alias in MySQL/MariaDB."
+          ],
+          "sourceTopicIds": [
+            "m2-int"
+          ],
+          "sourceEvidence": [
+            {
+              "page": 31,
+              "excerpt": "INT/INTEGER: Used for whole numbers."
+            }
+          ],
+          "corrections": [],
+          "context": "Column definition inside CREATE TABLE",
+          "family": "Numeric"
+        },
+        {
+          "id": "smallint",
+          "title": "SMALLINT",
+          "syntax": "column_name SMALLINT",
+          "pages": [
+            31,
+            32
+          ],
+          "notes": [
+            "Use for smaller whole-number ranges."
+          ],
+          "sourceTopicIds": [
+            "m2-smallint"
+          ],
+          "sourceEvidence": [
+            {
+              "page": 31,
+              "excerpt": "SMALLINT: Used for smaller whole numbers."
+            },
+            {
+              "page": 32,
+              "excerpt": "SMALLINT can store values like 32767 or -32768."
+            }
+          ],
+          "corrections": [
+            {
+              "text": "SMALLINT and INTEGER are not the same MySQL/MariaDB type: they use 2 and 4 bytes respectively.",
+              "url": "https://mariadb.com/docs/server/reference/data-types/data-type-storage-requirements",
+              "label": "MariaDB: data type storage"
+            }
+          ],
+          "context": "Column definition inside CREATE TABLE",
+          "family": "Numeric"
+        },
+        {
+          "id": "tinyint",
+          "title": "TINYINT",
+          "syntax": "column_name TINYINT [UNSIGNED]",
+          "pages": [
+            32
+          ],
+          "notes": [
+            "The module gives signed and unsigned ranges; the range depends on the dialect."
+          ],
+          "sourceTopicIds": [
+            "m2-tinyint"
+          ],
+          "sourceEvidence": [
+            {
+              "page": 32,
+              "excerpt": "TINYINT can hold integer values ranging from 0 to 255"
+            }
+          ],
+          "corrections": [],
+          "context": "Column definition inside CREATE TABLE",
+          "family": "Numeric"
+        },
+        {
+          "id": "bigint",
+          "title": "BIGINT",
+          "syntax": "column_name BIGINT",
+          "pages": [
+            32
+          ],
+          "notes": [
+            "Use for large whole numbers."
+          ],
+          "sourceTopicIds": [
+            "m2-bigint"
+          ],
+          "sourceEvidence": [
+            {
+              "page": 32,
+              "excerpt": "BIGINT: Used for large whole numbers."
+            }
+          ],
+          "corrections": [],
+          "context": "Column definition inside CREATE TABLE",
+          "family": "Numeric"
+        },
+        {
+          "id": "decimal",
+          "title": "DECIMAL / NUMERIC",
+          "syntax": "column_name DECIMAL(precision, scale)\ncolumn_name NUMERIC(precision, scale)",
+          "pages": [
+            32,
+            43
+          ],
+          "notes": [
+            "precision is total digits; scale is digits after the decimal point."
+          ],
+          "sourceTopicIds": [
+            "m2-decimal"
+          ],
+          "sourceEvidence": [
+            {
+              "page": 32,
+              "excerpt": "DECIMAL(p, s)/NUMERIC(p, s): Used for fixed-point numbers"
+            },
+            {
+              "page": 43,
+              "excerpt": "$999,999.99"
+            }
+          ],
+          "corrections": [
+            {
+              "text": "Page 43 incorrectly treats 999999.99 as outside NUMERIC(8,2). Six integer digits plus two fractional digits fit exactly.",
+              "url": "https://mariadb.com/docs/server/reference/data-types/numeric-data-types/decimal",
+              "label": "MariaDB: DECIMAL"
+            }
+          ],
+          "context": "Column definition inside CREATE TABLE",
+          "family": "Numeric"
+        },
+        {
+          "id": "float",
+          "title": "FLOAT",
+          "syntax": "column_name FLOAT[(precision)]",
+          "pages": [
+            33
+          ],
+          "notes": [
+            "Approximate floating-point value; precision syntax is dialect-dependent."
+          ],
+          "sourceTopicIds": [
+            "m2-float"
+          ],
+          "sourceEvidence": [
+            {
+              "page": 33,
+              "excerpt": "FLOAT: Used for single-precision floating-point numbers."
+            }
+          ],
+          "corrections": [
+            {
+              "text": "The PDF presents FLOAT mainly as a migration tool and ties precision to a 32-bit or 64-bit computer. FLOAT is an approximate numeric type.",
+              "url": "https://mariadb.com/docs/server/reference/data-types/numeric-data-types/float",
+              "label": "MariaDB: FLOAT"
+            }
+          ],
+          "context": "Column definition inside CREATE TABLE",
+          "family": "Numeric"
+        },
+        {
+          "id": "real",
+          "title": "REAL",
+          "syntax": "column_name REAL",
+          "pages": [
+            33,
+            34
+          ],
+          "notes": [
+            "Approximate floating-point value; its alias and precision depend on the SQL implementation."
+          ],
+          "sourceTopicIds": [
+            "m2-real"
+          ],
+          "sourceEvidence": [
+            {
+              "page": 33,
+              "excerpt": "REAL: Another term for single-precision floating-point numbers."
+            },
+            {
+              "page": 34,
+              "excerpt": "REAL can store values similar to FLOAT."
+            }
+          ],
+          "corrections": [
+            {
+              "text": "The PDF calls REAL universally single precision. MariaDB’s default is DOUBLE; SQL mode can change the alias.",
+              "url": "https://mariadb.com/docs/server/reference/data-types/numeric-data-types/double",
+              "label": "MariaDB: DOUBLE and REAL"
+            }
+          ],
+          "context": "Column definition inside CREATE TABLE",
+          "family": "Numeric"
+        },
+        {
+          "id": "double",
+          "title": "DOUBLE",
+          "syntax": "column_name DOUBLE",
+          "pages": [
+            34
+          ],
+          "notes": [
+            "Approximate double-precision numeric type."
+          ],
+          "sourceTopicIds": [
+            "m2-double"
+          ],
+          "sourceEvidence": [
+            {
+              "page": 34,
+              "excerpt": "DOUBLE: Used for double-precision floating-point numbers."
+            }
+          ],
+          "corrections": [
+            {
+              "text": "REAL may already be an alias of DOUBLE. Their relationship is not a universal “twice REAL” rule.",
+              "url": "https://mariadb.com/docs/server/reference/data-types/numeric-data-types/double",
+              "label": "MariaDB: DOUBLE and REAL"
+            }
+          ],
+          "context": "Column definition inside CREATE TABLE",
+          "family": "Numeric"
+        },
+        {
+          "id": "char",
+          "title": "CHAR / CHARACTER",
+          "syntax": "column_name CHAR(length)\ncolumn_name CHARACTER(length)",
+          "pages": [
+            34,
+            35
+          ],
+          "notes": [
+            "Fixed-length character string. Omitted length defaults vary by dialect; MySQL/MariaDB use 1."
+          ],
+          "sourceTopicIds": [
+            "m2-char"
+          ],
+          "sourceEvidence": [
+            {
+              "page": 34,
+              "excerpt": "CHARACTER or CHAR(n): Fixed-length character string"
+            },
+            {
+              "page": 35,
+              "excerpt": "the default is set to one."
+            }
+          ],
+          "corrections": [
+            {
+              "text": "Padding spaces do not universally have “no effect,” as page 35 claims. Retrieval and comparison behavior depend on settings.",
+              "url": "https://dev.mysql.com/doc/refman/8.4/en/char.html",
+              "label": "MySQL: CHAR and VARCHAR"
+            }
+          ],
+          "context": "Column definition inside CREATE TABLE",
+          "family": "Character"
+        },
+        {
+          "id": "varchar",
+          "title": "VARCHAR / CHARACTER VARYING",
+          "syntax": "column_name VARCHAR(max_length)\ncolumn_name CHARACTER VARYING(max_length)",
+          "pages": [
+            35
+          ],
+          "notes": [
+            "The length is a maximum, not a minimum."
+          ],
+          "sourceTopicIds": [
+            "m2-varchar"
+          ],
+          "sourceEvidence": [
+            {
+              "page": 35,
+              "excerpt": "CHARACTER VARYING or VARCHAR(n): Variable-length character string"
+            }
+          ],
+          "corrections": [
+            {
+              "text": "VARCHAR(n) defines a maximum, not both a minimum and a maximum. A minimum needs another validation rule.",
+              "url": "https://mariadb.com/docs/server/reference/data-types/string-data-types/varchar",
+              "label": "MariaDB: VARCHAR"
+            }
+          ],
+          "context": "Column definition inside CREATE TABLE",
+          "family": "Character"
+        },
+        {
+          "id": "text",
+          "title": "TEXT",
+          "syntax": "column_name TEXT",
+          "pages": [
+            35,
+            36
+          ],
+          "notes": [
+            "Large variable-length text; capacity and defaults depend on the DBMS."
+          ],
+          "sourceTopicIds": [
+            "m2-text"
+          ],
+          "sourceEvidence": [
+            {
+              "page": 35,
+              "excerpt": "TEXT: Designed to store large blocks of variable-length text data."
+            },
+            {
+              "page": 36,
+              "excerpt": "TEXT can store long paragraphs or documents."
+            }
+          ],
+          "corrections": [
+            {
+              "text": "Page 35 gives the MySQL TEXT limit in characters. Its limit is bytes, so encoding affects the number of characters that fit.",
+              "url": "https://dev.mysql.com/doc/refman/8.4/en/blob.html",
+              "label": "MySQL: BLOB and TEXT"
+            }
+          ],
+          "context": "Column definition inside CREATE TABLE",
+          "family": "Character"
+        },
+        {
+          "id": "mediumtext",
+          "title": "MEDIUMTEXT",
+          "syntax": "column_name MEDIUMTEXT",
+          "pages": [
+            62
+          ],
+          "notes": [
+            "Used by the PDF productlines example for larger text in MySQL/MariaDB."
+          ],
+          "sourceTopicIds": [
+            "m3-mediumtext"
+          ],
+          "sourceEvidence": [
+            {
+              "page": 62,
+              "excerpt": "htmlDescription mediumtext"
+            }
+          ],
+          "corrections": [],
+          "context": "Column definition inside CREATE TABLE",
+          "family": "Character"
+        },
+        {
+          "id": "binary",
+          "title": "BINARY",
+          "syntax": "column_name BINARY(length)",
+          "pages": [
+            36
+          ],
+          "notes": [
+            "Fixed-length binary string measured in bytes."
+          ],
+          "sourceTopicIds": [
+            "m2-binary"
+          ],
+          "sourceEvidence": [
+            {
+              "page": 36,
+              "excerpt": "BINARY(n): Fixed-length binary data."
+            }
+          ],
+          "corrections": [],
+          "context": "Column definition inside CREATE TABLE",
+          "family": "Binary"
+        },
+        {
+          "id": "varbinary",
+          "title": "VARBINARY / BINARY VARYING",
+          "syntax": "column_name VARBINARY(max_bytes)",
+          "pages": [
+            36
+          ],
+          "notes": [
+            "VARBINARY is the MySQL/MariaDB form. The module also names BINARY VARYING; that spelling is dialect-dependent."
+          ],
+          "sourceTopicIds": [
+            "m2-varbinary"
+          ],
+          "sourceEvidence": [
+            {
+              "page": 36,
+              "excerpt": "BINARY VARYING or VARBINARY(n): Variable-length binary data."
+            }
+          ],
+          "corrections": [
+            {
+              "text": "Page 36 says a minimum and maximum can both be set. VARBINARY(n) sets only the maximum byte length.",
+              "url": "https://mariadb.com/docs/server/reference/data-types/string-data-types/varbinary",
+              "label": "MariaDB: VARBINARY"
+            }
+          ],
+          "context": "Column definition inside CREATE TABLE",
+          "family": "Binary"
+        },
+        {
+          "id": "blob",
+          "title": "BLOB",
+          "syntax": "column_name BLOB",
+          "pages": [
+            36,
+            37
+          ],
+          "notes": [
+            "Binary large object for files or other large binary values."
+          ],
+          "sourceTopicIds": [
+            "m2-blob"
+          ],
+          "sourceEvidence": [
+            {
+              "page": 36,
+              "excerpt": "BINARY LARGE OBJECT or BLOB"
+            },
+            {
+              "page": 37,
+              "excerpt": "BLOB can store large binary files like an image file."
+            }
+          ],
+          "corrections": [
+            {
+              "text": "The PDF’s equality-only comparison and mandatory-locator transfer restrictions are not general MySQL/MariaDB BLOB rules.",
+              "url": "https://mariadb.com/docs/server/reference/data-types/string-data-types/blob",
+              "label": "MariaDB: BLOB"
+            }
+          ],
+          "context": "Column definition inside CREATE TABLE",
+          "family": "Binary"
+        },
+        {
+          "id": "mediumblob",
+          "title": "MEDIUMBLOB",
+          "syntax": "column_name MEDIUMBLOB",
+          "pages": [
+            62
+          ],
+          "notes": [
+            "Used by the PDF productlines example for larger binary data in MySQL/MariaDB."
+          ],
+          "sourceTopicIds": [
+            "m3-mediumblob"
+          ],
+          "sourceEvidence": [
+            {
+              "page": 62,
+              "excerpt": "image mediumblob"
+            }
+          ],
+          "corrections": [],
+          "context": "Column definition inside CREATE TABLE",
+          "family": "Binary"
+        },
+        {
+          "id": "date",
+          "title": "DATE",
+          "syntax": "column_name DATE",
+          "pages": [
+            37,
+            38
+          ],
+          "notes": [
+            "Stores year, month, and day."
+          ],
+          "sourceTopicIds": [
+            "m2-date"
+          ],
+          "sourceEvidence": [
+            {
+              "page": 37,
+              "excerpt": "DATE: Used for date values (year, month, day)."
+            },
+            {
+              "page": 38,
+              "excerpt": "DATE can store values like '2023-07-06'."
+            }
+          ],
+          "corrections": [
+            {
+              "text": "The PDF’s lower bound of year 0001 is not MySQL/MariaDB’s documented normal DATE range.",
+              "url": "https://mariadb.com/docs/server/reference/data-types/date-and-time-data-types/date",
+              "label": "MariaDB: DATE"
+            }
+          ],
+          "context": "Column definition inside CREATE TABLE",
+          "family": "Temporal"
+        },
+        {
+          "id": "time",
+          "title": "TIME",
+          "syntax": "column_name TIME[(precision)]",
+          "pages": [
+            38
+          ],
+          "notes": [
+            "MySQL/MariaDB precision is fractional-second digits (0–6). The module mixes dialects."
+          ],
+          "otherDialect": {
+            "label": "PostgreSQL",
+            "syntax": "column_name TIME[(precision)] [WITHOUT TIME ZONE]",
+            "url": "https://www.postgresql.org/docs/current/datatype-datetime.html"
+          },
+          "sourceTopicIds": [
+            "m2-time"
+          ],
+          "sourceEvidence": [
+            {
+              "page": 38,
+              "excerpt": "TIME: Used for time values (hour, minute, second)."
+            }
+          ],
+          "corrections": [
+            {
+              "text": "MySQL/MariaDB TIME(p) uses fractional-second precision from 0 to 6; it has no WITH/WITHOUT TIME ZONE modifier.",
+              "url": "https://mariadb.com/docs/server/reference/data-types/date-and-time-data-types/time",
+              "label": "MariaDB: TIME"
+            },
+            {
+              "text": "The valid PostgreSQL ordering is TIME(precision) WITHOUT TIME ZONE, not TIME WITHOUT TIME ZONE(precision). MySQL/MariaDB use TIME(precision).",
+              "url": "https://www.postgresql.org/docs/current/datatype-datetime.html",
+              "label": "PostgreSQL date/time types"
+            }
+          ],
+          "context": "Column definition inside CREATE TABLE",
+          "family": "Temporal"
+        },
+        {
+          "id": "datetime",
+          "title": "DATETIME",
+          "syntax": "column_name DATETIME",
+          "pages": [
+            38,
+            39
+          ],
+          "notes": [
+            "Stores a calendar date and clock time."
+          ],
+          "sourceTopicIds": [
+            "m2-datetime"
+          ],
+          "sourceEvidence": [
+            {
+              "page": 38,
+              "excerpt": "DATETIME: Used for date and time values."
+            },
+            {
+              "page": 39,
+              "excerpt": "DATETIME can store values like '2023-07-06 13:45:30'."
+            }
+          ],
+          "corrections": [
+            {
+              "text": "Page 39 mixes SQL Server’s older DATETIME starting year with microsecond precision. That is not a universal SQL DATETIME specification.",
+              "url": "https://mariadb.com/docs/server/reference/data-types/date-and-time-data-types/datetime",
+              "label": "MariaDB: DATETIME"
+            }
+          ],
+          "context": "Column definition inside CREATE TABLE",
+          "family": "Temporal"
+        },
+        {
+          "id": "timestamp",
+          "title": "TIMESTAMP",
+          "syntax": "column_name TIMESTAMP",
+          "pages": [
+            39
+          ],
+          "notes": [
+            "Time-zone conversion and range depend on the DBMS. MariaDB does not store a time-zone identifier."
+          ],
+          "sourceTopicIds": [
+            "m2-timestamp"
+          ],
+          "sourceEvidence": [
+            {
+              "page": 39,
+              "excerpt": "TIMESTAMP: Used for date and time values, often with time zone information."
+            }
+          ],
+          "corrections": [
+            {
+              "text": "The PDF implies that TIMESTAMP retains time-zone information. MariaDB converts the value but stores no time-zone identifier.",
+              "url": "https://mariadb.com/docs/server/reference/data-types/date-and-time-data-types/timestamp",
+              "label": "MariaDB: TIMESTAMP"
+            }
+          ],
+          "context": "Column definition inside CREATE TABLE",
+          "family": "Temporal"
+        },
+        {
+          "id": "year",
+          "title": "YEAR",
+          "syntax": "column_name YEAR",
+          "pages": [
+            39,
+            40
+          ],
+          "notes": [
+            "Stores a year; supported ranges and two-digit behavior are dialect-specific."
+          ],
+          "sourceTopicIds": [
+            "m2-year"
+          ],
+          "sourceEvidence": [
+            {
+              "page": 39,
+              "excerpt": "YEAR: Used for year values."
+            },
+            {
+              "page": 40,
+              "excerpt": "YEAR can store values like 2023."
+            }
+          ],
+          "corrections": [
+            {
+              "text": "The PDF’s two-digit mapping to 2000–2099 is inaccurate for MariaDB; historical mapping spans 1970–2069.",
+              "url": "https://mariadb.com/docs/server/reference/data-types/date-and-time-data-types/year-data-type",
+              "label": "MariaDB: YEAR"
+            }
+          ],
+          "context": "Column definition inside CREATE TABLE",
+          "family": "Temporal"
+        },
+        {
+          "id": "boolean",
+          "title": "BOOLEAN / BOOL",
+          "syntax": "column_name BOOLEAN",
+          "pages": [
+            40
+          ],
+          "notes": [
+            "In MySQL/MariaDB, BOOLEAN and BOOL are aliases for TINYINT(1); the type alone does not restrict values to 0 and 1."
+          ],
+          "aliases": [
+            "BOOL"
+          ],
+          "sourceTopicIds": [
+            "m2-boolean"
+          ],
+          "sourceEvidence": [
+            {
+              "page": 40,
+              "excerpt": "BOOLEAN: Used for true/false values."
+            }
+          ],
+          "corrections": [],
+          "context": "Column definition inside CREATE TABLE",
+          "family": "Boolean"
+        },
+        {
+          "id": "enum",
+          "title": "ENUM",
+          "syntax": "column_name ENUM('value1', 'value2', ...)",
+          "pages": [
+            41
+          ],
+          "notes": [
+            "Stores one value from a permitted list. Invalid-value handling depends on SQL mode."
+          ],
+          "sourceTopicIds": [
+            "m2-enum"
+          ],
+          "sourceEvidence": [
+            {
+              "page": 41,
+              "excerpt": "ENUM: Enumerated type, a string object with a value chosen from a list"
+            }
+          ],
+          "corrections": [
+            {
+              "text": "Page 41 says every invalid value produces an error. Strict mode rejects it; non-strict mode can store a special empty-string error value with a warning.",
+              "url": "https://mariadb.com/docs/server/reference/data-types/string-data-types/enum",
+              "label": "MariaDB: ENUM"
+            }
+          ],
+          "context": "Column definition inside CREATE TABLE",
+          "family": "Miscellaneous"
+        },
+        {
+          "id": "set",
+          "title": "SET",
+          "syntax": "column_name SET('value1', 'value2', ...)",
+          "pages": [
+            41,
+            42
+          ],
+          "notes": [
+            "MySQL/MariaDB type that stores a combination of permitted values."
+          ],
+          "sourceTopicIds": [
+            "m2-set-type"
+          ],
+          "sourceEvidence": [
+            {
+              "page": 41,
+              "excerpt": "SET: Similar to ENUM, but can store multiple values"
+            },
+            {
+              "page": 42,
+              "excerpt": "SET('red', 'green', 'blue')"
+            }
+          ],
+          "corrections": [],
+          "context": "Column definition inside CREATE TABLE",
+          "family": "Miscellaneous"
+        },
+        {
+          "id": "json",
+          "title": "JSON",
+          "syntax": "column_name JSON",
+          "pages": [
+            40
+          ],
+          "notes": [
+            "Stores JSON-formatted data where supported; storage differs between MariaDB and MySQL."
+          ],
+          "sourceTopicIds": [
+            "m2-json"
+          ],
+          "sourceEvidence": [
+            {
+              "page": 40,
+              "excerpt": "JSON types for storing structured data."
+            }
+          ],
+          "corrections": [],
+          "context": "Column definition inside CREATE TABLE",
+          "family": "Miscellaneous"
+        },
+        {
+          "id": "spatial",
+          "title": "Spatial types",
+          "syntax": null,
+          "pages": [
+            40
+          ],
+          "notes": [
+            "The PDF names spatial storage but does not specify a universal declaration or constructor. Use the target DBMS documentation."
+          ],
+          "context": "Dialect-dependent note",
+          "sourceTopicIds": [
+            "m2-spatial"
+          ],
+          "sourceEvidence": [
+            {
+              "page": 40,
+              "excerpt": "spatial data types for geographic information"
+            }
+          ],
+          "corrections": [],
+          "family": "Miscellaneous"
+        }
+      ]
+    },
+    {
+      "id": "inspection",
+      "title": "Select and inspect",
+      "description": "Choose a database and inspect its objects.",
+      "entries": [
+        {
+          "id": "use",
+          "title": "USE",
+          "syntax": "USE database_name;",
+          "pages": [
+            45
+          ],
+          "notes": [
+            "Selects the database for subsequent unqualified statements."
+          ],
+          "sourceTopicIds": [
+            "m2-use"
+          ],
+          "sourceEvidence": [
+            {
+              "page": 45,
+              "excerpt": "USE Databasename"
+            }
+          ],
+          "corrections": [],
+          "context": "SQL"
+        },
+        {
+          "id": "show-databases",
+          "title": "SHOW DATABASES",
+          "syntax": "SHOW DATABASES;",
+          "pages": [
+            45
+          ],
+          "notes": [
+            "Lists databases visible to the connected account."
+          ],
+          "sourceTopicIds": [
+            "m2-show-databases"
+          ],
+          "sourceEvidence": [
+            {
+              "page": 45,
+              "excerpt": "SHOW DATABASES: Lists out the databases"
+            }
+          ],
+          "corrections": [],
+          "context": "SQL"
+        },
+        {
+          "id": "show-tables",
+          "title": "SHOW TABLES",
+          "syntax": "SHOW TABLES;",
+          "pages": [
+            45
+          ],
+          "notes": [
+            "Lists tables in the selected database."
+          ],
+          "sourceTopicIds": [
+            "m2-show-tables"
+          ],
+          "sourceEvidence": [
+            {
+              "page": 45,
+              "excerpt": "SHOW TABLES: Shows the tables"
+            }
+          ],
+          "corrections": [],
+          "context": "SQL"
+        },
+        {
+          "id": "show-columns",
+          "title": "SHOW COLUMNS",
+          "syntax": "SHOW COLUMNS FROM table_name;",
+          "pages": [
+            45
+          ],
+          "notes": [
+            "Shows column names, types, keys, nullability, and defaults."
+          ],
+          "sourceTopicIds": [
+            "m2-show-columns"
+          ],
+          "sourceEvidence": [
+            {
+              "page": 45,
+              "excerpt": "SHOW COLUMNS FROM tablename"
+            }
+          ],
+          "corrections": [],
+          "context": "SQL"
+        },
+        {
+          "id": "show-index",
+          "title": "SHOW INDEX",
+          "syntax": "SHOW INDEX FROM table_name;",
+          "pages": [
+            45
+          ],
+          "notes": [
+            "Shows indexes, including the primary key."
+          ],
+          "sourceTopicIds": [
+            "m2-show-index"
+          ],
+          "sourceEvidence": [
+            {
+              "page": 45,
+              "excerpt": "SHOW INDEX FROM tablename"
+            }
+          ],
+          "corrections": [],
+          "context": "SQL"
+        },
+        {
+          "id": "show-status",
+          "title": "SHOW TABLE STATUS",
+          "syntax": "SHOW TABLE STATUS LIKE 'table_name';",
+          "pages": [
+            45
+          ],
+          "notes": [
+            "The PDF prints SHOW TABLE standing; the valid MySQL/MariaDB form is SHOW TABLE STATUS."
+          ],
+          "sourceTopicIds": [
+            "m2-show-table-status"
+          ],
+          "sourceEvidence": [
+            {
+              "page": 45,
+              "excerpt": "SHOW TABLE standing LIKE tablename"
+            }
+          ],
+          "corrections": [
+            {
+              "text": "Page 45 prints “SHOW TABLE standing.” The actual MySQL/MariaDB command is SHOW TABLE STATUS.",
+              "url": "https://mariadb.com/docs/server/reference/sql-statements/administrative-sql-statements/show/show-table-status",
+              "label": "MariaDB: SHOW TABLE STATUS"
+            }
+          ],
+          "context": "SQL"
+        },
+        {
+          "id": "describe",
+          "title": "DESCRIBE",
+          "syntax": "DESCRIBE table_name;",
+          "pages": [
+            61
+          ],
+          "notes": [
+            "Displays a table's column definition details."
+          ],
+          "sourceTopicIds": [
+            "m3-describe"
+          ],
+          "sourceEvidence": [
+            {
+              "page": 61,
+              "excerpt": "DESCRIBE employees;"
+            }
+          ],
+          "corrections": [],
+          "context": "SQL"
+        }
+      ]
+    },
+    {
+      "id": "definition",
+      "title": "Data definition",
+      "description": "Create and change database structures.",
+      "entries": [
+        {
+          "id": "create-database",
+          "title": "CREATE DATABASE",
+          "syntax": "CREATE DATABASE database_name;",
+          "pages": [
+            52
+          ],
+          "notes": [
+            "Select it afterward with USE."
+          ],
+          "sourceTopicIds": [
+            "m3-create-database"
+          ],
+          "sourceEvidence": [
+            {
+              "page": 52,
+              "excerpt": "CREATE DATABASE database_name;"
+            }
+          ],
+          "corrections": [],
+          "context": "SQL"
+        },
+        {
+          "id": "create-table",
+          "title": "CREATE TABLE",
+          "syntax": "CREATE TABLE table_name (\n  column1 data_type [column_attributes],\n  column2 data_type [column_attributes]\n);",
+          "pages": [
+            52,
+            53,
+            58,
+            59
+          ],
+          "notes": [
+            "Choose types from Data types. Separate column definitions with commas. Table-level keys go inside the parentheses."
+          ],
+          "sourceTopicIds": [
+            "m3-create-table",
+            "m3-create-table-workflow"
+          ],
+          "sourceEvidence": [
+            {
+              "page": 52,
+              "excerpt": "CREATE TABLE customers"
+            },
+            {
+              "page": 53,
+              "excerpt": "Defines the columns of the table along with their data types and constraints"
+            },
+            {
+              "page": 58,
+              "excerpt": "Creating a Table using MS Access"
+            },
+            {
+              "page": 59,
+              "excerpt": "CREATE TABLE INHERITANCESQL"
+            }
+          ],
+          "corrections": [
+            {
+              "text": "The page 59 table definition omits a comma after PropositionID INTEGER. Raw SQL is also validated by the database, contrary to the surrounding wording.",
+              "url": "https://mariadb.com/docs/server/server-usage/tables/create-table",
+              "label": "MariaDB: CREATE TABLE"
+            }
+          ],
+          "context": "SQL"
+        },
+        {
+          "id": "alter-add",
+          "title": "ALTER TABLE ... ADD COLUMN",
+          "syntax": "ALTER TABLE table_name ADD COLUMN column_name data_type;",
+          "pages": [
+            53
+          ],
+          "notes": [],
+          "sourceTopicIds": [
+            "m3-add-column"
+          ],
+          "sourceEvidence": [
+            {
+              "page": 53,
+              "excerpt": "ADD column_name datatype;"
+            }
+          ],
+          "corrections": [],
+          "context": "SQL"
+        },
+        {
+          "id": "alter-drop",
+          "title": "ALTER TABLE ... DROP COLUMN",
+          "syntax": "ALTER TABLE table_name DROP COLUMN column_name;",
+          "pages": [
+            53,
+            54
+          ],
+          "notes": [],
+          "sourceTopicIds": [
+            "m3-drop-column"
+          ],
+          "sourceEvidence": [
+            {
+              "page": 53,
+              "excerpt": "DROP COLUMN column_name;"
+            },
+            {
+              "page": 54,
+              "excerpt": "DROP COLUMN phone_number;"
+            }
+          ],
+          "corrections": [],
+          "context": "SQL"
+        },
+        {
+          "id": "alter-modify",
+          "title": "ALTER TABLE ... MODIFY COLUMN",
+          "syntax": "ALTER TABLE table_name MODIFY COLUMN column_name data_type [constraints];",
+          "pages": [
+            53,
+            54
+          ],
+          "notes": [
+            "MODIFY COLUMN is the MySQL/MariaDB form; other systems use different syntax."
+          ],
+          "sourceTopicIds": [
+            "m3-modify-column"
+          ],
+          "sourceEvidence": [
+            {
+              "page": 53,
+              "excerpt": "MODIFY COLUMN column_name datatype;"
+            },
+            {
+              "page": 54,
+              "excerpt": "MODIFY COLUMN email VARCHAR(150);"
+            }
+          ],
+          "corrections": [],
+          "context": "SQL"
+        },
+        {
+          "id": "comment",
+          "title": "Table comment",
+          "syntax": "ALTER TABLE table_name COMMENT = 'description';",
+          "pages": [
+            62
+          ],
+          "notes": [
+            "Main template: MySQL/MariaDB. The PDF shows the PostgreSQL COMMENT ON form without naming its dialect."
+          ],
+          "otherDialect": {
+            "label": "PostgreSQL",
+            "syntax": "COMMENT ON TABLE table_name IS 'description';",
+            "url": "https://www.postgresql.org/docs/current/sql-comment.html"
+          },
+          "sourceTopicIds": [
+            "m3-comment"
+          ],
+          "sourceEvidence": [
+            {
+              "page": 62,
+              "excerpt": "COMMENT ON TABLE table_name IS",
+              "visual": "Table 3.1 DDL Command"
+            }
+          ],
+          "corrections": [
+            {
+              "text": "COMMENT ON TABLE is a PostgreSQL form. MySQL/MariaDB use a table COMMENT option with CREATE TABLE or ALTER TABLE.",
+              "url": "https://mariadb.com/docs/server/server-usage/tables/create-table",
+              "label": "MariaDB table comments"
+            }
+          ],
+          "context": "SQL"
+        },
+        {
+          "id": "rename",
+          "title": "RENAME TABLE",
+          "syntax": "RENAME TABLE old_table_name TO new_table_name;",
+          "pages": [
+            62
+          ],
+          "notes": [],
+          "sourceTopicIds": [
+            "m3-rename"
+          ],
+          "sourceEvidence": [
+            {
+              "page": 62,
+              "excerpt": "RENAME TABLE old_table_name TO",
+              "visual": "Table 3.1 DDL Command"
+            }
+          ],
+          "corrections": [],
+          "context": "SQL"
+        },
+        {
+          "id": "truncate",
+          "title": "TRUNCATE TABLE",
+          "syntax": "TRUNCATE TABLE table_name;",
+          "pages": [
+            62
+          ],
+          "notes": [
+            "Removes all rows while retaining the table definition; transaction behavior is dialect-dependent."
+          ],
+          "sourceTopicIds": [
+            "m3-truncate"
+          ],
+          "sourceEvidence": [
+            {
+              "page": 62,
+              "excerpt": "TRUNCATE TABLE table_name;",
+              "visual": "Table 3.1 DDL Command"
+            }
+          ],
+          "corrections": [],
+          "context": "SQL"
+        },
+        {
+          "id": "drop-table",
+          "title": "DROP TABLE",
+          "syntax": "DROP TABLE table_name;",
+          "pages": [
+            54,
+            55
+          ],
+          "notes": [
+            "Removes the table and its data. Backups may be needed for recovery."
+          ],
+          "sourceTopicIds": [
+            "m3-drop"
+          ],
+          "sourceEvidence": [
+            {
+              "page": 54,
+              "excerpt": "DROP TABLE table_name;"
+            },
+            {
+              "page": 55,
+              "excerpt": "DROP DATABASE my_database"
+            }
+          ],
+          "corrections": [
+            {
+              "text": "The PDF says DROP is simply irreversible. Ordinary transaction rollback cannot undo it in MySQL/MariaDB, but backups may permit recovery; other systems have different DDL behavior.",
+              "url": "https://mariadb.com/docs/server/reference/sql-statements/transactions/sql-statements-that-cause-an-implicit-commit",
+              "label": "MariaDB: implicit commits"
+            }
+          ],
+          "context": "SQL"
+        },
+        {
+          "id": "drop-database",
+          "title": "DROP DATABASE",
+          "syntax": "DROP DATABASE database_name;",
+          "pages": [
+            54,
+            55
+          ],
+          "notes": [
+            "Removes the database and its objects. Confirm the target before running."
+          ],
+          "sourceTopicIds": [
+            "m3-drop"
+          ],
+          "sourceEvidence": [
+            {
+              "page": 54,
+              "excerpt": "DROP TABLE table_name;"
+            },
+            {
+              "page": 55,
+              "excerpt": "DROP DATABASE my_database"
+            }
+          ],
+          "corrections": [
+            {
+              "text": "The PDF says DROP is simply irreversible. Ordinary transaction rollback cannot undo it in MySQL/MariaDB, but backups may permit recovery; other systems have different DDL behavior.",
+              "url": "https://mariadb.com/docs/server/reference/sql-statements/transactions/sql-statements-that-cause-an-implicit-commit",
+              "label": "MariaDB: implicit commits"
+            }
+          ],
+          "context": "SQL"
+        },
+        {
+          "id": "column-attributes",
+          "title": "Column attributes",
+          "syntax": "column_name data_type [NOT NULL] [DEFAULT value] [UNIQUE]",
+          "pages": [
+            60,
+            62
+          ],
+          "notes": [
+            "Column-definition fragment. Use DEFAULT NULL only on a column that permits NULL."
+          ],
+          "sourceTopicIds": [
+            "m3-not-null",
+            "m3-unique",
+            "m3-default"
+          ],
+          "sourceEvidence": [
+            {
+              "page": 60,
+              "excerpt": "first_name VARCHAR(50) NOT NULL"
+            },
+            {
+              "page": 60,
+              "excerpt": "email VARCHAR(100) UNIQUE"
+            },
+            {
+              "page": 62,
+              "excerpt": "textDescription varchar(4000) DEFAULT NULL"
+            },
+            {
+              "page": 62,
+              "excerpt": "Productlines example includes VARCHAR DEFAULT NULL and a primary key.",
+              "visual": true
+            }
+          ],
+          "corrections": [],
+          "context": "SQL"
+        },
+        {
+          "id": "primary-key",
+          "title": "PRIMARY KEY",
+          "syntax": "PRIMARY KEY (column_name)\nPRIMARY KEY (column1, column2)",
+          "pages": [
+            15,
+            62,
+            93
+          ],
+          "notes": [
+            "Table-constraint fragments inside CREATE TABLE. A composite primary key is one key containing multiple columns."
+          ],
+          "sourceTopicIds": [
+            "m1-primary-key",
+            "m5-l1-order-key"
+          ],
+          "sourceEvidence": [
+            {
+              "page": 15,
+              "excerpt": "It is the unique identifier for each row in a table."
+            },
+            {
+              "page": 93,
+              "excerpt": "See the following orders and \norderdetails tables:",
+              "visual": "orders/orderdetails diagram: asterisks mark orderNumber and productCode in orderdetails"
+            },
+            {
+              "page": 62,
+              "excerpt": "Productlines example: PRIMARY KEY (productLine).",
+              "visual": true
+            },
+            {
+              "page": 93,
+              "excerpt": "Orderdetails diagram shows orderNumber and productCode forming the composite key.",
+              "visual": true
+            }
+          ],
+          "corrections": [
+            {
+              "text": "Page 15 says two rows have the same ID; primary-key duplicates are prohibited. The key’s position is not a requirement.",
+              "url": "https://www.postgresql.org/docs/current/ddl-constraints.html",
+              "label": "PostgreSQL: primary keys"
+            }
+          ],
+          "context": "SQL"
+        },
+        {
+          "id": "foreign-key",
+          "title": "FOREIGN KEY",
+          "syntax": "FOREIGN KEY (column_name) REFERENCES parent_table(parent_column)",
+          "pages": [
+            15,
+            91,
+            92
+          ],
+          "notes": [
+            "Generalized table-constraint template for the named foreign-key relationship. Use inside CREATE TABLE after defining the columns; parent columns must form an eligible referenced key."
+          ],
+          "sourceTopicIds": [
+            "m1-foreign-key",
+            "m5-l1-product-line"
+          ],
+          "sourceEvidence": [
+            {
+              "page": 15,
+              "excerpt": "A foreign key is a column or a set of columns"
+            },
+            {
+              "page": 91,
+              "excerpt": "column productLine in the table \nproducts is called the foreign key column"
+            }
+          ],
+          "corrections": [
+            {
+              "text": "The PDF describes only another table’s primary key and treats NULL as always allowed. The actual reference and nullability rules are broader.",
+              "url": "https://www.postgresql.org/docs/current/ddl-constraints.html",
+              "label": "PostgreSQL: foreign keys"
+            }
+          ],
+          "context": "SQL"
+        },
+        {
+          "id": "auto-increment",
+          "title": "AUTO_INCREMENT primary-key column",
+          "syntax": "column_name INT AUTO_INCREMENT PRIMARY KEY",
+          "pages": [
+            60
+          ],
+          "notes": [
+            "Column-definition fragment inside CREATE TABLE; use only one AUTO_INCREMENT column per table."
+          ],
+          "sourceTopicIds": [
+            "m3-auto-increment"
+          ],
+          "sourceEvidence": [
+            {
+              "page": 60,
+              "excerpt": "employee_id INT AUTO_INCREMENT PRIMARY KEY"
+            }
+          ],
+          "corrections": [],
+          "context": "SQL"
+        }
+      ]
+    },
+    {
+      "id": "manipulation",
+      "title": "Data manipulation",
+      "description": "Add, change, and remove records.",
+      "entries": [
+        {
+          "id": "insert",
+          "title": "INSERT INTO",
+          "syntax": "INSERT INTO table_name (column1, column2)\nVALUES (value1, value2);\n\nINSERT INTO table_name\nVALUES (value1, value2, ...);",
+          "pages": [
+            49,
+            50
+          ],
+          "notes": [
+            "Without a column list, provide values for the table’s columns in their declared order. Prefer an explicit column list."
+          ],
+          "sourceTopicIds": [
+            "m3-insert"
+          ],
+          "sourceEvidence": [
+            {
+              "page": 49,
+              "excerpt": "INSERT INTO: Used to add new records (rows) into a table."
+            },
+            {
+              "page": 50,
+              "excerpt": "VALUES ('John', 'Doe', 'john.doe@example.com')"
+            }
+          ],
+          "corrections": [],
+          "context": "SQL"
+        },
+        {
+          "id": "update",
+          "title": "UPDATE ... SET",
+          "syntax": "UPDATE table_name\nSET column1 = value1, column2 = value2\nWHERE condition;",
+          "pages": [
+            50,
+            51
+          ],
+          "notes": [
+            "Without WHERE, every eligible row is updated."
+          ],
+          "sourceTopicIds": [
+            "m3-update"
+          ],
+          "sourceEvidence": [
+            {
+              "page": 50,
+              "excerpt": "UPDATE: Used to modify existing records in a table."
+            },
+            {
+              "page": 50,
+              "excerpt": "If omitted, all rows in the table will be updated."
+            }
+          ],
+          "corrections": [],
+          "context": "SQL"
+        },
+        {
+          "id": "delete",
+          "title": "DELETE FROM",
+          "syntax": "DELETE FROM table_name WHERE condition;",
+          "pages": [
+            51
+          ],
+          "notes": [
+            "Without WHERE, every row is deleted while the table remains."
+          ],
+          "sourceTopicIds": [
+            "m3-delete"
+          ],
+          "sourceEvidence": [
+            {
+              "page": 51,
+              "excerpt": "DELETE: Use this assertion to erase remove one or more records"
+            }
+          ],
+          "corrections": [],
+          "context": "SQL"
+        }
+      ]
+    },
+    {
+      "id": "queries",
+      "title": "Queries and conditions",
+      "description": "Retrieve and filter result sets with SELECT.",
+      "entries": [
+        {
+          "id": "select",
+          "title": "SELECT",
+          "syntax": "SELECT * FROM table_name;\nSELECT column1, column2 FROM table_name;\nSELECT expression FROM table_name;",
+          "pages": [
+            48,
+            49,
+            68,
+            69,
+            70
+          ],
+          "notes": [
+            "select_list in other templates means columns, expressions, or *. FROM identifies the source table."
+          ],
+          "sourceTopicIds": [
+            "m3-select",
+            "m3-asterisk",
+            "m4-l1-select-list"
+          ],
+          "sourceEvidence": [
+            {
+              "page": 48,
+              "excerpt": "SELECT: Used to retrieve data from one or more tables"
+            },
+            {
+              "page": 49,
+              "excerpt": "SELECT * FROM customers;"
+            },
+            {
+              "page": 49,
+              "excerpt": "the asterisks (*) retrieves all columns"
+            },
+            {
+              "page": 68,
+              "excerpt": "a list of \ncolumns or expressions that you want to show in the result."
+            }
+          ],
+          "corrections": [],
+          "context": "SQL"
+        },
+        {
+          "id": "select-alias",
+          "title": "Column alias with AS",
+          "syntax": "SELECT table_alias.column_name AS output_name\nFROM table_name AS table_alias;",
+          "pages": [
+            90
+          ],
+          "notes": [],
+          "sourceTopicIds": [
+            "m5-l1-aliases"
+          ],
+          "sourceEvidence": [
+            {
+              "page": 90,
+              "excerpt": "FROM \nmembers as m"
+            }
+          ],
+          "corrections": [],
+          "context": "SQL"
+        },
+        {
+          "id": "where",
+          "title": "WHERE",
+          "syntax": "SELECT select_list FROM table_name WHERE search_condition;",
+          "pages": [
+            63,
+            74,
+            75
+          ],
+          "notes": [
+            "WHERE also restricts UPDATE and DELETE. It is evaluated before grouping in a filtered query."
+          ],
+          "sourceTopicIds": [
+            "m3-where",
+            "m4-l3-where"
+          ],
+          "sourceEvidence": [
+            {
+              "page": 63,
+              "excerpt": "WHERE",
+              "visual": "Table 3.2 DQL Command"
+            },
+            {
+              "page": 74,
+              "excerpt": "The WHERE clause allows you to specify a search condition"
+            }
+          ],
+          "corrections": [],
+          "context": "SQL"
+        },
+        {
+          "id": "distinct",
+          "title": "DISTINCT",
+          "syntax": "SELECT DISTINCT column1, column2 FROM table_name;",
+          "pages": [
+            63
+          ],
+          "notes": [
+            "Removes duplicate result rows; it does not delete source records."
+          ],
+          "sourceTopicIds": [
+            "m3-distinct"
+          ],
+          "sourceEvidence": [
+            {
+              "page": 63,
+              "excerpt": "DISTINCT",
+              "visual": "Table 3.2 DQL Command"
+            }
+          ],
+          "corrections": [],
+          "context": "SQL"
+        },
+        {
+          "id": "group-by",
+          "title": "GROUP BY",
+          "syntax": "SELECT grouping_column, AVG(value_column)\nFROM table_name\nGROUP BY grouping_column;",
+          "pages": [
+            63,
+            93
+          ],
+          "notes": [],
+          "sourceTopicIds": [
+            "m3-group-by",
+            "m5-l1-grouping"
+          ],
+          "sourceEvidence": [
+            {
+              "page": 63,
+              "excerpt": "GROUP BY",
+              "visual": "Table 3.2 DQL Command"
+            },
+            {
+              "page": 93,
+              "excerpt": "using the INNER JOIN clause with the GROUP BY clause:"
+            }
+          ],
+          "corrections": [
+            {
+              "text": "Page 93 describes total sales and shows a result but omits the query. This example is constructed from the diagram, not quoted from the PDF.",
+              "url": "https://mariadb.com/docs/server/reference/sql-statements/data-manipulation/selecting-data/group-by",
+              "label": "MariaDB GROUP BY"
+            }
+          ],
+          "context": "SQL"
+        },
+        {
+          "id": "having",
+          "title": "HAVING",
+          "syntax": "SELECT grouping_column, AVG(value_column)\nFROM table_name\nGROUP BY grouping_column\nHAVING AVG(value_column) > threshold;",
+          "pages": [
+            63
+          ],
+          "notes": [
+            "Filters grouped results; WHERE filters input rows."
+          ],
+          "sourceTopicIds": [
+            "m3-having"
+          ],
+          "sourceEvidence": [
+            {
+              "page": 63,
+              "excerpt": "HAVING",
+              "visual": "Table 3.2 DQL Command"
+            }
+          ],
+          "corrections": [],
+          "context": "SQL"
+        },
+        {
+          "id": "order-by",
+          "title": "ORDER BY",
+          "syntax": "SELECT select_list FROM table_name\nORDER BY column1 [ASC|DESC], column2 [ASC|DESC];",
+          "pages": [
+            63,
+            72,
+            73,
+            74
+          ],
+          "notes": [
+            "Each sort expression has its own direction; omitted direction defaults to ASC in common dialects."
+          ],
+          "sourceTopicIds": [
+            "m3-order-by",
+            "m4-l2-multiple-sort"
+          ],
+          "sourceEvidence": [
+            {
+              "page": 63,
+              "excerpt": "ORDER BY",
+              "visual": "Table 3.2 DQL Command"
+            },
+            {
+              "page": 72,
+              "excerpt": "only the order of values in the column2 \nchanges."
+            }
+          ],
+          "corrections": [
+            {
+              "text": "Page 72 says ORDER BY column1, column2 makes column2 descending. Both default to ascending; write DESC explicitly.",
+              "url": "https://mariadb.com/docs/server/reference/sql-statements/data-manipulation/selecting-data/order-by",
+              "label": "MariaDB ORDER BY"
+            }
+          ],
+          "context": "SQL"
+        },
+        {
+          "id": "limit",
+          "title": "LIMIT",
+          "syntax": "SELECT select_list FROM table_name LIMIT row_count;",
+          "pages": [
+            63
+          ],
+          "notes": [
+            "Supported by MySQL/MariaDB and some other systems."
+          ],
+          "sourceTopicIds": [
+            "m3-limit"
+          ],
+          "sourceEvidence": [
+            {
+              "page": 63,
+              "excerpt": "LIMIT",
+              "visual": "Table 3.2 DQL Command"
+            }
+          ],
+          "corrections": [],
+          "context": "SQL"
+        },
+        {
+          "id": "comparison",
+          "title": "Comparison operators",
+          "syntax": "column_name = value\ncolumn_name != value\ncolumn_name > value",
+          "pages": [
+            42,
+            76,
+            83
+          ],
+          "notes": [
+            "Predicate fragments for WHERE or ON. The module explicitly shows =, !=, and >."
+          ],
+          "sourceTopicIds": [
+            "m4-l3-equal",
+            "m4-l4-many-conditions"
+          ],
+          "sourceEvidence": [
+            {
+              "page": 42,
+              "excerpt": "standard comparison operators like = or !="
+            },
+            {
+              "page": 76,
+              "excerpt": "whose value in the jobTitle column is Sales Rep."
+            },
+            {
+              "page": 83,
+              "excerpt": "100000"
+            }
+          ],
+          "corrections": [],
+          "context": "SQL"
+        },
+        {
+          "id": "between",
+          "title": "BETWEEN",
+          "syntax": "column_name BETWEEN lower_value AND upper_value",
+          "pages": [
+            78,
+            79
+          ],
+          "notes": [
+            "Predicate fragment for WHERE; includes both boundaries."
+          ],
+          "sourceTopicIds": [
+            "m4-l3-between"
+          ],
+          "sourceEvidence": [
+            {
+              "page": 78,
+              "excerpt": "The BETWEEN operator returns TRUE if a value is in a range of values"
+            }
+          ],
+          "corrections": [],
+          "context": "SQL"
+        },
+        {
+          "id": "null-functions",
+          "title": "COALESCE / IFNULL",
+          "syntax": "COALESCE(expression1, expression2, ...)\nIFNULL(expression, fallback)",
+          "pages": [
+            42
+          ],
+          "notes": [
+            "Expression fragments for a SELECT list. COALESCE returns the first non-NULL value; IFNULL takes two arguments in MySQL/MariaDB."
+          ],
+          "sourceTopicIds": [
+            "m2-null-defaults"
+          ],
+          "sourceEvidence": [
+            {
+              "page": 42,
+              "excerpt": "functions like COALESCE and IFNULL are used to provide default values"
+            }
+          ],
+          "corrections": [],
+          "context": "SQL"
+        },
+        {
+          "id": "like",
+          "title": "LIKE",
+          "syntax": "text_column LIKE 'pattern'",
+          "pages": [
+            79,
+            80
+          ],
+          "notes": [
+            "Predicate fragment for WHERE. % matches zero or more characters; _ matches one character."
+          ],
+          "sourceTopicIds": [
+            "m4-l3-like"
+          ],
+          "sourceEvidence": [
+            {
+              "page": 79,
+              "excerpt": "The LIKE operator evaluates to TRUE if a value matches a specified pattern."
+            }
+          ],
+          "corrections": [],
+          "context": "SQL"
+        },
+        {
+          "id": "and-or-not",
+          "title": "AND, OR, and NOT",
+          "syntax": "condition1 AND condition2\ncondition1 OR condition2\nNOT (condition)\n(condition1 OR condition2) AND condition3",
+          "pages": [
+            75,
+            80,
+            81,
+            83,
+            84,
+            85,
+            86
+          ],
+          "notes": [
+            "Predicate fragments for WHERE or ON. Parentheses make grouping explicit; AND has higher precedence than OR."
+          ],
+          "sourceTopicIds": [
+            "m4-l3-not",
+            "m4-l4-and",
+            "m4-l5-or",
+            "m4-l5-precedence",
+            "m4-l5-parentheses"
+          ],
+          "sourceEvidence": [
+            {
+              "page": 75,
+              "excerpt": "logical \noperator AND, OR and NOT."
+            },
+            {
+              "page": 80,
+              "excerpt": "The AND operator is a logical operator that combines two or more Boolean"
+            },
+            {
+              "page": 83,
+              "excerpt": "returns true when \neither condition is true"
+            },
+            {
+              "page": 84,
+              "excerpt": "MySQL always \nevaluates the OR operators after the AND operators."
+            },
+            {
+              "page": 86,
+              "excerpt": "WHERE (country = 'USA'"
+            }
+          ],
+          "corrections": [
+            {
+              "text": "Page 78 says only one expression is true. SQL OR also returns TRUE when both conditions are true.",
+              "url": "https://mariadb.com/docs/server/reference/sql-structure/operators/logical-operators/or",
+              "label": "MariaDB logical OR"
+            }
+          ],
+          "context": "SQL"
+        },
+        {
+          "id": "null-tests",
+          "title": "NULL tests",
+          "syntax": "column_name IS NULL\ncolumn_name IS NOT NULL",
+          "pages": [
+            42
+          ],
+          "notes": [
+            "Predicate fragments for WHERE. = NULL and != NULL do not test whether a value is missing."
+          ],
+          "sourceTopicIds": [
+            "m2-null-tests"
+          ],
+          "sourceEvidence": [
+            {
+              "page": 42,
+              "excerpt": "IS NULL and IS NOT NULL"
+            }
+          ],
+          "corrections": [],
+          "context": "SQL"
+        },
+        {
+          "id": "aggregates",
+          "title": "AVG — Aggregate function",
+          "syntax": "AVG(numeric_expression)",
+          "pages": [
+            63
+          ],
+          "notes": [
+            "Expression fragment for a SELECT list or HAVING. The table’s AVG_FUNCTION placeholder is not a literal SQL function name."
+          ],
+          "corrections": [
+            {
+              "text": "The module uses AVG_FUNCTION as a placeholder. The actual average function is AVG(expression).",
+              "url": "https://mariadb.com/docs/server/reference/sql-functions/aggregate-functions/avg",
+              "label": "MariaDB AVG"
+            }
+          ],
+          "sourceTopicIds": [
+            "m3-group-by"
+          ],
+          "sourceEvidence": [
+            {
+              "page": 63,
+              "excerpt": "GROUP BY",
+              "visual": "Table 3.2 DQL Command"
+            },
+            {
+              "page": 63,
+              "excerpt": "Table 3.2 GROUP BY/HAVING syntax uses AVG_FUNCTION(column2).",
+              "visual": true
+            }
+          ],
+          "context": "SQL"
+        }
+      ]
+    },
+    {
+      "id": "joins",
+      "title": "Joins",
+      "description": "Combine rows from related table sources.",
+      "entries": [
+        {
+          "id": "inner-join",
+          "title": "INNER JOIN",
+          "syntax": "SELECT select_list\nFROM left_table\nINNER JOIN right_table ON left_table.key = right_table.key;",
+          "pages": [
+            55,
+            89,
+            90
+          ],
+          "notes": [
+            "Returns matching row combinations only."
+          ],
+          "sourceTopicIds": [
+            "m3-inner-join",
+            "m5-l1-inner"
+          ],
+          "sourceEvidence": [
+            {
+              "page": 55,
+              "excerpt": "INNER JOIN - Combines rows from both tables only when there is a match"
+            },
+            {
+              "page": 89,
+              "excerpt": "The INNER JOIN matches each row in one table with every row in other tables"
+            }
+          ],
+          "corrections": [],
+          "context": "SQL"
+        },
+        {
+          "id": "left-join",
+          "title": "LEFT JOIN",
+          "syntax": "SELECT select_list\nFROM left_table\nLEFT [OUTER] JOIN right_table ON left_table.key = right_table.key;",
+          "pages": [
+            55,
+            94,
+            95
+          ],
+          "notes": [
+            "Keeps every left-table row; unmatched right columns are NULL."
+          ],
+          "sourceTopicIds": [
+            "m3-left-join",
+            "m5-l2-left"
+          ],
+          "sourceEvidence": [
+            {
+              "page": 55,
+              "excerpt": "LEFT JOIN (or LEFT OUTER JOIN) - Returns all rows from the left table"
+            },
+            {
+              "page": 94,
+              "excerpt": "the left join selects all data from the left table"
+            }
+          ],
+          "corrections": [],
+          "context": "SQL"
+        },
+        {
+          "id": "right-join",
+          "title": "RIGHT JOIN",
+          "syntax": "SELECT select_list\nFROM left_table\nRIGHT [OUTER] JOIN right_table ON left_table.key = right_table.key;",
+          "pages": [
+            56,
+            100,
+            101
+          ],
+          "notes": [
+            "Keeps every right-table row; unmatched left columns are NULL."
+          ],
+          "sourceTopicIds": [
+            "m3-right-join",
+            "m5-l3-right"
+          ],
+          "sourceEvidence": [
+            {
+              "page": 56,
+              "excerpt": "RIGHT JOIN (or RIGHT OUTER JOIN) - Returns all rows from the right table"
+            },
+            {
+              "page": 100,
+              "excerpt": "the column of the left table will have NULL in the final result set"
+            }
+          ],
+          "corrections": [
+            {
+              "text": "Page 101 reverses the missing side. An unmatched RIGHT JOIN row keeps the right-table values; the left-table columns become NULL. Page 100 explains this correctly.",
+              "url": "https://mariadb.com/docs/server/reference/sql-statements/data-manipulation/selecting-data/joins/join-syntax",
+              "label": "MariaDB JOIN syntax"
+            }
+          ],
+          "context": "SQL"
+        },
+        {
+          "id": "full-join",
+          "title": "FULL OUTER JOIN",
+          "syntax": "SELECT select_list\nFROM left_table\nFULL [OUTER] JOIN right_table ON join_condition;",
+          "pages": [
+            56
+          ],
+          "notes": [
+            "This cross-dialect form is named in the module; it is not executable in MySQL/MariaDB. No workaround is added."
+          ],
+          "context": "PostgreSQL / other supporting dialects",
+          "sourceTopicIds": [
+            "m3-full-join"
+          ],
+          "sourceEvidence": [
+            {
+              "page": 56,
+              "excerpt": "FULL JOIN (or FULL OUTER JOIN)"
+            }
+          ],
+          "corrections": [
+            {
+              "text": "The PDF prints native FULL JOIN beside MySQL examples. MySQL/MariaDB do not support that syntax directly.",
+              "url": "https://mariadb.com/docs/server/reference/sql-statements/data-manipulation/selecting-data/joins/join-syntax",
+              "label": "MariaDB: JOIN syntax"
+            },
+            {
+              "text": "FULL OUTER JOIN is supported by PostgreSQL; it is absent from native MySQL/MariaDB join syntax.",
+              "url": "https://www.postgresql.org/docs/current/queries-table-expressions.html",
+              "label": "PostgreSQL joins"
+            }
+          ]
+        },
+        {
+          "id": "cross-join",
+          "title": "CROSS JOIN",
+          "syntax": "SELECT select_list FROM left_table CROSS JOIN right_table;",
+          "pages": [
+            56
+          ],
+          "notes": [
+            "Returns the Cartesian product."
+          ],
+          "sourceTopicIds": [
+            "m3-cross-join"
+          ],
+          "sourceEvidence": [
+            {
+              "page": 56,
+              "excerpt": "CROSS JOIN - Returns the Cartesian product"
+            }
+          ],
+          "corrections": [],
+          "context": "SQL"
+        },
+        {
+          "id": "on",
+          "title": "ON join condition",
+          "syntax": "SELECT select_list\nFROM left_table\nINNER JOIN right_table ON left_table.column1 = right_table.column1\n  AND left_table.column2 = right_table.column2;",
+          "pages": [
+            89
+          ],
+          "notes": [
+            "Generalized template for the module’s conditional join form; the predicates describe how rows match."
+          ],
+          "sourceTopicIds": [
+            "m5-l1-on"
+          ],
+          "sourceEvidence": [
+            {
+              "page": 89,
+              "excerpt": "The join condition specifies the rule for matching rows"
+            }
+          ],
+          "corrections": [],
+          "context": "SQL"
+        },
+        {
+          "id": "using",
+          "title": "USING",
+          "syntax": "SELECT select_list\nFROM left_table\nINNER JOIN right_table USING (shared_column);",
+          "pages": [
+            91,
+            92,
+            93
+          ],
+          "notes": [
+            "Use when both sources expose the same join-column name."
+          ],
+          "sourceTopicIds": [
+            "m5-l1-using"
+          ],
+          "sourceEvidence": [
+            {
+              "page": 91,
+              "excerpt": "you can use the USING clause"
+            }
+          ],
+          "corrections": [],
+          "context": "SQL"
+        },
+        {
+          "id": "multi-join",
+          "title": "Joining more than two tables",
+          "syntax": "SELECT select_list\nFROM first_table AS a\nINNER JOIN second_table AS b ON a.key = b.key\nINNER JOIN third_table AS c ON b.other_key = c.key;",
+          "pages": [
+            89,
+            90
+          ],
+          "notes": [],
+          "sourceTopicIds": [
+            "m5-l1-multiple-tables"
+          ],
+          "sourceEvidence": [
+            {
+              "page": 89,
+              "excerpt": "INNER JOIN t2 ON join_condition1"
+            }
+          ],
+          "corrections": [],
+          "context": "SQL"
+        },
+        {
+          "id": "unmatched-join",
+          "title": "Find unmatched rows",
+          "syntax": "SELECT left_table.key\nFROM left_table\nLEFT JOIN right_table ON left_table.key = right_table.key\nWHERE right_table.key IS NULL;\n\nSELECT right_table.key\nFROM left_table\nRIGHT JOIN right_table ON left_table.key = right_table.key\nWHERE left_table.key IS NULL;",
+          "pages": [
+            96,
+            97,
+            99,
+            104
+          ],
+          "notes": [
+            "Test a joined key that cannot be NULL on a real matched row."
+          ],
+          "sourceTopicIds": [
+            "m5-l2-left-missing",
+            "m5-l2-customers-no-orders",
+            "m5-l3-right-missing"
+          ],
+          "sourceEvidence": [
+            {
+              "page": 96,
+              "excerpt": "find rows in the left table that does not have \ncorresponding rows in the right table."
+            },
+            {
+              "page": 99,
+              "excerpt": "find customers who have no order:"
+            },
+            {
+              "page": 104,
+              "excerpt": "WHERE customerNumber is NULL"
+            }
+          ],
+          "corrections": [],
+          "context": "SQL"
+        }
+      ]
+    },
+    {
+      "id": "permissions",
+      "title": "Permissions",
+      "description": "Control access to database objects.",
+      "entries": [
+        {
+          "id": "grant",
+          "title": "GRANT",
+          "syntax": "GRANT SELECT, UPDATE\nON database_name.table_name\nTO 'user_name'@'host_name';",
+          "pages": [
+            65
+          ],
+          "notes": [
+            "MySQL/MariaDB account form. The target account must exist; the executing account needs authority to grant these privileges."
+          ],
+          "sourceTopicIds": [
+            "m3-grant"
+          ],
+          "sourceEvidence": [
+            {
+              "page": 65,
+              "excerpt": "GRANT SELECT, UPDATE ON employees TO user_name;"
+            }
+          ],
+          "corrections": [],
+          "context": "SQL"
+        },
+        {
+          "id": "revoke",
+          "title": "REVOKE",
+          "syntax": "REVOKE SELECT, UPDATE\nON database_name.table_name\nFROM 'user_name'@'host_name';",
+          "pages": [
+            65
+          ],
+          "notes": [
+            "Generalized template for the REVOKE command named in the PDF. The target account and grants must exist."
+          ],
+          "sourceTopicIds": [
+            "m3-revoke"
+          ],
+          "sourceEvidence": [
+            {
+              "page": 65,
+              "excerpt": "granting or revoking permissions."
+            }
+          ],
+          "corrections": [],
+          "context": "SQL"
+        }
+      ]
+    },
+    {
+      "id": "transactions",
+      "title": "Transactions",
+      "description": "Commands shown in the PDF SQL command diagram.",
+      "entries": [
+        {
+          "id": "commit",
+          "title": "COMMIT",
+          "syntax": "COMMIT;",
+          "pages": [
+            61
+          ],
+          "notes": [
+            "Assumes an active transaction on transactional tables. MySQL/MariaDB DDL can implicitly commit."
+          ],
+          "sourceTopicIds": [
+            "m3-commit"
+          ],
+          "sourceEvidence": [
+            {
+              "page": 61,
+              "excerpt": "COMMIT",
+              "visual": "Figure 3.1 SQL Commands"
+            }
+          ],
+          "corrections": [],
+          "context": "SQL"
+        },
+        {
+          "id": "savepoint",
+          "title": "SAVEPOINT",
+          "syntax": "SAVEPOINT savepoint_name;",
+          "pages": [
+            61
+          ],
+          "notes": [
+            "Assumes an active transaction; use the same name to roll back to this point."
+          ],
+          "sourceTopicIds": [
+            "m3-savepoint"
+          ],
+          "sourceEvidence": [
+            {
+              "page": 61,
+              "excerpt": "SAVEPOINT",
+              "visual": "Figure 3.1 SQL Commands"
+            }
+          ],
+          "corrections": [],
+          "context": "SQL"
+        },
+        {
+          "id": "rollback",
+          "title": "ROLLBACK",
+          "syntax": "ROLLBACK;\nROLLBACK TO SAVEPOINT savepoint_name;",
+          "pages": [
+            61
+          ],
+          "notes": [
+            "Assumes an active transaction. ROLLBACK TO SAVEPOINT also requires the named savepoint; it keeps the transaction active."
+          ],
+          "sourceTopicIds": [
+            "m3-rollback"
+          ],
+          "sourceEvidence": [
+            {
+              "page": 61,
+              "excerpt": "ROLLBACK",
+              "visual": "Figure 3.1 SQL Commands"
+            }
+          ],
+          "corrections": [],
+          "context": "SQL"
+        }
+      ]
+    },
+    {
+      "id": "client",
+      "title": "Terminal and MySQL client",
+      "description": "Commands entered outside the SQL editor or inside the MySQL client.",
+      "entries": [
+        {
+          "id": "terminal-directory",
+          "title": "Open the client’s folder",
+          "syntax": "cd path_to_mysql_bin",
+          "pages": [
+            44
+          ],
+          "notes": [
+            "Operating-system terminal template. Replace the placeholder with the folder containing the installed client; the PDF uses an XAMPP path."
+          ],
+          "sourceTopicIds": [
+            "m2-mysql-monitor"
+          ],
+          "sourceEvidence": [
+            {
+              "page": 44,
+              "excerpt": "The monitoring program is named simply MySQL"
+            },
+            {
+              "page": 44,
+              "excerpt": "Windows terminal screenshot: cd\\xampp\\mysql\\bin.",
+              "visual": true
+            }
+          ],
+          "corrections": [],
+          "context": "Operating-system terminal"
+        },
+        {
+          "id": "login",
+          "title": "MySQL client login",
+          "syntax": "mysql -u user_name -p",
+          "pages": [
+            59
+          ],
+          "notes": [
+            "Run in an operating-system terminal. -p prompts for the password; never save a real password in study material."
+          ],
+          "sourceTopicIds": [
+            "m3-client-login"
+          ],
+          "sourceEvidence": [
+            {
+              "page": 59,
+              "excerpt": "mysql -u username -p"
+            }
+          ],
+          "corrections": [],
+          "context": "Operating-system terminal"
+        },
+        {
+          "id": "client-terminator",
+          "title": "Client statement terminators",
+          "syntax": "SQL_statement;\nSQL_statement\\g\nSQL_statement\\G",
+          "pages": [
+            44,
+            45
+          ],
+          "notes": [
+            "Inside the MySQL client: ; and \\g execute normally; \\G executes with vertical output. Replace SQL_statement with a SQL statement and use one terminator."
+          ],
+          "sourceTopicIds": [
+            "m2-vertical-output"
+          ],
+          "sourceEvidence": [
+            {
+              "page": 45,
+              "excerpt": "tablename\\G"
+            },
+            {
+              "page": 44,
+              "excerpt": "MySQL monitor welcome text: commands end with ; or \\g.",
+              "visual": true
+            }
+          ],
+          "corrections": [],
+          "context": "Inside the MySQL client"
+        },
+        {
+          "id": "client-help",
+          "title": "MySQL client help and input control",
+          "syntax": "help;\n\\h\n\\c",
+          "pages": [
+            44
+          ],
+          "notes": [
+            "Inside the MySQL client: help; and \\h display help; \\c clears the current input. These are alternatives, not a SQL batch."
+          ],
+          "sourceTopicIds": [
+            "m2-mysql-monitor"
+          ],
+          "sourceEvidence": [
+            {
+              "page": 44,
+              "excerpt": "The monitoring program is named simply MySQL"
+            },
+            {
+              "page": 44,
+              "excerpt": "MySQL monitor welcome text: help; or \\h for help; \\c clears the current input statement.",
+              "visual": true
+            }
+          ],
+          "corrections": [],
+          "context": "Inside the MySQL client"
+        }
+      ]
+    }
+  ],
+  "exclusions": [
+    {
+      "topic": "Access menu workflow",
+      "reason": "Kept in Lesson notes because it is a visual workflow, not SQL syntax.",
+      "pages": [
+        57,
+        58
+      ]
+    },
+    {
+      "topic": "Unsupported FULL OUTER JOIN workaround",
+      "reason": "The PDF names FULL JOIN but does not teach a workaround; no invented workaround is added.",
+      "pages": [
+        56
+      ]
+    },
+    {
+      "topic": "Spatial constructor syntax",
+      "reason": "The PDF names spatial types without specifying a declaration or constructor.",
+      "pages": [
+        40,
+        41
+      ]
+    },
+    {
+      "topic": "Constructed and user-defined types",
+      "pages": [
+        31
+      ],
+      "reason": "Named conceptually without a concrete declaration. Their definitions remain in Lesson notes; no CREATE TYPE syntax is invented."
+    },
+    {
+      "topic": "Indexes, views and procedures as database objects",
+      "pages": [
+        52,
+        54
+      ],
+      "reason": "Mentioned as objects but not taught with their own creation/deletion syntax; no additional commands are introduced."
+    },
+    {
+      "topic": "IN, UNION, COUNT, MIN, MAX and SUM templates",
+      "pages": [
+        49,
+        63,
+        93
+      ],
+      "reason": "No named concrete instruction for these forms was found in the 105-page audit. General aggregate behavior and the total-sales example remain in Lesson notes; AVG corrects the AVG_FUNCTION placeholder."
+    },
+    {
+      "topic": "Additional lab extensions",
+      "pages": [],
+      "reason": "JSON extraction, WKT constructors, referential actions and other advanced-lab extensions are outside this PDF syntax reference."
+    }
+  ]
+}

@@ -1,0 +1,3156 @@
+{
+  "version": "syntax-v1",
+  "contentVersion": "reviewer-v9",
+  "pdfSHA256": "bd934884252012c84dd9536e847f5006fa79ef8422578ef9bf65fe1e837f892c",
+  "categories": [
+    {
+      "id": "types",
+      "title": "Data types",
+      "entries": [
+        {
+          "id": "int",
+          "title": "INT / INTEGER",
+          "pages": [
+            31
+          ],
+          "sourceTopicIds": [
+            "m2-int"
+          ],
+          "sourceEvidence": [
+            {
+              "page": 31,
+              "excerpt": "INT/INTEGER: Used for whole numbers."
+            }
+          ],
+          "kind": "generalized-template",
+          "correctionLinks": []
+        },
+        {
+          "id": "smallint",
+          "title": "SMALLINT",
+          "pages": [
+            31,
+            32
+          ],
+          "sourceTopicIds": [
+            "m2-smallint"
+          ],
+          "sourceEvidence": [
+            {
+              "page": 31,
+              "excerpt": "SMALLINT: Used for smaller whole numbers."
+            },
+            {
+              "page": 32,
+              "excerpt": "SMALLINT can store values like 32767 or -32768."
+            }
+          ],
+          "kind": "generalized-template",
+          "correctionLinks": [
+            "https://mariadb.com/docs/server/reference/data-types/data-type-storage-requirements"
+          ]
+        },
+        {
+          "id": "tinyint",
+          "title": "TINYINT",
+          "pages": [
+            32
+          ],
+          "sourceTopicIds": [
+            "m2-tinyint"
+          ],
+          "sourceEvidence": [
+            {
+              "page": 32,
+              "excerpt": "TINYINT can hold integer values ranging from 0 to 255"
+            }
+          ],
+          "kind": "generalized-template",
+          "correctionLinks": []
+        },
+        {
+          "id": "bigint",
+          "title": "BIGINT",
+          "pages": [
+            32
+          ],
+          "sourceTopicIds": [
+            "m2-bigint"
+          ],
+          "sourceEvidence": [
+            {
+              "page": 32,
+              "excerpt": "BIGINT: Used for large whole numbers."
+            }
+          ],
+          "kind": "generalized-template",
+          "correctionLinks": []
+        },
+        {
+          "id": "decimal",
+          "title": "DECIMAL / NUMERIC",
+          "pages": [
+            32,
+            43
+          ],
+          "sourceTopicIds": [
+            "m2-decimal"
+          ],
+          "sourceEvidence": [
+            {
+              "page": 32,
+              "excerpt": "DECIMAL(p, s)/NUMERIC(p, s): Used for fixed-point numbers"
+            },
+            {
+              "page": 43,
+              "excerpt": "$999,999.99"
+            }
+          ],
+          "kind": "generalized-template",
+          "correctionLinks": [
+            "https://mariadb.com/docs/server/reference/data-types/numeric-data-types/decimal"
+          ]
+        },
+        {
+          "id": "float",
+          "title": "FLOAT",
+          "pages": [
+            33
+          ],
+          "sourceTopicIds": [
+            "m2-float"
+          ],
+          "sourceEvidence": [
+            {
+              "page": 33,
+              "excerpt": "FLOAT: Used for single-precision floating-point numbers."
+            }
+          ],
+          "kind": "generalized-template",
+          "correctionLinks": [
+            "https://mariadb.com/docs/server/reference/data-types/numeric-data-types/float"
+          ]
+        },
+        {
+          "id": "real",
+          "title": "REAL",
+          "pages": [
+            33,
+            34
+          ],
+          "sourceTopicIds": [
+            "m2-real"
+          ],
+          "sourceEvidence": [
+            {
+              "page": 33,
+              "excerpt": "REAL: Another term for single-precision floating-point numbers."
+            },
+            {
+              "page": 34,
+              "excerpt": "REAL can store values similar to FLOAT."
+            }
+          ],
+          "kind": "generalized-template",
+          "correctionLinks": [
+            "https://mariadb.com/docs/server/reference/data-types/numeric-data-types/double"
+          ]
+        },
+        {
+          "id": "double",
+          "title": "DOUBLE",
+          "pages": [
+            34
+          ],
+          "sourceTopicIds": [
+            "m2-double"
+          ],
+          "sourceEvidence": [
+            {
+              "page": 34,
+              "excerpt": "DOUBLE: Used for double-precision floating-point numbers."
+            }
+          ],
+          "kind": "generalized-template",
+          "correctionLinks": [
+            "https://mariadb.com/docs/server/reference/data-types/numeric-data-types/double"
+          ]
+        },
+        {
+          "id": "char",
+          "title": "CHAR / CHARACTER",
+          "pages": [
+            34,
+            35
+          ],
+          "sourceTopicIds": [
+            "m2-char"
+          ],
+          "sourceEvidence": [
+            {
+              "page": 34,
+              "excerpt": "CHARACTER or CHAR(n): Fixed-length character string"
+            },
+            {
+              "page": 35,
+              "excerpt": "the default is set to one."
+            }
+          ],
+          "kind": "generalized-template",
+          "correctionLinks": [
+            "https://dev.mysql.com/doc/refman/8.4/en/char.html"
+          ]
+        },
+        {
+          "id": "varchar",
+          "title": "VARCHAR / CHARACTER VARYING",
+          "pages": [
+            35
+          ],
+          "sourceTopicIds": [
+            "m2-varchar"
+          ],
+          "sourceEvidence": [
+            {
+              "page": 35,
+              "excerpt": "CHARACTER VARYING or VARCHAR(n): Variable-length character string"
+            }
+          ],
+          "kind": "generalized-template",
+          "correctionLinks": [
+            "https://mariadb.com/docs/server/reference/data-types/string-data-types/varchar"
+          ]
+        },
+        {
+          "id": "text",
+          "title": "TEXT",
+          "pages": [
+            35,
+            36
+          ],
+          "sourceTopicIds": [
+            "m2-text"
+          ],
+          "sourceEvidence": [
+            {
+              "page": 35,
+              "excerpt": "TEXT: Designed to store large blocks of variable-length text data."
+            },
+            {
+              "page": 36,
+              "excerpt": "TEXT can store long paragraphs or documents."
+            }
+          ],
+          "kind": "generalized-template",
+          "correctionLinks": [
+            "https://dev.mysql.com/doc/refman/8.4/en/blob.html"
+          ]
+        },
+        {
+          "id": "mediumtext",
+          "title": "MEDIUMTEXT",
+          "pages": [
+            62
+          ],
+          "sourceTopicIds": [
+            "m3-mediumtext"
+          ],
+          "sourceEvidence": [
+            {
+              "page": 62,
+              "excerpt": "htmlDescription mediumtext"
+            }
+          ],
+          "kind": "generalized-template",
+          "correctionLinks": []
+        },
+        {
+          "id": "binary",
+          "title": "BINARY",
+          "pages": [
+            36
+          ],
+          "sourceTopicIds": [
+            "m2-binary"
+          ],
+          "sourceEvidence": [
+            {
+              "page": 36,
+              "excerpt": "BINARY(n): Fixed-length binary data."
+            }
+          ],
+          "kind": "generalized-template",
+          "correctionLinks": []
+        },
+        {
+          "id": "varbinary",
+          "title": "VARBINARY / BINARY VARYING",
+          "pages": [
+            36
+          ],
+          "sourceTopicIds": [
+            "m2-varbinary"
+          ],
+          "sourceEvidence": [
+            {
+              "page": 36,
+              "excerpt": "BINARY VARYING or VARBINARY(n): Variable-length binary data."
+            }
+          ],
+          "kind": "generalized-template",
+          "correctionLinks": [
+            "https://mariadb.com/docs/server/reference/data-types/string-data-types/varbinary"
+          ]
+        },
+        {
+          "id": "blob",
+          "title": "BLOB",
+          "pages": [
+            36,
+            37
+          ],
+          "sourceTopicIds": [
+            "m2-blob"
+          ],
+          "sourceEvidence": [
+            {
+              "page": 36,
+              "excerpt": "BINARY LARGE OBJECT or BLOB"
+            },
+            {
+              "page": 37,
+              "excerpt": "BLOB can store large binary files like an image file."
+            }
+          ],
+          "kind": "generalized-template",
+          "correctionLinks": [
+            "https://mariadb.com/docs/server/reference/data-types/string-data-types/blob"
+          ]
+        },
+        {
+          "id": "mediumblob",
+          "title": "MEDIUMBLOB",
+          "pages": [
+            62
+          ],
+          "sourceTopicIds": [
+            "m3-mediumblob"
+          ],
+          "sourceEvidence": [
+            {
+              "page": 62,
+              "excerpt": "image mediumblob"
+            }
+          ],
+          "kind": "generalized-template",
+          "correctionLinks": []
+        },
+        {
+          "id": "date",
+          "title": "DATE",
+          "pages": [
+            37,
+            38
+          ],
+          "sourceTopicIds": [
+            "m2-date"
+          ],
+          "sourceEvidence": [
+            {
+              "page": 37,
+              "excerpt": "DATE: Used for date values (year, month, day)."
+            },
+            {
+              "page": 38,
+              "excerpt": "DATE can store values like '2023-07-06'."
+            }
+          ],
+          "kind": "generalized-template",
+          "correctionLinks": [
+            "https://mariadb.com/docs/server/reference/data-types/date-and-time-data-types/date"
+          ]
+        },
+        {
+          "id": "time",
+          "title": "TIME",
+          "pages": [
+            38
+          ],
+          "sourceTopicIds": [
+            "m2-time"
+          ],
+          "sourceEvidence": [
+            {
+              "page": 38,
+              "excerpt": "TIME: Used for time values (hour, minute, second)."
+            }
+          ],
+          "kind": "generalized-template",
+          "correctionLinks": [
+            "https://mariadb.com/docs/server/reference/data-types/date-and-time-data-types/time",
+            "https://www.postgresql.org/docs/current/datatype-datetime.html"
+          ]
+        },
+        {
+          "id": "datetime",
+          "title": "DATETIME",
+          "pages": [
+            38,
+            39
+          ],
+          "sourceTopicIds": [
+            "m2-datetime"
+          ],
+          "sourceEvidence": [
+            {
+              "page": 38,
+              "excerpt": "DATETIME: Used for date and time values."
+            },
+            {
+              "page": 39,
+              "excerpt": "DATETIME can store values like '2023-07-06 13:45:30'."
+            }
+          ],
+          "kind": "generalized-template",
+          "correctionLinks": [
+            "https://mariadb.com/docs/server/reference/data-types/date-and-time-data-types/datetime"
+          ]
+        },
+        {
+          "id": "timestamp",
+          "title": "TIMESTAMP",
+          "pages": [
+            39
+          ],
+          "sourceTopicIds": [
+            "m2-timestamp"
+          ],
+          "sourceEvidence": [
+            {
+              "page": 39,
+              "excerpt": "TIMESTAMP: Used for date and time values, often with time zone information."
+            }
+          ],
+          "kind": "generalized-template",
+          "correctionLinks": [
+            "https://mariadb.com/docs/server/reference/data-types/date-and-time-data-types/timestamp"
+          ]
+        },
+        {
+          "id": "year",
+          "title": "YEAR",
+          "pages": [
+            39,
+            40
+          ],
+          "sourceTopicIds": [
+            "m2-year"
+          ],
+          "sourceEvidence": [
+            {
+              "page": 39,
+              "excerpt": "YEAR: Used for year values."
+            },
+            {
+              "page": 40,
+              "excerpt": "YEAR can store values like 2023."
+            }
+          ],
+          "kind": "generalized-template",
+          "correctionLinks": [
+            "https://mariadb.com/docs/server/reference/data-types/date-and-time-data-types/year-data-type"
+          ]
+        },
+        {
+          "id": "boolean",
+          "title": "BOOLEAN / BOOL",
+          "pages": [
+            40
+          ],
+          "sourceTopicIds": [
+            "m2-boolean"
+          ],
+          "sourceEvidence": [
+            {
+              "page": 40,
+              "excerpt": "BOOLEAN: Used for true/false values."
+            }
+          ],
+          "kind": "generalized-template",
+          "correctionLinks": []
+        },
+        {
+          "id": "enum",
+          "title": "ENUM",
+          "pages": [
+            41
+          ],
+          "sourceTopicIds": [
+            "m2-enum"
+          ],
+          "sourceEvidence": [
+            {
+              "page": 41,
+              "excerpt": "ENUM: Enumerated type, a string object with a value chosen from a list"
+            }
+          ],
+          "kind": "generalized-template",
+          "correctionLinks": [
+            "https://mariadb.com/docs/server/reference/data-types/string-data-types/enum"
+          ]
+        },
+        {
+          "id": "set",
+          "title": "SET",
+          "pages": [
+            41,
+            42
+          ],
+          "sourceTopicIds": [
+            "m2-set-type"
+          ],
+          "sourceEvidence": [
+            {
+              "page": 41,
+              "excerpt": "SET: Similar to ENUM, but can store multiple values"
+            },
+            {
+              "page": 42,
+              "excerpt": "SET('red', 'green', 'blue')"
+            }
+          ],
+          "kind": "generalized-template",
+          "correctionLinks": []
+        },
+        {
+          "id": "json",
+          "title": "JSON",
+          "pages": [
+            40
+          ],
+          "sourceTopicIds": [
+            "m2-json"
+          ],
+          "sourceEvidence": [
+            {
+              "page": 40,
+              "excerpt": "JSON types for storing structured data."
+            }
+          ],
+          "kind": "generalized-template",
+          "correctionLinks": []
+        },
+        {
+          "id": "spatial",
+          "title": "Spatial types",
+          "pages": [
+            40
+          ],
+          "sourceTopicIds": [
+            "m2-spatial"
+          ],
+          "sourceEvidence": [
+            {
+              "page": 40,
+              "excerpt": "spatial data types for geographic information"
+            }
+          ],
+          "kind": "dialect-note",
+          "correctionLinks": []
+        }
+      ]
+    },
+    {
+      "id": "inspection",
+      "title": "Select and inspect",
+      "entries": [
+        {
+          "id": "use",
+          "title": "USE",
+          "pages": [
+            45
+          ],
+          "sourceTopicIds": [
+            "m2-use"
+          ],
+          "sourceEvidence": [
+            {
+              "page": 45,
+              "excerpt": "USE Databasename"
+            }
+          ],
+          "kind": "generalized-template",
+          "correctionLinks": []
+        },
+        {
+          "id": "show-databases",
+          "title": "SHOW DATABASES",
+          "pages": [
+            45
+          ],
+          "sourceTopicIds": [
+            "m2-show-databases"
+          ],
+          "sourceEvidence": [
+            {
+              "page": 45,
+              "excerpt": "SHOW DATABASES: Lists out the databases"
+            }
+          ],
+          "kind": "generalized-template",
+          "correctionLinks": []
+        },
+        {
+          "id": "show-tables",
+          "title": "SHOW TABLES",
+          "pages": [
+            45
+          ],
+          "sourceTopicIds": [
+            "m2-show-tables"
+          ],
+          "sourceEvidence": [
+            {
+              "page": 45,
+              "excerpt": "SHOW TABLES: Shows the tables"
+            }
+          ],
+          "kind": "generalized-template",
+          "correctionLinks": []
+        },
+        {
+          "id": "show-columns",
+          "title": "SHOW COLUMNS",
+          "pages": [
+            45
+          ],
+          "sourceTopicIds": [
+            "m2-show-columns"
+          ],
+          "sourceEvidence": [
+            {
+              "page": 45,
+              "excerpt": "SHOW COLUMNS FROM tablename"
+            }
+          ],
+          "kind": "generalized-template",
+          "correctionLinks": []
+        },
+        {
+          "id": "show-index",
+          "title": "SHOW INDEX",
+          "pages": [
+            45
+          ],
+          "sourceTopicIds": [
+            "m2-show-index"
+          ],
+          "sourceEvidence": [
+            {
+              "page": 45,
+              "excerpt": "SHOW INDEX FROM tablename"
+            }
+          ],
+          "kind": "generalized-template",
+          "correctionLinks": []
+        },
+        {
+          "id": "show-status",
+          "title": "SHOW TABLE STATUS",
+          "pages": [
+            45
+          ],
+          "sourceTopicIds": [
+            "m2-show-table-status"
+          ],
+          "sourceEvidence": [
+            {
+              "page": 45,
+              "excerpt": "SHOW TABLE standing LIKE tablename"
+            }
+          ],
+          "kind": "generalized-template",
+          "correctionLinks": [
+            "https://mariadb.com/docs/server/reference/sql-statements/administrative-sql-statements/show/show-table-status"
+          ]
+        },
+        {
+          "id": "describe",
+          "title": "DESCRIBE",
+          "pages": [
+            61
+          ],
+          "sourceTopicIds": [
+            "m3-describe"
+          ],
+          "sourceEvidence": [
+            {
+              "page": 61,
+              "excerpt": "DESCRIBE employees;"
+            }
+          ],
+          "kind": "generalized-template",
+          "correctionLinks": []
+        }
+      ]
+    },
+    {
+      "id": "definition",
+      "title": "Data definition",
+      "entries": [
+        {
+          "id": "create-database",
+          "title": "CREATE DATABASE",
+          "pages": [
+            52
+          ],
+          "sourceTopicIds": [
+            "m3-create-database"
+          ],
+          "sourceEvidence": [
+            {
+              "page": 52,
+              "excerpt": "CREATE DATABASE database_name;"
+            }
+          ],
+          "kind": "generalized-template",
+          "correctionLinks": []
+        },
+        {
+          "id": "create-table",
+          "title": "CREATE TABLE",
+          "pages": [
+            52,
+            53,
+            58,
+            59
+          ],
+          "sourceTopicIds": [
+            "m3-create-table",
+            "m3-create-table-workflow"
+          ],
+          "sourceEvidence": [
+            {
+              "page": 52,
+              "excerpt": "CREATE TABLE customers"
+            },
+            {
+              "page": 53,
+              "excerpt": "Defines the columns of the table along with their data types and constraints"
+            },
+            {
+              "page": 58,
+              "excerpt": "Creating a Table using MS Access"
+            },
+            {
+              "page": 59,
+              "excerpt": "CREATE TABLE INHERITANCESQL"
+            }
+          ],
+          "kind": "generalized-template",
+          "correctionLinks": [
+            "https://mariadb.com/docs/server/server-usage/tables/create-table"
+          ]
+        },
+        {
+          "id": "alter-add",
+          "title": "ALTER TABLE ... ADD COLUMN",
+          "pages": [
+            53
+          ],
+          "sourceTopicIds": [
+            "m3-add-column"
+          ],
+          "sourceEvidence": [
+            {
+              "page": 53,
+              "excerpt": "ADD column_name datatype;"
+            }
+          ],
+          "kind": "generalized-template",
+          "correctionLinks": []
+        },
+        {
+          "id": "alter-drop",
+          "title": "ALTER TABLE ... DROP COLUMN",
+          "pages": [
+            53,
+            54
+          ],
+          "sourceTopicIds": [
+            "m3-drop-column"
+          ],
+          "sourceEvidence": [
+            {
+              "page": 53,
+              "excerpt": "DROP COLUMN column_name;"
+            },
+            {
+              "page": 54,
+              "excerpt": "DROP COLUMN phone_number;"
+            }
+          ],
+          "kind": "generalized-template",
+          "correctionLinks": []
+        },
+        {
+          "id": "alter-modify",
+          "title": "ALTER TABLE ... MODIFY COLUMN",
+          "pages": [
+            53,
+            54
+          ],
+          "sourceTopicIds": [
+            "m3-modify-column"
+          ],
+          "sourceEvidence": [
+            {
+              "page": 53,
+              "excerpt": "MODIFY COLUMN column_name datatype;"
+            },
+            {
+              "page": 54,
+              "excerpt": "MODIFY COLUMN email VARCHAR(150);"
+            }
+          ],
+          "kind": "generalized-template",
+          "correctionLinks": []
+        },
+        {
+          "id": "comment",
+          "title": "Table comment",
+          "pages": [
+            62
+          ],
+          "sourceTopicIds": [
+            "m3-comment"
+          ],
+          "sourceEvidence": [
+            {
+              "page": 62,
+              "excerpt": "COMMENT ON TABLE table_name IS",
+              "visual": "Table 3.1 DDL Command"
+            }
+          ],
+          "kind": "generalized-template",
+          "correctionLinks": [
+            "https://mariadb.com/docs/server/server-usage/tables/create-table"
+          ]
+        },
+        {
+          "id": "rename",
+          "title": "RENAME TABLE",
+          "pages": [
+            62
+          ],
+          "sourceTopicIds": [
+            "m3-rename"
+          ],
+          "sourceEvidence": [
+            {
+              "page": 62,
+              "excerpt": "RENAME TABLE old_table_name TO",
+              "visual": "Table 3.1 DDL Command"
+            }
+          ],
+          "kind": "generalized-template",
+          "correctionLinks": []
+        },
+        {
+          "id": "truncate",
+          "title": "TRUNCATE TABLE",
+          "pages": [
+            62
+          ],
+          "sourceTopicIds": [
+            "m3-truncate"
+          ],
+          "sourceEvidence": [
+            {
+              "page": 62,
+              "excerpt": "TRUNCATE TABLE table_name;",
+              "visual": "Table 3.1 DDL Command"
+            }
+          ],
+          "kind": "generalized-template",
+          "correctionLinks": []
+        },
+        {
+          "id": "drop-table",
+          "title": "DROP TABLE",
+          "pages": [
+            54,
+            55
+          ],
+          "sourceTopicIds": [
+            "m3-drop"
+          ],
+          "sourceEvidence": [
+            {
+              "page": 54,
+              "excerpt": "DROP TABLE table_name;"
+            },
+            {
+              "page": 55,
+              "excerpt": "DROP DATABASE my_database"
+            }
+          ],
+          "kind": "generalized-template",
+          "correctionLinks": [
+            "https://mariadb.com/docs/server/reference/sql-statements/transactions/sql-statements-that-cause-an-implicit-commit"
+          ]
+        },
+        {
+          "id": "drop-database",
+          "title": "DROP DATABASE",
+          "pages": [
+            54,
+            55
+          ],
+          "sourceTopicIds": [
+            "m3-drop"
+          ],
+          "sourceEvidence": [
+            {
+              "page": 54,
+              "excerpt": "DROP TABLE table_name;"
+            },
+            {
+              "page": 55,
+              "excerpt": "DROP DATABASE my_database"
+            }
+          ],
+          "kind": "generalized-template",
+          "correctionLinks": [
+            "https://mariadb.com/docs/server/reference/sql-statements/transactions/sql-statements-that-cause-an-implicit-commit"
+          ]
+        },
+        {
+          "id": "column-attributes",
+          "title": "Column attributes",
+          "pages": [
+            60,
+            62
+          ],
+          "sourceTopicIds": [
+            "m3-not-null",
+            "m3-unique",
+            "m3-default"
+          ],
+          "sourceEvidence": [
+            {
+              "page": 60,
+              "excerpt": "first_name VARCHAR(50) NOT NULL"
+            },
+            {
+              "page": 60,
+              "excerpt": "email VARCHAR(100) UNIQUE"
+            },
+            {
+              "page": 62,
+              "excerpt": "textDescription varchar(4000) DEFAULT NULL"
+            },
+            {
+              "page": 62,
+              "excerpt": "Productlines example includes VARCHAR DEFAULT NULL and a primary key.",
+              "visual": true
+            }
+          ],
+          "kind": "generalized-template",
+          "correctionLinks": []
+        },
+        {
+          "id": "primary-key",
+          "title": "PRIMARY KEY",
+          "pages": [
+            15,
+            62,
+            93
+          ],
+          "sourceTopicIds": [
+            "m1-primary-key",
+            "m5-l1-order-key"
+          ],
+          "sourceEvidence": [
+            {
+              "page": 15,
+              "excerpt": "It is the unique identifier for each row in a table."
+            },
+            {
+              "page": 93,
+              "excerpt": "See the following orders and \norderdetails tables:",
+              "visual": "orders/orderdetails diagram: asterisks mark orderNumber and productCode in orderdetails"
+            },
+            {
+              "page": 62,
+              "excerpt": "Productlines example: PRIMARY KEY (productLine).",
+              "visual": true
+            },
+            {
+              "page": 93,
+              "excerpt": "Orderdetails diagram shows orderNumber and productCode forming the composite key.",
+              "visual": true
+            }
+          ],
+          "kind": "generalized-template",
+          "correctionLinks": [
+            "https://www.postgresql.org/docs/current/ddl-constraints.html"
+          ]
+        },
+        {
+          "id": "foreign-key",
+          "title": "FOREIGN KEY",
+          "pages": [
+            15,
+            91,
+            92
+          ],
+          "sourceTopicIds": [
+            "m1-foreign-key",
+            "m5-l1-product-line"
+          ],
+          "sourceEvidence": [
+            {
+              "page": 15,
+              "excerpt": "A foreign key is a column or a set of columns"
+            },
+            {
+              "page": 91,
+              "excerpt": "column productLine in the table \nproducts is called the foreign key column"
+            }
+          ],
+          "kind": "generalized-template",
+          "correctionLinks": [
+            "https://www.postgresql.org/docs/current/ddl-constraints.html"
+          ]
+        },
+        {
+          "id": "auto-increment",
+          "title": "AUTO_INCREMENT primary-key column",
+          "pages": [
+            60
+          ],
+          "sourceTopicIds": [
+            "m3-auto-increment"
+          ],
+          "sourceEvidence": [
+            {
+              "page": 60,
+              "excerpt": "employee_id INT AUTO_INCREMENT PRIMARY KEY"
+            }
+          ],
+          "kind": "generalized-template",
+          "correctionLinks": []
+        }
+      ]
+    },
+    {
+      "id": "manipulation",
+      "title": "Data manipulation",
+      "entries": [
+        {
+          "id": "insert",
+          "title": "INSERT INTO",
+          "pages": [
+            49,
+            50
+          ],
+          "sourceTopicIds": [
+            "m3-insert"
+          ],
+          "sourceEvidence": [
+            {
+              "page": 49,
+              "excerpt": "INSERT INTO: Used to add new records (rows) into a table."
+            },
+            {
+              "page": 50,
+              "excerpt": "VALUES ('John', 'Doe', 'john.doe@example.com')"
+            }
+          ],
+          "kind": "generalized-template",
+          "correctionLinks": []
+        },
+        {
+          "id": "update",
+          "title": "UPDATE ... SET",
+          "pages": [
+            50,
+            51
+          ],
+          "sourceTopicIds": [
+            "m3-update"
+          ],
+          "sourceEvidence": [
+            {
+              "page": 50,
+              "excerpt": "UPDATE: Used to modify existing records in a table."
+            },
+            {
+              "page": 50,
+              "excerpt": "If omitted, all rows in the table will be updated."
+            }
+          ],
+          "kind": "generalized-template",
+          "correctionLinks": []
+        },
+        {
+          "id": "delete",
+          "title": "DELETE FROM",
+          "pages": [
+            51
+          ],
+          "sourceTopicIds": [
+            "m3-delete"
+          ],
+          "sourceEvidence": [
+            {
+              "page": 51,
+              "excerpt": "DELETE: Use this assertion to erase remove one or more records"
+            }
+          ],
+          "kind": "generalized-template",
+          "correctionLinks": []
+        }
+      ]
+    },
+    {
+      "id": "queries",
+      "title": "Queries and conditions",
+      "entries": [
+        {
+          "id": "select",
+          "title": "SELECT",
+          "pages": [
+            48,
+            49,
+            68,
+            69,
+            70
+          ],
+          "sourceTopicIds": [
+            "m3-select",
+            "m3-asterisk",
+            "m4-l1-select-list"
+          ],
+          "sourceEvidence": [
+            {
+              "page": 48,
+              "excerpt": "SELECT: Used to retrieve data from one or more tables"
+            },
+            {
+              "page": 49,
+              "excerpt": "SELECT * FROM customers;"
+            },
+            {
+              "page": 49,
+              "excerpt": "the asterisks (*) retrieves all columns"
+            },
+            {
+              "page": 68,
+              "excerpt": "a list of \ncolumns or expressions that you want to show in the result."
+            }
+          ],
+          "kind": "generalized-template",
+          "correctionLinks": []
+        },
+        {
+          "id": "select-alias",
+          "title": "Column alias with AS",
+          "pages": [
+            90
+          ],
+          "sourceTopicIds": [
+            "m5-l1-aliases"
+          ],
+          "sourceEvidence": [
+            {
+              "page": 90,
+              "excerpt": "FROM \nmembers as m"
+            }
+          ],
+          "kind": "generalized-template",
+          "correctionLinks": []
+        },
+        {
+          "id": "where",
+          "title": "WHERE",
+          "pages": [
+            63,
+            74,
+            75
+          ],
+          "sourceTopicIds": [
+            "m3-where",
+            "m4-l3-where"
+          ],
+          "sourceEvidence": [
+            {
+              "page": 63,
+              "excerpt": "WHERE",
+              "visual": "Table 3.2 DQL Command"
+            },
+            {
+              "page": 74,
+              "excerpt": "The WHERE clause allows you to specify a search condition"
+            }
+          ],
+          "kind": "generalized-template",
+          "correctionLinks": []
+        },
+        {
+          "id": "distinct",
+          "title": "DISTINCT",
+          "pages": [
+            63
+          ],
+          "sourceTopicIds": [
+            "m3-distinct"
+          ],
+          "sourceEvidence": [
+            {
+              "page": 63,
+              "excerpt": "DISTINCT",
+              "visual": "Table 3.2 DQL Command"
+            }
+          ],
+          "kind": "generalized-template",
+          "correctionLinks": []
+        },
+        {
+          "id": "group-by",
+          "title": "GROUP BY",
+          "pages": [
+            63,
+            93
+          ],
+          "sourceTopicIds": [
+            "m3-group-by",
+            "m5-l1-grouping"
+          ],
+          "sourceEvidence": [
+            {
+              "page": 63,
+              "excerpt": "GROUP BY",
+              "visual": "Table 3.2 DQL Command"
+            },
+            {
+              "page": 93,
+              "excerpt": "using the INNER JOIN clause with the GROUP BY clause:"
+            }
+          ],
+          "kind": "generalized-template",
+          "correctionLinks": [
+            "https://mariadb.com/docs/server/reference/sql-statements/data-manipulation/selecting-data/group-by"
+          ]
+        },
+        {
+          "id": "having",
+          "title": "HAVING",
+          "pages": [
+            63
+          ],
+          "sourceTopicIds": [
+            "m3-having"
+          ],
+          "sourceEvidence": [
+            {
+              "page": 63,
+              "excerpt": "HAVING",
+              "visual": "Table 3.2 DQL Command"
+            }
+          ],
+          "kind": "generalized-template",
+          "correctionLinks": []
+        },
+        {
+          "id": "order-by",
+          "title": "ORDER BY",
+          "pages": [
+            63,
+            72,
+            73,
+            74
+          ],
+          "sourceTopicIds": [
+            "m3-order-by",
+            "m4-l2-multiple-sort"
+          ],
+          "sourceEvidence": [
+            {
+              "page": 63,
+              "excerpt": "ORDER BY",
+              "visual": "Table 3.2 DQL Command"
+            },
+            {
+              "page": 72,
+              "excerpt": "only the order of values in the column2 \nchanges."
+            }
+          ],
+          "kind": "generalized-template",
+          "correctionLinks": [
+            "https://mariadb.com/docs/server/reference/sql-statements/data-manipulation/selecting-data/order-by"
+          ]
+        },
+        {
+          "id": "limit",
+          "title": "LIMIT",
+          "pages": [
+            63
+          ],
+          "sourceTopicIds": [
+            "m3-limit"
+          ],
+          "sourceEvidence": [
+            {
+              "page": 63,
+              "excerpt": "LIMIT",
+              "visual": "Table 3.2 DQL Command"
+            }
+          ],
+          "kind": "generalized-template",
+          "correctionLinks": []
+        },
+        {
+          "id": "comparison",
+          "title": "Comparison operators",
+          "pages": [
+            42,
+            76,
+            83
+          ],
+          "sourceTopicIds": [
+            "m4-l3-equal",
+            "m4-l4-many-conditions"
+          ],
+          "sourceEvidence": [
+            {
+              "page": 42,
+              "excerpt": "standard comparison operators like = or !="
+            },
+            {
+              "page": 76,
+              "excerpt": "whose value in the jobTitle column is Sales Rep."
+            },
+            {
+              "page": 83,
+              "excerpt": "100000"
+            }
+          ],
+          "kind": "generalized-template",
+          "correctionLinks": []
+        },
+        {
+          "id": "between",
+          "title": "BETWEEN",
+          "pages": [
+            78,
+            79
+          ],
+          "sourceTopicIds": [
+            "m4-l3-between"
+          ],
+          "sourceEvidence": [
+            {
+              "page": 78,
+              "excerpt": "The BETWEEN operator returns TRUE if a value is in a range of values"
+            }
+          ],
+          "kind": "generalized-template",
+          "correctionLinks": []
+        },
+        {
+          "id": "null-functions",
+          "title": "COALESCE / IFNULL",
+          "pages": [
+            42
+          ],
+          "sourceTopicIds": [
+            "m2-null-defaults"
+          ],
+          "sourceEvidence": [
+            {
+              "page": 42,
+              "excerpt": "functions like COALESCE and IFNULL are used to provide default values"
+            }
+          ],
+          "kind": "generalized-template",
+          "correctionLinks": []
+        },
+        {
+          "id": "like",
+          "title": "LIKE",
+          "pages": [
+            79,
+            80
+          ],
+          "sourceTopicIds": [
+            "m4-l3-like"
+          ],
+          "sourceEvidence": [
+            {
+              "page": 79,
+              "excerpt": "The LIKE operator evaluates to TRUE if a value matches a specified pattern."
+            }
+          ],
+          "kind": "generalized-template",
+          "correctionLinks": []
+        },
+        {
+          "id": "and-or-not",
+          "title": "AND, OR, and NOT",
+          "pages": [
+            75,
+            80,
+            81,
+            83,
+            84,
+            85,
+            86
+          ],
+          "sourceTopicIds": [
+            "m4-l3-not",
+            "m4-l4-and",
+            "m4-l5-or",
+            "m4-l5-precedence",
+            "m4-l5-parentheses"
+          ],
+          "sourceEvidence": [
+            {
+              "page": 75,
+              "excerpt": "logical \noperator AND, OR and NOT."
+            },
+            {
+              "page": 80,
+              "excerpt": "The AND operator is a logical operator that combines two or more Boolean"
+            },
+            {
+              "page": 83,
+              "excerpt": "returns true when \neither condition is true"
+            },
+            {
+              "page": 84,
+              "excerpt": "MySQL always \nevaluates the OR operators after the AND operators."
+            },
+            {
+              "page": 86,
+              "excerpt": "WHERE (country = 'USA'"
+            }
+          ],
+          "kind": "generalized-template",
+          "correctionLinks": [
+            "https://mariadb.com/docs/server/reference/sql-structure/operators/logical-operators/or"
+          ]
+        },
+        {
+          "id": "null-tests",
+          "title": "NULL tests",
+          "pages": [
+            42
+          ],
+          "sourceTopicIds": [
+            "m2-null-tests"
+          ],
+          "sourceEvidence": [
+            {
+              "page": 42,
+              "excerpt": "IS NULL and IS NOT NULL"
+            }
+          ],
+          "kind": "generalized-template",
+          "correctionLinks": []
+        },
+        {
+          "id": "aggregates",
+          "title": "AVG — Aggregate function",
+          "pages": [
+            63
+          ],
+          "sourceTopicIds": [
+            "m3-group-by"
+          ],
+          "sourceEvidence": [
+            {
+              "page": 63,
+              "excerpt": "GROUP BY",
+              "visual": "Table 3.2 DQL Command"
+            },
+            {
+              "page": 63,
+              "excerpt": "Table 3.2 GROUP BY/HAVING syntax uses AVG_FUNCTION(column2).",
+              "visual": true
+            }
+          ],
+          "kind": "generalized-template",
+          "correctionLinks": [
+            "https://mariadb.com/docs/server/reference/sql-functions/aggregate-functions/avg"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "joins",
+      "title": "Joins",
+      "entries": [
+        {
+          "id": "inner-join",
+          "title": "INNER JOIN",
+          "pages": [
+            55,
+            89,
+            90
+          ],
+          "sourceTopicIds": [
+            "m3-inner-join",
+            "m5-l1-inner"
+          ],
+          "sourceEvidence": [
+            {
+              "page": 55,
+              "excerpt": "INNER JOIN - Combines rows from both tables only when there is a match"
+            },
+            {
+              "page": 89,
+              "excerpt": "The INNER JOIN matches each row in one table with every row in other tables"
+            }
+          ],
+          "kind": "generalized-template",
+          "correctionLinks": []
+        },
+        {
+          "id": "left-join",
+          "title": "LEFT JOIN",
+          "pages": [
+            55,
+            94,
+            95
+          ],
+          "sourceTopicIds": [
+            "m3-left-join",
+            "m5-l2-left"
+          ],
+          "sourceEvidence": [
+            {
+              "page": 55,
+              "excerpt": "LEFT JOIN (or LEFT OUTER JOIN) - Returns all rows from the left table"
+            },
+            {
+              "page": 94,
+              "excerpt": "the left join selects all data from the left table"
+            }
+          ],
+          "kind": "generalized-template",
+          "correctionLinks": []
+        },
+        {
+          "id": "right-join",
+          "title": "RIGHT JOIN",
+          "pages": [
+            56,
+            100,
+            101
+          ],
+          "sourceTopicIds": [
+            "m3-right-join",
+            "m5-l3-right"
+          ],
+          "sourceEvidence": [
+            {
+              "page": 56,
+              "excerpt": "RIGHT JOIN (or RIGHT OUTER JOIN) - Returns all rows from the right table"
+            },
+            {
+              "page": 100,
+              "excerpt": "the column of the left table will have NULL in the final result set"
+            }
+          ],
+          "kind": "generalized-template",
+          "correctionLinks": [
+            "https://mariadb.com/docs/server/reference/sql-statements/data-manipulation/selecting-data/joins/join-syntax"
+          ]
+        },
+        {
+          "id": "full-join",
+          "title": "FULL OUTER JOIN",
+          "pages": [
+            56
+          ],
+          "sourceTopicIds": [
+            "m3-full-join"
+          ],
+          "sourceEvidence": [
+            {
+              "page": 56,
+              "excerpt": "FULL JOIN (or FULL OUTER JOIN)"
+            }
+          ],
+          "kind": "generalized-template",
+          "correctionLinks": [
+            "https://mariadb.com/docs/server/reference/sql-statements/data-manipulation/selecting-data/joins/join-syntax",
+            "https://www.postgresql.org/docs/current/queries-table-expressions.html"
+          ]
+        },
+        {
+          "id": "cross-join",
+          "title": "CROSS JOIN",
+          "pages": [
+            56
+          ],
+          "sourceTopicIds": [
+            "m3-cross-join"
+          ],
+          "sourceEvidence": [
+            {
+              "page": 56,
+              "excerpt": "CROSS JOIN - Returns the Cartesian product"
+            }
+          ],
+          "kind": "generalized-template",
+          "correctionLinks": []
+        },
+        {
+          "id": "on",
+          "title": "ON join condition",
+          "pages": [
+            89
+          ],
+          "sourceTopicIds": [
+            "m5-l1-on"
+          ],
+          "sourceEvidence": [
+            {
+              "page": 89,
+              "excerpt": "The join condition specifies the rule for matching rows"
+            }
+          ],
+          "kind": "generalized-template",
+          "correctionLinks": []
+        },
+        {
+          "id": "using",
+          "title": "USING",
+          "pages": [
+            91,
+            92,
+            93
+          ],
+          "sourceTopicIds": [
+            "m5-l1-using"
+          ],
+          "sourceEvidence": [
+            {
+              "page": 91,
+              "excerpt": "you can use the USING clause"
+            }
+          ],
+          "kind": "generalized-template",
+          "correctionLinks": []
+        },
+        {
+          "id": "multi-join",
+          "title": "Joining more than two tables",
+          "pages": [
+            89,
+            90
+          ],
+          "sourceTopicIds": [
+            "m5-l1-multiple-tables"
+          ],
+          "sourceEvidence": [
+            {
+              "page": 89,
+              "excerpt": "INNER JOIN t2 ON join_condition1"
+            }
+          ],
+          "kind": "generalized-template",
+          "correctionLinks": []
+        },
+        {
+          "id": "unmatched-join",
+          "title": "Find unmatched rows",
+          "pages": [
+            96,
+            97,
+            99,
+            104
+          ],
+          "sourceTopicIds": [
+            "m5-l2-left-missing",
+            "m5-l2-customers-no-orders",
+            "m5-l3-right-missing"
+          ],
+          "sourceEvidence": [
+            {
+              "page": 96,
+              "excerpt": "find rows in the left table that does not have \ncorresponding rows in the right table."
+            },
+            {
+              "page": 99,
+              "excerpt": "find customers who have no order:"
+            },
+            {
+              "page": 104,
+              "excerpt": "WHERE customerNumber is NULL"
+            }
+          ],
+          "kind": "generalized-template",
+          "correctionLinks": []
+        }
+      ]
+    },
+    {
+      "id": "permissions",
+      "title": "Permissions",
+      "entries": [
+        {
+          "id": "grant",
+          "title": "GRANT",
+          "pages": [
+            65
+          ],
+          "sourceTopicIds": [
+            "m3-grant"
+          ],
+          "sourceEvidence": [
+            {
+              "page": 65,
+              "excerpt": "GRANT SELECT, UPDATE ON employees TO user_name;"
+            }
+          ],
+          "kind": "generalized-template",
+          "correctionLinks": []
+        },
+        {
+          "id": "revoke",
+          "title": "REVOKE",
+          "pages": [
+            65
+          ],
+          "sourceTopicIds": [
+            "m3-revoke"
+          ],
+          "sourceEvidence": [
+            {
+              "page": 65,
+              "excerpt": "granting or revoking permissions."
+            }
+          ],
+          "kind": "generalized-template",
+          "correctionLinks": []
+        }
+      ]
+    },
+    {
+      "id": "transactions",
+      "title": "Transactions",
+      "entries": [
+        {
+          "id": "commit",
+          "title": "COMMIT",
+          "pages": [
+            61
+          ],
+          "sourceTopicIds": [
+            "m3-commit"
+          ],
+          "sourceEvidence": [
+            {
+              "page": 61,
+              "excerpt": "COMMIT",
+              "visual": "Figure 3.1 SQL Commands"
+            }
+          ],
+          "kind": "generalized-template",
+          "correctionLinks": []
+        },
+        {
+          "id": "savepoint",
+          "title": "SAVEPOINT",
+          "pages": [
+            61
+          ],
+          "sourceTopicIds": [
+            "m3-savepoint"
+          ],
+          "sourceEvidence": [
+            {
+              "page": 61,
+              "excerpt": "SAVEPOINT",
+              "visual": "Figure 3.1 SQL Commands"
+            }
+          ],
+          "kind": "generalized-template",
+          "correctionLinks": []
+        },
+        {
+          "id": "rollback",
+          "title": "ROLLBACK",
+          "pages": [
+            61
+          ],
+          "sourceTopicIds": [
+            "m3-rollback"
+          ],
+          "sourceEvidence": [
+            {
+              "page": 61,
+              "excerpt": "ROLLBACK",
+              "visual": "Figure 3.1 SQL Commands"
+            }
+          ],
+          "kind": "generalized-template",
+          "correctionLinks": []
+        }
+      ]
+    },
+    {
+      "id": "client",
+      "title": "Terminal and MySQL client",
+      "entries": [
+        {
+          "id": "terminal-directory",
+          "title": "Open the client’s folder",
+          "pages": [
+            44
+          ],
+          "sourceTopicIds": [
+            "m2-mysql-monitor"
+          ],
+          "sourceEvidence": [
+            {
+              "page": 44,
+              "excerpt": "The monitoring program is named simply MySQL"
+            },
+            {
+              "page": 44,
+              "excerpt": "Windows terminal screenshot: cd\\xampp\\mysql\\bin.",
+              "visual": true
+            }
+          ],
+          "kind": "generalized-template",
+          "correctionLinks": []
+        },
+        {
+          "id": "login",
+          "title": "MySQL client login",
+          "pages": [
+            59
+          ],
+          "sourceTopicIds": [
+            "m3-client-login"
+          ],
+          "sourceEvidence": [
+            {
+              "page": 59,
+              "excerpt": "mysql -u username -p"
+            }
+          ],
+          "kind": "generalized-template",
+          "correctionLinks": []
+        },
+        {
+          "id": "client-terminator",
+          "title": "Client statement terminators",
+          "pages": [
+            44,
+            45
+          ],
+          "sourceTopicIds": [
+            "m2-vertical-output"
+          ],
+          "sourceEvidence": [
+            {
+              "page": 45,
+              "excerpt": "tablename\\G"
+            },
+            {
+              "page": 44,
+              "excerpt": "MySQL monitor welcome text: commands end with ; or \\g.",
+              "visual": true
+            }
+          ],
+          "kind": "generalized-template",
+          "correctionLinks": []
+        },
+        {
+          "id": "client-help",
+          "title": "MySQL client help and input control",
+          "pages": [
+            44
+          ],
+          "sourceTopicIds": [
+            "m2-mysql-monitor"
+          ],
+          "sourceEvidence": [
+            {
+              "page": 44,
+              "excerpt": "The monitoring program is named simply MySQL"
+            },
+            {
+              "page": 44,
+              "excerpt": "MySQL monitor welcome text: help; or \\h for help; \\c clears the current input statement.",
+              "visual": true
+            }
+          ],
+          "kind": "generalized-template",
+          "correctionLinks": []
+        }
+      ]
+    }
+  ],
+  "exclusions": [
+    {
+      "topic": "Access menu workflow",
+      "reason": "Kept in Lesson notes because it is a visual workflow, not SQL syntax.",
+      "pages": [
+        57,
+        58
+      ]
+    },
+    {
+      "topic": "Unsupported FULL OUTER JOIN workaround",
+      "reason": "The PDF names FULL JOIN but does not teach a workaround; no invented workaround is added.",
+      "pages": [
+        56
+      ]
+    },
+    {
+      "topic": "Spatial constructor syntax",
+      "reason": "The PDF names spatial types without specifying a declaration or constructor.",
+      "pages": [
+        40,
+        41
+      ]
+    },
+    {
+      "topic": "Constructed and user-defined types",
+      "pages": [
+        31
+      ],
+      "reason": "Named conceptually without a concrete declaration. Their definitions remain in Lesson notes; no CREATE TYPE syntax is invented."
+    },
+    {
+      "topic": "Indexes, views and procedures as database objects",
+      "pages": [
+        52,
+        54
+      ],
+      "reason": "Mentioned as objects but not taught with their own creation/deletion syntax; no additional commands are introduced."
+    },
+    {
+      "topic": "IN, UNION, COUNT, MIN, MAX and SUM templates",
+      "pages": [
+        49,
+        63,
+        93
+      ],
+      "reason": "No named concrete instruction for these forms was found in the 105-page audit. General aggregate behavior and the total-sales example remain in Lesson notes; AVG corrects the AVG_FUNCTION placeholder."
+    },
+    {
+      "topic": "Additional lab extensions",
+      "pages": [],
+      "reason": "JSON extraction, WKT constructors, referential actions and other advanced-lab extensions are outside this PDF syntax reference."
+    }
+  ],
+  "pageReview": [
+    {
+      "page": 1,
+      "entryIds": [],
+      "lessonTopicIds": [],
+      "reason": "Cover, institutional outcomes, unrelated programming-template syllabus, administration, or inconsistent table of contents; not DBMS teaching content."
+    },
+    {
+      "page": 2,
+      "entryIds": [],
+      "lessonTopicIds": [],
+      "reason": "Cover, institutional outcomes, unrelated programming-template syllabus, administration, or inconsistent table of contents; not DBMS teaching content."
+    },
+    {
+      "page": 3,
+      "entryIds": [],
+      "lessonTopicIds": [],
+      "reason": "Cover, institutional outcomes, unrelated programming-template syllabus, administration, or inconsistent table of contents; not DBMS teaching content."
+    },
+    {
+      "page": 4,
+      "entryIds": [],
+      "lessonTopicIds": [],
+      "reason": "Cover, institutional outcomes, unrelated programming-template syllabus, administration, or inconsistent table of contents; not DBMS teaching content."
+    },
+    {
+      "page": 5,
+      "entryIds": [],
+      "lessonTopicIds": [],
+      "reason": "Cover, institutional outcomes, unrelated programming-template syllabus, administration, or inconsistent table of contents; not DBMS teaching content."
+    },
+    {
+      "page": 6,
+      "entryIds": [],
+      "lessonTopicIds": [],
+      "reason": "Cover, institutional outcomes, unrelated programming-template syllabus, administration, or inconsistent table of contents; not DBMS teaching content."
+    },
+    {
+      "page": 7,
+      "entryIds": [],
+      "lessonTopicIds": [],
+      "reason": "Cover, institutional outcomes, unrelated programming-template syllabus, administration, or inconsistent table of contents; not DBMS teaching content."
+    },
+    {
+      "page": 8,
+      "entryIds": [],
+      "lessonTopicIds": [],
+      "reason": "Cover, institutional outcomes, unrelated programming-template syllabus, administration, or inconsistent table of contents; not DBMS teaching content."
+    },
+    {
+      "page": 9,
+      "entryIds": [],
+      "lessonTopicIds": [],
+      "reason": "Cover, institutional outcomes, unrelated programming-template syllabus, administration, or inconsistent table of contents; not DBMS teaching content."
+    },
+    {
+      "page": 10,
+      "entryIds": [],
+      "lessonTopicIds": [],
+      "reason": "Module introduction; the four actual lessons cover its outcomes."
+    },
+    {
+      "page": 11,
+      "entryIds": [],
+      "lessonTopicIds": [
+        "m1-metadata",
+        "m1-data-dictionary",
+        "m1-database-scale"
+      ],
+      "reason": "Conceptual explanations, repeated examples or interface workflows retained in Lesson notes; no separate syntax-bearing form on this page."
+    },
+    {
+      "page": 12,
+      "entryIds": [],
+      "lessonTopicIds": [
+        "m1-database",
+        "m1-database-scale"
+      ],
+      "reason": "Conceptual explanations, repeated examples or interface workflows retained in Lesson notes; no separate syntax-bearing form on this page."
+    },
+    {
+      "page": 13,
+      "entryIds": [],
+      "lessonTopicIds": [
+        "m1-table",
+        "m1-column"
+      ],
+      "reason": "Conceptual explanations, repeated examples or interface workflows retained in Lesson notes; no separate syntax-bearing form on this page."
+    },
+    {
+      "page": 14,
+      "entryIds": [],
+      "lessonTopicIds": [
+        "m1-record",
+        "m1-column-name",
+        "m1-data-item",
+        "m1-column-type"
+      ],
+      "reason": "Conceptual explanations, repeated examples or interface workflows retained in Lesson notes; no separate syntax-bearing form on this page."
+    },
+    {
+      "page": 15,
+      "entryIds": [
+        "primary-key",
+        "foreign-key"
+      ],
+      "lessonTopicIds": [
+        "m1-primary-key",
+        "m1-foreign-key"
+      ],
+      "reason": "Templates or source notes linked below."
+    },
+    {
+      "page": 16,
+      "entryIds": [],
+      "lessonTopicIds": [
+        "m1-cloud"
+      ],
+      "reason": "Conceptual explanations, repeated examples or interface workflows retained in Lesson notes; no separate syntax-bearing form on this page."
+    },
+    {
+      "page": 17,
+      "entryIds": [],
+      "lessonTopicIds": [
+        "m1-dbms",
+        "m1-database-engine",
+        "m1-cloud",
+        "m1-normalization",
+        "m1-classification",
+        "m1-distributed-dbms"
+      ],
+      "reason": "Conceptual explanations, repeated examples or interface workflows retained in Lesson notes; no separate syntax-bearing form on this page."
+    },
+    {
+      "page": 18,
+      "entryIds": [],
+      "lessonTopicIds": [
+        "m1-data-definition",
+        "m1-schema-definition",
+        "m1-data-types",
+        "m1-data-manipulation",
+        "m1-query-processing",
+        "m1-data-update",
+        "m1-transaction-management",
+        "m1-security-integrity",
+        "m1-access-control",
+        "m1-integrity-constraints",
+        "m1-storage-retrieval",
+        "m1-storage-management",
+        "m1-indexing",
+        "m1-backup-recovery",
+        "m1-administration",
+        "m1-tuning",
+        "m1-monitoring-maintenance",
+        "m1-acid"
+      ],
+      "reason": "Conceptual explanations, repeated examples or interface workflows retained in Lesson notes; no separate syntax-bearing form on this page."
+    },
+    {
+      "page": 19,
+      "entryIds": [],
+      "lessonTopicIds": [
+        "m1-relational-dbms",
+        "m1-relational-properties",
+        "m1-data-independence",
+        "m1-codd"
+      ],
+      "reason": "Conceptual explanations, repeated examples or interface workflows retained in Lesson notes; no separate syntax-bearing form on this page."
+    },
+    {
+      "page": 20,
+      "entryIds": [],
+      "lessonTopicIds": [
+        "m1-relational-dbms",
+        "m1-schema",
+        "m1-domain",
+        "m1-constraints"
+      ],
+      "reason": "Conceptual explanations, repeated examples or interface workflows retained in Lesson notes; no separate syntax-bearing form on this page."
+    },
+    {
+      "page": 21,
+      "entryIds": [],
+      "lessonTopicIds": [
+        "m1-relational-dbms",
+        "m1-nosql",
+        "m1-document-database",
+        "m1-key-value",
+        "m1-column-family",
+        "m1-graph-database",
+        "m1-object-dbms"
+      ],
+      "reason": "Conceptual explanations, repeated examples or interface workflows retained in Lesson notes; no separate syntax-bearing form on this page."
+    },
+    {
+      "page": 22,
+      "entryIds": [],
+      "lessonTopicIds": [
+        "m1-object-dbms",
+        "m1-hierarchical-dbms",
+        "m1-network-dbms"
+      ],
+      "reason": "Conceptual explanations, repeated examples or interface workflows retained in Lesson notes; no separate syntax-bearing form on this page."
+    },
+    {
+      "page": 23,
+      "entryIds": [],
+      "lessonTopicIds": [
+        "m1-hierarchical-dbms",
+        "m1-network-dbms",
+        "m1-centralized"
+      ],
+      "reason": "Conceptual explanations, repeated examples or interface workflows retained in Lesson notes; no separate syntax-bearing form on this page."
+    },
+    {
+      "page": 24,
+      "entryIds": [],
+      "lessonTopicIds": [
+        "m1-security",
+        "m1-efficient-retrieval",
+        "m1-consistency-integrity",
+        "m1-scalability",
+        "m1-encryption",
+        "m1-audit-trail"
+      ],
+      "reason": "Conceptual explanations, repeated examples or interface workflows retained in Lesson notes; no separate syntax-bearing form on this page."
+    },
+    {
+      "page": 25,
+      "entryIds": [],
+      "lessonTopicIds": [
+        "m1-scalability",
+        "m1-concurrency",
+        "m1-backup-benefit",
+        "m1-cost-efficiency",
+        "m1-vertical-scaling",
+        "m1-horizontal-scaling",
+        "m1-locking"
+      ],
+      "reason": "Conceptual explanations, repeated examples or interface workflows retained in Lesson notes; no separate syntax-bearing form on this page."
+    },
+    {
+      "page": 26,
+      "entryIds": [],
+      "lessonTopicIds": [],
+      "reason": "Module summary repeats the four lessons; references are attribution rather than new concepts."
+    },
+    {
+      "page": 27,
+      "entryIds": [],
+      "lessonTopicIds": [],
+      "reason": "Summary/reference material; no additional instructional concept."
+    },
+    {
+      "page": 28,
+      "entryIds": [],
+      "lessonTopicIds": [
+        "m2-sql",
+        "m2-sql-history"
+      ],
+      "reason": "Conceptual explanations, repeated examples or interface workflows retained in Lesson notes; no separate syntax-bearing form on this page."
+    },
+    {
+      "page": 29,
+      "entryIds": [],
+      "lessonTopicIds": [
+        "m2-sql",
+        "m2-declarative",
+        "m2-procedural"
+      ],
+      "reason": "Conceptual explanations, repeated examples or interface workflows retained in Lesson notes; no separate syntax-bearing form on this page."
+    },
+    {
+      "page": 30,
+      "entryIds": [],
+      "lessonTopicIds": [
+        "m2-declarative",
+        "m2-retrieval-methods"
+      ],
+      "reason": "Conceptual explanations, repeated examples or interface workflows retained in Lesson notes; no separate syntax-bearing form on this page."
+    },
+    {
+      "page": 31,
+      "entryIds": [
+        "int",
+        "smallint"
+      ],
+      "lessonTopicIds": [
+        "m2-types-overview",
+        "m2-constructed-types",
+        "m2-user-defined-types",
+        "m2-numeric",
+        "m2-int",
+        "m2-smallint"
+      ],
+      "reason": "Templates or source notes linked below."
+    },
+    {
+      "page": 32,
+      "entryIds": [
+        "smallint",
+        "tinyint",
+        "bigint",
+        "decimal"
+      ],
+      "lessonTopicIds": [
+        "m2-smallint",
+        "m2-tinyint",
+        "m2-bigint",
+        "m2-decimal",
+        "m2-precision",
+        "m2-scale"
+      ],
+      "reason": "Templates or source notes linked below."
+    },
+    {
+      "page": 33,
+      "entryIds": [
+        "float",
+        "real"
+      ],
+      "lessonTopicIds": [
+        "m2-float",
+        "m2-real"
+      ],
+      "reason": "Templates or source notes linked below."
+    },
+    {
+      "page": 34,
+      "entryIds": [
+        "real",
+        "double",
+        "char"
+      ],
+      "lessonTopicIds": [
+        "m2-real",
+        "m2-double",
+        "m2-character-types",
+        "m2-char"
+      ],
+      "reason": "Templates or source notes linked below."
+    },
+    {
+      "page": 35,
+      "entryIds": [
+        "char",
+        "varchar",
+        "text"
+      ],
+      "lessonTopicIds": [
+        "m2-char",
+        "m2-varchar",
+        "m2-text"
+      ],
+      "reason": "Templates or source notes linked below."
+    },
+    {
+      "page": 36,
+      "entryIds": [
+        "text",
+        "binary",
+        "varbinary",
+        "blob"
+      ],
+      "lessonTopicIds": [
+        "m2-text",
+        "m2-binary-types",
+        "m2-binary",
+        "m2-varbinary",
+        "m2-blob"
+      ],
+      "reason": "Templates or source notes linked below."
+    },
+    {
+      "page": 37,
+      "entryIds": [
+        "blob",
+        "date"
+      ],
+      "lessonTopicIds": [
+        "m2-blob",
+        "m2-temporal",
+        "m2-date"
+      ],
+      "reason": "Templates or source notes linked below."
+    },
+    {
+      "page": 38,
+      "entryIds": [
+        "date",
+        "time",
+        "datetime"
+      ],
+      "lessonTopicIds": [
+        "m2-date",
+        "m2-time",
+        "m2-datetime"
+      ],
+      "reason": "Templates or source notes linked below."
+    },
+    {
+      "page": 39,
+      "entryIds": [
+        "datetime",
+        "timestamp",
+        "year"
+      ],
+      "lessonTopicIds": [
+        "m2-datetime",
+        "m2-timestamp",
+        "m2-year"
+      ],
+      "reason": "Templates or source notes linked below."
+    },
+    {
+      "page": 40,
+      "entryIds": [
+        "year",
+        "boolean",
+        "json",
+        "spatial"
+      ],
+      "lessonTopicIds": [
+        "m2-year",
+        "m2-boolean",
+        "m2-miscellaneous",
+        "m2-json",
+        "m2-spatial"
+      ],
+      "reason": "Templates or source notes linked below."
+    },
+    {
+      "page": 41,
+      "entryIds": [
+        "enum",
+        "set"
+      ],
+      "lessonTopicIds": [
+        "m2-enum",
+        "m2-set-type"
+      ],
+      "reason": "Templates or source notes linked below."
+    },
+    {
+      "page": 42,
+      "entryIds": [
+        "set",
+        "comparison",
+        "null-functions",
+        "null-tests"
+      ],
+      "lessonTopicIds": [
+        "m2-set-type",
+        "m2-null",
+        "m2-null-tests",
+        "m2-null-defaults"
+      ],
+      "reason": "Templates or source notes linked below."
+    },
+    {
+      "page": 43,
+      "entryIds": [
+        "decimal"
+      ],
+      "lessonTopicIds": [
+        "m2-decimal",
+        "m2-null",
+        "m2-out-of-range"
+      ],
+      "reason": "Templates or source notes linked below."
+    },
+    {
+      "page": 44,
+      "entryIds": [
+        "terminal-directory",
+        "client-terminator",
+        "client-help"
+      ],
+      "lessonTopicIds": [
+        "m2-mysql-monitor",
+        "m2-root-user"
+      ],
+      "reason": "Templates or source notes linked below."
+    },
+    {
+      "page": 45,
+      "entryIds": [
+        "use",
+        "show-databases",
+        "show-tables",
+        "show-columns",
+        "show-index",
+        "show-status",
+        "client-terminator"
+      ],
+      "lessonTopicIds": [
+        "m2-use",
+        "m2-show-databases",
+        "m2-show-tables",
+        "m2-show-columns",
+        "m2-show-index",
+        "m2-show-table-status",
+        "m2-vertical-output"
+      ],
+      "reason": "Templates or source notes linked below."
+    },
+    {
+      "page": 46,
+      "entryIds": [],
+      "lessonTopicIds": [],
+      "reason": "Summary and references repeat SQL types and monitor commands."
+    },
+    {
+      "page": 47,
+      "entryIds": [],
+      "lessonTopicIds": [],
+      "reason": "Module introduction; its database and SQL outcomes are covered in the three lessons."
+    },
+    {
+      "page": 48,
+      "entryIds": [
+        "select"
+      ],
+      "lessonTopicIds": [
+        "m3-crud",
+        "m3-select"
+      ],
+      "reason": "Templates or source notes linked below."
+    },
+    {
+      "page": 49,
+      "entryIds": [
+        "insert",
+        "select"
+      ],
+      "lessonTopicIds": [
+        "m3-select",
+        "m3-asterisk",
+        "m3-insert"
+      ],
+      "reason": "Templates or source notes linked below."
+    },
+    {
+      "page": 50,
+      "entryIds": [
+        "insert",
+        "update"
+      ],
+      "lessonTopicIds": [
+        "m3-insert",
+        "m3-values",
+        "m3-update",
+        "m3-set-clause"
+      ],
+      "reason": "Templates or source notes linked below."
+    },
+    {
+      "page": 51,
+      "entryIds": [
+        "update",
+        "delete"
+      ],
+      "lessonTopicIds": [
+        "m3-update",
+        "m3-delete",
+        "m3-create"
+      ],
+      "reason": "Templates or source notes linked below."
+    },
+    {
+      "page": 52,
+      "entryIds": [
+        "create-database",
+        "create-table"
+      ],
+      "lessonTopicIds": [
+        "m3-create",
+        "m3-create-database",
+        "m3-create-table"
+      ],
+      "reason": "Templates or source notes linked below."
+    },
+    {
+      "page": 53,
+      "entryIds": [
+        "create-table",
+        "alter-add",
+        "alter-drop",
+        "alter-modify"
+      ],
+      "lessonTopicIds": [
+        "m3-create-table",
+        "m3-alter-table",
+        "m3-add-column",
+        "m3-drop-column",
+        "m3-modify-column"
+      ],
+      "reason": "Templates or source notes linked below."
+    },
+    {
+      "page": 54,
+      "entryIds": [
+        "alter-drop",
+        "alter-modify",
+        "drop-table",
+        "drop-database"
+      ],
+      "lessonTopicIds": [
+        "m3-drop-column",
+        "m3-modify-column",
+        "m3-drop"
+      ],
+      "reason": "Templates or source notes linked below."
+    },
+    {
+      "page": 55,
+      "entryIds": [
+        "drop-table",
+        "drop-database",
+        "inner-join",
+        "left-join"
+      ],
+      "lessonTopicIds": [
+        "m3-drop",
+        "m3-join",
+        "m3-inner-join",
+        "m3-left-join"
+      ],
+      "reason": "Templates or source notes linked below."
+    },
+    {
+      "page": 56,
+      "entryIds": [
+        "right-join",
+        "full-join",
+        "cross-join"
+      ],
+      "lessonTopicIds": [
+        "m3-right-join",
+        "m3-full-join",
+        "m3-cross-join"
+      ],
+      "reason": "Templates or source notes linked below."
+    },
+    {
+      "page": 57,
+      "entryIds": [],
+      "lessonTopicIds": [
+        "m3-access-workflow",
+        "m3-qbe"
+      ],
+      "reason": "Conceptual explanations, repeated examples or interface workflows retained in Lesson notes; no separate syntax-bearing form on this page."
+    },
+    {
+      "page": 58,
+      "entryIds": [
+        "create-table"
+      ],
+      "lessonTopicIds": [
+        "m3-access-workflow",
+        "m3-sql-view",
+        "m3-statement-terminator",
+        "m3-create-table-workflow"
+      ],
+      "reason": "Templates or source notes linked below."
+    },
+    {
+      "page": 59,
+      "entryIds": [
+        "create-table",
+        "login"
+      ],
+      "lessonTopicIds": [
+        "m3-create-table-workflow",
+        "m3-client-login",
+        "m3-setup-checklist"
+      ],
+      "reason": "Templates or source notes linked below."
+    },
+    {
+      "page": 60,
+      "entryIds": [
+        "column-attributes",
+        "auto-increment"
+      ],
+      "lessonTopicIds": [
+        "m3-setup-checklist",
+        "m3-auto-increment",
+        "m3-not-null",
+        "m3-unique"
+      ],
+      "reason": "Templates or source notes linked below."
+    },
+    {
+      "page": 61,
+      "entryIds": [
+        "describe",
+        "commit",
+        "savepoint",
+        "rollback"
+      ],
+      "lessonTopicIds": [
+        "m3-setup-checklist",
+        "m3-describe",
+        "m3-query",
+        "m3-constraint-category",
+        "m3-sql-command-categories",
+        "m3-dml",
+        "m3-tcl",
+        "m3-commit",
+        "m3-rollback",
+        "m3-savepoint"
+      ],
+      "reason": "Templates or source notes linked below."
+    },
+    {
+      "page": 62,
+      "entryIds": [
+        "mediumtext",
+        "mediumblob",
+        "comment",
+        "rename",
+        "truncate",
+        "column-attributes",
+        "primary-key"
+      ],
+      "lessonTopicIds": [
+        "m3-ddl",
+        "m3-truncate",
+        "m3-comment",
+        "m3-rename",
+        "m3-mediumtext",
+        "m3-mediumblob",
+        "m3-default"
+      ],
+      "reason": "Templates or source notes linked below."
+    },
+    {
+      "page": 63,
+      "entryIds": [
+        "where",
+        "distinct",
+        "group-by",
+        "having",
+        "order-by",
+        "limit",
+        "aggregates"
+      ],
+      "lessonTopicIds": [
+        "m3-dql",
+        "m3-result-set",
+        "m3-from",
+        "m3-where",
+        "m3-group-by",
+        "m3-having",
+        "m3-distinct",
+        "m3-order-by",
+        "m3-limit"
+      ],
+      "reason": "Templates or source notes linked below."
+    },
+    {
+      "page": 64,
+      "entryIds": [],
+      "lessonTopicIds": [
+        "m3-dml"
+      ],
+      "reason": "Conceptual explanations, repeated examples or interface workflows retained in Lesson notes; no separate syntax-bearing form on this page."
+    },
+    {
+      "page": 65,
+      "entryIds": [
+        "grant",
+        "revoke"
+      ],
+      "lessonTopicIds": [
+        "m3-dcl",
+        "m3-grant",
+        "m3-revoke"
+      ],
+      "reason": "Templates or source notes linked below."
+    },
+    {
+      "page": 66,
+      "entryIds": [],
+      "lessonTopicIds": [
+        "m3-crud"
+      ],
+      "reason": "Conceptual explanations, repeated examples or interface workflows retained in Lesson notes; no separate syntax-bearing form on this page."
+    },
+    {
+      "page": 67,
+      "entryIds": [],
+      "lessonTopicIds": [
+        "m4-l1-expression",
+        "m4-l1-select"
+      ],
+      "reason": "Conceptual explanations, repeated examples or interface workflows retained in Lesson notes; no separate syntax-bearing form on this page."
+    },
+    {
+      "page": 68,
+      "entryIds": [
+        "select"
+      ],
+      "lessonTopicIds": [
+        "m4-l1-select",
+        "m4-l1-select-list",
+        "m4-l1-formatting",
+        "m4-l1-semicolon",
+        "m4-l1-evaluation"
+      ],
+      "reason": "Templates or source notes linked below."
+    },
+    {
+      "page": 69,
+      "entryIds": [
+        "select"
+      ],
+      "lessonTopicIds": [
+        "m4-l1-select-list"
+      ],
+      "reason": "Templates or source notes linked below."
+    },
+    {
+      "page": 70,
+      "entryIds": [
+        "select"
+      ],
+      "lessonTopicIds": [
+        "m4-l1-select-list"
+      ],
+      "reason": "Templates or source notes linked below."
+    },
+    {
+      "page": 71,
+      "entryIds": [],
+      "lessonTopicIds": [
+        "m4-l2-unsorted",
+        "m4-l2-order",
+        "m4-l2-directions"
+      ],
+      "reason": "Conceptual explanations, repeated examples or interface workflows retained in Lesson notes; no separate syntax-bearing form on this page."
+    },
+    {
+      "page": 72,
+      "entryIds": [
+        "order-by"
+      ],
+      "lessonTopicIds": [
+        "m4-l2-multiple-sort"
+      ],
+      "reason": "Templates or source notes linked below."
+    },
+    {
+      "page": 73,
+      "entryIds": [
+        "order-by"
+      ],
+      "lessonTopicIds": [
+        "m4-l2-multiple-sort"
+      ],
+      "reason": "Templates or source notes linked below."
+    },
+    {
+      "page": 74,
+      "entryIds": [
+        "where",
+        "order-by"
+      ],
+      "lessonTopicIds": [
+        "m4-l2-multiple-sort",
+        "m4-l3-where"
+      ],
+      "reason": "Templates or source notes linked below."
+    },
+    {
+      "page": 75,
+      "entryIds": [
+        "where",
+        "and-or-not"
+      ],
+      "lessonTopicIds": [
+        "m4-l3-where",
+        "m4-l3-predicate",
+        "m4-l3-not"
+      ],
+      "reason": "Templates or source notes linked below."
+    },
+    {
+      "page": 76,
+      "entryIds": [
+        "comparison"
+      ],
+      "lessonTopicIds": [
+        "m4-l3-equal"
+      ],
+      "reason": "Templates or source notes linked below."
+    },
+    {
+      "page": 77,
+      "entryIds": [],
+      "lessonTopicIds": [
+        "m4-l3-combined"
+      ],
+      "reason": "Conceptual explanations, repeated examples or interface workflows retained in Lesson notes; no separate syntax-bearing form on this page."
+    },
+    {
+      "page": 78,
+      "entryIds": [
+        "between"
+      ],
+      "lessonTopicIds": [
+        "m4-l3-combined",
+        "m4-l3-between"
+      ],
+      "reason": "Templates or source notes linked below."
+    },
+    {
+      "page": 79,
+      "entryIds": [
+        "between",
+        "like"
+      ],
+      "lessonTopicIds": [
+        "m4-l3-between",
+        "m4-l3-like",
+        "m4-l3-wildcards"
+      ],
+      "reason": "Templates or source notes linked below."
+    },
+    {
+      "page": 80,
+      "entryIds": [
+        "like",
+        "and-or-not"
+      ],
+      "lessonTopicIds": [
+        "m4-l3-like",
+        "m4-l4-and",
+        "m4-l4-and-null"
+      ],
+      "reason": "Templates or source notes linked below."
+    },
+    {
+      "page": 81,
+      "entryIds": [
+        "and-or-not"
+      ],
+      "lessonTopicIds": [
+        "m4-l4-and",
+        "m4-l4-and-short-circuit"
+      ],
+      "reason": "Templates or source notes linked below."
+    },
+    {
+      "page": 82,
+      "entryIds": [],
+      "lessonTopicIds": [
+        "m4-l4-many-conditions"
+      ],
+      "reason": "Conceptual explanations, repeated examples or interface workflows retained in Lesson notes; no separate syntax-bearing form on this page."
+    },
+    {
+      "page": 83,
+      "entryIds": [
+        "comparison",
+        "and-or-not"
+      ],
+      "lessonTopicIds": [
+        "m4-l4-many-conditions",
+        "m4-l5-or",
+        "m4-l5-or-null"
+      ],
+      "reason": "Templates or source notes linked below."
+    },
+    {
+      "page": 84,
+      "entryIds": [
+        "and-or-not"
+      ],
+      "lessonTopicIds": [
+        "m4-l5-or-short-circuit",
+        "m4-l5-precedence"
+      ],
+      "reason": "Templates or source notes linked below."
+    },
+    {
+      "page": 85,
+      "entryIds": [
+        "and-or-not"
+      ],
+      "lessonTopicIds": [
+        "m4-l5-precedence"
+      ],
+      "reason": "Templates or source notes linked below."
+    },
+    {
+      "page": 86,
+      "entryIds": [
+        "and-or-not"
+      ],
+      "lessonTopicIds": [
+        "m4-l5-parentheses"
+      ],
+      "reason": "Templates or source notes linked below."
+    },
+    {
+      "page": 87,
+      "entryIds": [],
+      "lessonTopicIds": [],
+      "reason": "Module summary/reference material repeats filtering and logical operators."
+    },
+    {
+      "page": 88,
+      "entryIds": [],
+      "lessonTopicIds": [
+        "m5-l1-join",
+        "m5-l1-full-dialect"
+      ],
+      "reason": "Conceptual explanations, repeated examples or interface workflows retained in Lesson notes; no separate syntax-bearing form on this page."
+    },
+    {
+      "page": 89,
+      "entryIds": [
+        "inner-join",
+        "on",
+        "multi-join"
+      ],
+      "lessonTopicIds": [
+        "m5-l1-inner",
+        "m5-l1-on",
+        "m5-l1-multiple-tables"
+      ],
+      "reason": "Templates or source notes linked below."
+    },
+    {
+      "page": 90,
+      "entryIds": [
+        "select-alias",
+        "inner-join",
+        "multi-join"
+      ],
+      "lessonTopicIds": [
+        "m5-l1-inner",
+        "m5-l1-aliases",
+        "m5-l1-multiple-tables"
+      ],
+      "reason": "Templates or source notes linked below."
+    },
+    {
+      "page": 91,
+      "entryIds": [
+        "foreign-key",
+        "using"
+      ],
+      "lessonTopicIds": [
+        "m5-l1-using",
+        "m5-l1-product-line"
+      ],
+      "reason": "Templates or source notes linked below."
+    },
+    {
+      "page": 92,
+      "entryIds": [
+        "foreign-key",
+        "using"
+      ],
+      "lessonTopicIds": [
+        "m5-l1-using",
+        "m5-l1-product-line"
+      ],
+      "reason": "Templates or source notes linked below."
+    },
+    {
+      "page": 93,
+      "entryIds": [
+        "primary-key",
+        "group-by",
+        "using"
+      ],
+      "lessonTopicIds": [
+        "m5-l1-using",
+        "m5-l1-order-key",
+        "m5-l1-grouping"
+      ],
+      "reason": "Templates or source notes linked below."
+    },
+    {
+      "page": 94,
+      "entryIds": [
+        "left-join"
+      ],
+      "lessonTopicIds": [
+        "m5-l2-left"
+      ],
+      "reason": "Templates or source notes linked below."
+    },
+    {
+      "page": 95,
+      "entryIds": [
+        "left-join"
+      ],
+      "lessonTopicIds": [
+        "m5-l2-left"
+      ],
+      "reason": "Templates or source notes linked below."
+    },
+    {
+      "page": 96,
+      "entryIds": [
+        "unmatched-join"
+      ],
+      "lessonTopicIds": [
+        "m5-l2-left-missing"
+      ],
+      "reason": "Templates or source notes linked below."
+    },
+    {
+      "page": 97,
+      "entryIds": [
+        "unmatched-join"
+      ],
+      "lessonTopicIds": [
+        "m5-l2-left-missing",
+        "m5-l2-one-many"
+      ],
+      "reason": "Templates or source notes linked below."
+    },
+    {
+      "page": 98,
+      "entryIds": [],
+      "lessonTopicIds": [
+        "m5-l2-one-many"
+      ],
+      "reason": "Conceptual explanations, repeated examples or interface workflows retained in Lesson notes; no separate syntax-bearing form on this page."
+    },
+    {
+      "page": 99,
+      "entryIds": [
+        "unmatched-join"
+      ],
+      "lessonTopicIds": [
+        "m5-l2-customers-no-orders"
+      ],
+      "reason": "Templates or source notes linked below."
+    },
+    {
+      "page": 100,
+      "entryIds": [
+        "right-join"
+      ],
+      "lessonTopicIds": [
+        "m5-l3-right"
+      ],
+      "reason": "Templates or source notes linked below."
+    },
+    {
+      "page": 101,
+      "entryIds": [
+        "right-join"
+      ],
+      "lessonTopicIds": [
+        "m5-l3-right"
+      ],
+      "reason": "Templates or source notes linked below."
+    },
+    {
+      "page": 102,
+      "entryIds": [],
+      "lessonTopicIds": [
+        "m5-l3-sales-rep"
+      ],
+      "reason": "Conceptual explanations, repeated examples or interface workflows retained in Lesson notes; no separate syntax-bearing form on this page."
+    },
+    {
+      "page": 103,
+      "entryIds": [],
+      "lessonTopicIds": [
+        "m5-l3-employees-all"
+      ],
+      "reason": "Conceptual explanations, repeated examples or interface workflows retained in Lesson notes; no separate syntax-bearing form on this page."
+    },
+    {
+      "page": 104,
+      "entryIds": [
+        "unmatched-join"
+      ],
+      "lessonTopicIds": [
+        "m5-l3-right-missing"
+      ],
+      "reason": "Templates or source notes linked below."
+    },
+    {
+      "page": 105,
+      "entryIds": [],
+      "lessonTopicIds": [
+        "m5-l1-full-dialect"
+      ],
+      "reason": "Conceptual explanations, repeated examples or interface workflows retained in Lesson notes; no separate syntax-bearing form on this page."
+    }
+  ]
+}
